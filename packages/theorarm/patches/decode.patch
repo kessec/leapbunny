@@ -1,0 +1,10 @@
+--- theorarm-merge-branch/lib/decode.c	2010-05-30 08:45:07.000000000 -0700
++++ theorarm-merge-branch.save2/lib/decode.c	2010-08-03 15:54:00.000000000 -0700
+@@ -27,6 +27,7 @@
+ # include <cairo.h>
+ #endif
+ 
++#undef OC_ARM_ASM
+ #ifdef OC_ARM_ASM
+ extern void oc_memzero_16_64arm(ogg_uint16_t *);
+ extern void oc_memzero_ptrdiff_64arm(ptrdiff_t *);

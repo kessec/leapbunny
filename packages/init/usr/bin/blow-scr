@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo $1 > /sys/devices/platform/lf1000-alvgpio/scratchpad

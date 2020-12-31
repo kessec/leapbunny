@@ -1,0 +1,30 @@
+digraph consider {
+fling
+bootvideo [ shape=octagon ]
+bootflags [ shape=octagon ]
+lightning [ shape=octagon ]
+mass_storage
+mfgdata [ shape=octagon ]
+monitord
+nfs
+setcal
+telnetd
+ubi [ shape=octagon ]
+usbether
+
+fling -> bootflags -> ubi
+fling -> mfgdata
+bootflags -> setcal
+bootflags -> bootvideo // [ style=dashed label="future"]
+bootvideo -> lightning
+monitord -> lightning
+setcal -> lightning
+ubi -> mass_storage
+// ubi -> bootvideo [ style=dashed label="today"]
+mfgdata -> mass_storage
+mass_storage -> monitord 
+
+fling -> usbether [ style=dashed label="devel only"]
+usbether -> nfs
+usbether -> telnetd
+}

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+WHICH=device
+if [ "$1" = "host" ]; then
+	WHICH=host
+fi
+
+# Note: Cache cleared by /usr/bin/vbus-monitor when vbus goes high
+CACHE=/tmp/ip-$WHICH
+
+if [ -e $CACHE -a -z "$2" ]; then
+	# Separate test from above because -a does not short-circuit like &&
+	if [ `cat $CACHE | wc -c` -gt 3 ]; then
+		cat $CACHE
+		exit 0
+	fi
+fi
+
+MAC=`mfgdata get $WHICH`
+NAME=`avahi-browse -a -t | grep -i $MAC | cut -d ' ' -f 4`
+IP=`avahi-resolve-host-name -4 -n $NAME.local | cut -f 2`
+# echo "MAC=$MAC NAME=$NAME IP=$IP" 1>&2
+echo $IP > $CACHE
+echo $IP

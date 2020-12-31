@@ -1,0 +1,16 @@
+avahi:
+    Add two missing libs that are in Brio/lib:
+    Needed for Avahi to work in Surgeon (which does not have Brio/lib
+-rwxr-xr-x rdowling/rdowling  29608 2009-07-28 13:19 ./lib/libintl.so.8
+-rwxr-xr-x rdowling/rdowling 330660 2009-07-28 13:19 ./lib/libiconv.so.2
+
+------------------------------------------------------------------------------
+
+sudo:
+    Add these line to end of sudoers:
+game  ALL=(ALL) NOPASSWD: ALL
+tad   ALL=(ALL) NOPASSWD: ALL
+    All the chmod and chown nonsense is done in make_payload
+    Doing it elsewhere just caused expanding ripples of sudo's needed to build.
+
+------------------------------------------------------------------------------

@@ -1,0 +1,41 @@
+The kernel can be built with or without the LF graphics drivers.  If it's built
+without them (ie: with a proper Linux frame buffer device), we wind up with a
+missing symbol, "CONFIG_LF1000_MLC_RESERVE_MEMORY", and subsequently an error.
+
+Let's just ignore that for now and assume the default (18MB) rather than "0"
+until this is revised and done more cleanly.
+
+Also, if we're using the frame buffer, let's offer to output the console on it
+with a higher loglevel (see change to board.h).
+
+Index: ram.c
+===================================================================
+--- ram.c	(revision 7718)
++++ ram.c	(working copy)
+@@ -25,8 +25,8 @@
+ static const char LUT[] = "0123456789ABCDEF";
+ 
+ #if !defined CONFIG_LF1000_MLC_RESERVE_MEMORY
+-#warning Reserving 0 bytes for MLC frame buffer!
+-#define CONFIG_LF1000_MLC_RESERVE_MEMORY 0
++//#warning Reserving 0 bytes for MLC frame buffer!
++#define CONFIG_LF1000_MLC_RESERVE_MEMORY 18
+ #endif
+ 
+ 
+Index: include/board.h
+===================================================================
+--- include/board.h	(revision 7718)
++++ include/board.h	(working copy)
+@@ -72,7 +72,11 @@
+  */
+ 
+ /* Base command line */
++#if defined(CONFIG_FB_LF1000) || defined(CONFIG_FB_LF1000_MODULE)
++#define CMDLINE_BASE "init=/sbin/init "
++#else
+ #define CMDLINE_BASE "init=/sbin/init console=ttyS0,115200 loglevel=2 "
++#endif
+ 
+ /* command line rootfs components */
+ #define CMDLINE_RFS "root=ubi0_0 rw rootfstype=ubifs ubi.mtd=RFS "
