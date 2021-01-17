@@ -1,2 +1,2 @@
-# leapbunny
-A continuation and expansion of the LeapFrog Leapster OS.
+# LF1000 Source
+The Source Code to the LF1000 Linux OS.
