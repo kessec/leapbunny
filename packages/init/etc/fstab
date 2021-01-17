@@ -1,7 +1,0 @@
-# static file systems
-# device	directory	type	options
-none		/proc		proc	defaults		0	0
-sysfs		/sys		sysfs	defaults		0	0
-/dev/ram0	/tmp		tmpfs	defaults,mode=777	0	0
-/dev/ram0	/var/run	tmpfs	defaults,mode=755	0	0
-none		/dev/pts	devpts	defaults		0	0
