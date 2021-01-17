@@ -1,0 +1,1 @@
+../../host_tools/emerald_otp/mkotp.sh

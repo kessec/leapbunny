@@ -1,0 +1,32 @@
+Index: security/commoncap.c
+===================================================================
+--- security/commoncap.c	(revision 7360)
++++ security/commoncap.c	(working copy)
+@@ -95,8 +95,11 @@
+  */
+ int cap_settime(struct timespec *ts, struct timezone *tz)
+ {
++/* For ttpro 2462, break security */
++#if 0
+ 	if (!capable(CAP_SYS_TIME))
+ 		return -EPERM;
++#endif
+ 	return 0;
+ }
+ 
+Index: drivers/rtc/rtc-dev.c
+===================================================================
+--- drivers/rtc/rtc-dev.c	(revision 7360)
++++ drivers/rtc/rtc-dev.c	(working copy)
+@@ -233,8 +233,11 @@
+ 	switch (cmd) {
+ 	case RTC_EPOCH_SET:
+ 	case RTC_SET_TIME:
++/* for ttpro 2462, break security */
++#if 0
+ 		if (!capable(CAP_SYS_TIME))
+ 			err = -EACCES;
++#endif
+ 		break;
+ 
+ 	case RTC_IRQP_SET:

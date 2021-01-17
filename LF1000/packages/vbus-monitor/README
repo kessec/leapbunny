@@ -1,0 +1,32 @@
+###############################################################################
+# vbus_monitor -- monitor vbus.  Refresh avahi IP address when vbus appears   #
+#                                                                             #
+# Scott Esters <sesters@leapfrog.com>, based on monitord		      #
+###############################################################################
+
+vbus_monitor is a user-space daemon that provides monitoring and messages for a
+Brio Application.  Its main job is to tell the Application to shut down when
+certain events occur.  After sending an event to the Application, a one-shot 
+'Application Timer' is set.  After the timer expires, the Application is killed
+if it is still hanging around.  This ensures that a crashed Brio application
+will not prevent the system from powering down or making file systems available
+over USB.  The daemon can be extended to support other events as well.
+
+#############
+# Debugging #
+#############
+
+You can build vbus_monitor with the following options:
+ - DEBUG_NO_DAEMON will cause monitord to not daemonize on startup.  This can
+   be useful for testing.
+ - DEBUG_PRINT will enable the dbprintf() macro, and vbus_monitor will send
+   debug messages straight to /dev/console
+
+##################
+# Implementation #
+##################
+
+The daemon's main task is an infinite loop with a blocking point where file
+descriptors for the vbus_monitor input device (USB Vbus) are checked for
+pending events.  When VBUS changes from inactive to active avahi-autoipd is
+requested to refresh the IP address.

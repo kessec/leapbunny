@@ -1,0 +1,12 @@
+#!/bin/sh
+
+TEXT=$1
+drawtext /dev/layer0 /var/fonts/monotext8x16.rgb "$TEXT" 12 11 1
+
+/etc/init.d/usbether start
+/etc/init.d/dbus-1 start
+/etc/init.d/networking start
+/etc/init.d/avahi-daemon start
+/etc/init.d/telnetd start
+
+show-scr

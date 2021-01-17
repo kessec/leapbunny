@@ -1,0 +1,74 @@
+Index: main.c
+===================================================================
+--- main.c	(revision 7695)
++++ main.c	(working copy)
+@@ -41,6 +41,10 @@
+ #include "include/buttons.h"
+ #include "include/bbtest.h"
+ 
++#ifdef MMC_SUPPORT
++#include "include/pff.h"
++#endif
++
+ #if HNS_SIZE == 0
+ #error "HNS_SIZE not known"
+ #endif
+@@ -414,6 +418,43 @@
+ 	die();                      // but just in case it does, shut down.
+ }
+ 
++#if MMC_SUPPORT
++static int boot_sd(void)
++{
++	u32 image = 0;
++	u32 *params_buffer;
++	u8* b = (u8 *)nandio_buffer;
++	FATFS ffs;
++	u16 nb;
++
++	if (pf_mount(&ffs))
++		return 1;
++	if (pf_open("kernel.cbf"))
++		return 2;
++
++	cbf_init();
++
++	do {
++		if (pf_read(b, 4096, &nb))
++			return 3;
++		cbf_process_chunk(b, nb, &b);
++
++		b += nb;
++	} while (nb == 4096);
++
++	params_buffer = (u32 *)(calc_PARAMS_ADDRESS());
++	image = load_kernel(cmdline_buffer, params_buffer);
++	if (image == 0)
++		return 4;
++	
++	cleanup_for_linux();
++	((void(*)(int r0, int r1, unsigned int r2))image)
++		(0, MACH_TYPE_DIDJ, (unsigned int)params_buffer);
++
++	return 0;
++}
++#endif
++
+ /*
+  * main application
+  */
+@@ -586,6 +627,14 @@
+ 			request = SCRATCH_REQUEST_SHORT;
+ 			db_puts("Buttons A+B+Pause: short-circuit boot\n");
+ 		}
++#ifdef MMC_SUPPORT
++		else if (buttons.hint)
++		{
++			db_puts("Buttons A+B+Hint: SD Card boot\n");
++			boot_sd();
++			serio_puts("SD Card boot failed\n");
++		}
++#endif
+ 		else
+ 		{
+ 			// Manufacturing Test Trapdoor was pressed

@@ -1,0 +1,15 @@
+D/abi////
+/abi_prefix.hpp/1.1/Tue Nov 25 18:28:08 2003//TRC_1_34_0
+/abi_suffix.hpp/1.1/Tue Nov 25 18:28:08 2003//TRC_1_34_0
+/auto_link.hpp/1.17/Thu Dec  8 03:11:42 2005//TRC_1_34_0
+D/compiler////
+D/no_tr1////
+D/platform////
+/posix_features.hpp/1.17/Fri Oct 14 14:16:26 2005//TRC_1_34_0
+/requires_threads.hpp/1.1/Sat Dec 20 11:54:47 2003//TRC_1_34_0
+/select_compiler_config.hpp/1.11/Mon Jan  9 10:35:40 2006//TRC_1_34_0
+/select_platform_config.hpp/1.9/Fri Nov  4 12:57:44 2005//TRC_1_34_0
+/select_stdlib_config.hpp/1.14/Wed Oct 19 16:38:40 2005//TRC_1_34_0
+D/stdlib////
+/suffix.hpp/1.42/Thu Nov 30 21:20:33 2006//TRC_1_34_0
+/user.hpp/1.7/Sat Jan 10 12:09:38 2004//TRC_1_34_0

@@ -1,0 +1,20 @@
+--- config.h.orig	2010-02-08 13:53:14.834346310 -0800
++++ config.h	2010-02-08 13:57:49.198376079 -0800
+@@ -61,7 +61,7 @@
+ 
+ /* Define to 1 if your system has a GNU libc compatible `malloc' function, and
+    to 0 otherwise. */
+-#define HAVE_MALLOC 0
++#define HAVE_MALLOC 1
+ 
+ /* Define to 1 if you have the <memory.h> header file. */
+ #define HAVE_MEMORY_H 1
+@@ -264,7 +264,7 @@
+ /* #undef false */
+ 
+ /* Define to rpl_malloc if the replacement function should be used. */
+-#define malloc rpl_malloc
++/* #define malloc rpl_malloc */
+ 
+ /* Define to `int' if <sys/types.h> does not define. */
+ /* #undef pid_t */

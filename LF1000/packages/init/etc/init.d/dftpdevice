@@ -1,0 +1,27 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		logger -s -t "Emerald Base" -p local4.notice  "Starting DFTP ..."		
+		route add -net 224.0.0.0/3 dev usb0
+		start-stop-daemon --start --background --exec /usr/bin/dftpdevice
+		;;
+
+	stop)
+		logger -s -t "Emerald Base" -p local4.notice  "Stopping DFTP ..."
+		route del -net 224.0.0.0/3 dev usb0
+		start-stop-daemon --stop --name dftpdevice
+		;;
+
+	restart)
+		logger -s -t "Emerald Base" -p local4.notice  "Restarting DFTP ..."
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0

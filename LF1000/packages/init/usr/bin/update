@@ -1,0 +1,2 @@
+#!/bin/sh
+echo UPDATE > /sys/devices/platform/lf1000-gpio/request && reboot -f
