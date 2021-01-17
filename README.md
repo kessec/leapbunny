@@ -1,2 +1,2 @@
-# LF1000 Source
-The Source Code to the LF1000 Linux OS.
+# The LeapBunny Project
+A continuation and expansion of LeapsterOS developed by Leapfrog Enterprises.
