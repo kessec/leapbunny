@@ -1,0 +1,146 @@
+BAD
+
+  201-13101E00010B0601003C/new-calib-Smx1.log: a=16 c=19 c/a= 1.19
+  201-13101E00010B0601003C/new-calib-Smx2.log: a=16 c=19 c/a= 1.19
+  201-13101E00010B0601003C/new-calib-Smx3.log: a=16 c=19 c/a= 1.19
+
+ 201-13171E00010B06010197/new-calib-S5mx1.log: a=22 c=29 c/a= 1.32
+ 201-13171E00010B06010197/new-calib-S5mx2.log: a=23 c=30 c/a= 1.30
+ 201-13171E00010B06010197/new-calib-S5mx3.log: a=21 c=26 c/a= 1.24
+  201-13171E00010B06010197/new-calib-Smx1.log: a=21 c=25 c/a= 1.19
+  201-13171E00010B06010197/new-calib-Smx2.log: a=20 c=23 c/a= 1.15
+  201-13171E00010B06010197/new-calib-Smx3.log: a=20 c=23 c/a= 1.15
+
+ 204-13101E00010B06010068/new-calib-S5mx1.log: a=23 c=30 c/a= 1.30
+ 204-13101E00010B06010068/new-calib-S5mx2.log: a=23 c=30 c/a= 1.30
+ 204-13101E00010B06010068/new-calib-S5mx3.log: a=23 c=30 c/a= 1.30
+  204-13101E00010B06010068/new-calib-Smx1.log: a=21 c=28 c/a= 1.33
+  204-13101E00010B06010068/new-calib-Smx2.log: a=19 c=23 c/a= 1.21
+  204-13101E00010B06010068/new-calib-Smx3.log: a=21 c=27 c/a= 1.29
+
+ 204-13161E00010B0601016D/new-calib-S5mx1.log: a=21 c=30 c/a= 1.43
+ 204-13161E00010B0601016D/new-calib-S5mx2.log: a=21 c=29 c/a= 1.38
+ 204-13161E00010B0601016D/new-calib-S5mx3.log: a=21 c=29 c/a= 1.38
+  204-13161E00010B0601016D/new-calib-Smx1.log: a=19 c=22 c/a= 1.16
+  204-13161E00010B0601016D/new-calib-Smx2.log: a=19 c=25 c/a= 1.32
+  204-13161E00010B0601016D/new-calib-Smx3.log: a=18 c=23 c/a= 1.28
+
+
+ 308-150A1E00010B06020303/new-calib-S5mx1.log: a=23 c=21 c/a= 0.91
+ 308-150A1E00010B06020303/new-calib-S5mx2.log: a=19 c=18 c/a= 0.95
+ 308-150A1E00010B06020303/new-calib-S5mx3.log: a=19 c=17 c/a= 0.89
+  308-150A1E00010B06020303/new-calib-Smx1.log: a=19 c=21 c/a= 1.11
+  308-150A1E00010B06020303/new-calib-Smx2.log: a=20 c=21 c/a= 1.05
+  308-150A1E00010B06020303/new-calib-Smx3.log: a=23 c=22 c/a= 0.96
+
+ 308-150A1E00010B06020304/new-calib-S5mx1.log: a=20 c=22 c/a= 1.10
+ 308-150A1E00010B06020304/new-calib-S5mx2.log: a=25 c=29 c/a= 1.16
+ 308-150A1E00010B06020304/new-calib-S5mx3.log: a=23 c=25 c/a= 1.09
+  308-150A1E00010B06020304/new-calib-Smx1.log: a=24 c=30 c/a= 1.25
+  308-150A1E00010B06020304/new-calib-Smx2.log: a=23 c=29 c/a= 1.26
+  308-150A1E00010B06020304/new-calib-Smx3.log: a=24 c=30 c/a= 1.25
+
+ 308-150A1E00010B06020308/new-calib-S5mx1.log: a=23 c=20 c/a= 0.87
+ 308-150A1E00010B06020308/new-calib-S5mx2.log: a=23 c=19 c/a= 0.83
+ 308-150A1E00010B06020308/new-calib-S5mx3.log: a=22 c=24 c/a= 1.09
+  308-150A1E00010B06020308/new-calib-Smx1.log: a=21 c=26 c/a= 1.24
+  308-150A1E00010B06020308/new-calib-Smx2.log: a=22 c=26 c/a= 1.18
+  308-150A1E00010B06020308/new-calib-Smx3.log: a=22 c=29 c/a= 1.32
+
+ 308-150A1E00010B0602030E/new-calib-S5mx1.log: a=22 c=21 c/a= 0.95
+ 308-150A1E00010B0602030E/new-calib-S5mx2.log: a=22 c=20 c/a= 0.91
+ 308-150A1E00010B0602030E/new-calib-S5mx3.log: a=20 c=21 c/a= 1.05
+  308-150A1E00010B0602030E/new-calib-Smx1.log: a=22 c=29 c/a= 1.32
+  308-150A1E00010B0602030E/new-calib-Smx2.log: a=20 c=24 c/a= 1.20
+  308-150A1E00010B0602030E/new-calib-Smx3.log: a=22 c=30 c/a= 1.36
+  308-150A1E00010B0602030E/new-calib-Smx4.log: a=21 c=25 c/a= 1.19
+------------------------------------------------------------------------------
+GOOD
+
+ 202-13181E00010B06010216/new-calib-S5mx1.log: a=17 c=17 c/a= 1.00
+ 202-13181E00010B06010216/new-calib-S5mx2.log: a=17 c=18 c/a= 1.06
+ 202-13181E00010B06010216/new-calib-S5mx3.log: a=17 c=16 c/a= 0.94
+  202-13181E00010B06010216/new-calib-Smx1.log: a=17 c=21 c/a= 1.24
+  202-13181E00010B06010216/new-calib-Smx2.log: a=16 c=19 c/a= 1.19
+  202-13181E00010B06010216/new-calib-Smx3.log: a=16 c=19 c/a= 1.19
+
+ 305-15091E00010B060201AF/new-calib-S5mx1.log: a=18 c=18 c/a= 1.00
+ 305-15091E00010B060201AF/new-calib-S5mx2.log: a=18 c=18 c/a= 1.00
+ 305-15091E00010B060201AF/new-calib-S5mx3.log: a=17 c=17 c/a= 1.00
+  305-15091E00010B060201AF/new-calib-Smx1.log: a=18 c=21 c/a= 1.17
+  305-15091E00010B060201AF/new-calib-Smx2.log: a=18 c=21 c/a= 1.17
+  305-15091E00010B060201AF/new-calib-Smx3.log: a=18 c=22 c/a= 1.22
+
+ 305-15091E00010B060201C0/new-calib-S5mx1.log: a=17 c=17 c/a= 1.00
+ 305-15091E00010B060201C0/new-calib-S5mx2.log: a=18 c=18 c/a= 1.00
+ 305-15091E00010B060201C0/new-calib-S5mx3.log: a=18 c=17 c/a= 0.94
+  305-15091E00010B060201C0/new-calib-Smx1.log: a=18 c=22 c/a= 1.22
+  305-15091E00010B060201C0/new-calib-Smx2.log: a=18 c=21 c/a= 1.17
+  305-15091E00010B060201C0/new-calib-Smx3.log: a=18 c=21 c/a= 1.17
+
+ 305-15091E00010B060201C4/new-calib-S5mx1.log: a=16 c=16 c/a= 1.00
+ 305-15091E00010B060201C4/new-calib-S5mx2.log: a=17 c=17 c/a= 1.00
+ 305-15091E00010B060201C4/new-calib-S5mx3.log: a=17 c=17 c/a= 1.00
+  305-15091E00010B060201C4/new-calib-Smx1.log: a=17 c=20 c/a= 1.18
+  305-15091E00010B060201C4/new-calib-Smx2.log: a=17 c=20 c/a= 1.18
+  305-15091E00010B060201C4/new-calib-Smx3.log: a=17 c=20 c/a= 1.18
+
+ 305-15091E00010B060201E0/new-calib-S5mx1.log: a=19 c=19 c/a= 1.00
+ 305-15091E00010B060201E0/new-calib-S5mx2.log: a=19 c=19 c/a= 1.00
+ 305-15091E00010B060201E0/new-calib-S5mx3.log: a=19 c=19 c/a= 1.00
+  305-15091E00010B060201E0/new-calib-Smx1.log: a=19 c=22 c/a= 1.16
+  305-15091E00010B060201E0/new-calib-Smx2.log: a=19 c=22 c/a= 1.16
+  305-15091E00010B060201E0/new-calib-Smx3.log: a=18 c=22 c/a= 1.22
+
+  306-15051E00010B06020040/new-calib-Smx1.log: a=18 c=21 c/a= 1.17
+  306-15051E00010B06020040/new-calib-Smx2.log: a=18 c=21 c/a= 1.17
+  306-15051E00010B06020040/new-calib-Smx3.log: a=18 c=21 c/a= 1.17
+
+ 306-15051E00010B06020058/new-calib-S5mx1.log: a=19 c=19 c/a= 1.00
+ 306-15051E00010B06020058/new-calib-S5mx2.log: a=19 c=19 c/a= 1.00
+ 306-15051E00010B06020058/new-calib-S5mx3.log: a=19 c=19 c/a= 1.00
+  306-15051E00010B06020058/new-calib-Smx1.log: a=19 c=23 c/a= 1.21
+  306-15051E00010B06020058/new-calib-Smx2.log: a=19 c=23 c/a= 1.21
+  306-15051E00010B06020058/new-calib-Smx3.log: a=19 c=22 c/a= 1.16
+
+ 306-15051E00010B0602005B/new-calib-S5mx1.log: a=20 c=20 c/a= 1.00
+ 306-15051E00010B0602005B/new-calib-S5mx2.log: a=20 c=20 c/a= 1.00
+ 306-15051E00010B0602005B/new-calib-S5mx3.log: a=20 c=19 c/a= 0.95
+  306-15051E00010B0602005B/new-calib-Smx1.log: a=20 c=23 c/a= 1.15
+  306-15051E00010B0602005B/new-calib-Smx2.log: a=20 c=23 c/a= 1.15
+  306-15051E00010B0602005B/new-calib-Smx3.log: a=20 c=23 c/a= 1.15
+
+ 307-15061E00010B060200FD/new-calib-S5mx1.log: a=18 c=18 c/a= 1.00
+ 307-15061E00010B060200FD/new-calib-S5mx2.log: a=18 c=18 c/a= 1.00
+ 307-15061E00010B060200FD/new-calib-S5mx3.log: a=18 c=18 c/a= 1.00
+  307-15061E00010B060200FD/new-calib-Smx1.log: a=18 c=21 c/a= 1.17
+  307-15061E00010B060200FD/new-calib-Smx2.log: a=18 c=21 c/a= 1.17
+  307-15061E00010B060200FD/new-calib-Smx3.log: a=18 c=21 c/a= 1.17
+
+ 307-15061E00010B06020102/new-calib-S5mx1.log: a=18 c=18 c/a= 1.00
+ 307-15061E00010B06020102/new-calib-S5mx2.log: a=18 c=17 c/a= 0.94
+ 307-15061E00010B06020102/new-calib-S5mx3.log: a=18 c=18 c/a= 1.00
+  307-15061E00010B06020102/new-calib-Smx1.log: a=17 c=20 c/a= 1.18
+  307-15061E00010B06020102/new-calib-Smx2.log: a=18 c=21 c/a= 1.17
+  307-15061E00010B06020102/new-calib-Smx3.log: a=17 c=21 c/a= 1.24
+
+ 307-15061E00010B06020104/new-calib-S5mx1.log: a=17 c=17 c/a= 1.00
+ 307-15061E00010B06020104/new-calib-S5mx2.log: a=17 c=17 c/a= 1.00
+ 307-15061E00010B06020104/new-calib-S5mx3.log: a=17 c=17 c/a= 1.00
+  307-15061E00010B06020104/new-calib-Smx1.log: a=16 c=20 c/a= 1.25
+  307-15061E00010B06020104/new-calib-Smx2.log: a=16 c=20 c/a= 1.25
+  307-15061E00010B06020104/new-calib-Smx3.log: a=16 c=20 c/a= 1.25
+
+ 307-15061E00010B06020114/new-calib-S5mx1.log: a=18 c=18 c/a= 1.00
+ 307-15061E00010B06020114/new-calib-S5mx2.log: a=18 c=18 c/a= 1.00
+ 307-15061E00010B06020114/new-calib-S5mx3.log: a=18 c=17 c/a= 0.94
+  307-15061E00010B06020114/new-calib-Smx1.log: a=18 c=21 c/a= 1.17
+  307-15061E00010B06020114/new-calib-Smx2.log: a=18 c=21 c/a= 1.17
+  307-15061E00010B06020114/new-calib-Smx3.log: a=18 c=21 c/a= 1.17
+
+ 307-15061E00010B06020116/new-calib-S5mx1.log: a=20 c=20 c/a= 1.00
+ 307-15061E00010B06020116/new-calib-S5mx2.log: a=19 c=19 c/a= 1.00
+ 307-15061E00010B06020116/new-calib-S5mx3.log: a=19 c=19 c/a= 1.00
+  307-15061E00010B06020116/new-calib-Smx1.log: a=19 c=22 c/a= 1.16
+  307-15061E00010B06020116/new-calib-Smx2.log: a=19 c=22 c/a= 1.16
+  307-15061E00010B06020116/new-calib-Smx3.log: a=19 c=22 c/a= 1.16

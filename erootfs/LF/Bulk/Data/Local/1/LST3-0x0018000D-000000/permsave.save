@@ -1,0 +1,242 @@
+<savegame>
+		<m_sVersion value="1.0.3.0"/>
+		<iMagicNumber value="887545938"/>
+		<m_iMoonLitPuzzleNumber value="1"/>
+		<m_uiMoonLitFirstPuzzleAns value="1"/>
+		<m_bMLFirstTime value="0"/>
+		<m_bBallRoomFirstTime value="1"/>
+		<m_uiBelleUnlocked value="15"/>
+		<m_uiCindyUnlocked value="31"/>
+		<m_iJTBLevel value="0"/>
+		<m_bHasPlayedJTBTutorial value="0"/>
+		<m_iBubbleRhythmSubSubLevelIndex value="0"/>
+		<m_iLMMSubSubLevelIndex value="0"/>
+		<m_bHasPlayedBubbleTimeTutorial value="1"/>
+		<m_cBadges>
+			<0 value="1"/>
+			<1 value="0"/>
+			<2 value="1"/>
+			<3 value="1"/>
+			<4 value="0"/>
+			<5 value="0"/>
+			<6 value="0"/>
+			<7 value="0"/>
+			<8 value="0"/>
+			<9 value="0"/>
+			<10 value="0"/>
+			<11 value="0"/>
+			<12 value="0"/>
+			<13 value="0"/>
+			<14 value="1"/>
+			<15 value="0"/>
+			<16 value="0"/>
+			<17 value="0"/>
+			<18 value="0"/>
+			<19 value="0"/>
+			<20 value="0"/>
+			<21 value="0"/>
+			<22 value="0"/>
+			<23 value="1"/>
+			<24 value="0"/>
+			<25 value="0"/>
+		</m_cBadges>
+		<m_lBS1SecretsFound>
+			<0 value="1"/>
+			<1 value="0"/>
+			<2 value="1"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+			<6 value="0"/>
+			<7 value="0"/>
+			<8 value="0"/>
+		</m_lBS1SecretsFound>
+		<m_lBS2SecretsFound>
+			<0 value="0"/>
+			<1 value="0"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+			<6 value="0"/>
+		</m_lBS2SecretsFound>
+		<m_lBS3SecretsFound>
+			<0 value="0"/>
+			<1 value="0"/>
+			<2 value="0"/>
+		</m_lBS3SecretsFound>
+		<m_lBS4SecretsFound>
+			<0 value="0"/>
+			<1 value="0"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+		</m_lBS4SecretsFound>
+		<m_lCS1SecretsFound>
+			<0 value="0"/>
+			<1 value="0"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+			<6 value="0"/>
+			<7 value="0"/>
+		</m_lCS1SecretsFound>
+		<m_lCS2SecretsFound>
+			<0 value="1"/>
+			<1 value="1"/>
+			<2 value="0"/>
+			<3 value="1"/>
+			<4 value="1"/>
+			<5 value="1"/>
+			<6 value="1"/>
+			<7 value="1"/>
+		</m_lCS2SecretsFound>
+		<m_lCS3SecretsFound>
+			<0 value="0"/>
+			<1 value="0"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+		</m_lCS3SecretsFound>
+		<m_lCS4SecretsFound>
+			<0 value="0"/>
+			<1 value="0"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+			<6 value="0"/>
+		</m_lCS4SecretsFound>
+		<m_lQuestsComplete>
+			<0 value="2"/>
+			<1 value="0"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="1"/>
+			<5 value="1"/>
+			<6 value="0"/>
+			<7 value="0"/>
+		</m_lQuestsComplete>
+		<m_lBelleNISPlayList>
+			<0 value="1"/>
+			<1 value="1"/>
+			<2 value="1"/>
+			<3 value="0"/>
+			<4 value="0"/>
+			<5 value="0"/>
+		</m_lBelleNISPlayList>
+		<m_lCindyNISPlayList>
+			<0 value="1"/>
+			<1 value="1"/>
+			<2 value="0"/>
+			<3 value="0"/>
+			<4 value="0"/>
+		</m_lCindyNISPlayList>
+		<m_iPreviousMicromodCount value="1"/>
+		<m_iCharmTotal value="21"/>
+		<m_bGameCompleted value="0"/>
+		<m_bBSTutorialSeen value="1"/>
+		<m_bCDTutorialSeen value="1"/>
+		<m_lStepsComplete>
+			<0>
+				<Q1>
+					<0 value="1"/>
+					<1 value="1"/>
+					<2 value="1"/>
+				</Q1>
+				<Q2>
+					<0 value="1"/>
+					<1 value="1"/>
+					<2 value="1"/>
+				</Q2>
+			</0>
+			<1>
+				<Q1>
+					<0 value="1"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q1>
+				<Q2>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</1>
+			<2>
+				<Q1>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q1>
+				<Q2>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</2>
+			<3>
+				<Q1>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q1>
+				<Q2>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</3>
+			<4>
+				<Q1>
+					<0 value="1"/>
+					<1 value="1"/>
+					<2 value="1"/>
+				</Q1>
+				<Q2>
+					<0 value="1"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</4>
+			<5>
+				<Q1>
+					<0 value="1"/>
+					<1 value="1"/>
+					<2 value="1"/>
+				</Q1>
+				<Q2>
+					<0 value="1"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</5>
+			<6>
+				<Q1>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q1>
+				<Q2>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</6>
+			<7>
+				<Q1>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q1>
+				<Q2>
+					<0 value="0"/>
+					<1 value="0"/>
+					<2 value="0"/>
+				</Q2>
+			</7>
+		</m_lStepsComplete>
+		<iOtherMagicNumber value="887545938"/>
+</savegame>

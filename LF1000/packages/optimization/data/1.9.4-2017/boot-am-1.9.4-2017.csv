@@ -1,0 +1,20 @@
+"Bgn app",3.76
+"Bgn AppManager",3.94
+"AppManager: Bgn Init Logging: ",7.33
+"AppManager: Bgn Get Splash Json: ",7.35
+"AppManager: Start splash video: ",8.37
+"AppManager: Bgn InitMutex: ",8.38
+"AppManager: End SetupSystem: ",8.40
+"AppManager: End Init CLogFile: ",8.42
+"AppManager: End Load DidjPatches: ",8.43
+"AppManager: Bgn Set Profile Logging: ",8.43
+"AppManager: End Set Profile Logging: ",8.47
+"AppManager: End Set Power & USB: ",8.48
+"AppManager: Bgn Load main.swf: ",8.48
+"AppManager: End Load main.swf: ",9.53
+"AppManager: UI loaded: ",9.53
+"AppManager: UI entered: ",10.03
+"AppManager: UI updated: ",12.01
+"AppManager: End splash video: ",13.62
+"End AppManager exit(0)",38.61
+"Bgn CartManager",13.88

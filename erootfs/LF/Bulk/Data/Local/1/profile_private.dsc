@@ -1,0 +1,4 @@
+ID=0x0
+Name=COLE  FULLE
+Points=0x0
+Badges=0x3e

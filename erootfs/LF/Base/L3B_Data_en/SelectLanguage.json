@@ -1,0 +1,14 @@
+[ 
+  { "Locale" : "en-us",
+    "Audio"  : "L3B_Audio_en/h_BN_UsEnglish_3.mp3"
+  },
+  { "Locale" : "en-gb",
+    "Audio"  : "L3B_Audio_en/h_BN_QueensEnglish_3.mp3"
+  },
+  { "Locale" : "en-ca",
+    "Audio"  : "L3B_Audio_en/h_BN_CanadianEnglish_3.mp3"
+  },
+  { "Locale" : "en-au",
+    "Audio"  : "L3B_Audio_en/h_BN_UsEnglish_3.mp3"
+  }
+] 

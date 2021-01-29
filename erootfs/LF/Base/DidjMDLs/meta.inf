@@ -1,0 +1,12 @@
+MetaVersion="1.0"
+Device="LeapsterExplorer"
+Type="System"
+ProductID=0x00170031
+PackageID="LST3-0x00170031-000000"
+Version="1.0.8.4530"
+Name="Base_DidjMDLs"
+Publisher="LeapFrog"," Inc."
+Developer="LeapFrog"," Inc."
+PartNumber="152-12221"
+Hidden=1
+Size=0x1185000

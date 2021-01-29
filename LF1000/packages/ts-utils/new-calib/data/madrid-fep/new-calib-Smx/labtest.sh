@@ -1,0 +1,100 @@
+#!/bin/sh
+
+CONFIG="$1"
+if [ -z "$CONFIG" ]; then
+	echo "Please pass a configuration number and unit number (like 407-127) on the command line"
+	exit 1;
+fi;
+SN=$(mfgdata get sn)
+NAME="$CONFIG-$SN"
+NC=/var/log/new-calib.log
+
+NCF=/mnt/var/log/new-calib.log
+NCFC="/LF/Bulk/new-calib-$CONFIG-$SN-factory.log"
+
+mount -o ro /dev/mmcblk0p3 /mnt || exit 1
+
+mass_up ()
+{
+	case $mass in
+		20g) mass="25g"; ;;
+		25g) mass="30g"; ;;
+		30g) mass="40g"; ;;
+		40g) mass="50g"; ;;
+		50g) mass="75g"; ;;
+		75g) mass="100g"; ;;
+		100g) mass="150g"; ;;
+		150g) mass="200g"; ;;
+		200g) mass="stop"; ;;
+		stop) mass="stop"; ;;
+	esac
+}
+
+mass_down ()
+{
+	case $mass in
+		20g) mass="stop"; ;;
+		25g) mass="20g"; ;;
+		30g) mass="25g"; ;;
+		40g) mass="30g"; ;;
+		50g) mass="40g"; ;;
+		75g) mass="50g"; ;;
+		100g) mass="75g"; ;;
+		150g) mass="100g"; ;;
+		200g) mass="150g"; ;;
+		stop) mass="stop"; ;;
+	esac
+}
+
+# Copy factory cailb
+if [ -e $NCF -a ! -e $NCFC ]; then
+	echo copying $NCF to $NCFC
+	cp $NCF $NCFC
+fi
+
+# Send to host
+if [ -e $NCFC ]; then
+	fileput $NCFC || exit 1
+fi
+
+mass="40g"
+moving=""
+write="-w"
+while [ "$mass" != "stop" ]; do
+	echo "=============================="
+	echo "        Test with $mass       " 
+	echo "=============================="
+	new-calib -S -5 -x -m -c -M$mass $write
+	res=$?
+	write=""
+	NCN="/LF/Bulk/new-calib-$CONFIG-$SN-$mass-S5xmc.log"
+	echo copying $NC to $NCN
+	cp $NC $NCN
+	if [ -e $NCN ]; then
+		fileput $NCN || exit 1
+	fi
+	if [ $res = 0 ]; then
+		echo Success at $mass
+		if [ -z "$moving" -o "$moving" = "down" ]; then
+			moving="down"
+			mass_down
+		else
+			mass="stop"
+		fi
+	else
+		echo Failure at $mass
+		if [ -z "$moving" -o "$moving" = "up" ]; then
+			moving="up"
+			mass_up
+		else
+			mass="stop"
+		fi
+	fi
+done
+
+echo "##############################"
+echo "            DONE              " 
+echo "##############################"
+
+umount /mnt
+poweroff

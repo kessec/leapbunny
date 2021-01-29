@@ -1,0 +1,37 @@
+End mount -a,1.68,1.68,1.67
+End mdev,2.60,2.60,2.51
+Bgn app,3.57,3.64,3.56
+Bgn AppManager,3.96,4.03,3.91
+End display legal,4.36,4.10,3.99
+Bgn sounds/startup.wav,4.47,4.34,4.23
+End usbether,5.41,5.22,5.25
+Bgn mounts at 2s,5.62,5.58,5.64
+End touchscreen,5.75,5.53,5.62
+End mounts,6.39,6.42,6.45
+End setcal,6.58,6.51,6.56
+End sounds/startup.wav,7.39,6.89,6.74
+Bgn Rest of networking at 10s,13.58,13.62,13.53
+Bgn CartManager,13.84,13.89,13.88
+End dbus-1,13.86,13.87,13.78
+End networking,15.12,15.17,15.17
+End avahi-daemon,15.61,15.66,15.66
+End vbus start,15.70,15.76,15.76
+End Rest of networking,15.77,15.79,15.80
+Bgn Version Logging at 15s,18.65,18.67,18.56
+End Version Logging,19.70,19.72,19.17
+Bgn reboot,34.20,34.30,34.17
+Bgn Shutting down system,40.71,40.48,40.88
+End dbus-1 stop,40.81,40.57,40.96
+End vsftpd stop,40.89,40.64,41.04
+End telnetd stop,40.98,40.73,41.13
+End vbus stop,41.07,40.82,41.23
+End networking stop,41.16,40.90,41.34
+End usbether stop,41.88,41.39,42.31
+Bgn killall mainapp,42.01,41.53,42.45
+End killall mainapp,42.27,42.25,42.66
+AppManager: Start splash video: ,8.21,8.21,8.24
+AppManager: UI loaded: ,9.40,9.43,9.44
+AppManager: UI entered: ,9.88,9.88,9.90
+AppManager: UI updated: ,11.76,11.79,11.84
+AppManager: End splash video: ,13.36,13.36,13.41
+Bgn umount -a,42.47,42.44,42.84

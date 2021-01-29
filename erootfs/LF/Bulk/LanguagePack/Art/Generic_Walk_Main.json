@@ -1,0 +1,1456 @@
+{
+	"ElementType": 3,
+	"ID": 0,
+	"Position": [160.000000, 120.000000],
+	"Animation":    [
+		{
+		"ElementType": 2,
+		"ID": 0,
+		"Duration": 83,
+		"Label": "Walk_Front",
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 0,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-6.650000, 35.200000, 0.100000],
+				"Rotation": 30.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 1,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-26.650000, 24.350000, 0.099000],
+				"Rotation": -36.790000,
+				"Scale": [0.890000, 0.890000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 2,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-45.150000, 98.450000, 0.098000],
+				"Rotation": 6.050000,
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 3,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-13.600000, 59.100000, 0.097000],
+				"Rotation": 6.050000,
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 4,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-15.550000, 72.900000, 0.096000],
+				"Rotation": 6.050000,
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 5,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-45.100000, 98.600000, 0.095000],
+				"Rotation": 6.050000,
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 6,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-17.650000, 44.650000, 0.094000],
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 7,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-3.750000, 47.450000, 0.093000],
+				"Rotation": -30.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 8,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [10.350000, 14.750000, 0.092000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 1,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 9,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-7.500000, 31.200000, 0.100000],
+				"Rotation": 45.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 10,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-17.000000, 25.900000, 0.099000],
+				"Rotation": -51.790000,
+				"Scale": [0.890000, 0.890000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 11,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-43.800000, 102.900000, 0.098000],
+				"Rotation": 6.370000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 12,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.850000, 63.050000, 0.097000],
+				"Rotation": 6.370000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 13,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.900000, 77.000000, 0.096000],
+				"Rotation": 6.370000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 14,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-43.800000, 103.050000, 0.095000],
+				"Rotation": 6.370000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 15,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-16.550000, 48.100000, 0.094000],
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 16,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-8.350000, 45.700000, 0.093000],
+				"Rotation": -15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 17,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [1.850000, 13.900000, 0.092000],
+				"Rotation": -1.010000,
+				"Scale": [1.230000, 0.850000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 2,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 18,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-11.050000, 32.250000, 0.100000],
+				"Rotation": 15.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 19,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-11.850000, 25.750000, 0.099000],
+				"Rotation": -22.200000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 20,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-43.400000, 106.650000, 0.098000],
+				"Rotation": 6.260000,
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 21,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.600000, 66.500000, 0.097000],
+				"Rotation": 6.260000,
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 22,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.650000, 80.550000, 0.096000],
+				"Rotation": 6.260000,
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 23,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-43.350000, 106.800000, 0.095000],
+				"Rotation": 6.260000,
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 24,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-15.750000, 51.350000, 0.094000],
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 25,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-5.550000, 40.100000, 0.093000],
+				"Rotation": -15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 26,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-2.550000, 14.700000, 0.092000],
+				"Scale": [0.920000, 0.770000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 3,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 27,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-19.600000, 32.650000, 0.100000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 28,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-3.450000, 16.200000, 0.099000],
+				"Rotation": 22.800000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 29,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-42.750000, 108.600000, 0.098000],
+				"Rotation": 6.160000,
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 30,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.350000, 67.750000, 0.097000],
+				"Rotation": 6.160000,
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 31,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.400000, 82.000000, 0.096000],
+				"Rotation": 6.160000,
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 32,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-42.700000, 108.750000, 0.095000],
+				"Rotation": 6.160000,
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 33,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-15.400000, 52.250000, 0.094000],
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 34,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [4.050000, 37.300000, 0.093000],
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 35,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-16.500000, 20.500000, 0.092000],
+				"Rotation": -6.790000,
+				"Scale": [0.890000, 0.890000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 4,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 36,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-28.850000, 37.000000, 0.100000],
+				"Rotation": -15.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 37,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-0.750000, 5.750000, 0.099000],
+				"Rotation": 37.800000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 38,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-43.500000, 105.500000, 0.098000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 39,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.750000, 65.550000, 0.097000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 40,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.700000, 79.550000, 0.096000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 41,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-43.450000, 105.650000, 0.095000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 42,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-16.000000, 50.750000, 0.094000],
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 43,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [10.300000, 36.750000, 0.093000],
+				"Rotation": 15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 44,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-22.050000, 20.750000, 0.092000],
+				"Rotation": -0.040000,
+				"Scale": [0.890000, 0.890000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 5,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 45,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-31.600000, 44.850000, 0.100000],
+				"Rotation": -45.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 46,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [0.750000, 9.050000, 0.099000],
+				"Rotation": -7.200000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 47,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-44.150000, 98.950000, 0.098000],
+				"Rotation": 6.050000,
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 48,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-13.100000, 59.650000, 0.097000],
+				"Rotation": 6.050000,
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 49,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-15.050000, 73.450000, 0.096000],
+				"Rotation": 6.050000,
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 50,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-44.150000, 99.100000, 0.095000],
+				"Rotation": 6.050000,
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 51,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-17.400000, 45.200000, 0.094000],
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 52,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [13.900000, 35.400000, 0.093000],
+				"Rotation": 45.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 53,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-15.900000, 28.100000, 0.092000],
+				"Rotation": -37.050000,
+				"Scale": [0.890000, 0.890000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 6,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 54,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-35.600000, 43.400000, 0.100000],
+				"Rotation": -30.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 55,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-10.000000, 8.600000, 0.099000],
+				"Rotation": -7.530000,
+				"Scale": [1.230000, 0.760000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 56,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-43.750000, 101.750000, 0.098000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 57,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.900000, 62.050000, 0.097000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 58,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.900000, 75.950000, 0.096000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 59,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-43.750000, 101.950000, 0.095000],
+				"Rotation": 6.050000,
+				"Scale": [1.010000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 60,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-16.950000, 47.050000, 0.094000],
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 61,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [15.300000, 38.500000, 0.093000],
+				"Rotation": 45.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 62,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-3.700000, 32.300000, 0.092000],
+				"Rotation": -58.000000,
+				"Scale": [0.890000, 0.890000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 7,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 63,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-33.750000, 34.200000, 0.100000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 64,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-19.000000, 12.300000, 0.099000],
+				"Rotation": -7.200000,
+				"Scale": [1.020000, 0.910000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 65,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-43.350000, 107.050000, 0.098000],
+				"Rotation": 6.030000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 66,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.750000, 66.950000, 0.097000],
+				"Rotation": 6.030000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 67,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.700000, 81.000000, 0.096000],
+				"Rotation": 6.030000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 68,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-43.300000, 107.250000, 0.095000],
+				"Rotation": 6.030000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 69,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-15.950000, 51.750000, 0.094000],
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 70,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [14.000000, 41.050000, 0.093000],
+				"Rotation": 30.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 71,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [1.050000, 24.550000, 0.092000],
+				"Rotation": -21.070000,
+				"Scale": [0.890000, 0.890000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 8,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 72,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-10.750000, 32.650000, 0.100000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 73,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-28.500000, 16.450000, 0.099000],
+				"Rotation": -8.510000,
+				"Scale": [0.890000, 0.890000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 74,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-42.750000, 108.900000, 0.098000],
+				"Rotation": 6.050000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 75,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.350000, 67.950000, 0.097000],
+				"Rotation": 6.050000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 76,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.350000, 82.250000, 0.096000],
+				"Rotation": 6.050000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 77,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-42.750000, 109.050000, 0.095000],
+				"Rotation": 6.050000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 78,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-15.750000, 52.600000, 0.094000],
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 79,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [6.600000, 36.600000, 0.093000],
+				"Rotation": 15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 80,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [8.000000, 16.500000, 0.092000],
+				"Rotation": 30.000000
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 9,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 81,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-5.600000, 36.750000, 0.100000],
+				"Rotation": 15.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 82,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [-33.050000, 18.700000, 0.099000],
+				"Rotation": -8.690000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 83,
+				"Component": "Hair",
+				"Variation": "1",
+				"Position": [-43.150000, 105.750000, 0.098000],
+				"Rotation": 6.170000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 84,
+				"Component": "Mouth",
+				"Variation": "1",
+				"Position": [-12.550000, 65.250000, 0.097000],
+				"Rotation": 6.170000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 85,
+				"Component": "Eyes",
+				"Variation": "1",
+				"Position": [-14.600000, 79.400000, 0.096000],
+				"Rotation": 6.170000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 86,
+				"Component": "Head",
+				"Variation": "Front",
+				"Position": [-43.100000, 105.950000, 0.095000],
+				"Rotation": 6.170000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 87,
+				"Component": "Torso",
+				"Variation": "Front",
+				"Position": [-16.300000, 50.100000, 0.094000],
+				"Rotation": 0.080000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 88,
+				"Component": "Hands",
+				"Variation": "Front",
+				"Position": [-4.450000, 37.750000, 0.093000],
+				"Rotation": -15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 89,
+				"Component": "Feet",
+				"Variation": "Front",
+				"Position": [10.000000, 11.100000, 0.092000],
+				"Rotation": 45.000000
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 10,
+		"Duration": 83,
+		"Label": "Walk_Behind",
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 90,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-7.550000, 30.850000, 0.100000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 91,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-29.200000, 17.000000, 0.099000],
+				"Rotation": -8.510000,
+				"Scale": [0.890000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 92,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-34.950000, 109.450000, 0.098000],
+				"Rotation": 2.680000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 93,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-11.300000, 51.550000, 0.097000],
+				"Rotation": -3.290000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 94,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [9.800000, 34.800000, 0.096000],
+				"Rotation": 15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 95,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [6.200000, 14.050000, 0.095000],
+				"Rotation": 30.000000,
+				"Scale": [0.990000, 1.000000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 11,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 96,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-30.550000, 32.400000, 0.100000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 97,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-20.350000, 12.800000, 0.099000],
+				"Rotation": -7.200000,
+				"Scale": [1.020000, 0.920000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 98,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-35.150000, 107.700000, 0.098000],
+				"Rotation": 2.530000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 99,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-11.350000, 50.800000, 0.097000],
+				"Rotation": -4.050000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 100,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [17.200000, 39.250000, 0.096000],
+				"Rotation": 30.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 101,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [0.950000, 25.800000, 0.095000],
+				"Rotation": -21.070000,
+				"Scale": [0.890000, 0.900000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 12,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 102,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-32.400000, 41.600000, 0.100000],
+				"Rotation": -30.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 103,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-12.350000, 8.800000, 0.099000],
+				"Rotation": -7.200000,
+				"Scale": [1.230000, 0.770000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 104,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-34.250000, 103.050000, 0.098000],
+				"Rotation": 1.500000,
+				"Scale": [1.010000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 105,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-12.050000, 46.500000, 0.097000],
+				"Rotation": -5.340000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 106,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [18.500000, 36.700000, 0.096000],
+				"Rotation": 45.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 107,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-1.200000, 35.000000, 0.095000],
+				"Rotation": -58.600000,
+				"Scale": [0.890000, 0.900000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 13,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 108,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-28.400000, 43.050000, 0.100000],
+				"Rotation": -45.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 109,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-0.450000, 9.750000, 0.099000],
+				"Rotation": -7.200000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 110,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-35.500000, 100.000000, 0.098000],
+				"Rotation": 1.880000,
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 111,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-12.850000, 44.500000, 0.097000],
+				"Rotation": -4.660000,
+				"Scale": [1.020000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 112,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [17.100000, 33.600000, 0.096000],
+				"Rotation": 45.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 113,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-15.050000, 30.200000, 0.095000],
+				"Rotation": -37.050000,
+				"Scale": [0.890000, 0.900000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 14,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 114,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-25.650000, 35.200000, 0.100000],
+				"Rotation": -15.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 115,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-2.450000, 2.550000, 0.099000],
+				"Rotation": 37.800000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 116,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-35.750000, 105.950000, 0.098000],
+				"Rotation": 2.810000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 117,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-11.600000, 49.800000, 0.097000],
+				"Rotation": -3.790000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 118,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [13.500000, 34.950000, 0.096000],
+				"Rotation": 15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 119,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-23.050000, 20.650000, 0.095000],
+				"Rotation": -0.040000,
+				"Scale": [0.890000, 0.900000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 15,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 120,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-16.400000, 30.850000, 0.100000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 121,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-5.300000, 14.350000, 0.099000],
+				"Rotation": 22.800000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 122,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-34.700000, 109.250000, 0.098000],
+				"Rotation": 2.570000,
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 123,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-10.850000, 51.200000, 0.097000],
+				"Rotation": -3.380000,
+				"Scale": [0.980000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 124,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [7.250000, 35.500000, 0.096000],
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 125,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-17.300000, 20.900000, 0.095000],
+				"Rotation": -6.790000,
+				"Scale": [0.890000, 0.900000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 16,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 126,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-7.850000, 30.450000, 0.100000],
+				"Rotation": 15.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 127,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-12.250000, 27.450000, 0.099000],
+				"Rotation": -22.200000,
+				"Scale": [0.990000, 1.000000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 128,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-35.900000, 107.300000, 0.098000],
+				"Rotation": 2.990000,
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 129,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-11.350000, 50.350000, 0.097000],
+				"Rotation": -3.380000,
+				"Scale": [1.000000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 130,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-1.950000, 38.500000, 0.096000],
+				"Rotation": -18.050000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 131,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-4.750000, 12.200000, 0.095000],
+				"Rotation": 7.760000,
+				"Scale": [0.920000, 0.780000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 17,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 132,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-4.300000, 29.400000, 0.100000],
+				"Rotation": 45.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 133,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-15.050000, 28.450000, 0.099000],
+				"Rotation": -51.790000,
+				"Scale": [0.890000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 134,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-36.700000, 103.200000, 0.098000],
+				"Rotation": 3.360000,
+				"Scale": [1.010000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 135,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-12.300000, 47.100000, 0.097000],
+				"Rotation": -3.260000,
+				"Scale": [1.000000, 0.980000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 136,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-4.250000, 44.200000, 0.096000],
+				"Rotation": -18.010000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 137,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-0.750000, 13.800000, 0.095000],
+				"Rotation": -1.010000,
+				"Scale": [1.230000, 0.850000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 18,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 138,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-3.450000, 33.400000, 0.100000],
+				"Rotation": 30.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 139,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-25.850000, 26.400000, 0.099000],
+				"Rotation": -36.790000,
+				"Scale": [0.890000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 140,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-37.100000, 99.250000, 0.098000],
+				"Rotation": 2.360000,
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 141,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-13.300000, 43.850000, 0.097000],
+				"Rotation": -4.300000,
+				"Scale": [1.040000, 0.970000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 142,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [0.950000, 45.650000, 0.096000],
+				"Rotation": -33.820000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 143,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [8.850000, 14.850000, 0.095000],
+				"Scale": [0.990000, 1.000000]
+				}
+			]
+		},
+		{
+		"ElementType": 2,
+		"ID": 19,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 4,
+				"ID": 144,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-2.400000, 34.950000, 0.100000],
+				"Rotation": 15.000000
+				},
+				{
+				"ElementType": 4,
+				"ID": 145,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [-33.750000, 19.250000, 0.099000],
+				"Rotation": -8.690000,
+				"Scale": [0.890000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 146,
+				"Component": "Head",
+				"Variation": "Rear",
+				"Position": [-35.500000, 106.100000, 0.098000],
+				"Rotation": 2.880000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 147,
+				"Component": "Torso",
+				"Variation": "Rear",
+				"Position": [-11.850000, 48.950000, 0.097000],
+				"Rotation": -3.210000,
+				"Scale": [0.990000, 0.990000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 148,
+				"Component": "Hands",
+				"Variation": "Rear",
+				"Position": [-1.250000, 35.950000, 0.096000],
+				"Rotation": -15.000000,
+				"Scale": [0.900000, 0.900000]
+				},
+				{
+				"ElementType": 4,
+				"ID": 149,
+				"Component": "Feet",
+				"Variation": "Rear",
+				"Position": [8.550000, 7.350000, 0.095000],
+				"Rotation": 45.000000,
+				"Scale": [0.990000, 1.000000]
+				}
+			]
+		}
+	]
+}

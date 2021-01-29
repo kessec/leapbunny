@@ -1,0 +1,13 @@
+MetaVersion="1.0"
+Device="LeapsterExplorer"
+Type="System"
+ProductID=0x00170032
+PackageID="LST3-0x00170032-000000"
+Version="1.0.8.4879"
+Locale="en-us"
+Name="TrailerPlayerApp"
+Publisher="LeapFrog"," Inc."
+Developer="LeapFrog"," Inc."
+Hidden=1
+AppSo="TrailerPlayerApp.so"
+Size=0x12000

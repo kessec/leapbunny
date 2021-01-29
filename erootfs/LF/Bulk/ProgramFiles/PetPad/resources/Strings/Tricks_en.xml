@@ -1,0 +1,66 @@
+<object>
+	<word id="0" text="TRICKS" />
+	<word id="1" text="Wow! You know the whole alphabet!" />
+	
+	<word id="2" text="Angry" />
+	<word id="3" text="Bounce" />
+	<word id="4" text="Clap" />
+	<word id="5" text="Dance" />
+	<word id="6" text="Electric" />
+	<word id="7" text="Freeze" />
+	<word id="8" text="Gallop" />
+	<word id="9" text="Happy" />
+	<word id="10" text="Itch" />
+	<word id="11" text="Jump" />
+	<word id="12" text="Kick" />
+	<word id="13" text="Lick" />
+	<word id="14" text="Magic" />
+	<word id="15" text="No" />
+	<word id="16" text="Oops" />
+	<word id="17" text="Point" />
+	<word id="18" text="Quack" />
+	<word id="19" text="Roll over" />
+	<word id="20" text="Spin" />
+	<word id="21" text="Tornado" />
+	<word id="22" text="Up" />
+	<word id="23" text="Vibrate" />
+	<word id="24" text="Wiggle" />
+	<word id="25" text="X ray" />
+	<word id="26" text="Yawn" />
+	<word id="27" text="Zzz" />
+	
+	<word id="28" text="angry" />
+	<word id="29" text="bounce" />
+	<word id="30" text="clap" />
+	<word id="31" text="dance" />
+	<word id="32" text="electric" />
+	<word id="33" text="freeze" />
+	<word id="34" text="gallop" />
+	<word id="35" text="happy" />
+	<word id="36" text="itch" />
+	<word id="37" text="jump" />
+	<word id="38" text="kick" />
+	<word id="39" text="lick" />
+	<word id="40" text="magic" />
+	<word id="41" text="no" />
+	<word id="42" text="oops" />
+	<word id="43" text="point" />
+	<word id="44" text="quack" />
+	<word id="45" text="roll over" />
+	<word id="46" text="spin" />
+	<word id="47" text="tornado" />
+	<word id="48" text="up" />
+	<word id="49" text="vibrate" />
+	<word id="50" text="wiggle" />
+	<word id="51" text="x ray" />
+	<word id="52" text="yawn" />
+	<word id="53" text="zzz" />
+	
+	<word id="54" text="ABC" />
+	<word id="55" text="abc" />
+	
+	<word id="56" text="Finished?" />
+	<word id="57" text="Are you sure you want to quit?" />
+	
+	<word id="58" text="Congratulations!" />
+</object>

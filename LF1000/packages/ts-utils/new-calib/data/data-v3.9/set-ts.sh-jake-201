@@ -1,0 +1,17 @@
+#!/bin/sh
+SYS=/sys/devices/platform/lf1000-touchscreen
+# TSP Version=3
+echo 27 > $SYS/max_tnt_down
+#2 echo 40 > $SYS/max_tnt_down
+#3_7 echo 63 > $SYS/max_tnt_down
+echo 524 > $SYS/min_tnt_up
+echo 5 > $SYS/max_delta_tnt
+#3_8 echo 20 > $SYS/max_delta_tnt
+echo 5 > $SYS/delay_in_us
+echo 5 > $SYS/y_delay_in_us
+echo 5 > $SYS/tnt_delay_in_us
+echo 592 606 678 710 774 838 966 1062 1222 > $SYS/pressure_curve
+echo 1 > $SYS/tnt_mode
+echo -1 > $SYS/averaging
+echo -685 -574 663608 > $SYS/tnt_plane
+#2 echo 0 0 0 > $SYS/tnt_plane

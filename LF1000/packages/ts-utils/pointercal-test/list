@@ -1,0 +1,1314 @@
+./data/pmCalibData/UnitLovica/new-calib-3.9/110425_1108/new-calib.log:Setting for pointercal:      48757 -142 -9754403 74 43498 -13843634 65536
+./data/pmCalibData/UnitLovica/new-calib-3.9/110425_1108/pointercal:48757 -142 -9754403 74 43498 -13843634 65536
+./data/pmCalibData/UnitLovica/new-calib-from-lcs-bad-204-13101E00010B06010068.log:Setting for pointercal:      49266 290 -10172268 76 43884 -13979549 65536
+./data/pmCalibData/Unit6/new-calib.log.scp5:Setting for pointercal:      48957 0 -9900497 -74 43943 -13920490 65536
+./data/pmCalibData/Unit6/new-calib.log.scpd1:Setting for pointercal:      49040 0 -9968605 0 44070 -14025843 65536
+./data/pmCalibData/Unit6/new-calib-3.8/new-calib.log:Setting for pointercal:      48426 281 -9826051 147 43246 -13728900 65536
+./data/pmCalibData/Unit6/new-calib-3.8/pointercal:48426 281 -9826051 147 43246 -13728900 65536
+./data/pmCalibData/Unit6/new-calib.log.scnp4:Setting for pointercal:      49124 0 -9987820 0 44070 -13981773 65536
+./data/pmCalibData/Unit6/new-calib.log.scnp5:Setting for pointercal:      49124 0 -9987820 0 43943 -13937575 65536
+./data/pmCalibData/Unit6/new-calib.log.scpd3:Setting for pointercal:      49124 142 -10086495 0 44070 -14025843 65536
+./data/pmCalibData/Unit6/putty.log:setcal: Using USERCAL in /flags/pointercal 49292 143 -10175040 0 44198 -14114625 65536
+./data/pmCalibData/Unit6/putty.log:Emerald Base: setcal: Using USERCAL in /flags/pointercal 49292 143 -10175040 0 44198 -14114625 65536
+./data/pmCalibData/Unit6/new-calib.log.scp2:Setting for pointercal:      49124 142 -10037427 75 44070 -14043187 65536
+./data/pmCalibData/Unit6/new-calib.log.scnp1:Setting for pointercal:      49124 142 -10086696 75 44198 -14087896 65536
+./data/pmCalibData/Unit6/new-calib.log.scnpd1:Setting for pointercal:      49207 142 -10105659 0 43943 -13937575 65536
+./data/pmCalibData/Unit6/new-calib.log.scp1:Setting for pointercal:      49208 143 -10155696 150 44199 -14193974 65536
+./data/pmCalibData/Unit6/new-calib.log.scpd2:Setting for pointercal:      49124 142 -10037371 0 44070 -14025843 65536
+./data/pmCalibData/Unit6/new-calib.log.scnpd5:Setting for pointercal:      49208 142 -10106001 75 44070 -14043292 65536
+./data/pmCalibData/Unit6/new-calib-3.9/110425_1715/new-calib.log:Setting for pointercal:      48425 424 -9973660 0 43499 -13869870 65536
+./data/pmCalibData/Unit6/new-calib-3.9/110425_1715/pointercal:48425 424 -9973660 0 43499 -13869870 65536
+./data/pmCalibData/Unit6/new-calib.log.scpd5:Setting for pointercal:      49124 284 -10136444 75 44071 -14087409 65536
+./data/pmCalibData/Unit6/new-calib.log.scnpd3:Setting for pointercal:      -4 3 1310719 0 4 1309272 65536
+./data/pmCalibData/Unit6/new-calib.log.scpd6:Setting for pointercal:      49124 142 -10086694 75 44070 -14087333 65536
+./data/pmCalibData/Unit6/new-calib.log.scnp3:Setting for pointercal:      49207 0 -10056309 150 44070 -14060588 65536
+./data/pmCalibData/Unit6/new-calib.log.scnpd6:Setting for pointercal:      49207 142 -10105944 0 44070 -14025843 65536
+./data/pmCalibData/Unit6/new-calib.log.scpd4:Setting for pointercal:      49124 142 -10086839 75 44198 -14132095 65536
+./data/pmCalibData/Unit6/new-calib.log.scp6:Setting for pointercal:      48957 0 -9900497 -74 43943 -13920490 65536
+./data/pmCalibData/Unit6/new-calib.log.scnpd4:Setting for pointercal:      49208 143 -10106288 75 44198 -14132125 65536
+./data/pmCalibData/Unit6/new-calib.log.scnp6:Setting for pointercal:      49207 142 -10105802 0 44070 -13981773 65536
+./data/pmCalibData/Unit6/new-calib.log.scp3:Setting for pointercal:      49124 0 -9987820 0 44070 -14025843 65536
+./data/pmCalibData/Unit6/new-calib.log.factory:Setting for pointercal:      49292 143 -10175040 0 44198 -14114625 65536
+./data/pmCalibData/Unit6/new-calib.log.scnp2:Setting for pointercal:      49124 0 -9987820 0 44070 -13981773 65536
+./data/pmCalibData/Unit6/new-calib.log.scnpd2:Setting for pointercal:      49208 142 -10106001 75 44070 -14043292 65536
+./data/pmCalibData/Unit6/new-calib.log.scp4:Setting for pointercal:      49040 0 -9968605 0 44070 -14025843 65536
+./data/pmCalibData/Unit3/new-calib.log.scp5:Setting for pointercal:      50767 0 -10771903 221 41885 -12982922 65536
+./data/pmCalibData/Unit3/new-calib.log.scpd1:Setting for pointercal:      50677 -277 -10606016 73 41655 -12786141 65536
+./data/pmCalibData/Unit3/new-calib-3.8/new-calib.log:Setting for pointercal:      49958 -137 -10386077 359 40868 -12539647 65536
+./data/pmCalibData/Unit3/new-calib-3.8/pointercal:49958 -137 -10386077 359 40868 -12539647 65536
+./data/pmCalibData/Unit3/new-calib.log.ev2:Setting for pointercal:      50766 -139 -10775564 293 41654 -12797109 65536
+./data/pmCalibData/Unit3/new-calib.log.scnp4:Setting for pointercal:      50499 -275 -10513806 218 41540 -12781562 65536
+./data/pmCalibData/Unit3/new-calib.log.scnp5:Setting for pointercal:      50499 -276 -10564049 218 41654 -12820388 65536
+./data/pmCalibData/Unit3/new-calib.log.scpd3:Setting for pointercal:      50678 0 -10750668 0 41770 -12849377 65536
+./data/pmCalibData/Unit3/putty.log:setcal: Using USERCAL in /flags/pointercal 50766 -139 -10775564 293 41654 -12797109 65536
+./data/pmCalibData/Unit3/putty.log:Emerald Base: setcal: Using USERCAL in /flags/pointercal 50766 -139 -10775564 293 41654 -12797109 65536
+./data/pmCalibData/Unit3/new-calib.log.scp2:Setting for pointercal:      50677 -139 -10652619 220 41769 -12901365 65536
+./data/pmCalibData/Unit3/new-calib.log.scnp1:Setting for pointercal:      50677 -138 -10653212 146 41541 -12723386 65536
+./data/pmCalibData/Unit3/new-calib.log.ev1:Setting for pointercal:      50679 -277 -10707834 -219 41656 -12716841 65536
+./data/pmCalibData/Unit3/new-calib.log.scnpd1:Setting for pointercal:      50675 -277 -10605557 366 41653 -12854996 65536
+./data/pmCalibData/Unit3/new-calib.log.scp1:Setting for pointercal:      50677 -277 -10656416 73 41655 -12827869 65536
+./data/pmCalibData/Unit3/new-calib.log.scpd2:Setting for pointercal:      50589 -138 -10632071 0 41655 -12768926 65536
+./data/pmCalibData/Unit3/new-calib.log.scnpd5:Setting for pointercal:      50501 -138 -10661562 -219 41770 -12797349 65536
+./data/pmCalibData/Unit3/new-calib-3.9/110425_1245/new-calib.log:Setting for pointercal:      49525 -135 -10184526 -425 40647 -12155644 65536
+./data/pmCalibData/Unit3/new-calib-3.9/110425_1245/pointercal:49525 -135 -10184526 -425 40647 -12155644 65536
+./data/pmCalibData/Unit3/new-calib.log.scpd5:Setting for pointercal:      50589 -138 -10631804 0 41770 -12849377 65536
+./data/pmCalibData/Unit3/new-calib.log.scnpd3:Setting for pointercal:      50325 -138 -10569448 -218 41770 -12797749 65536
+./data/pmCalibData/Unit3/new-calib.log.scpd6:Setting for pointercal:      50589 -138 -10682508 -146 41770 -12814631 65536
+./data/pmCalibData/Unit3/new-calib.log.scnp3:Setting for pointercal:      50588 -275 -10535195 145 41427 -12684807 65536
+./data/pmCalibData/Unit3/new-calib.log.scnpd6:Setting for pointercal:      50589 -278 -10634740 0 41885 -12930270 65536
+./data/pmCalibData/Unit3/new-calib.log.ev3:Setting for pointercal:      50766 -139 -10775564 293 41654 -12797109 65536
+./data/pmCalibData/Unit3/new-calib.log.scpd4:Setting for pointercal:      50589 -138 -10632129 -73 41655 -12751674 65536
+./data/pmCalibData/Unit3/new-calib.log.scp6:Setting for pointercal:      50765 -420 -10628755 221 41999 -12979781 65536
+./data/pmCalibData/Unit3/new-calib.log.scnpd4:Setting for pointercal:      50412 -138 -10590104 -73 41770 -12832138 65536
+./data/pmCalibData/Unit3/new-calib.log.scnp6:Setting for pointercal:      50588 -276 -10535217 145 41541 -12681505 65536
+./data/pmCalibData/Unit3/new-calib.log.scp3:Setting for pointercal:      50764 -418 -10628950 294 41767 -12960328 65536
+./data/pmCalibData/Unit3/new-calib.log.factory:Setting for pointercal:      50678 0 -10750668 293 41770 -12835722 65536
+./data/pmCalibData/Unit3/new-calib.log.scnp2:Setting for pointercal:      50588 -138 -10581577 218 41541 -12740312 65536
+./data/pmCalibData/Unit3/new-calib.log.scnpd2:Setting for pointercal:      50412 -276 -10543630 0 41655 -12768926 65536
+./data/pmCalibData/Unit3/new-calib.log.scp4:Setting for pointercal:      50766 -139 -10724577 220 41655 -12862740 65536
+./data/pmCalibData/Unit0/new-calib.log.110420_1800:Setting for pointercal:      51782 -154 -11124496 162 44407 -14362575 65536
+./data/pmCalibData/Unit0/pointercal.110420_1800:51782 -154 -11124496 162 44407 -14362575 65536
+./data/pmCalibData/Unit2/new-calib.log.scp5:Setting for pointercal:      50589 281 -10724004 74 42234 -13066572 65536
+./data/pmCalibData/Unit2/new-calib.log.scpd1:Setting for pointercal:      50680 424 -10896447 223 42472 -13268045 65536
+./data/pmCalibData/Unit2/new-calib-3.8/new-calib.log:Setting for pointercal:      49696 -276 -10176364 72 41323 -12708060 65536
+./data/pmCalibData/Unit2/new-calib-3.8/pointercal:49696 -276 -10176364 72 41323 -12708060 65536
+./data/pmCalibData/Unit2/new-calib.log.scnp4:Setting for pointercal:      50324 -139 -10418054 0 42117 -12924933 65536
+./data/pmCalibData/Unit2/new-calib.log.scnp5:Setting for pointercal:      50500 0 -10556919 147 42234 -13041475 65536
+./data/pmCalibData/Unit2/new-calib.log.scpd3:Setting for pointercal:      50679 282 -10847180 148 42352 -13167010 65536
+./data/pmCalibData/Unit2/putty.log:setcal: Using USERCAL in /flags/pointercal 50684 428 -10899442 602 42834 -13567594 65536
+./data/pmCalibData/Unit2/putty.log:Emerald Base: setcal: Using USERCAL in /flags/pointercal 50684 428 -10899442 602 42834 -13567594 65536
+./data/pmCalibData/Unit2/new-calib.log.scp2:Setting for pointercal:      50590 422 -10823432 148 42353 -13166940 65536
+./data/pmCalibData/Unit2/new-calib.log.scnp1:Setting for pointercal:      50412 140 -10583701 73 42234 -13024132 65536
+./data/pmCalibData/Unit2/new-calib.log.scnpd1:Setting for pointercal:      50680 283 -10847972 298 42471 -13285738 65536
+./data/pmCalibData/Unit2/new-calib.log.scp1:Setting for pointercal:      50589 140 -10676299 74 42352 -13106550 65536
+./data/pmCalibData/Unit2/new-calib.log.scpd2:Setting for pointercal:      50770 425 -10969315 299 42472 -13328923 65536
+./data/pmCalibData/Unit2/new-calib.log.scnpd5:Setting for pointercal:      50680 283 -10899208 299 42590 -13369516 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1215/new-calib.log:Setting for pointercal:      49696 -138 -10223909 72 41323 -12625481 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1215/pointercal:49696 -138 -10223909 72 41323 -12625481 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1310/new-calib.log:Setting for pointercal:      49610 0 -10299921 0 41671 -12851481 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1310/pointercal:49610 0 -10299921 0 41671 -12851481 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1310/new-calib.log.1310:Setting for pointercal:      49610 0 -10299921 0 41671 -12851481 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1305/new-calib.log:Setting for pointercal:      49697 276 -10415404 72 41439 -12747824 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1305/pointercal:49697 276 -10415404 72 41439 -12747824 65536
+./data/pmCalibData/Unit2/new-calib-3.9/110425_1305/new-calib.log.1305:Setting for pointercal:      49697 276 -10415404 72 41439 -12747824 65536
+./data/pmCalibData/Unit2/new-calib.log.scpd5:Setting for pointercal:      50678 0 -10750668 223 42351 -13226793 65536
+./data/pmCalibData/Unit2/new-calib.log.scnpd3:Setting for pointercal:      50589 141 -10778149 224 42589 -13308357 65536
+./data/pmCalibData/Unit2/new-calib.log.scpd6:Setting for pointercal:      50678 0 -10750668 223 42351 -13226793 65536
+./data/pmCalibData/Unit2/new-calib.log.scnp3:Setting for pointercal:      50411 -140 -10488586 147 42233 -13041275 65536
+./data/pmCalibData/Unit2/new-calib.log.scnpd6:Setting for pointercal:      50768 284 -10920585 224 42590 -13351578 65536
+./data/pmCalibData/Unit2/new-calib.log.scpd4:Setting for pointercal:      50679 283 -10847852 223 42471 -13267830 65536
+./data/pmCalibData/Unit2/new-calib.log.scp6:Setting for pointercal:      50590 281 -10724670 148 42352 -13166650 65536
+./data/pmCalibData/Unit2/new-calib.log.scnpd4:Setting for pointercal:      50501 141 -10706417 149 42589 -13290291 65536
+./data/pmCalibData/Unit2/new-calib.log.scnp6:Setting for pointercal:      50412 -139 -10488775 73 42117 -12984285 65536
+./data/pmCalibData/Unit2/new-calib.log.scp3:Setting for pointercal:      50589 281 -10775142 74 42352 -13149047 65536
+./data/pmCalibData/Unit2/new-calib.log.factory:Setting for pointercal:      50684 428 -10899442 602 42834 -13567594 65536
+./data/pmCalibData/Unit2/new-calib.log.scnp2:Setting for pointercal:      50263 -34741 1326242 -77 -44664 16470329 65536
+./data/pmCalibData/Unit2/new-calib.log.scnpd2:Setting for pointercal:      50589 0 -10678918 223 42470 -13267083 65536
+./data/pmCalibData/Unit2/new-calib.log.scp4:Setting for pointercal:      50680 424 -10845342 223 42472 -13225349 65536
+./data/pmCalibData/Unit5/new-calib.log.scp5:Setting for pointercal:      53698 -151 -12330616 -79 42829 -13316591 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd1:Setting for pointercal:      53798 151 -12513748 0 42950 -13421180 65536
+./data/pmCalibData/Unit5/new-calib-3.8/new-calib.log:Setting for pointercal:      53042 150 -12123218 315 42144 -13136560 65536
+./data/pmCalibData/Unit5/new-calib-3.8/pointercal:53042 150 -12123218 315 42144 -13136560 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp4:Setting for pointercal:      53799 152 -12514267 241 43072 -13567936 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp5:Setting for pointercal:      53697 -151 -12330103 159 42949 -13461815 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd3:Setting for pointercal:      53798 152 -12514194 160 43072 -13547285 65536
+./data/pmCalibData/Unit5/putty.log:setcal: Using USERCAL in /flags/pointercal 53797 151 -12567023 -79 42828 -13273411 65536
+./data/pmCalibData/Unit5/putty.log:Emerald Base: setcal: Using USERCAL in /flags/pointercal 53797 151 -12567023 -79 42828 -13273411 65536
+./data/pmCalibData/Unit5/putty.log:TNT Plane Coef: a=-10545 b=10546 c=  65536
+./data/pmCalibData/Unit5/putty.log:TNT Plane Coef: a=-9680 b= 9681 c=  65536
+./data/pmCalibData/Unit5/putty.log:TNT Plane Coef: a=-10425 b=10426 c=  65536
+./data/pmCalibData/Unit5/new-calib.log.scp2:Setting for pointercal:      53798 0 -12407823 79 42829 -13357228 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp1:Setting for pointercal:      53899 152 -12539882 161 43072 -13504290 65536
+./data/pmCalibData/Unit5/new-calib.log.scnpd1:Setting for pointercal:      53798 151 -12513893 160 42950 -13462363 65536
+./data/pmCalibData/Unit5/new-calib.log.scp1:Setting for pointercal:      53798 303 -12566020 80 42950 -13441849 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd2:Setting for pointercal:      53798 152 -12514121 80 43072 -13526635 65536
+./data/pmCalibData/Unit5/new-calib.log.scnpd5:Setting for pointercal:      53798 151 -12513820 80 42950 -13441771 65536
+./data/pmCalibData/Unit5/new-calib-3.9/110425_1445/new-calib.log:Setting for pointercal:      52942 149 -12097127 78 42024 -12950733 65536
+./data/pmCalibData/Unit5/new-calib-3.9/110425_1445/pointercal:52942 149 -12097127 78 42024 -12950733 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd5:TNT Plane Coef: a=-10545 b=10546 c=  65536
+./data/pmCalibData/Unit5/new-calib.log.scpd5:Setting for pointercal:      -2147483648 2147483647 -2146172928 2147483647 -2147483648 -2146172929 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd5:Setting for tnt_plane:       -10545 10546 65536
+./data/pmCalibData/Unit5/new-calib.log.scnpd3:Setting for pointercal:      53798 151 -12513820 80 42950 -13441771 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd6:Setting for pointercal:      53798 152 -12514121 80 43072 -13526635 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp3:TNT Plane Coef: a=-9680 b= 9681 c=  65536
+./data/pmCalibData/Unit5/new-calib.log.scnp3:Setting for pointercal:      -2147483648 2147483647 -2146172928 2147483647 -2147483648 -2146172929 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp3:Setting for tnt_plane:       -9680 9681 65536
+./data/pmCalibData/Unit5/new-calib.log.scnpd6:Setting for pointercal:      53799 152 -12514267 241 43072 -13567936 65536
+./data/pmCalibData/Unit5/new-calib.log.scpd4:Setting for pointercal:      53798 152 -12514121 80 43072 -13526635 65536
+./data/pmCalibData/Unit5/new-calib.log.scp6:Setting for pointercal:      53899 305 -12646607 161 43072 -13547681 65536
+./data/pmCalibData/Unit5/new-calib.log.scnpd4:Setting for pointercal:      53798 0 -12461621 160 42950 -13462207 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp6:Setting for pointercal:      53899 152 -12593782 161 43072 -13504451 65536
+./data/pmCalibData/Unit5/new-calib.log.scp3:Setting for pointercal:      53798 304 -12566169 0 43071 -13462913 65536
+./data/pmCalibData/Unit5/new-calib.log.factory:Setting for pointercal:      53797 151 -12567023 -79 42828 -13273411 65536
+./data/pmCalibData/Unit5/new-calib.log.scnp2:Setting for pointercal:      53899 152 -12540108 241 43072 -13568052 65536
+./data/pmCalibData/Unit5/new-calib.log.scnpd2:Setting for pointercal:      53798 151 -12513893 160 42950 -13462363 65536
+./data/pmCalibData/Unit5/new-calib.log.scp4:Setting for pointercal:      53899 305 -12646607 161 43072 -13547681 65536
+./data/pmCalibData/Unit73/new-calib.log.scp5:Setting for pointercal:      49207 0 -9908685 221 43317 -13770924 65536
+./data/pmCalibData/Unit73/new-calib.log.scmfg_CF3:Setting for pointercal:      49718 143 -10324113 453 43817 -14218790 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnobox3:Setting for pointercal:      49377 141 -10095431 446 43442 -13953290 65536
+./data/pmCalibData/Unit73/new-calib.log.scmfg_CF1:Setting for pointercal:      49374 -282 -9946493 223 43564 -13988220 65536
+./data/pmCalibData/Unit73/new-calib.log.scpnobox3:Setting for pointercal:      49292 140 -10026276 148 43441 -13840908 65536
+./data/pmCalibData/Unit73/new-calib.log.scpdnobox1:Setting for pointercal:      49207 0 -10007101 -73 43317 -13746678 65536
+./data/pmCalibData/Unit73/pointercal.scpdnobox3:49292 141 -10125285 148 43565 -13971752 65536
+./data/pmCalibData/Unit73/new-calib.log.scmfg_CF2:Setting for pointercal:      49460 -142 -10064601 225 43815 -14120753 65536
+./data/pmCalibData/Unit73/pointercal.scpd5:49293 282 -10075903 297 43567 -13918878 65536
+./data/pmCalibData/Unit73/new-calib.log.scpd1:Setting for pointercal:      49292 0 -9927863 297 43441 -13874473 65536
+./data/pmCalibData/Unit73/pointercal.scp5:49207 0 -9908685 221 43317 -13770924 65536
+./data/pmCalibData/Unit73/new-calib.log.scnp4:Setting for pointercal:      49725 573 -10527473 680 43824 -14318426 65536
+./data/pmCalibData/Unit73/new-calib.log.scnp5:Setting for pointercal:      49459 -142 -10064521 524 43689 -14145350 65536
+./data/pmCalibData/Unit73/new-calib.log.scpd3:Setting for pointercal:      49292 0 -9977155 148 43565 -13884174 65536
+./data/pmCalibData/Unit73/pointercal:49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpdnobox3:Setting for pointercal:      49464 283 -10264434 448 43568 -14085690 65536
+./data/pmCalibData/Unit73/new-calib.log.scmfg_CF4:Setting for pointercal:      49800 -286 -10192018 377 43688 -14155536 65536
+./data/pmCalibData/Unit73/pointercal.scpnobox3:49292 140 -10026276 148 43441 -13840908 65536
+./data/pmCalibData/Unit73/pointercal.scnp1:49377 141 -10095658 373 43566 -14023361 65536
+./data/pmCalibData/Unit73/pointercal.scpd6:49292 141 -10075795 74 43565 -13910834 65536
+./data/pmCalibData/Unit73/new-calib.log.scp2:Setting for pointercal:      49207 -140 -9859929 147 43316 -13753924 65536
+./data/pmCalibData/Unit73/new-calib.log.scmfg2:Setting for pointercal:      49804 143 -10344499 455 43944 -14307803 65536
+./data/pmCalibData/Unit73/new-calib.log.scnp1:Setting for pointercal:      49377 141 -10095658 373 43566 -14023361 65536
+./data/pmCalibData/Unit73/pointercal.scnpdnobox2:49635 427 -10405043 451 43694 -14174901 65536
+./data/pmCalibData/Unit73/pointercal.scnp5:49459 -142 -10064521 524 43689 -14145350 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpd1:Setting for pointercal:      49461 0 -10114801 371 43317 -13892814 65536
+./data/pmCalibData/Unit73/pointercal.scnpd1:49461 0 -10114801 371 43317 -13892814 65536
+./data/pmCalibData/Unit73/pointercal.scpnobox2:49207 0 -9908685 148 43441 -13840553 65536
+./data/pmCalibData/Unit73/pointercal.scp3:49292 0 -9977155 222 43441 -13857765 65536
+./data/pmCalibData/Unit73/pointercal.scp6:49292 281 -10075117 148 43441 -13797614 65536
+./data/pmCalibData/Unit73/new-calib.log.scp1:Setting for pointercal:      49376 0 -10045860 223 43441 -13901516 65536
+./data/pmCalibData/Unit73/pointercal.scp2:49207 -140 -9859929 147 43316 -13753924 65536
+./data/pmCalibData/Unit73/new-calib.log.scpdnobox2:Setting for pointercal:      49376 282 -10243649 0 43565 -13937197 65536
+./data/pmCalibData/Unit73/new-calib.log.scpd2:Setting for pointercal:      49377 141 -10045800 297 43441 -13875184 65536
+./data/pmCalibData/Unit73/new-calib.log.scmfg1:Setting for pointercal:      49718 143 -10324055 377 43817 -14201111 65536
+./data/pmCalibData/Unit73/pointercal.scnpnobox1:49291 -140 -9928345 295 43193 -13745002 65536
+./data/pmCalibData/Unit73/pointercal.scnpnobox2:49461 0 -10114801 447 43441 -13996906 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnb_110422d:Setting for pointercal:      49805 287 -10395374 455 43945 -14264325 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpdnobox1:Setting for pointercal:      49547 141 -10184176 447 43442 -13954092 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnobox1:Setting for pointercal:      49291 -140 -9928345 295 43193 -13745002 65536
+./data/pmCalibData/Unit73/pointercal.scp4:49123 -139 -9791776 147 43316 -13753719 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnb_110422a:Setting for pointercal:      49806 287 -10445585 531 43946 -14326643 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpd5:Setting for pointercal:      49547 142 -10284072 376 43817 -14200807 65536
+./data/pmCalibData/Unit73/pointercal.scpnobox1:49292 140 -10026276 148 43441 -13840908 65536
+./data/pmCalibData/Unit73/new-calib-3.9/110425_1320/new-calib.log:Setting for pointercal:      49526 434 -10534188 303 43501 -14161199 65536
+./data/pmCalibData/Unit73/new-calib-3.9/110425_1320/pointercal:49526 434 -10534188 303 43501 -14161199 65536
+./data/pmCalibData/Unit73/new-calib.log.scpd5:Setting for pointercal:      49293 282 -10075903 297 43567 -13918878 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpd3:Setting for pointercal:      49459 -141 -10064721 448 43564 -14083879 65536
+./data/pmCalibData/Unit73/new-calib.log.scpd6:Setting for pointercal:      49292 141 -10075795 74 43565 -13910834 65536
+./data/pmCalibData/Unit73/pointercal.scpd4:49376 282 -10144161 74 43441 -13824006 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpdnobox2:Setting for pointercal:      49635 427 -10405043 451 43694 -14174901 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnb_110422c:Setting for pointercal:      49543 -424 -9985295 223 43439 -13944684 65536
+./data/pmCalibData/Unit73/pointercal.scnp2:49461 0 -10114801 449 43690 -14128572 65536
+./data/pmCalibData/Unit73/new-calib.log.scpdnobox3:Setting for pointercal:      49292 141 -10125285 148 43565 -13971752 65536
+./data/pmCalibData/Unit73/new-calib.log.scnp3:Setting for pointercal:      49547 141 -10234150 449 43566 -14085415 65536
+./data/pmCalibData/Unit73/pointercal.scnpd2:49461 0 -10164262 374 43690 -14155326 65536
+./data/pmCalibData/Unit73/pointercal.scnpdnobox3:49464 283 -10264434 448 43568 -14085690 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpd6:Setting for pointercal:      49376 0 -10144613 298 43565 -14049990 65536
+./data/pmCalibData/Unit73/pointercal.scnpd5:49547 142 -10284072 376 43817 -14200807 65536
+./data/pmCalibData/Unit73/pointercal.scpd1:49292 0 -9927863 297 43441 -13874473 65536
+./data/pmCalibData/Unit73/new-calib.log.scpd4:Setting for pointercal:      49376 282 -10144161 74 43441 -13824006 65536
+./data/pmCalibData/Unit73/pointercal.scnpdnobox1:49547 141 -10184176 447 43442 -13954092 65536
+./data/pmCalibData/Unit73/new-calib.log.scp6:Setting for pointercal:      49292 281 -10075117 148 43441 -13797614 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpd4:Setting for pointercal:      49376 0 -10144613 74 43441 -13910889 65536
+./data/pmCalibData/Unit73/pointercal.scpd3:49292 0 -9977155 148 43565 -13884174 65536
+./data/pmCalibData/Unit73/frlog:Dec 31 00:25:46    128 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Dec 29 12:01:14     36 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Oct  3 08:32:14    100 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 00:10:05    357 local4.crit Emerald App: [0x280] CGameViewFrame::Notify: button 65536:65536
+./data/pmCalibData/Unit73/frlog:Jan  1 00:10:05    360 local4.crit Emerald App: [0x280] CGameViewFrame::Notify: button 65536:0
+./data/pmCalibData/Unit73/frlog:Apr  1 11:07:54    138 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Dec 31 00:25:57    100 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 01:01:39     41 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 01:02:07    117 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 01:02:40     37 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 01:03:11     38 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Dec 31 00:25:46    122 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 00:01:50     36 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Dec 31 00:27:45     37 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/frlog:Jan  1 01:08:53     37 local4.notice Emerald Base: setcal: Using USERCAL in /flags/pointercal 49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/pointercal.scnpd3:49459 -141 -10064721 448 43564 -14083879 65536
+./data/pmCalibData/Unit73/new-calib.log.scpnobox2:Setting for pointercal:      49207 0 -9908685 148 43441 -13840553 65536
+./data/pmCalibData/Unit73/pointercal.scnpd6:49376 0 -10144613 298 43565 -14049990 65536
+./data/pmCalibData/Unit73/pointercal.scnpnobox3:49377 141 -10095431 446 43442 -13953290 65536
+./data/pmCalibData/Unit73/new-calib.log.scnp6:Setting for pointercal:      49378 282 -10145175 373 43567 -13980170 65536
+./data/pmCalibData/Unit73/new-calib.log.scp3:Setting for pointercal:      49292 0 -9977155 222 43441 -13857765 65536
+./data/pmCalibData/Unit73/pointercal.scnp3:49547 141 -10234150 449 43566 -14085415 65536
+./data/pmCalibData/Unit73/pointercal.scnp6:49378 282 -10145175 373 43567 -13980170 65536
+./data/pmCalibData/Unit73/pointercal.scpdnobox2:49376 282 -10243649 0 43565 -13937197 65536
+./data/pmCalibData/Unit73/pointercal.scnp4:49725 573 -10527473 680 43824 -14318426 65536
+./data/pmCalibData/Unit73/new-calib.log.factory:Setting for pointercal:      49042 140 -9871207 738 43443 -14105528 65536
+./data/pmCalibData/Unit73/new-calib.log.scnp2:Setting for pointercal:      49461 0 -10114801 449 43690 -14128572 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnb_110422b:Setting for pointercal:      49718 143 -10324113 453 43817 -14218790 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpd2:Setting for pointercal:      49461 0 -10164262 374 43690 -14155326 65536
+./data/pmCalibData/Unit73/pointercal.scpdnobox1:49207 0 -10007101 -73 43317 -13746678 65536
+./data/pmCalibData/Unit73/new-calib.log.scp4:Setting for pointercal:      49123 -139 -9791776 147 43316 -13753719 65536
+./data/pmCalibData/Unit73/new-calib.log.scnpnobox2:Setting for pointercal:      49461 0 -10114801 447 43441 -13996906 65536
+./data/pmCalibData/Unit73/new-calib.log.scpnobox1:Setting for pointercal:      49292 140 -10026276 148 43441 -13840908 65536
+./data/pmCalibData/Unit73/pointercal.scpd2:49377 141 -10045800 297 43441 -13875184 65536
+./data/pmCalibData/Unit73/pointercal.scnpd4:49376 0 -10144613 74 43441 -13910889 65536
+./data/pmCalibData/Unit4/new-calib.log.scp5:Setting for pointercal:      52812 -148 -11788081 156 42828 -13547080 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd1:TNT Plane Coef: a=-9458 b= 9459 c=  65536
+./data/pmCalibData/Unit4/new-calib.log.scpd1:Setting for pointercal:      -2147483648 2147483647 -2146172928 2147483647 -2147483648 -2146172929 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd1:Setting for tnt_plane:       -9458 9459 65536
+./data/pmCalibData/Unit4/new-calib-3.8/new-calib.log:Setting for pointercal:      52165 294 -11688157 231 42025 -13157308 65536
+./data/pmCalibData/Unit4/new-calib-3.8/pointercal:52165 294 -11688157 231 42025 -13157308 65536
+./data/pmCalibData/Unit4/new-calib.log.scnp4:Setting for pointercal:      53007 0 -11941044 157 42708 -13463089 65536
+./data/pmCalibData/Unit4/new-calib.log.scnp5:Setting for pointercal:      53007 149 -11992992 157 42950 -13589661 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd3:Setting for pointercal:      52910 149 -12021641 157 42950 -13632697 65536
+./data/pmCalibData/Unit4/putty.log:setcal: Using USERCAL in /flags/pointercal 52713 -296 -11659075 469 42826 -13666581 65536
+./data/pmCalibData/Unit4/putty.log:Emerald Base: setcal: Using USERCAL in /flags/pointercal 52713 -296 -11659075 469 42826 -13666581 65536
+./data/pmCalibData/Unit4/putty.log:TNT Plane Coef: a=-9458 b= 9459 c=  65536
+./data/pmCalibData/Unit4/new-calib.log.scp2:Setting for pointercal:      52909 0 -11916729 237 43071 -13694474 65536
+./data/pmCalibData/Unit4/new-calib.log.scnp1:Setting for pointercal:      52909 0 -11916729 236 42950 -13652086 65536
+./data/pmCalibData/Unit4/new-calib.log.scnpd1:Setting for pointercal:      52910 149 -11968217 78 42829 -13485063 65536
+./data/pmCalibData/Unit4/new-calib.log.scp1:Setting for pointercal:      53107 300 -12177067 396 43074 -13779005 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd2:Setting for pointercal:      52910 149 -12021857 237 43072 -13694945 65536
+./data/pmCalibData/Unit4/new-calib.log.scnpd5:Setting for pointercal:      53104 149 -12070232 78 42829 -13485214 65536
+./data/pmCalibData/Unit4/new-calib-3.9/110425_1415/new-calib.log:Setting for pointercal:      52068 0 -11509684 154 42024 -13137238 65536
+./data/pmCalibData/Unit4/new-calib-3.9/110425_1415/pointercal:52068 0 -11509684 154 42024 -13137238 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd5:Setting for pointercal:      52910 149 -12021641 157 42950 -13632697 65536
+./data/pmCalibData/Unit4/new-calib.log.scnpd3:Setting for pointercal:      53007 0 -11941044 157 42829 -13504705 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd6:Setting for pointercal:      52910 149 -12021641 157 42950 -13632697 65536
+./data/pmCalibData/Unit4/new-calib.log.scnp3:Setting for pointercal:      52909 0 -11916729 78 42829 -13484986 65536
+./data/pmCalibData/Unit4/new-calib.log.scnpd6:Setting for pointercal:      52909 0 -11916729 0 42708 -13381125 65536
+./data/pmCalibData/Unit4/new-calib.log.scpd4:Setting for pointercal:      52910 149 -12021641 157 42950 -13632697 65536
+./data/pmCalibData/Unit4/new-calib.log.scp6:Setting for pointercal:      52910 148 -11968141 156 42709 -13463169 65536
+./data/pmCalibData/Unit4/new-calib.log.scnpd4:Setting for pointercal:      53007 0 -11941044 157 42829 -13504705 65536
+./data/pmCalibData/Unit4/new-calib.log.scnp6:Setting for pointercal:      53007 149 -11992992 157 42950 -13589661 65536
+./data/pmCalibData/Unit4/new-calib.log.scp3:Setting for pointercal:      52910 149 -11968435 157 42829 -13547615 65536
+./data/pmCalibData/Unit4/new-calib.log.factory:Setting for pointercal:      52713 -296 -11659075 469 42826 -13666581 65536
+./data/pmCalibData/Unit4/new-calib.log.scnp2:Setting for pointercal:      53006 -149 -11889176 236 42828 -13566985 65536
+./data/pmCalibData/Unit4/new-calib.log.scnpd2:Setting for pointercal:      53007 0 -11941044 157 42829 -13504705 65536
+./data/pmCalibData/Unit4/new-calib.log.scp4:Setting for pointercal:      52909 0 -11916729 157 42829 -13547462 65536
+./data/pmCalibData/GPUnits/FW1.9.8-2221(preFEP)/new-calib-#2.log:Setting for pointercal:      49609 128 -10242023 -268 38440 -10949431 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/pointercal.orig:49438 -130 -9919616 -341 39150 -11359450 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/pointercal.pm2:49523 0 -10130744 -135 38842 -11266682 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/pointercal.pm1:49523 0 -10130744 -67 38842 -11282613 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run26:49523 129 -10222630 -203 38943 -11283601 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run11:Setting for pointercal:      49523 0 -10130744 -67 38944 -11315923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run17:49523 0 -10130744 -68 39046 -11388454 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run2:49437 0 -10110469 -203 38944 -11284062 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run21:49523 129 -10173107 -203 38943 -11283804 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run6:Setting for pointercal:      49437 -129 -10018635 -67 38944 -11316076 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run25:49524 -129 -10088491 -203 38843 -11250926 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run23:Setting for pointercal:      49610 0 -10151091 -68 39046 -11388426 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run30:49610 0 -10151091 -136 38944 -11299895 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run13:49523 0 -10130744 -203 38944 -11322923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run27:Setting for pointercal:      49438 -129 -10018740 -203 38944 -11284440 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run13:Setting for pointercal:      49523 0 -10130744 -203 38944 -11322923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run21:Setting for pointercal:      49523 129 -10173107 -203 38943 -11283804 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run15:Setting for pointercal:      49524 -129 -10088086 -136 39046 -11372557 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run19:49523 0 -10130744 -67 38944 -11354867 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run3:Setting for pointercal:      49523 0 -10130744 -135 38944 -11299951 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run20:Setting for pointercal:      49523 0 -10130744 -67 38944 -11315923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run18:Setting for pointercal:      49609 129 -10243191 -136 38943 -11299642 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run29:Setting for pointercal:      49610 0 -10151091 -68 38944 -11315895 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run24:49523 129 -10173455 -68 39046 -11388395 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run25:Setting for pointercal:      49524 -129 -10088491 -203 38843 -11250926 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run11:49523 0 -10130744 -67 38944 -11315923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run14:Setting for pointercal:      49524 -129 -10088198 -135 38944 -11339012 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run28:Setting for pointercal:      49437 -129 -10018635 -67 38944 -11316076 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run9:49523 0 -10130744 0 39046 -11404468 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run10:Setting for pointercal:      49523 0 -10130744 -135 38944 -11299951 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run10:49523 0 -10130744 -135 38944 -11299951 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run26:Setting for pointercal:      49523 129 -10222630 -203 38943 -11283601 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run1:49523 0 -10130744 -135 38944 -11299951 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run22:49610 0 -10151091 -204 38944 -11283895 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run18:49609 129 -10243191 -136 38943 -11299642 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run8:Setting for pointercal:      49523 0 -10130744 -136 39046 -11372440 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run4:Setting for pointercal:      49523 0 -10130744 -68 39046 -11388454 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run14:49524 -129 -10088198 -135 38944 -11339012 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run4:49523 0 -10130744 -68 39046 -11388454 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run12:Setting for pointercal:      49523 0 -10130744 -67 38944 -11315923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run20:49523 0 -10130744 -67 38944 -11315923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run12:49523 0 -10130744 -67 38944 -11315923 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run8:49523 0 -10130744 -136 39046 -11372440 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run27:49438 -129 -10018740 -203 38944 -11284440 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run1:Setting for pointercal:      49523 0 -10130744 -135 38944 -11299951 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run24:Setting for pointercal:      49523 129 -10173455 -68 39046 -11388395 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run30:Setting for pointercal:      49610 0 -10151091 -136 38944 -11299895 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run3:49523 0 -10130744 -135 38944 -11299951 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run7:49437 -129 -10018688 -135 38944 -11300258 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run29:49610 0 -10151091 -68 38944 -11315895 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run5:Setting for pointercal:      49437 -129 -10018688 -135 38944 -11300258 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run16:49609 130 -10243432 -136 39046 -11372130 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run19:Setting for pointercal:      49523 0 -10130744 -67 38944 -11354867 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run22:Setting for pointercal:      49610 0 -10151091 -204 38944 -11283895 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run17:Setting for pointercal:      49523 0 -10130744 -68 39046 -11388454 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run28:49437 -129 -10018635 -67 38944 -11316076 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run7:Setting for pointercal:      49437 -129 -10018688 -135 38944 -11300258 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run23:49610 0 -10151091 -68 39046 -11388426 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run16:Setting for pointercal:      49609 130 -10243432 -136 39046 -11372130 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run5:49437 -129 -10018688 -135 38944 -11300258 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run15:49524 -129 -10088086 -136 39046 -11372557 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/pointercal.run6:49437 -129 -10018635 -67 38944 -11316076 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run9:Setting for pointercal:      49523 0 -10130744 0 39046 -11404468 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_26_30runs/new-calib.log.run2:Setting for pointercal:      49437 0 -10110469 -203 38944 -11284062 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_1020/new-calib.log:Setting for pointercal:      49437 0 -10061031 -203 38944 -11284266 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib-3.9/110425_1020/pointercal:49437 0 -10061031 -203 38944 -11284266 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib.log.pm1:Setting for pointercal:      49523 0 -10130744 -67 38842 -11282613 65536
+./data/pmCalibData/GPUnits/newGP_Lcd2/new-calib.log.pm2:Setting for pointercal:      49523 0 -10130744 -135 38842 -11266682 65536
+./data/pmCalibData/GPUnits/newGP_Lcd1/new-calib-3.9/110425_1455/new-calib.log:Setting for pointercal:      48841 -255 -9643334 67 38943 -11191421 65536
+./data/pmCalibData/GPUnits/newGP_Lcd1/new-calib-3.9/110425_1455/pointercal:48841 -255 -9643334 67 38943 -11191421 65536
+./data/pmCalibData/GPUnits/FW1.9.2-1892(EP)/new-calib-#1.log:Setting for pointercal:      50237 -261 -10360618 -137 39595 -11406710 65536
+./data/pmCalibData/GPUnits/FW1.9.2-1892(EP)/new-calib-#2.log:Setting for pointercal:      50236 0 -10494893 -68 39594 -11620525 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scp5:Setting for pointercal:      53598 303 -12460984 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scpd1:Setting for pointercal:      53598 151 -12409128 80 43072 -13526478 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib-3.8/new-calib.log:Setting for pointercal:      52745 150 -12047588 79 42505 -13242659 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib-3.8/pointercal:52745 150 -12047588 79 42505 -13242659 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnp4:Setting for pointercal:      53598 152 -12409349 160 43194 -13589182 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnp5:Setting for pointercal:      53598 303 -12460984 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scpd3:Setting for pointercal:      53598 152 -12409205 0 43194 -13548078 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/putty.log:setcal: Using USERCAL in /flags/pointercal 53498 151 -12383081 -79 42949 -13357833 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/putty.log:Emerald Base: setcal: Using USERCAL in /flags/pointercal 53498 151 -12383081 -79 42949 -13357833 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scp2:Setting for pointercal:      53699 305 -12541528 160 43195 -13632772 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnp1:Setting for pointercal:      54004 773 -12944801 244 43568 -13871113 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnpd1:Setting for pointercal:      53598 152 -12409052 0 43194 -13504884 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scp1:Setting for pointercal:      53698 305 -12541076 80 43194 -13568827 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scpd2:Setting for pointercal:      53598 151 -12409056 0 43071 -13505985 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnpd5:Setting for pointercal:      4 0 1309511 2 -1 1310720 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib-3.9/110425_1145/new-calib.log:Setting for pointercal:      52647 149 -11969126 0 42263 -13054510 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib-3.9/110425_1145/pointercal:52647 149 -11969126 0 42263 -13054510 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scpd5:Setting for pointercal:      53698 152 -12488827 80 43317 -13654458 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnpd3:Setting for pointercal:      53598 151 -12408904 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scpd6:Setting for pointercal:      53698 304 -12540632 0 43071 -13505985 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnp3:Setting for pointercal:      53497 151 -12383534 -240 43193 -13486539 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnpd6:Setting for pointercal:      53498 151 -12383450 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scpd4:Setting for pointercal:      53698 305 -12540929 0 43194 -13548078 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scp6:Setting for pointercal:      53698 305 -12541681 80 43317 -13654537 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnpd4:Setting for pointercal:      53598 151 -12408904 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnp6:Setting for pointercal:      53598 303 -12460984 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scp3:Setting for pointercal:      53698 305 -12541681 80 43317 -13654537 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.factory:Setting for pointercal:      53498 151 -12383081 -79 42949 -13357833 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnp2:Setting for pointercal:      53598 152 -12409277 80 43194 -13568630 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scnpd2:Setting for pointercal:      53598 151 -12408904 0 43071 -13462913 65536
+./data/pmCalibData/Unit1_00001E00010B00000000/new-calib.log.scp4:Setting for pointercal:      53799 307 -12622232 243 43442 -13782837 65536
+./data/madrid-mfg-test/new-calib3524.log:Setting for pointercal:      53899 149 -12592239 78 42234 -13069308 65536
+./data/madrid-mfg-test/new-calib216.log:Setting for pointercal:      53497 285 -12639206 -225 40543 -12010266 65536
+./data/madrid-mfg-test/new-calib.log:Setting for pointercal:      52523 294 -11815378 -155 42588 -13173431 65536
+./data/madrid-mfg-test/new-calib215.log:Setting for pointercal:      53496 284 -12638819 -300 40435 -11955278 65536
+./data/madrid-mfg-test/new-calib3521.log:Setting for pointercal:      52521 443 -11813090 -234 42827 -13192717 65536
+./data/madrid-mfg-test/new-calib3519.log:Setting for pointercal:      53597 288 -12666459 -75 40871 -12198072 65536
+./data/madrid-mfg-test/new-calib217.log:Setting for pointercal:      53497 429 -12686660 -150 40652 -12065417 65536
+./data/madrid-mfg-test/new-calib3522.log:Setting for pointercal:      52617 592 -11993329 -156 42827 -13254503 65536
+./data/madrid-mfg-test/new-calib218.log:Setting for pointercal:      49974 -142 -10134403 150 43440 -13667469 65536
+./data/madrid-mfg-test/new-calib3511.log:Setting for pointercal:      53900 300 -12752192 237 42353 -13235612 65536
+./data/madrid-mfg-test/new-calib221.log:Setting for pointercal:      52620 594 -11995041 0 42950 -13378230 65536
+./data/madrid-mfg-test/new-calib214.log:Setting for pointercal:      54925 147 -13073846 155 40762 -12263044 65536
+./data/madrid-mfg-test/new-calib3528.log:Setting for pointercal:      53999 0 -12567202 0 40762 -12181613 65536
+./data/madrid-mfg-test/new-calib222.log:Setting for pointercal:      52620 444 -11891155 0 42829 -13336852 65536
+./data/madrid-mfg-test/new-calib208.log:Setting for pointercal:      49293 144 -10274445 305 44719 -14367965 65536
+./data/madrid-mfg-test/new-calib3507.log:Setting for pointercal:      53698 0 -12435974 76 41092 -12433879 65536
+./data/madrid-mfg-test/new-calib3509.log:Setting for pointercal:      53899 149 -12646582 236 42234 -13194741 65536
+./data/madrid-mfg-test/new-calib3526.log:Setting for pointercal:      54000 300 -12669047 79 42234 -13027186 65536
+./data/madrid-mfg-test/new-calib3527.log:Setting for pointercal:      54101 145 -12695550 76 40872 -12237736 65536
+./data/madrid-mfg-test/new-calib3515.log:Setting for pointercal:      54304 144 -12693327 -76 40544 -12049419 65536
+./data/madrid-mfg-test/new-calib204.log:Setting for pointercal:      53899 145 -12589987 76 41093 -12434099 65536
+./data/madrid-mfg-test/new-calib3502.log:Setting for pointercal:      55354 904 -13662173 318 41433 -12695387 65536
+./data/madrid-mfg-test/new-calib201.log:Setting for pointercal:      53798 149 -12620179 157 42117 -13091980 65536
+./data/madrid-mfg-test/new-calib3512.log:Setting for pointercal:      54304 448 -13014522 0 41885 -12846500 65536
+./data/madrid-mfg-test/new-calib3505.log:Setting for pointercal:      54098 463 -12859352 -244 43438 -13482062 65536
+./data/madrid-mfg-test/new-calib3508.log:Setting for pointercal:      53798 145 -12564401 153 41204 -12532341 65536
+./data/madrid-mfg-test/new-calib3525.log:Setting for pointercal:      53999 298 -12668042 0 42000 -12885608 65536
+./data/madrid-mfg-test/new-calib3518.log:Setting for pointercal:      53498 143 -12539369 -75 40762 -12162035 65536
+./data/madrid-mfg-test/new-calib3520.log:Setting for pointercal:      53498 143 -12539301 -151 40761 -12142457 65536
+./data/madrid-mfg-test/new-calib3503.log:Setting for pointercal:      53993 618 -12939339 -407 43560 -13481027 65536
+./data/madrid-mfg-test/new-calib3514.log:Setting for pointercal:      54304 598 -13065087 0 41885 -12846500 65536
+./data/madrid-mfg-test/new-calib213.log:Setting for pointercal:      54925 441 -13171475 0 40762 -12222376 65536
+./data/madrid-mfg-test/new-calib3500.log:Setting for pointercal:      55031 446 -13256232 156 41094 -12414714 65536
+./data/madrid-mfg-test/new-calib3501.log:Setting for pointercal:      55137 298 -13289897 235 41094 -12476709 65536
+./data/madrid-mfg-test/new-calib3531.log:Setting for pointercal:      54100 163 -12542002 -86 45934 -14698387 65536
+./data/madrid-mfg-test/new-calib200.log:Setting for pointercal:      53798 149 -12620179 157 42117 -13091980 65536
+./data/madrid-mfg-test/new-calib223.log:Setting for pointercal:      52619 295 -11839747 -77 42708 -13233521 65536
+./data/madrid-mfg-test/new-calib3517.log:Setting for pointercal:      54304 144 -12693397 0 40544 -12069109 65536
+./data/madrid-mfg-test/new-calib3516.log:Setting for pointercal:      54202 0 -12565172 0 40544 -12069109 65536
+./data/madrid-mfg-test/new-calib3532.log:Setting for pointercal:      54101 163 -12596598 86 46074 -14837328 65536
+./data/madrid-mfg-test/new-calib220.log:Setting for pointercal:      49974 -285 -10085285 75 43440 -13650153 65536
+./data/madrid-mfg-test/new-calib3510.log:Setting for pointercal:      53899 298 -12751031 78 42117 -13071824 65536
+./data/madrid-mfg-test/new-calib205.log:Setting for pointercal:      53798 291 -12613242 76 41204 -12512585 65536
+./data/madrid-mfg-test/new-calib3504.log:Setting for pointercal:      53995 617 -12885048 -325 43437 -13460560 65536
+./data/madrid-mfg-test/new-calib202.log:Setting for pointercal:      53798 149 -12620107 78 42117 -13071632 65536
+./data/madrid-mfg-test/new-calib203.log:Setting for pointercal:      53901 439 -12743439 231 41318 -12631925 65536
+./data/madrid-mfg-test/new-calib3513.log:Setting for pointercal:      54303 447 -13013436 -78 41769 -12745087 65536
+./data/madrid-mfg-test/new-calib207.log:Setting for pointercal:      49377 145 -10344015 384 44851 -14477626 65536
+./data/madrid-mfg-test/new-calib3530.log:Setting for pointercal:      53999 163 -12516224 -86 45934 -14744363 65536
+./data/madrid-mfg-test/new-calib3506.log:Setting for pointercal:      54000 291 -12719269 153 41093 -12495369 65536
+./data/madrid-mfg-test/new-calib219.log:Setting for pointercal:      49888 -285 -10015680 75 43440 -13650049 65536
+./data/madrid-mfg-test/new-calib3529.log:Setting for pointercal:      53999 -145 -12519085 76 40871 -12237485 65536
+./data/madrid-mfg-test/new-calib206.log:Setting for pointercal:      49378 291 -10395291 384 44852 -14478024 65536
+./data/madrid-mfg-test/new-calib3523.log:Setting for pointercal:      52521 442 -11864988 -311 42706 -13132232 65536
+./data/gpm824c0-qualify/goworld-new-calib.log:Setting for pointercal:      34534 53 -2118788 281 23536 -3377429 65536
+./data/calib-5/new-calib-0003.log:Setting for pointercal:      -400 -43958 38866736 46215 140 -15816350 65536
+./data/calib-5/new-calib-0001.log:Setting for pointercal:      0 -43890 38529581 49364 -525 -16903155 65536
+./data/calib-5/new-calib-0002.log:Setting for pointercal:      410 -43689 38118715 47661 144 -16589088 65536
+./data/madrid-fep/new-calib-mx/307-15061E00010B060200FD/new-calib.log:Setting for pointercal:      48925 -129 -9997110 68 39460 -11359462 65536
+./data/madrid-fep/new-calib-mx/307-15061E00010B060200FD/pointercal:48925 -129 -9997110 68 39460 -11359462 65536
+./data/madrid-fep/new-calib-mx/307-15061E00010B060200FD/new-calib-mx1.log:Setting for pointercal:      49095 -130 -10036918 68 39460 -11359517 65536
+./data/madrid-fep/new-calib-mx/307-15061E00010B060200FD/new-calib-mx2.log:Setting for pointercal:      49179 -130 -10056629 137 39565 -11449280 65536
+./data/madrid-fep/new-calib-mx/307-15061E00010B060200FD/new-calib-mx3.log:Setting for pointercal:      49095 -389 -9953309 0 39356 -11270284 65536
+./data/madrid-fep/new-calib-mx/201-13171E00010B06010197/new-calib-mx1.log:Setting for pointercal:      50136 0 -10374950 0 43626 -13783892 65536
+./data/madrid-fep/new-calib-mx/201-13171E00010B06010197/new-calib-mx2.log:Setting for pointercal:      49871 -292 -10110062 76 43626 -13845379 65536
+./data/madrid-fep/new-calib-mx/201-13171E00010B06010197/new-calib-mx3.log:Setting for pointercal:      49959 -436 -10080691 0 43372 -13695113 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020053/new-calib.log:Setting for pointercal:      49095 128 -10022948 -67 38943 -11277126 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020053/pointercal:49095 128 -10022948 -67 38943 -11277126 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020053/new-calib-mx1.log:Setting for pointercal:      49351 129 -10132438 -67 39046 -11271312 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020053/new-calib-mx2.log:Setting for pointercal:      49266 -258 -9936660 -67 39046 -11271582 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020053/new-calib-mx3.log:Setting for pointercal:      49522 389 -10307067 -136 39045 -11254816 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020304/pointercal:48925 137 -9792333 -71 41671 -12751545 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020304/new-calib-mx1.log:Setting for pointercal:      49870 560 -10554699 -73 41787 -12915656 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020304/new-calib-mx2.log:Setting for pointercal:      49783 697 -10530430 -73 41670 -12833803 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020304/new-calib-mx3.log:Setting for pointercal:      49872 -414 -10169903 -72 41210 -12717358 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020058/new-calib.log:Setting for pointercal:      49436 129 -10250855 -203 38943 -11049819 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020058/pointercal:49436 129 -10250855 -203 38943 -11049819 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020058/new-calib-mx1.log:Setting for pointercal:      49784 0 -10291566 -412 39149 -10988264 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020058/new-calib-mx2.log:Setting for pointercal:      49696 130 -10362362 -274 39148 -11059579 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020058/new-calib-mx4.log:Setting for pointercal:      49783 131 -10433155 -206 39148 -11114810 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B06020058/new-calib-mx3.log:Setting for pointercal:      49782 262 -10524584 -274 39147 -11058683 65536
+./data/madrid-fep/new-calib-mx/204-13101E00010B0601006A/new-calib-mx1.log:Setting for pointercal:      50314 288 -10717076 75 42627 -13154856 65536
+./data/madrid-fep/new-calib-mx/204-13101E00010B0601006A/new-calib-mx2.log:Setting for pointercal:      50224 142 -10645414 -149 42262 -12933784 65536
+./data/madrid-fep/new-calib-mx/204-13101E00010B0601006A/new-calib-mx3.log:Setting for pointercal:      50582 143 -10833229 -150 42262 -12933225 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020308/pointercal:48096 132 -9551388 -138 40869 -12340406 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020308/new-calib-mx1.log:Setting for pointercal:      48841 0 -9970495 0 40869 -12413130 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020308/new-calib-mx2.log:Setting for pointercal:      49095 271 -10220483 0 41095 -12530772 65536
+./data/madrid-fep/new-calib-mx/308-150A1E00010B06020308/new-calib-mx3.log:Setting for pointercal:      49010 270 -10151106 -70 41095 -12513889 65536
+./data/madrid-fep/new-calib-mx/gp1-131E1E00010B060102C5/new-calib-mx1.log:Setting for pointercal:      49609 263 -10236144 -137 39459 -11310804 65536
+./data/madrid-fep/new-calib-mx/gp1-131E1E00010B060102C5/new-calib-mx2.log:Setting for pointercal:      49610 -131 -10009156 -68 39460 -11366910 65536
+./data/madrid-fep/new-calib-mx/gp1-131E1E00010B060102C5/new-calib-mx3.log:Setting for pointercal:      49871 0 -10262430 -69 39565 -11361057 65536
+./data/madrid-fep/new-calib-mx/202-130F1E00010B0601002D/new-calib-mx1.log:Setting for pointercal:      52647 151 -11759588 -159 42871 -13351920 65536
+./data/madrid-fep/new-calib-mx/202-130F1E00010B0601002D/new-calib-mx2.log:Setting for pointercal:      52645 456 -11970039 -159 42994 -13394038 65536
+./data/madrid-fep/new-calib-mx/202-130F1E00010B0601002D/new-calib-mx3.log:Setting for pointercal:      52646 302 -11863984 -158 42748 -13266346 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B0602005B/new-calib.log:Setting for pointercal:      49094 -256 -9798489 134 38841 -11329494 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B0602005B/pointercal:49094 -256 -9798489 134 38841 -11329494 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B0602005B/new-calib-mx1.log:Setting for pointercal:      49265 128 -10013009 -201 38740 -11063216 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B0602005B/new-calib-mx2.log:Setting for pointercal:      49437 258 -10096080 67 38944 -11269930 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B0602005B/new-calib-Smx.log:Setting for pointercal:      49010 -382 -9640266 0 38741 -11187882 65536
+./data/madrid-fep/new-calib-mx/306-15051E00010B0602005B/new-calib-mx3.log:Setting for pointercal:      49095 -255 -9701589 -67 38741 -11133838 65536
+./data/madrid-fep/new-calib-mx/202-13181E00010B06010216/new-calib-mx1.log:Setting for pointercal:      53650 782 -12554520 410 43378 -13845947 65536
+./data/madrid-fep/new-calib-mx/202-13181E00010B06010216/new-calib-mx2.log:Setting for pointercal:      53142 462 -12098498 161 43122 -13605592 65536
+./data/madrid-fep/new-calib-mx/202-13181E00010B06010216/new-calib-mx3.log:Setting for pointercal:      53543 1089 -12740752 81 43247 -13672824 65536
+./data/madrid-fep/new-calib-mx/204-13101E00010B06010068/new-calib-mx1.log:Setting for pointercal:      49265 0 -10070129 -76 43883 -13943583 65536
+./data/madrid-fep/new-calib-mx/204-13101E00010B06010068/new-calib-mx2.log:Setting for pointercal:      49095 291 -10132750 76 44144 -14115154 65536
+./data/madrid-fep/new-calib-mx/204-13101E00010B06010068/new-calib-mx3.log:Setting for pointercal:      49528 730 -10638188 306 43888 -14168269 65536
+./data/madrid-fep/new-calib-mx/204-13161E00010B0601016D/new-calib-mx1.log:Setting for pointercal:      50048 142 -10402859 298 42264 -13083200 65536
+./data/madrid-fep/new-calib-mx/204-13161E00010B0601016D/new-calib-mx2.log:Setting for pointercal:      50226 572 -10641872 150 42385 -13047334 65536
+./data/madrid-fep/new-calib-mx/204-13161E00010B0601016D/new-calib-mx3.log:Setting for pointercal:      50140 576 -10623735 302 42752 -13294234 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib.log:Setting for pointercal:      49095 -389 -9953309 0 39356 -11270284 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/pointercal:49095 -389 -9953309 0 39356 -11270284 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib-S5mx3.log:Setting for pointercal:      49010 -129 -10017274 0 39356 -11270284 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib-Smx2.log:Setting for pointercal:      49180 130 -10190561 0 39460 -11304003 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib-Smx3.log:Setting for pointercal:      48926 0 -9990285 -67 39356 -11254338 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib-S5mx1.log:Setting for pointercal:      48926 -388 -9865019 -67 39356 -11254512 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib-S5mx2.log:Setting for pointercal:      49180 0 -10197606 0 39460 -11304003 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B060200FD/new-calib-Smx1.log:Setting for pointercal:      49180 0 -10148425 0 39356 -11270284 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib.log:Setting for pointercal:      49093 277 -10322352 -218 42023 -13088151 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/pointercal:49093 277 -10322352 -218 42023 -13088151 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib-S5mx3.log:Setting for pointercal:      49351 0 -10238318 -216 41439 -12637517 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib-Smx2.log:Setting for pointercal:      49186 -951 -9875791 -284 41101 -12464832 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib-Smx3.log:Setting for pointercal:      49272 -410 -10177162 -645 41329 -12579230 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib-S5mx1.log:Setting for pointercal:      49873 1133 -11004207 74 42264 -13199934 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib-S5mx2.log:Setting for pointercal:      49607 840 -10736439 -146 42022 -12936346 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020303/new-calib-Smx1.log:Setting for pointercal:      49352 -412 -10098025 -144 41440 -12655079 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib.log:Setting for pointercal:      49959 -436 -10080691 0 43372 -13695113 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/pointercal:49959 -436 -10080691 0 43372 -13695113 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib-S5mx3.log:Setting for pointercal:      50224 -292 -10343877 76 43371 -13713226 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib-Smx2.log:Setting for pointercal:      50047 -437 -10150559 76 43371 -13756303 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib-Smx3.log:Setting for pointercal:      49959 0 -10383071 0 43499 -13826371 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib-S5mx1.log:Setting for pointercal:      50313 0 -10517714 308 43499 -13900103 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib-S5mx2.log:Setting for pointercal:      50681 598 -11020673 627 43891 -14292016 65536
+./data/madrid-fep/new-calib-Smx/201-13171E00010B06010197/new-calib-Smx1.log:Setting for pointercal:      50313 294 -10721912 0 43499 -13869870 65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:51037,0,-10792812,-156,43626,-13658819,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:51128,149,-10866527,-393,43625,-13557895,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50946,0,-10719783,-236,43883,-13773109,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49959,-436,-10080691,0,43372,-13695113,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50313,0,-10517714,308,43499,-13900103,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50681,598,-11020673,627,43891,-14292016,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50224,-292,-10343877,76,43371,-13713226,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50313,294,-10721912,0,43499,-13869870,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50047,-437,-10150559,76,43371,-13756303,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49959,0,-10383071,0,43499,-13826371,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:53041,153,-11912496,80,42996,-13541205,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:53541,775,-12468601,0,43120,-13521121,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:53440,619,-12442591,0,43120,-13564242,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:53140,308,-12150734,0,43120,-13564242,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:53240,461,-12229134,0,42996,-13477876,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:53041,0,-11859076,161,43120,-13604864,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,144,-10269221,0,43754,-14047448,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49612,733,-10710646,153,44016,-14265029,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,146,-10269945,153,44144,-14266121,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49616,736,-10712374,385,44150,-14368671,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-288,-9928008,75,43754,-14021326,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49352,292,-10392013,230,44145,-14285012,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50141,720,-10724985,302,42753,-13380342,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50228,434,-10646981,303,42874,-13422586,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50135,-142,-10325981,149,42383,-13088775,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50047,0,-10353994,0,42263,-13012247,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50315,286,-10666895,150,42384,-13174560,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50136,285,-10573331,74,42384,-13113854,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-129,-9929021,67,39148,-11414902,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49610,130,-10243559,68,39252,-11410007,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49524,-260,-9996354,-68,39149,-11304956,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-130,-9969182,0,39149,-11320826,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10061031,0,39046,-11287328,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-9991561,68,39149,-11336690,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49697,130,-10214328,68,39149,-11376146,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9745655,-69,40098,-11815024,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,132,-9995474,-138,40098,-11798417,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-132,-9858751,-138,40099,-11798803,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,267,-10199189,0,40207,-11907005,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9882783,-69,40207,-11890867,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9863111,-69,40207,-11890894,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,132,-10015444,-139,40098,-11798361,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,128,-10063136,-202,38943,-11323201,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,257,-10036465,-134,38943,-11378098,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,129,-10063429,-135,39046,-11411672,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-383,-9688102,-134,38843,-11306737,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9951704,-134,38944,-11378330,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,387,-10128904,-67,39045,-11466549,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,130,-10201767,-204,39148,-11154917,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49608,130,-10341502,-410,39148,-11027000,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49608,261,-10333582,-342,39147,-11043402,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49608,130,-10341612,-411,39251,-11059899,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49519,391,-10454074,-410,39249,-11098218,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49522,131,-10321415,-274,39355,-11204663,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,130,-10300622,-342,39355,-11149046,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,128,-10221324,-134,38640,-10891292,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-256,-9869583,-67,38741,-10978643,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-256,-9938704,-134,38742,-10962922,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49609,131,-10342149,-206,39355,-11220982,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49782,262,-10474691,-343,39147,-11042428,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49696,130,-10412058,-274,39148,-11059304,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49782,262,-10475064,-274,39147,-11098106,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49782,262,-10425391,-206,39148,-11114842,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49609,130,-10292297,-205,39251,-11148526,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49695,130,-10411893,-479,39147,-11009974,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,128,-10013298,-134,38842,-11150477,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9902523,-134,38842,-11189622,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,128,-10033515,-67,38842,-11205061,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9853343,0,38842,-11220858,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-9971598,0,38741,-11149141,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-128,-9723264,0,38944,-11254006,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,129,-10033730,67,38944,-11269845,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-389,-9953309,0,39356,-11270284,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-388,-9865019,-67,39356,-11254512,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10197606,0,39460,-11304003,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-129,-10017274,0,39356,-11270284,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10148425,0,39356,-11270284,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,130,-10190561,0,39460,-11304003,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9990285,-67,39356,-11254338,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10159906,-66,38243,-10933337,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49610,-127,-10159793,-200,38243,-10825403,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49783,127,-10382347,-133,38144,-10809033,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49871,256,-10494758,-67,38243,-10894642,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49524,-254,-10098234,-133,38244,-10879536,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-254,-10077911,-66,38243,-10895204,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49611,-255,-10118524,-133,38244,-10879481,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-251,-9733521,-65,38145,-10787743,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-10020864,-132,38145,-10733715,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,127,-10151160,-133,38243,-10802906,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-10040913,-133,38243,-10764960,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-10020864,-132,38243,-10765014,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-126,-9931276,-132,38145,-10733955,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49096,-126,-9891694,-264,38244,-10734638,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-256,-9682512,-201,38945,-11091103,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9814100,-269,39046,-11107877,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49012,-385,-9640896,-202,39047,-11124170,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49263,259,-10005663,-271,39147,-11139845,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-128,-9723635,-270,39149,-11141402,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,129,-10033481,-204,39148,-11194763,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-9942210,-136,39252,-11244321,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,-129,-9861036,-270,39047,-11107619,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,129,-10013283,-271,39045,-11145827,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-129,-9870061,-271,39356,-11325236,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49353,-261,-9956471,-273,39357,-11285400,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49521,262,-10315002,-275,39459,-11356626,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49608,263,-10385389,-206,39459,-11372772,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49434,392,-10286771,-274,39354,-11283568,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-130,-9978716,-273,39356,-11285277,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,130,-10181890,-343,39459,-11301651,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49093,277,-10322352,-218,42023,-13088151,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49873,1133,-11004207,74,42264,-13199934,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49607,840,-10736439,-146,42022,-12936346,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-10238318,-216,41439,-12637517,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49352,-412,-10098025,-144,41440,-12655079,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49186,-951,-9875791,-284,41101,-12464832,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49272,-410,-10177162,-645,41329,-12579230,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49872,-414,-10169903,-72,41210,-12717358,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49779,697,-10528846,-292,41667,-12739109,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50227,1722,-11351035,75,42507,-13454139,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50233,1574,-11248780,225,42390,-13407269,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50316,1433,-11270202,75,42385,-13369197,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50319,1576,-11321010,150,42388,-13388433,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:50325,1581,-11375924,301,42514,-13512068,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-10128259,71,41209,-12668794,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49443,686,-10645451,360,41329,-12903505,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,136,-10363769,286,41210,-12844483,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49443,821,-10640898,287,41214,-12763674,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48929,679,-10322065,213,41327,-12784050,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,-403,-9920683,141,40868,-12568658,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49268,272,-10312387,357,41211,-12820140,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49879,1397,-11195108,219,41677,-12990783,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,1525,-11099855,0,41671,-12851481,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49525,1252,-10807091,72,41790,-12867976,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49514,-1291,-9980081,300,43112,-13504703,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,410,-10287987,-71,41438,-12630310,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49971,1689,-11368442,295,41916,-13091876,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-135,-9964110,0,41095,-12530772,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,127,-10070795,-267,38640,-10898811,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9931878,0,39252,-11550763,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-255,-9585271,-67,38842,-10972619,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,-131,-9948420,137,39670,-11562696,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9980974,-67,39252,-11417114,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-10030069,-66,38441,-10959026,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-126,-9891438,-66,38342,-10812226,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-9962157,-135,38842,-11150617,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-255,-9857814,0,38842,-11259700,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-256,-9916955,134,38841,-11252133,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,127,-10090733,-267,38640,-10860062,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,-126,-9617427,0,38540,-11006822,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49438,-254,-9978375,-133,38244,-10994589,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-124,-9872290,-261,37854,-10648662,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,255,-10242623,-200,38439,-11003785,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10279315,-265,38047,-10632227,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,259,-10135708,0,39252,-11511510,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,-128,-9959584,-202,38944,-11051019,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,127,-10122110,-133,38243,-10841228,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-258,-9818243,-67,39149,-11305201,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,128,-10043422,67,38944,-11425635,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,128,-10022948,-67,38943,-11277126,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,126,-10090641,-198,38144,-10832373,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,262,-10185232,137,39671,-11563358,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,128,-10072206,0,39046,-11326375,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,129,-10250855,-203,38943,-11049819,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9941359,0,38944,-11254006,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-126,-9802464,-199,38541,-11037821,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-256,-9798489,134,38841,-11329494,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-10139615,137,39565,-11726471,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49610,-129,-10208118,-67,38741,-11210629,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-256,-9847839,134,38841,-11290786,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,127,-9884808,0,38640,-11116437,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9951704,-65,37662,-10632649,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9814100,67,39252,-11448666,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10099245,67,38944,-11308879,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10099245,137,39671,-11682131,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-380,-9651207,-66,38641,-11139883,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9843507,134,39046,-11357612,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9912121,0,38842,-11143173,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-10030069,-266,38441,-10835256,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-128,-9918803,-135,39149,-11406746,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10258781,-205,39252,-11462684,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,-258,-9758461,67,39252,-11487841,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-258,-9847899,0,39149,-11281677,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49524,-128,-10138696,-134,38641,-11046080,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49610,257,-10235106,0,38640,-11155078,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,-127,-9801996,133,38740,-11180021,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,127,-10139986,-66,38440,-10881995,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,125,-10140249,0,38047,-10961775,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-127,-9910065,133,38540,-11153457,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-10139615,-135,38944,-11260982,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48673,124,-9921933,-261,38144,-10626963,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9892433,67,39046,-11381107,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,-130,-10087677,-68,39252,-11495472,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,128,-9895204,0,38842,-11220858,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49696,-256,-10137076,67,38341,-11150097,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-130,-9958611,-137,39565,-11345494,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9804500,-333,38842,-11026912,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49524,-129,-9989519,-135,38842,-11228227,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48756,126,-9748146,-331,38639,-11117086,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-128,-10118282,0,38540,-11083903,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,130,-9963878,-136,39670,-11419250,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49696,-127,-10279462,133,38144,-10872687,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-126,-9870740,-66,38342,-11118990,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,129,-9904853,-203,39251,-11228638,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-255,-9750892,134,38740,-11102398,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-127,-9989268,-200,38541,-10921438,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-9823970,-67,38944,-11277399,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,255,-10112343,-66,38640,-11023333,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,-254,-9967413,-133,38441,-11058889,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,131,-10142577,68,39671,-11665965,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,130,-10182476,68,39460,-11478102,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-130,-9840199,0,39460,-11461846,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,131,-10203289,137,39461,-11612797,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-249,-10030071,0,37567,-10654895,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-390,-9784590,0,39460,-11461846,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-263,-9865367,69,39883,-11616207,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,128,-10180786,-134,38640,-10968684,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9794581,-132,38540,-10860500,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-9991561,-135,38842,-11189379,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49522,258,-10214061,-135,38841,-11072242,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10180268,-338,38741,-11185583,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10081221,-134,38540,-10975343,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-128,-9938733,135,39046,-11357874,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-129,-9880041,-135,39149,-11328555,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9931878,-66,38640,-11023579,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9882783,-65,37854,-10959167,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49611,-259,-10265332,-136,38944,-11182749,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-9962157,-206,39565,-11408624,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9892433,-66,38640,-11139555,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10081221,0,38842,-10987803,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10011594,-66,38047,-10794140,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49525,-127,-9991267,-400,38244,-10703108,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,-385,-9935522,134,38639,-11147600,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10081221,-198,37854,-10663006,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-384,-9570315,0,38944,-11370839,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-128,-9850382,-67,39149,-11344306,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-373,-9694085,-65,37758,-10701395,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,129,-9993007,-338,39045,-11052022,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,125,-9795827,-197,38242,-10788631,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-10188967,-68,39460,-11603424,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49008,257,-9896488,-270,39147,-11062149,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,-129,-9998237,-68,39149,-11422400,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-129,-9909453,-68,39252,-11338708,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,129,-9983948,-272,39148,-11139965,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,129,-10112322,-68,39252,-11299175,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-10070129,0,39149,-11320826,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,128,-9983047,-202,39148,-11234120,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-254,-9692654,-133,38742,-11118560,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9912121,-67,39149,-11383370,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10061031,-68,39252,-11456256,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48508,-133,-9749581,-209,40870,-12487102,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49270,555,-10558416,363,41910,-13104909,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48509,-397,-9610822,-138,40647,-12427509,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48014,-533,-9255916,69,41323,-12830692,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-688,-9859955,72,41670,-13034859,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-271,-10084207,71,41095,-12670847,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9931878,216,41671,-12985218,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48759,138,-9901796,435,42264,-13367779,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-138,-10112351,72,41671,-12868544,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48096,-264,-9464725,69,40982,-12508126,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49447,552,-10503887,724,41563,-13278330,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-10128259,-146,42383,-13230587,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-135,-10052263,142,41095,-12769733,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49697,0,-10171508,-203,38741,-11023825,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-127,-9830907,-66,38842,-11321866,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,128,-10091330,-269,38841,-11040826,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-257,-9917046,-67,38944,-11238328,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,0,-9736423,-200,39046,-11162822,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-126,-9783150,-66,38540,-10991487,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9843507,-267,38842,-11158710,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,-129,-9997110,68,39460,-11359462,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9951704,-200,38640,-11146908,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9980974,-66,38540,-11029759,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-125,-9783289,0,38243,-10949060,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10159906,-66,38243,-10933337,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-127,-9753037,-133,38842,-11190031,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-251,-9733521,-65,38145,-10787743,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,-127,-9910806,-333,38541,-10929283,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,-123,-9745612,-194,37854,-10626495,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48591,-127,-9675663,-67,39149,-11266249,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-251,-9840795,0,38243,-10872574,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,-268,-10097684,70,40535,-12316452,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-124,-9735030,0,38047,-10771537,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-127,-9930297,-66,38540,-11029828,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-251,-9801561,-65,38145,-10863942,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-129,-9722381,67,39356,-11521997,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-128,-9860739,67,38842,-11197576,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,-256,-9867674,-134,38843,-11267403,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9804162,-134,38944,-11222959,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-255,-9595164,-66,38842,-11089133,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9892433,-66,38842,-11127569,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49011,-129,-9870061,-271,39356,-11325236,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10000884,-264,38145,-10855410,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49096,-512,-9765953,-67,38843,-11127742,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-126,-9940283,66,38243,-10888001,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-132,-9839537,-208,40099,-11662527,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-128,-9841174,-67,38842,-11166482,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48756,-534,-9573861,70,40757,-12431845,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49182,275,-10195305,288,41672,-13086907,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-134,-10123099,70,40535,-12316488,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,409,-9964191,-71,41554,-12794757,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49097,274,-10175064,287,41556,-13087760,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,-135,-10063878,356,40868,-12578197,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,-544,-9666398,0,41554,-12811555,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48507,-131,-9604991,68,40315,-12200865,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,-271,-9937194,71,41095,-12629538,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48430,-656,-9457689,-344,40320,-12147502,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,139,-9785125,219,42627,-13443142,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9609469,0,38842,-11259700,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,-135,-10163046,142,40757,-12490212,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48421,-946,-9302102,141,41552,-12967878,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,-135,-9846190,213,41209,-12618941,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49007,-553,-9817314,217,42022,-13191021,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,-409,-9760906,71,41670,-12909699,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48673,-271,-9643047,71,41554,-12827884,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49964,428,-10883548,523,42509,-13522293,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-10039211,145,42143,-13216314,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48591,136,-9812550,143,41788,-12883181,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,126,-9796674,-132,38640,-11047011,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-125,-9821872,0,38047,-11075919,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,128,-9904666,-135,39148,-11171891,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-125,-9734618,-197,38342,-10897085,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48425,0,-9582011,0,41209,-12610687,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-10068179,0,42263,-13265826,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48761,-675,-9673207,-212,41212,-12520768,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,259,-10253610,-204,39251,-11384201,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-127,-9930088,-268,38641,-11092781,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48590,-269,-9722299,0,41324,-12649722,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-257,-9769557,67,38943,-11230538,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,-256,-9867365,67,38842,-11314112,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,126,-9903842,-199,38540,-10921786,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,128,-9786671,-269,39045,-11029935,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9755743,-133,38741,-11079646,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-127,-9881103,-134,38641,-11008141,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,-252,-9770295,66,38540,-11214841,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-127,-9929031,0,38741,-11187882,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,126,-9973184,-66,38440,-11074426,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,125,-9982310,-65,38243,-11010063,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-10119395,-201,38640,-10953019,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,127,-9875342,-201,38740,-11180004,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10011594,-66,38243,-10857050,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,257,-10055875,-67,38842,-11282715,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-127,-9753064,0,38842,-11182015,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-387,-9483521,-67,39461,-11367641,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9980974,-199,38441,-10812644,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,264,-10176421,-69,39883,-11543918,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9951704,-198,38243,-10711514,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,128,-9836889,-67,39148,-11422623,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9892433,-135,39252,-11362216,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,-125,-9901875,-131,37854,-10716797,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9931878,-67,39046,-11193496,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10130744,-204,39046,-11239287,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,126,-9904164,0,38341,-11019337,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-9922332,-135,38944,-11105802,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9863111,-203,39356,-11341044,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10000884,-67,39046,-11232447,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-259,-9936957,-67,39149,-11226739,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9980974,-69,39883,-11743612,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49350,127,-10081459,-200,38341,-10780653,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-9971598,-412,39565,-11281438,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-126,-9822328,-133,38540,-10937506,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9882783,-199,38341,-11011510,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9833688,-136,39356,-11238827,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49433,-679,-9926838,213,40867,-12585144,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49349,-1096,-9714759,71,41322,-12707388,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,405,-10712676,-70,40646,-12197977,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48673,-674,-9456252,70,41208,-12709028,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48511,-1206,-9139708,-140,41099,-12623222,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48929,415,-10184351,363,42146,-13268836,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-539,-9807196,-70,40983,-12475940,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48589,-800,-9442937,69,40868,-12551511,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-128,-9899547,-67,39046,-11271633,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,0,-10407093,0,41671,-13018166,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48843,137,-10019122,434,42025,-13369201,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48095,-267,-9461637,210,41438,-12985663,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49438,140,-10356910,293,42144,-13210354,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49783,-277,-10394347,72,41438,-12954989,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48837,-811,-9495745,212,41206,-12741043,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49786,282,-10540402,296,42264,-13422126,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-10039211,-210,40646,-12247157,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49522,-669,-10052171,70,40206,-12204834,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49270,411,-10460357,431,41442,-13042468,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48756,-826,-9616583,72,42023,-13073133,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,-268,-9869770,211,40756,-12424194,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-693,-9584617,0,42263,-13139037,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48675,-683,-9695539,-71,41789,-12958710,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48427,-538,-9592328,-211,41326,-12642554,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48015,-131,-9492048,-68,40646,-12240372,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,128,-10132395,134,38741,-11258405,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49524,-130,-9989466,-137,39252,-11244190,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-828,-9672867,0,41906,-13141537,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48923,-534,-9905155,210,40644,-12467754,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10000884,-340,39252,-11117898,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,255,-10152793,0,38640,-11039156,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,129,-10063110,0,39252,-11315248,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-129,-9929021,67,39148,-11414902,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9951704,-67,38842,-11282858,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,129,-9914857,-135,39046,-11177802,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,0,-9833772,-130,38145,-10848653,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,127,-9952885,-267,38740,-10931592,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-128,-9860970,-67,38842,-11127612,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-9951704,-67,39149,-11344166,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9794581,-338,39252,-11237082,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,380,-10045059,-133,38340,-10911435,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-128,-10019138,67,38741,-11164877,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-127,-9939653,-134,38741,-11079144,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49181,-125,-10058897,-197,38048,-10763061,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,129,-9885487,-135,39252,-11322982,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,128,-9954769,67,38944,-11503401,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-9991561,-132,38145,-10695648,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49434,392,-10187509,-274,39354,-11244762,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,126,-9854119,-331,38440,-10705496,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-129,-9880119,-67,39149,-11305116,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49610,0,-10151091,-267,38243,-10847969,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-131,-9878794,68,39670,-11705268,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49179,260,-10134053,-204,39355,-11261204,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,130,-9905387,-136,39460,-11390645,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9706985,-259,37758,-10618856,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,130,-9905361,0,39460,-11382925,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-128,-9929483,67,38842,-11275355,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49525,-253,-10049739,-199,38048,-10725050,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49610,0,-10151091,-68,39046,-11271287,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,130,-10201767,-204,39148,-11154917,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,128,-10022586,-202,38943,-11167592,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9892433,-265,38540,-11021972,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,128,-9953691,0,38944,-11176118,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-251,-9616179,-131,38244,-10804348,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48840,124,-9961471,-260,37853,-10686040,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,-130,-9948660,-68,39356,-11490534,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48921,-495,-9589114,324,37659,-10457857,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10000884,-201,38741,-10985783,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9863111,-133,38741,-11118094,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49008,254,-10091198,-266,38639,-10860059,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,689,-10441885,-72,41670,-12083849,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49108,949,-10555308,568,41106,-12793813,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48013,-665,-9258917,139,41207,-12765586,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49093,277,-10322352,-218,42023,-13088151,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-10165863,-506,42024,-13103747,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9765090,-67,39356,-11372719,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48922,255,-9974128,-535,38839,-10978604,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48843,968,-10307949,72,42144,-13241709,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49096,-257,-9798935,-134,38944,-11261917,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49009,126,-9952338,-264,38341,-10765692,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,0,-10099245,144,41554,-12928658,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,128,-9797777,-67,39148,-11383528,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-132,-10271883,-69,39991,-12018592,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49180,-252,-9771670,0,38243,-10910817,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-9823970,-131,38341,-10797007,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48508,-126,-9511707,-66,38741,-11056615,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,0,-9794581,67,39149,-11493015,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,127,-9835043,-266,38640,-10861455,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,259,-10105663,-136,39251,-11361626,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9833688,-132,38341,-10912007,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,-127,-9869893,0,38842,-11376228,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9833688,-67,38741,-11133658,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10130744,-204,39046,-11278333,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,0,-9736423,-198,38540,-10961009,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,125,-9933989,65,38243,-11193940,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9765090,66,38741,-11203272,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9882783,-266,38441,-10759172,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,127,-9797786,66,38944,-11386354,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9755743,-133,38741,-11040905,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,-125,-9812277,131,38144,-11062157,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,127,-9816401,-201,38943,-11129496,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49436,128,-10103173,-134,38640,-11239380,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-128,-9979106,-202,38944,-11167771,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,129,-9974003,-135,39252,-11322738,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9804500,-195,37854,-10701968,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-126,-9714614,-66,38540,-11107202,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,0,-9991561,-135,38944,-11183500,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9912121,-67,39046,-11271615,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-9872812,0,38741,-11149141,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-253,-9576555,-66,38741,-11017785,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49351,126,-10031848,-132,38047,-10702546,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9814100,-134,38842,-11112179,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-9775128,-202,39149,-11195832,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-126,-9841765,0,38243,-10987304,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9882783,-270,39046,-11341777,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-127,-9733714,-66,38741,-11172536,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-250,-9949764,-65,37951,-10725058,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-9823970,-134,38944,-11222904,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,127,-10110996,-268,38640,-10898592,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,0,-9833772,-330,38540,-10737104,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48675,-256,-9604435,-134,39149,-11290166,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9755743,475,39565,-11843485,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9980974,0,39356,-11348997,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-128,-9567956,-202,39356,-11224203,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,0,-9590401,-131,38341,-10874322,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,0,-9873066,-66,38243,-10666019,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-131,-9663550,-69,40207,-11810763,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,130,-10052790,-136,39565,-11503494,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-128,-9831601,-134,38741,-11079439,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-127,-9635999,0,38842,-11182015,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,-253,-9576415,0,38640,-11039156,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,-249,-9645201,65,37950,-10907098,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49092,254,-10062770,-400,38538,-10951078,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,-126,-9841857,-66,38441,-10959281,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,127,-10022465,-267,38640,-11130919,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,0,-9823970,-203,39460,-11414575,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48842,-125,-9783662,-131,38342,-10835458,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48926,-127,-9802149,-66,38741,-11133701,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-10030069,-201,38842,-11056953,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49094,128,-10022093,-201,38841,-11018144,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48672,248,-9913938,-326,38046,-10809112,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,124,-9981542,-65,37757,-10776529,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49265,-256,-9838426,0,38741,-11226624,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48841,128,-9719809,-67,39148,-11461934,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48425,0,-9485161,0,38741,-11110400,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-126,-9715063,-132,38641,-10969952,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49266,-132,-9977570,-207,39884,-11631565,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,0,-9687749,-133,38842,-11151368,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48672,254,-9769951,-266,38841,-11120270,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9912121,0,39565,-11456599,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9658227,-66,38842,-11205574,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9755743,-133,38842,-11151182,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48758,-126,-9763157,-66,38741,-11172495,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49095,0,-9882783,0,39149,-11359975,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49010,0,-9814100,-202,39149,-11352267,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,-132,-9546672,-69,40425,-11923380,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48757,0,-9609469,-133,38944,-11145605,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48925,254,-9925650,-133,38640,-11046660,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48674,126,-9680221,-66,38741,-11133867,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:48425,0,-9485161,-129,37950,-10597126,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49439,700,-10494656,146,42145,-12754088,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49096,-250,-9703132,-131,37951,-10900149,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49437,-131,-10017526,0,39671,-11649679,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,0,-10081221,0,39252,-11393753,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49523,131,-10123955,-137,39355,-11395447,65536
+./data/madrid-fep/new-calib-Smx/pointercal.csv:49264,257,-9955551,-202,38943,-11012091,65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/pointercal:49010 128 -9954769 67 38944 -11503401 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/new-calib-S5mx3.log:Setting for pointercal:      49265 129 -10063429 -135 39046 -11411672 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/new-calib-Smx2.log:Setting for pointercal:      49180 0 -9951704 -134 38944 -11378330 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/new-calib-Smx3.log:Setting for pointercal:      49179 387 -10128904 -67 39045 -11466549 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/new-calib-S5mx1.log:Setting for pointercal:      49265 128 -10063136 -202 38943 -11323201 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/new-calib-S5mx2.log:Setting for pointercal:      49179 257 -10036465 -134 38943 -11378098 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C4/new-calib-Smx1.log:Setting for pointercal:      49011 -383 -9688102 -134 38843 -11306737 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/pointercal:48507 404 -9883930 0 41324 -12608398 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-S5mx3.log:Setting for pointercal:      49525 1252 -10807091 72 41790 -12867976 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-Smx2.log:Setting for pointercal:      49179 410 -10287987 -71 41438 -12630310 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-Smx3.log:Setting for pointercal:      49971 1689 -11368442 295 41916 -13091876 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-Smx4.log:Setting for pointercal:      49010 -135 -9964110 0 41095 -12530772 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-S5mx1.log:Setting for pointercal:      49879 1397 -11195108 219 41677 -12990783 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-S5mx2.log:Setting for pointercal:      49523 1525 -11099855 0 41671 -12851481 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B0602030E/new-calib-Smx1.log:Setting for pointercal:      49514 -1291 -9980081 300 43112 -13504703 65536
+Binary file ./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib.log matches
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/pointercal:49265 -129 -9929021 67 39148 -11414902 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib-S5mx3.log:Setting for pointercal:      49437 -130 -9969182 0 39149 -11320826 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib-Smx2.log:Setting for pointercal:      49351 0 -9991561 68 39149 -11336690 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib-Smx3.log:Setting for pointercal:      49697 130 -10214328 68 39149 -11376146 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib-S5mx1.log:Setting for pointercal:      49610 130 -10243559 68 39252 -11410007 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib-S5mx2.log:Setting for pointercal:      49524 -260 -9996354 -68 39149 -11304956 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201AF/new-calib-Smx1.log:Setting for pointercal:      49437 0 -10061031 0 39046 -11287328 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib.log:Setting for pointercal:      49872 -414 -10169903 -72 41210 -12717358 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/pointercal:49872 -414 -10169903 -72 41210 -12717358 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib-S5mx3.log:Setting for pointercal:      50233 1574 -11248780 225 42390 -13407269 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib-Smx2.log:Setting for pointercal:      50319 1576 -11321010 150 42388 -13388433 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib-Smx3.log:Setting for pointercal:      50325 1581 -11375924 301 42514 -13512068 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib-S5mx1.log:Setting for pointercal:      49779 697 -10528846 -292 41667 -12739109 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib-S5mx2.log:Setting for pointercal:      50227 1722 -11351035 75 42507 -13454139 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020304/new-calib-Smx1.log:Setting for pointercal:      50316 1433 -11270202 75 42385 -13369197 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib.log:Setting for pointercal:      49437 0 -10159906 -66 38243 -10933337 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/pointercal:49437 0 -10159906 -66 38243 -10933337 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib-S5mx3.log:Setting for pointercal:      49871 256 -10494758 -67 38243 -10894642 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib-Smx2.log:Setting for pointercal:      49437 -254 -10077911 -66 38243 -10895204 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib-Smx3.log:Setting for pointercal:      49611 -255 -10118524 -133 38244 -10879481 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib-S5mx1.log:Setting for pointercal:      49610 -127 -10159793 -200 38243 -10825403 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib-S5mx2.log:Setting for pointercal:      49783 127 -10382347 -133 38144 -10809033 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020102/new-calib-Smx1.log:Setting for pointercal:      49524 -254 -10098234 -133 38244 -10879536 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib.log:Setting for pointercal:      49609 131 -10342149 -206 39355 -11220982 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/pointercal:49609 131 -10342149 -206 39355 -11220982 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib-S5mx3.log:Setting for pointercal:      49782 262 -10475064 -274 39147 -11098106 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib-Smx2.log:Setting for pointercal:      49609 130 -10292297 -205 39251 -11148526 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib-Smx3.log:Setting for pointercal:      49695 130 -10411893 -479 39147 -11009974 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib-S5mx1.log:Setting for pointercal:      49782 262 -10474691 -343 39147 -11042428 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib-S5mx2.log:Setting for pointercal:      49696 130 -10412058 -274 39148 -11059304 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020058/new-calib-Smx1.log:Setting for pointercal:      49782 262 -10425391 -206 39148 -11114842 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib.log:Setting for pointercal:      49011 -129 -9870061 -271 39356 -11325236 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/pointercal:49011 -129 -9870061 -271 39356 -11325236 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib-S5mx3.log:Setting for pointercal:      49608 263 -10385389 -206 39459 -11372772 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib-Smx2.log:Setting for pointercal:      49266 -130 -9978716 -273 39356 -11285277 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib-Smx3.log:Setting for pointercal:      49350 130 -10181890 -343 39459 -11301651 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib-S5mx1.log:Setting for pointercal:      49353 -261 -9956471 -273 39357 -11285400 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib-S5mx2.log:Setting for pointercal:      49521 262 -10315002 -275 39459 -11356626 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020116/new-calib-Smx1.log:Setting for pointercal:      49434 392 -10286771 -274 39354 -11283568 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib.log:Setting for pointercal:      49095 0 -10128259 71 41209 -12668794 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/pointercal:49095 0 -10128259 71 41209 -12668794 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib-S5mx3.log:Setting for pointercal:      49443 821 -10640898 287 41214 -12763674 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib-Smx2.log:Setting for pointercal:      49009 -403 -9920683 141 40868 -12568658 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib-Smx3.log:Setting for pointercal:      49268 272 -10312387 357 41211 -12820140 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib-S5mx1.log:Setting for pointercal:      49443 686 -10645451 360 41329 -12903505 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib-S5mx2.log:Setting for pointercal:      49266 136 -10363769 286 41210 -12844483 65536
+./data/madrid-fep/new-calib-Smx/308-150A1E00010B06020308/new-calib-Smx1.log:Setting for pointercal:      48929 679 -10322065 213 41327 -12784050 65536
+Binary file ./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib.log matches
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/pointercal:48926 0 -9745655 -69 40098 -11815024 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib-S5mx3.log:Setting for pointercal:      49437 267 -10199189 0 40207 -11907005 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib-Smx2.log:Setting for pointercal:      49010 0 -9863111 -69 40207 -11890894 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib-Smx3.log:Setting for pointercal:      49265 132 -10015444 -139 40098 -11798361 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib-S5mx1.log:Setting for pointercal:      49179 132 -9995474 -138 40098 -11798417 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib-S5mx2.log:Setting for pointercal:      49180 -132 -9858751 -138 40099 -11798803 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201C0/new-calib-Smx1.log:Setting for pointercal:      49095 0 -9882783 -69 40207 -11890867 65536
+./data/madrid-fep/new-calib-Smx/hs-306-15051E00010B06020047/new-calib-S5mx3.log:Setting for pointercal:      49610 0 -10200701 -67 38441 -10997235 65536
+./data/madrid-fep/new-calib-Smx/hs-306-15051E00010B06020047/new-calib-Smx2.log:Setting for pointercal:      49697 0 -10221205 0 38540 -11045362 65536
+./data/madrid-fep/new-calib-Smx/hs-306-15051E00010B06020047/new-calib-Smx3.log:Setting for pointercal:      49524 -127 -10089749 -133 38342 -10872973 65536
+./data/madrid-fep/new-calib-Smx/hs-306-15051E00010B06020047/new-calib-S5mx1.log:Setting for pointercal:      49782 641 -10547385 -134 38340 -10871736 65536
+./data/madrid-fep/new-calib-Smx/hs-306-15051E00010B06020047/new-calib-S5mx2.log:Setting for pointercal:      49437 127 -10201115 -66 38440 -10958794 65536
+./data/madrid-fep/new-calib-Smx/hs-306-15051E00010B06020047/new-calib-Smx1.log:Setting for pointercal:      49523 0 -10130744 -133 38243 -10841205 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/pointercal:48842 -255 -9595164 -66 38842 -11089133 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-S5mx3.log:Setting for pointercal:      49350 129 -10033481 -204 39148 -11194763 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-mx1.log:Setting for pointercal:      49011 -256 -9682512 -201 38945 -11091103 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-Smx2.log:Setting for pointercal:      49181 -129 -9861036 -270 39047 -11107619 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-mx2.log:Setting for pointercal:      49010 0 -9814100 -269 39046 -11107877 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-Smx3.log:Setting for pointercal:      49264 129 -10013283 -271 39045 -11145827 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-mx3.log:Setting for pointercal:      49012 -385 -9640896 -202 39047 -11124170 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-S5mx1.log:Setting for pointercal:      49263 259 -10005663 -271 39147 -11139845 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-S5mx2.log:Setting for pointercal:      49011 -128 -9723635 -270 39149 -11141402 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020114/new-calib-Smx1.log:Setting for pointercal:      49351 0 -9942210 -136 39252 -11244321 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020040/pointercal:49095 -126 -9891438 -66 38342 -10812226 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020040/new-calib-Smx2.log:Setting for pointercal:      49180 -256 -9869583 -67 38741 -10978643 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020040/new-calib-Smx3.log:Setting for pointercal:      49266 -256 -9938704 -134 38742 -10962922 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B06020040/new-calib-Smx1.log:Setting for pointercal:      49523 128 -10221324 -134 38640 -10891292 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib.log:Setting for pointercal:      49010 -251 -9733521 -65 38145 -10787743 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/pointercal:49010 -251 -9733521 -65 38145 -10787743 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib-S5mx3.log:Setting for pointercal:      49351 0 -10040913 -133 38243 -10764960 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib-Smx2.log:Setting for pointercal:      49266 -126 -9931276 -132 38145 -10733955 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib-Smx3.log:Setting for pointercal:      49096 -126 -9891694 -264 38244 -10734638 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib-S5mx1.log:Setting for pointercal:      49265 0 -10020864 -132 38145 -10733715 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib-S5mx2.log:Setting for pointercal:      49436 127 -10151160 -133 38243 -10802906 65536
+./data/madrid-fep/new-calib-Smx/307-15061E00010B06020104/new-calib-Smx1.log:Setting for pointercal:      49265 0 -10020864 -132 38243 -10765014 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib.log:Setting for pointercal:      49265 128 -10013298 -134 38842 -11150477 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/pointercal:49265 128 -10013298 -134 38842 -11150477 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib-S5mx3.log:Setting for pointercal:      49180 0 -9853343 0 38842 -11220858 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib-Smx2.log:Setting for pointercal:      49010 -128 -9723264 0 38944 -11254006 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib-Smx3.log:Setting for pointercal:      49351 129 -10033730 67 38944 -11269845 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib-S5mx1.log:Setting for pointercal:      49180 0 -9902523 -134 38842 -11189622 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib-S5mx2.log:Setting for pointercal:      49351 128 -10033515 -67 38842 -11205061 65536
+./data/madrid-fep/new-calib-Smx/306-15051E00010B0602005B/new-calib-Smx1.log:Setting for pointercal:      49265 0 -9971598 0 38741 -11149141 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib.log:Setting for pointercal:      49436 130 -10201767 -204 39148 -11154917 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/pointercal:49436 130 -10201767 -204 39148 -11154917 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib-S5mx3.log:Setting for pointercal:      49608 130 -10341612 -411 39251 -11059899 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib-Smx2.log:Setting for pointercal:      49522 131 -10321415 -274 39355 -11204663 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib-Smx3.log:Setting for pointercal:      49436 130 -10300622 -342 39355 -11149046 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib-S5mx1.log:Setting for pointercal:      49608 130 -10341502 -410 39148 -11027000 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib-S5mx2.log:Setting for pointercal:      49608 261 -10333582 -342 39147 -11043402 65536
+./data/madrid-fep/new-calib-Smx/305-15091E00010B060201E0/new-calib-Smx1.log:Setting for pointercal:      49519 391 -10454074 -410 39249 -11098218 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/pointercal:53543 1089 -12740752 81 43247 -13672824 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/new-calib-S5mx3.log:Setting for pointercal:      53440 619 -12442591 0 43120 -13564242 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/new-calib-Smx2.log:Setting for pointercal:      53240 461 -12229134 0 42996 -13477876 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/new-calib-Smx3.log:Setting for pointercal:      53041 0 -11859076 161 43120 -13604864 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/new-calib-S5mx1.log:Setting for pointercal:      53041 153 -11912496 80 42996 -13541205 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/new-calib-S5mx2.log:Setting for pointercal:      53541 775 -12468601 0 43120 -13521121 65536
+./data/madrid-fep/new-calib-Smx/202-13181E00010B06010216/new-calib-Smx1.log:Setting for pointercal:      53140 308 -12150734 0 43120 -13564242 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/pointercal:49528 730 -10638188 306 43888 -14168269 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/new-calib-S5mx3.log:Setting for pointercal:      49266 146 -10269945 153 44144 -14266121 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/new-calib-Smx2.log:Setting for pointercal:      49094 -288 -9928008 75 43754 -14021326 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/new-calib-Smx3.log:Setting for pointercal:      49352 292 -10392013 230 44145 -14285012 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/new-calib-S5mx1.log:Setting for pointercal:      49265 144 -10269221 0 43754 -14047448 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/new-calib-S5mx2.log:Setting for pointercal:      49612 733 -10710646 153 44016 -14265029 65536
+./data/madrid-fep/new-calib-Smx/204-13101E00010B06010068/new-calib-Smx1.log:Setting for pointercal:      49616 736 -10712374 385 44150 -14368671 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/pointercal:50140 576 -10623735 302 42752 -13294234 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/new-calib-S5mx3.log:Setting for pointercal:      50135 -142 -10325981 149 42383 -13088775 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/new-calib-Smx2.log:Setting for pointercal:      50315 286 -10666895 150 42384 -13174560 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/new-calib-Smx3.log:Setting for pointercal:      50136 285 -10573331 74 42384 -13113854 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/new-calib-S5mx1.log:Setting for pointercal:      50141 720 -10724985 302 42753 -13380342 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/new-calib-S5mx2.log:Setting for pointercal:      50228 434 -10646981 303 42874 -13422586 65536
+./data/madrid-fep/new-calib-Smx/204-13161E00010B0601016D/new-calib-Smx1.log:Setting for pointercal:      50047 0 -10353994 0 42263 -13012247 65536
+./data/madrid-fep/new-calib-Smx/201-13101E00010B0601003C/new-calib-Smx2.log:Setting for pointercal:      51128 149 -10866527 -393 43625 -13557895 65536
+./data/madrid-fep/new-calib-Smx/201-13101E00010B0601003C/new-calib-Smx3.log:Setting for pointercal:      50946 0 -10719783 -236 43883 -13773109 65536
+./data/madrid-fep/new-calib-Smx/201-13101E00010B0601003C/new-calib-Smx1.log:Setting for pointercal:      51037 0 -10792812 -156 43626 -13658819 65536
+./data/madrid-fep/no-second-test/311-15051E00010B0602007D/new-calib.log:Setting for pointercal:      49010 0 -9912121 0 38842 -11143173 65536
+./data/madrid-fep/no-second-test/311-15051E00010B0602007D/pointercal:49010 0 -9912121 0 38842 -11143173 65536
+./data/madrid-fep/no-second-test/311-15051E00010B0602007D/new-calib-Smx.log:Setting for pointercal:      49436 258 -10144569 -67 38842 -11127224 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020044/new-calib.log:Setting for pointercal:      49179 127 -10090733 -267 38640 -10860062 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020044/pointercal:49179 127 -10090733 -267 38640 -10860062 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020044/new-calib-Smx.log:Setting for pointercal:      49521 257 -10261802 -337 38638 -10804464 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020052/new-calib.log:Setting for pointercal:      49180 128 -10043422 67 38944 -11425635 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020052/pointercal:49180 128 -10043422 67 38944 -11425635 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020052/new-calib-Smx.log:Setting for pointercal:      49264 255 -10104237 -201 38639 -11146285 65536
+./data/madrid-fep/no-second-test/306-15051E00010B0602005A/new-calib.log:Setting for pointercal:      48926 -126 -9802464 -199 38541 -11037821 65536
+./data/madrid-fep/no-second-test/306-15051E00010B0602005A/pointercal:48926 -126 -9802464 -199 38541 -11037821 65536
+./data/madrid-fep/no-second-test/306-15051E00010B0602005A/new-calib-Smx.log:Setting for pointercal:      49264 255 -10103109 -268 38639 -10975917 65536
+./data/madrid-fep/no-second-test/302-15051E00010B06020092/new-calib.log:Setting for pointercal:      49180 -130 -9958611 -137 39565 -11345494 65536
+./data/madrid-fep/no-second-test/302-15051E00010B06020092/pointercal:49180 -130 -9958611 -137 39565 -11345494 65536
+./data/madrid-fep/no-second-test/302-15051E00010B06020092/new-calib-Smx.log:Setting for pointercal:      49610 0 -10200701 -137 39460 -11271441 65536
+./data/madrid-fep/no-second-test/311-15051E00010B06020083/new-calib.log:Setting for pointercal:      49095 -258 -9847899 0 39149 -11281677 65536
+./data/madrid-fep/no-second-test/311-15051E00010B06020083/pointercal:49095 -258 -9847899 0 39149 -11281677 65536
+./data/madrid-fep/no-second-test/311-15051E00010B06020083/new-calib-Smx.log:Setting for pointercal:      49351 0 -9991561 -203 39046 -11161769 65536
+./data/madrid-fep/no-second-test/311-15051E00010B06020088/new-calib.log:Setting for pointercal:      49180 127 -10139986 -66 38440 -10881995 65536
+./data/madrid-fep/no-second-test/311-15051E00010B06020088/pointercal:49180 127 -10139986 -66 38440 -10881995 65536
+./data/madrid-fep/no-second-test/311-15051E00010B06020088/new-calib-Smx.log:Setting for pointercal:      49436 255 -10192015 -133 38440 -10827635 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020059/new-calib.log:Setting for pointercal:      48926 0 -9941359 0 38944 -11254006 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020059/pointercal:48926 0 -9941359 0 38944 -11254006 65536
+./data/madrid-fep/no-second-test/306-15051E00010B06020059/new-calib-Smx.log:Setting for pointercal:      49011 -256 -9780279 -201 38945 -11129645 65536
+./data/calib-3/new-calib-0006.log:Setting for pointercal:      -35562 0 28942526 0 -30624 23758331 65536
+./data/calib-3/new-calib-0003.log:Setting for pointercal:      -35561 -245 29014627 116 -30130 23275992 65536
+./data/calib-3/new-calib-0001.log:Setting for pointercal:      -36481 0 29766112 308 -30986 23659472 65536
+./data/calib-3/new-calib-0005.log:Setting for pointercal:      -27026 -150 24483673 -287 -24409 20790962 65536
+./data/calib-3/new-calib-0002.log:Setting for pointercal:      -27348 -300 24820003 -71 -24006 20216831 65536
+./data/calib-3/new-calib-0004.log:Setting for pointercal:      -34623 -408 28686035 -58 -30913 24047131 65536
+./data/calib-3/new-calib-0007.log:Setting for pointercal:      -27308 -100 24683092 -358 -24095 20459205 65536
+./data/madrid/new-calib-0003.log:Setting for pointercal:      -35338 -159 33993124 -112 -22864 20825644 65536
+./data/madrid/new-calib-0007-25.log:Setting for pointercal:      35424 0 -2692289 112 22967 -3019885 65536
+./data/madrid/new-calib-0005-plexi20.log:Setting for pointercal:      35253 321 -2769361 141 23143 -3102649 65536
+./data/madrid/new-calib-0001.log:Setting for pointercal:      -47117 0 40229680 492 -43071 30795632 65536
+./data/madrid/new-calib-0004-plexi21.log:Setting for pointercal:      35509 -161 -2671302 313 23105 -3091587 65536
+./data/madrid/new-calib-0006-plexi18.log:Setting for pointercal:      35080 160 -2613467 28 23142 -3066284 65536
+./data/madrid/new-calib-0002.log:Setting for pointercal:      -34535 105 33511970 278 -23284 20678990 65536
+./new-calib.cpp0:	*a=(int)(A*65536+.5);
+./new-calib.cpp0:	*b=(int)(B*65536+.5);
+./new-calib.cpp0:	*c=(int)(C*65536+.5);
+./new-calib.cpp0:			int fit = (*a*x[i]+ *b*y[i]+ *c + 32768)/65536;
+./new-calib.cpp0:			printf( "%d, ", cz+(*a*xx[i]+ *b*y[i]+ *c+32768)/65536);
+./new-calib.cpp0:				cz+(*a*cx + *b*cy + *c + 32768)/65536);
+./new-calib.cpp0:				fprintf(flog, "%d, ", cz+(*a*xx[i]+ *b*y[i]+ *c+32768)/65536);
+./new-calib.cpp0:					cz+(*a*cx + *b*cy + *c + 32768)/65536);
+./new-calib.cpp0:			cz+(*a*xx[0]+ *b*y[0]+ *c+32768)/65536,
+./new-calib.cpp0:			cz+(*a*xx[1]+ *b*y[1]+ *c+32768)/65536,
+./new-calib.cpp0:			cz+(*a*xx[2]+ *b*y[2]+ *c+32768)/65536,
+./new-calib.cpp0:			cz+(*a*xx[3]+ *b*y[3]+ *c+32768)/65536,
+./new-calib.cpp0:				setting_tnt_plane[2]    + 32768)/65536);
+./new-calib.cpp0:				 cz+(*a*xx[0]+ *b*y[0]+ *c+32768)/65536,
+./new-calib.cpp0:				 cz+(*a*xx[1]+ *b*y[1]+ *c+32768)/65536,
+./new-calib.cpp0:				 cz+(*a*xx[2]+ *b*y[2]+ *c+32768)/65536,
+./new-calib.cpp0:				 cz+(*a*xx[3]+ *b*y[3]+ *c+32768)/65536,
+./new-calib.cpp0:					 setting_tnt_plane[2]    + 32768)/65536);
+./new-calib.cpp:	*a=(int)(A*65536+.5);
+./new-calib.cpp:	*b=(int)(B*65536+.5);
+./new-calib.cpp:	*c=(int)(C*65536+.5);
+./new-calib.cpp:			int fit = (*a*x[i]+ *b*y[i]+ *c + 32768)/65536;
+./new-calib.cpp:			printf( "%d, ", cz+(*a*xx[i]+ *b*y[i]+ *c+32768)/65536);
+./new-calib.cpp:				cz+(*a*cx + *b*cy + *c + 32768)/65536);
+./new-calib.cpp:				fprintf(flog, "%d, ", cz+(*a*xx[i]+ *b*y[i]+ *c+32768)/65536);
+./new-calib.cpp:					cz+(*a*cx + *b*cy + *c + 32768)/65536);
+./new-calib.cpp:			cz+(*a*xx[0]+ *b*y[0]+ *c+32768)/65536,
+./new-calib.cpp:			cz+(*a*xx[1]+ *b*y[1]+ *c+32768)/65536,
+./new-calib.cpp:			cz+(*a*xx[2]+ *b*y[2]+ *c+32768)/65536,
+./new-calib.cpp:			cz+(*a*xx[3]+ *b*y[3]+ *c+32768)/65536,
+./new-calib.cpp:				setting_tnt_plane[2]    + 32768)/65536);
+./new-calib.cpp:				 cz+(*a*xx[0]+ *b*y[0]+ *c+32768)/65536,
+./new-calib.cpp:				 cz+(*a*xx[1]+ *b*y[1]+ *c+32768)/65536,
+./new-calib.cpp:				 cz+(*a*xx[2]+ *b*y[2]+ *c+32768)/65536,
+./new-calib.cpp:				 cz+(*a*xx[3]+ *b*y[3]+ *c+32768)/65536,
+./new-calib.cpp:					 setting_tnt_plane[2]    + 32768)/65536);
+./fb2k.cpp:		int d=(65536*dy)/ax;
+./fb2k.cpp:		int s=65536*y0;
+./fb2k.cpp:		int d=(65536*dx)/ay;
+./fb2k.cpp:		int s=65536*x0;
+./fb2k.cpp:	int fatness = 65536*fatness0;
+./fb2k.cpp:		int d=(65536*dy)/ax;
+./fb2k.cpp:		int s=65536*y0;
+./fb2k.cpp:		int df=65536*(fatness1-fatness0)/ax;
+./fb2k.cpp:		int d=(65536*dx)/ay;
+./fb2k.cpp:		int s=65536*x0;
+./fb2k.cpp:		int df=65536*(fatness1-fatness0)/ay;
+./fb2k.cpp:	int fatness = 65536*fatness0;
+./fb2k.cpp:		int d=(65536*dy)/ax;
+./fb2k.cpp:		int s=65536*y0;
+./fb2k.cpp:		int df=65536*(fatness1-fatness0)/ax;
+./fb2k.cpp:		int d=(65536*dx)/ay;
+./fb2k.cpp:		int s=65536*x0;
+./fb2k.cpp:		int df=65536*(fatness1-fatness0)/ay;
+./new-calib-3.9.cpp:	*a=(int)(A*65536+.5);
+./new-calib-3.9.cpp:	*b=(int)(B*65536+.5);
+./new-calib-3.9.cpp:	*c=(int)(C*65536+.5);
+./new-calib-3.9.cpp:			int fit = (*a*x[i]+ *b*y[i]+ *c + 32768)/65536;
+./new-calib-3.9.cpp:		cz+(*a*xx[0]+ *b*y[0]+ *c+32768)/65536,
+./new-calib-3.9.cpp:		cz+(*a*xx[1]+ *b*y[1]+ *c+32768)/65536,
+./new-calib-3.9.cpp:		cz+(*a*xx[2]+ *b*y[2]+ *c+32768)/65536,
+./new-calib-3.9.cpp:		cz+(*a*xx[3]+ *b*y[3]+ *c+32768)/65536,
+./new-calib-3.9.cpp:		    setting_tnt_plane[2]    + 32768)/65536);
+./new-calib-3.9.cpp:			 cz+(*a*xx[0]+ *b*y[0]+ *c+32768)/65536,
+./new-calib-3.9.cpp:			 cz+(*a*xx[1]+ *b*y[1]+ *c+32768)/65536,
+./new-calib-3.9.cpp:			 cz+(*a*xx[2]+ *b*y[2]+ *c+32768)/65536,
+./new-calib-3.9.cpp:			 cz+(*a*xx[3]+ *b*y[3]+ *c+32768)/65536,
+./new-calib-3.9.cpp:			     setting_tnt_plane[2]    + 32768)/65536);
+./ts-rawtest.cpp:									 + tnt_plane[2] + 32768)/65536;
+./ComputeAffine.cpp:	int c7 = 65536;
+./fb.cpp:		int d=(65536*dy)/ax;
+./fb.cpp:		int s=65536*y0;
+./fb.cpp:		int d=(65536*dx)/ay;
+./fb.cpp:		int s=65536*x0;
+./fb.cpp:	int fatness = 65536*fatness0;
+./fb.cpp:		int d=(65536*dy)/ax;
+./fb.cpp:		int s=65536*y0;
+./fb.cpp:		int df=65536*(fatness1-fatness0)/ax;
+./fb.cpp:		int d=(65536*dx)/ay;
+./fb.cpp:		int s=65536*x0;
+./fb.cpp:		int df=65536*(fatness1-fatness0)/ay;
+./fb.cpp:	int fatness = 65536*fatness0;
+./fb.cpp:		int d=(65536*dy)/ax;
+./fb.cpp:		int s=65536*y0;
+./fb.cpp:		int df=65536*(fatness1-fatness0)/ax;
+./fb.cpp:		int d=(65536*dx)/ay;
+./fb.cpp:		int s=65536*x0;
+./fb.cpp:		int df=65536*(fatness1-fatness0)/ay;
+./mpvl-fb.c:		int d=(65536*dy)/ax;
+./mpvl-fb.c:		int s=65536*y0;
+./mpvl-fb.c:		int d=(65536*dx)/ay;
+./mpvl-fb.c:		int s=65536*x0;
+./collect-pdata.cpp:									 + tnt_plane[2] + 32768)/65536;
+./collect-pdata.cpp:									 + tnt_plane[2] + 32768)/65536;

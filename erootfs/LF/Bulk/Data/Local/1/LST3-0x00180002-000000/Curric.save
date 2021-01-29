@@ -1,0 +1,44 @@
+<CurriculumStatusSaveFile>
+	<m_sVersion value="1.0.1.5">
+		<m_iSublevelSet2>
+			<AssessmentState m_iQuestionsThisEval="0" m_iCAsThisEval="0" m_iCAsInARow="0" m_iWAsInARow="0"/>
+			<m_piAchieveArray/>
+			<m_iSavedCYOLevel value="-327680"/>
+			<m_iSublevel value="0"/>
+			<m_iSessionID value="-105873935"/>
+			<m_iGradeOnProfile value="9"/>
+		</m_iSublevelSet2>
+		<m_iSublevelSet0>
+			<AssessmentState m_iQuestionsThisEval="0" m_iCAsThisEval="0" m_iCAsInARow="0" m_iWAsInARow="0"/>
+			<m_piAchieveArray/>
+			<m_iSublevel value="17"/>
+			<m_iSavedCYOLevel value="999503"/>
+			<m_iGradeOnProfile value="9"/>
+			<m_iSessionID value="1802345609"/>
+		</m_iSublevelSet0>
+		<m_iSublevelSet4>
+			<AssessmentState m_iQuestionsThisEval="0" m_iCAsThisEval="0" m_iCAsInARow="0" m_iWAsInARow="0"/>
+			<m_piAchieveArray/>
+			<m_iSavedCYOLevel value="7405568"/>
+			<m_iSublevel value="1"/>
+			<m_iSessionID value="-105873935"/>
+			<m_iGradeOnProfile value="9"/>
+		</m_iSublevelSet4>
+		<m_iSublevelSet3>
+			<AssessmentState m_iQuestionsThisEval="4" m_iCAsThisEval="2" m_iCAsInARow="0" m_iWAsInARow="0"/>
+			<m_piAchieveArray/>
+			<m_iSavedCYOLevel value="6710988"/>
+			<m_iSublevel value="0"/>
+			<m_iSessionID value="1764135910"/>
+			<m_iGradeOnProfile value="9"/>
+		</m_iSublevelSet3>
+		<m_iSublevelSet1>
+			<AssessmentState m_iQuestionsThisEval="4" m_iCAsThisEval="3" m_iCAsInARow="2" m_iWAsInARow="0"/>
+			<m_piAchieveArray/>
+			<m_iSavedCYOLevel value="6710988"/>
+			<m_iSublevel value="11"/>
+			<m_iSessionID value="1344248660"/>
+			<m_iGradeOnProfile value="9"/>
+		</m_iSublevelSet1>
+	</m_sVersion>
+</CurriculumStatusSaveFile>

@@ -1,0 +1,137 @@
+#!/bin/sh
+
+# Try to mount patient's file system
+
+# Supported?
+SYS=/sys/devices/platform/lf1000-nand/new_mtd
+if [ ! -e $SYS ]; then
+	echo "Give up; kernel does not support new mtd parts at run time"
+	exit 1
+fi
+
+# Two mounts points and flags to indicate doneness
+mp_root=/patient-rfs
+mp_bulk=/patient-bulk
+tp0=/tmp/ready_
+
+operation="$1"
+shift
+
+# Allow remaining args to override mount points, or anything for that matter
+# So... to override the bulk mount point, try setting the mp_bulk variable:
+#     /etc/init.d/recovery-mounts (start|startro|stop) mp_bulk=/LF/Bulk
+# You can also set mp_root to override the rfs mount point.
+# Note: you must use the same mount point(s) on stop as you did on start
+for a in $*; do
+	eval $a
+done
+
+case "$operation" in
+	start|startro)
+		# Three steps: 
+		# 1) Create alias devices in mtd map fraction of whole nand into new mtd device
+		# 2) ubi attach
+		# 3) mount
+
+		echo "operation=$operation mp_root=$mp_root mp_bulk=$mp_bulk"
+		# Make mount points 1) patient 2) patient/LF/Bulk
+		mkdir -p $mp_root $mp_bulk
+		ud=0
+		rwmode=rw
+		if [ $operation == startro ]; then
+			rwmode=ro
+		fi
+		while read offset size name uv where; do
+			# Create alias
+			pname="Pat_$name"
+			echo $offset $size $name $where
+			lcname=`echo $name | tr A-Z a-z`
+			echo "0 $offset $size $pname" > $SYS
+			if ! fgrep $pname /proc/mtd > /dev/null; then
+				echo "Failed to create '$offset $size $name $where'!  Why???"
+				exit 1
+			fi
+			# ubi attach 
+			un=`cat /proc/mtd | fgrep $pname | head -1 | cut -d : -f 1 | cut -c 4-`
+			echo $un
+			ubiattach /dev/ubi_ctrl -d $ud -m $un
+			if [ $? = 0 ]; then
+				# mount
+				mount -t ubifs -o $rwmode ubi${ud}:${uv} $where
+				if [ $? != 0 ]; then
+					echo "failed to mount ubi${ud}:${uv} $where.  Cleaning up..."
+					# detach as a clean up to leave things ready for next time
+					ubidetach /dev/ubi_ctrl -d $ud
+					res=$?
+					if [ $res != 0 ]; then
+						echo "failed to ubidetach $ud: exit=$res"
+					else
+						echo "success: ubidetach $ud"
+					fi
+					# Remove alias --
+					# FIXME; not implemented in kernel
+					# So we will pile up mtd devices if we "restart"
+					# but it works.
+				else
+					# Bump to next device
+					ud=$((++ud))
+				fi
+			else
+				echo "failed to attach $ud -m $un"
+			fi
+			# Leave a flag we're done
+			touch ${tp0}$lcname
+		done <<EOF
+0x00a00000 0x05600000 RFS ubi_rfs $mp_root
+0x06000000 0x1a000000 Bulk ubi_bulk $mp_bulk
+EOF
+		;;
+	stop)
+		# Undo three steps in reverse order
+		# 3) umount
+		# 2) ubi detach
+		# 1) Remove alias devices in mtd
+
+		# umount
+		for i in $mp_bulk $mp_root; do
+			if grep $i /proc/mounts > /dev/null; then
+				ud=`grep $i /proc/mounts | cut -d ':' -f 1 | sed -e s/ubi//`
+				res=$?
+				umount $i
+				if [ $res != 0 ]; then
+					echo "failed to mount ubi${ud}:${uv} $where: exit=$res"
+				else
+					echo "success: umount $i"
+				fi
+				# ubi detach
+				ubidetach /dev/ubi_ctrl -d $ud
+				res=$?
+				if [ $res != 0 ]; then
+					echo "failed to ubidetach $ud: exit=$res"
+				else
+					echo "success: ubidetach $ud"
+				fi
+				# Remove alias -- 
+				# FIXME; not implemented in kernel
+				# So we will pile up mtd devices if we "restart"
+				# but it works.
+			else
+				echo "No mount on $i found"
+			fi
+		done
+		;;
+	restart)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|startro|stop|restart} [var=value] [var=value]..."
+		echo "  where optional var=value pairs are use to override the default mount points:"
+		echo "    mp_root=/path/to/mount/rfs"
+		echo "    mp_bulk=/path/to/mount/bulk"
+		echo "Note: The same mount points must be used with stap as were used with start."
+		exit 1
+		;;
+esac
+
+exit 0

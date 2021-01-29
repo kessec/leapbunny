@@ -1,0 +1,355 @@
+tslib 0,10;10
+tslib 0,16;10
+tslib 0,23;10
+tslib 0,28;10
+tslib 0,38;10
+tslib 0,48;10
+tslib 0,60;0
+                        input 0,10;10 (-1)
+                        input 0,20;10 (-1)
+                        input 0,30;10 (-1)
+                        input 0,40;10 (-1)
+                        input 0,50;10 (-1)
+                        input 0,60;10 (-1)
+                        input 0,60;0 (-1)
+                        input 0,0;0 (-1)
+tslib 0,90;10
+tslib 0,96;10
+tslib 0,103;10
+tslib 0,108;10
+tslib 0,118;10
+tslib 0,128;10
+tslib 0,140;0
+                        input 0,90;10 (-1)
+                        input 0,100;10 (-1)
+                        input 0,110;10 (-1)
+                        input 0,120;10 (-1)
+                        input 0,130;10 (-1)
+                        input 0,140;10 (-1)
+                        input 0,140;0 (-1)
+                        input 0,0;0 (-1)
+tslib 0,170;10
+tslib 0,176;10
+tslib 0,183;10
+tslib 0,188;10
+tslib 0,198;10
+tslib 0,208;10
+tslib 0,220;0
+                        input 0,170;10 (-1)
+                        input 0,180;10 (-1)
+                        input 0,190;10 (-1)
+                        input 0,200;10 (-1)
+                        input 0,210;10 (-1)
+                        input 0,220;10 (-1)
+                        input 0,220;0 (-1)
+                        input 0,0;0 (-1)
+                        input 0,250;10 (-1)
+                        input 0,260;10 (-1)
+                        input 0,270;10 (-1)
+                        input 0,280;10 (-1)
+                        input 0,290;10 (-1)
+                        input 0,300;10 (-1)
+                        input 0,300;0 (-1)
+                        input 0,0;0 (-1)
+tslib 0,250;10
+tslib 0,256;10
+tslib 0,263;10
+tslib 0,268;10
+tslib 0,278;10
+tslib 0,288;10
+tslib 0,300;0
+tslib 0,330;10
+tslib 0,336;10
+tslib 0,343;10
+tslib 0,348;10
+tslib 0,358;10
+tslib 0,368;10
+tslib 0,380;0
+                        input 0,330;10 (-1)
+                        input 0,340;10 (-1)
+                        input 0,350;10 (-1)
+                        input 0,360;10 (-1)
+                        input 0,370;10 (-1)
+                        input 0,380;10 (-1)
+                        input 0,380;0 (-1)
+                        input 0,0;0 (-1)
+                        input 0,410;10 (-1)
+                        input 0,420;10 (-1)
+                        input 0,430;10 (-1)
+                        input 0,440;10 (-1)
+                        input 0,450;10 (-1)
+                        input 0,460;10 (-1)
+                        input 0,460;0 (-1)
+                        input 0,0;0 (-1)
+tslib 0,410;10
+tslib 0,416;10
+tslib 0,423;10
+tslib 0,428;10
+tslib 0,438;10
+tslib 0,448;10
+tslib 0,460;0
+tslib 20,10;10
+tslib 13,16;10
+tslib 11,23;10
+tslib 11,28;10
+tslib 10,38;10
+tslib 10,48;10
+tslib 10,60;0
+                        input 20,10;10 (-1)
+                        input 10,20;10 (-1)
+                        input 10,30;10 (-1)
+                        input 10,40;10 (-1)
+                        input 10,50;10 (-1)
+                        input 10,60;10 (-1)
+                        input 10,60;0 (-1)
+                        input 0,0;0 (-1)
+                        input 10,90;10 (-1)
+                        input 20,100;10 (-1)
+                        input 10,110;10 (-1)
+                        input 10,120;10 (-1)
+                        input 10,130;10 (-1)
+                        input 10,140;10 (-1)
+                        input 10,140;0 (-1)
+                        input 0,0;0 (-1)
+tslib 10,90;10
+tslib 16,96;10
+tslib 13,103;10
+tslib 11,108;10
+tslib 11,118;10
+tslib 10,128;10
+tslib 10,140;0
+tslib 10,170;10
+tslib 10,176;10
+tslib 15,183;10
+tslib 12,188;10
+tslib 11,198;10
+tslib 11,208;10
+tslib 10,220;0
+                        input 10,170;10 (-1)
+                        input 10,180;10 (-1)
+                        input 20,190;10 (-1)
+                        input 10,200;10 (-1)
+                        input 10,210;10 (-1)
+                        input 10,220;10 (-1)
+                        input 10,220;0 (-1)
+                        input 0,0;0 (-1)
+tslib 10,250;10
+tslib 10,256;10
+tslib 10,263;10
+tslib 13,268;10
+tslib 12,278;10
+tslib 11,288;10
+tslib 10,300;0
+                        input 10,250;10 (-1)
+                        input 10,260;10 (-1)
+                        input 10,270;10 (-1)
+                        input 20,280;10 (-1)
+                        input 10,290;10 (-1)
+                        input 10,300;10 (-1)
+                        input 10,300;0 (-1)
+                        input 0,0;0 (-1)
+tslib 10,330;10
+tslib 10,336;10
+tslib 10,343;10
+tslib 10,348;10
+tslib 13,358;10
+tslib 12,368;10
+tslib 10,380;0
+                        input 10,330;10 (-1)
+                        input 10,340;10 (-1)
+                        input 10,350;10 (-1)
+                        input 10,360;10 (-1)
+                        input 20,370;10 (-1)
+                        input 10,380;10 (-1)
+                        input 10,380;0 (-1)
+                        input 0,0;0 (-1)
+tslib 10,410;10
+tslib 10,416;10
+tslib 10,423;10
+tslib 10,428;10
+tslib 10,438;10
+tslib 13,448;10
+tslib 20,460;0
+                        input 10,410;10 (-1)
+                        input 10,420;10 (-1)
+                        input 10,430;10 (-1)
+                        input 10,440;10 (-1)
+                        input 10,450;10 (-1)
+                        input 20,460;10 (-1)
+                        input 20,460;0 (-1)
+                        input 0,0;0 (-1)
+                        input 50,10;10 (-1)
+                        input 30,20;10 (-1)
+                        input 30,30;10 (-1)
+                        input 30,40;10 (-1)
+                        input 30,50;10 (-1)
+                        input 30,60;10 (-1)
+                        input 30,60;0 (-1)
+                        input 0,0;0 (-1)
+tslib 50,10;10
+tslib 37,16;10
+tslib 33,23;10
+tslib 33,28;10
+tslib 30,38;10
+tslib 30,48;10
+tslib 30,60;0
+tslib 30,90;10
+tslib 42,96;10
+tslib 36,103;10
+tslib 33,108;10
+tslib 33,118;10
+tslib 30,128;10
+tslib 30,140;0
+                        input 30,90;10 (-1)
+                        input 50,100;10 (-1)
+                        input 30,110;10 (-1)
+                        input 30,120;10 (-1)
+                        input 30,130;10 (-1)
+                        input 30,140;10 (-1)
+                        input 30,140;0 (-1)
+                        input 0,0;0 (-1)
+                        input 30,170;10 (-1)
+                        input 30,180;10 (-1)
+                        input 50,190;10 (-1)
+                        input 30,200;10 (-1)
+                        input 30,210;10 (-1)
+                        input 30,220;10 (-1)
+                        input 30,220;0 (-1)
+                        input 0,0;0 (-1)
+tslib 30,170;10
+tslib 30,176;10
+tslib 40,183;10
+tslib 35,188;10
+tslib 33,198;10
+tslib 33,208;10
+tslib 30,220;0
+                        input 30,250;10 (-1)
+                        input 30,260;10 (-1)
+                        input 30,270;10 (-1)
+                        input 50,280;10 (-1)
+                        input 30,290;10 (-1)
+                        input 30,300;10 (-1)
+                        input 30,300;0 (-1)
+                        input 0,0;0 (-1)
+tslib 30,250;10
+tslib 30,256;10
+tslib 30,263;10
+tslib 37,268;10
+tslib 35,278;10
+tslib 33,288;10
+tslib 30,300;0
+tslib 30,330;10
+tslib 30,336;10
+tslib 30,343;10
+tslib 30,348;10
+tslib 37,358;10
+tslib 35,368;10
+tslib 30,380;0
+                        input 30,330;10 (-1)
+                        input 30,340;10 (-1)
+                        input 30,350;10 (-1)
+                        input 30,360;10 (-1)
+                        input 50,370;10 (-1)
+                        input 30,380;10 (-1)
+                        input 30,380;0 (-1)
+                        input 0,0;0 (-1)
+                        input 30,410;10 (-1)
+                        input 30,420;10 (-1)
+                        input 30,430;10 (-1)
+                        input 30,440;10 (-1)
+                        input 30,450;10 (-1)
+                        input 50,460;10 (-1)
+                        input 50,460;0 (-1)
+                        input 0,0;0 (-1)
+tslib 30,410;10
+tslib 30,416;10
+tslib 30,423;10
+tslib 30,428;10
+tslib 30,438;10
+tslib 37,448;10
+tslib 50,460;0
+                        input 100,10;10 (-1)
+                        input 60,20;10 (-1)
+                        input 60,30;10 (-1)
+                        input 60,40;10 (-1)
+                        input 60,50;10 (-1)
+                        input 60,60;10 (-1)
+                        input 60,60;0 (-1)
+                        input 0,0;0 (-1)
+tslib 60,20;10
+tslib 60,20;10
+tslib 60,25;10
+tslib 60,30;10
+tslib 60,38;10
+tslib 60,48;10
+tslib 60,60;0
+                        input 60,90;10 (-1)
+                        input 100,100;10 (-1)
+                        input 60,110;10 (-1)
+                        input 60,120;10 (-1)
+                        input 60,130;10 (-1)
+                        input 60,140;10 (-1)
+                        input 60,140;0 (-1)
+                        input 0,0;0 (-1)
+tslib 60,90;10
+tslib 60,102;10
+tslib 60,111;10
+tslib 60,116;10
+tslib 60,128;10
+tslib 60,140;0
+tslib 60,170;10
+tslib 60,176;10
+tslib 60,188;10
+tslib 60,194;10
+tslib 60,206;10
+tslib 60,220;0
+                        input 60,170;10 (-1)
+                        input 60,180;10 (-1)
+                        input 100,190;10 (-1)
+                        input 60,200;10 (-1)
+                        input 60,210;10 (-1)
+                        input 60,220;10 (-1)
+                        input 60,220;0 (-1)
+                        input 0,0;0 (-1)
+                        input 60,250;10 (-1)
+                        input 60,260;10 (-1)
+                        input 60,270;10 (-1)
+                        input 100,280;10 (-1)
+                        input 60,290;10 (-1)
+                        input 60,300;10 (-1)
+                        input 60,300;0 (-1)
+                        input 0,0;0 (-1)
+tslib 60,250;10
+tslib 60,256;10
+tslib 60,263;10
+tslib 60,271;10
+tslib 60,284;10
+tslib 60,300;0
+tslib 60,330;10
+tslib 60,336;10
+tslib 60,343;10
+tslib 60,348;10
+tslib 60,361;10
+tslib 60,380;0
+                        input 60,330;10 (-1)
+                        input 60,340;10 (-1)
+                        input 60,350;10 (-1)
+                        input 60,360;10 (-1)
+                        input 100,370;10 (-1)
+                        input 60,380;10 (-1)
+                        input 60,380;0 (-1)
+                        input 0,0;0 (-1)
+tslib 60,410;10
+tslib 60,416;10
+tslib 60,423;10
+tslib 60,428;10
+tslib 60,438;10
+tslib 100,460;0
+                        input 60,410;10 (-1)
+                        input 60,420;10 (-1)
+                        input 60,430;10 (-1)
+                        input 60,440;10 (-1)
+                        input 60,450;10 (-1)
+                        input 100,460;10 (-1)
+                        input 100,460;0 (-1)
+                        input 0,0;0 (-1)

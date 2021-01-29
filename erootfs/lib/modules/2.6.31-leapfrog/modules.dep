@@ -1,0 +1,26 @@
+/lib/modules/2.6.31-leapfrog/kernel/fs/nfs/nfs.ko: /lib/modules/2.6.31-leapfrog/kernel/fs/lockd/lockd.ko /lib/modules/2.6.31-leapfrog/kernel/net/sunrpc/sunrpc.ko
+/lib/modules/2.6.31-leapfrog/kernel/fs/lockd/lockd.ko: /lib/modules/2.6.31-leapfrog/kernel/net/sunrpc/sunrpc.ko
+/lib/modules/2.6.31-leapfrog/kernel/arch/arm/oprofile/oprofile.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/base/firmware_class.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/mt20xx.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tda9887.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tea5761.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/xc5000.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/base/firmware_class.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tea5767.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tuner-xc2028.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/base/firmware_class.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/mc44s803.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tda8290.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tuner-simple.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tuner-types.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/common/tuners/tuner-types.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l2-int-device.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l1-compat.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/videodev.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l1-compat.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/gspca/gspca_main.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/videodev.ko /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l1-compat.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/gspca/gspca_zc3xx.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/gspca/gspca_main.ko /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/videodev.ko /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l1-compat.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/uvc/uvcvideo.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/videodev.ko /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l1-compat.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l2-common.ko: /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/videodev.ko /lib/modules/2.6.31-leapfrog/kernel/drivers/media/video/v4l1-compat.ko
+/lib/modules/2.6.31-leapfrog/kernel/drivers/input/touchscreen/lf1000_ts.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/usb/gadget/g_ether.ko:
+/lib/modules/2.6.31-leapfrog/kernel/drivers/usb/gadget/g_file_storage.ko:
+/lib/modules/2.6.31-leapfrog/kernel/lib/crc-ccitt.ko:
+/lib/modules/2.6.31-leapfrog/kernel/net/sunrpc/sunrpc.ko:

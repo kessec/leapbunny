@@ -1,0 +1,15 @@
+Tools for helping with oe-bin rebuilds
+
+To use:
+1. Untar the existing tar into image-old
+2. Copy the image directory from the working directory in OE
+3. Run clean-image.sh
+	This will open a meld window with the old image on the left and the new one on the right.
+	Files and their md5 checksums appear at the top of the image list, directories at the bottom.
+4. After you are satisfied with the new image, run deploy-bin.sh with the name of the tar as the argument
+5. Run clean-staging.sh to prepare for the next tar
+
+Notes:
+1. You must have meld installed to use clean-image.sh
+2. The scripts assume your LinuxDist checkout is at ~/workspace/LinuxDist
+3. deploy-bin.sh leaves a copy of the new tar in the current directory to help keep track of what packages have been rebuilt

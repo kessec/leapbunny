@@ -1,0 +1,17 @@
+[
+    { 
+        "Audio" : "",
+        "Text"  : "Cheats",
+        "Swf"   : "CheatOptions.swf"
+    },
+    { 
+        "Audio" : "",
+        "Text"  : "Version Information.",
+        "Swf"   : "VersionInfo.swf"
+    },
+    { 
+        "Audio" : "",
+        "Text"  : "Debug Levels.",
+        "Swf"   : "DebugOptions.swf"
+    }
+]      

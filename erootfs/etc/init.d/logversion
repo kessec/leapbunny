@@ -1,0 +1,11 @@
+#!/bin/sh
+
+logger -s -t "Emerald Base" -p local4.notice "Firmware Release Version: `cat /etc/version`"
+bin_version=`cat /LF/Base/bin/meta.inf | grep -e "\bVersion" | cut -d '=' -f2`
+logger -s -t "Emerald Base" -p local4.notice "Base bin Version: $bin_version"
+lib_version=`cat /LF/Base/lib/meta.inf | grep -e "\bVersion" | cut -d '=' -f2`
+logger -s -t "Emerald Base" -p local4.notice "Base lib Version: $lib_version"
+l3x_version=`cat /LF/Base/L3X/meta.inf | grep -e "\bVersion" | cut -d '=' -f2`
+logger -s -t "Emerald Base" -p local4.notice "Base L3X Version: $l3x_version"
+brio_version=`cat /LF/Base/Brio/meta.inf | grep -e "\bVersion" | cut -d '=' -f2`
+logger -s -t "Emerald Base" -p local4.notice "Base Brio Version: $brio_version"

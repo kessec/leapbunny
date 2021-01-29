@@ -1,0 +1,17 @@
+MetaVersion="1.0"
+Device="LeapsterExplorer"
+Type="System"
+ProductID=0x00170013
+PackageID="LST3-0x0017013-000000"
+Version="1.0.8.568"
+Locale="en-us"
+Name="Flash Lite 3.1"
+ShortName="FL3"
+Publisher="LeapFrog"," Inc."
+Developer="LeapFrog"," Inc."
+Hidden=0
+Description="Flash Lite 3.1 run-time binaries"
+AppSo="FlashApp.so"
+PartNumber="770-00144"
+3LD="FL3"
+Size=0x3df000

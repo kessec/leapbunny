@@ -1,0 +1,5 @@
+ID=0x0
+Name=COLE  FULLE
+Points=0x0
+Grade=0x8
+NumLoginsSinceLastConnect=0x63

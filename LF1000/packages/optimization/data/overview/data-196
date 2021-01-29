@@ -1,0 +1,59 @@
+"Device","Madrid"
+"FW Version","1.9.6.2127"
+"App Version","1.4"
+"Serial Number","13171E00010B06010197"
+  "Freeing init memory",0.62
+"End mount -a",1.19
+"Bgn mounts",1.23
+"End mounts",1.67
+"Bgn app",3.32
+"Bgn Start splash video",8.00
+"Bgn AppManager",3.94
+"End display legal",4.28
+"Bgn sounds/startup.wav",4.47
+"End usbether",6.07
+"End touchscreen",6.62
+"End sounds/startup.wav",7.31
+"End setcal",7.35
+"AppManager: Entered main function: ",7.90
+"AppManager: Bgn Init Logging: ",8.26
+"AppManager: Bgn InitMutex: ",8.27
+"AppManager: End SetupSystem: ",8.31
+"AppManager: End Init CLogFile: ",8.42
+"AppManager: End Load DidjPatches: ",8.44
+"AppManager: Bgn Set Profile Logging: ",8.45
+"AppManager: End Set Profile Logging: ",8.48
+"AppManager: End Set Power & USB: ",9.01
+"AppManager: Bgn Load main.swf: ",9.01
+"AppManager: End Load main.swf: ",10.03
+"AppManager: UI loaded: ",10.03
+"AppManager: Flash: End Construct DidjPlayer: ",10.04
+"AppManager: Flash: Bgn LoadMovie: ",10.10
+"AppManager: Flash: Bgn CreatePlayer: ",10.12
+"AppManager: Flash: End CreatePlayer: ",10.47
+"AppManager: Flash: End SetFrameBuffer: ",10.50
+"AppManager: Flash: End LoadMovie: ",10.51
+"AppManager: UI entered: ",10.51
+"AppManager: UI updated: ",11.74
+"Bgn Rest of networking at 10s",12.72
+"Bgn CartManager",13.46
+"End End splash video",13.0
+"End dbus-1",14.85
+"End networking",15.84
+"End avahi-daemon",16.33
+"End vbus start",16.43
+"End Rest of networking",16.48
+"Bgn Version Logging at 15s",17.73
+"End Version Logging",18.83
+"Bgn power-button",33.96
+"End AppManager exit(0)",152.71
+"Bgn Shutting down system",152.73
+"End dbus-1 stop",152.84
+"End vsftpd stop",152.96
+"End telnetd stop",153.03
+"End vbus stop",153.12
+"End networking stop",153.22
+"End usbether stop",153.66
+"Bgn killall mainapp",153.75
+"End killall mainapp",153.84
+"Bgn umount -a",154.03

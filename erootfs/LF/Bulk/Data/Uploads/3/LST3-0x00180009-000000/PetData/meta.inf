@@ -1,0 +1,5 @@
+Type = Pet
+ProductID = 0x180009
+Name = PetData
+PathToUploadContent = /LF/Bulk/Data/Local/3/Pets/
+EOF = true

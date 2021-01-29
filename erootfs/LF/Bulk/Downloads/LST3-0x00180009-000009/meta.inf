@@ -1,0 +1,11 @@
+MetaVersion="1.0"
+Device="LeapsterExplorer"
+Type="MicroDownload"
+ProductID=0x00180009
+PackageID="LST3-0x00180009-000009"
+Version="1.0.0.0"
+Locale="en-us"
+Name="PetPad"
+Hidden=1
+DeviceAccess=1
+Size=0x2000

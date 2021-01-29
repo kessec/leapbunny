@@ -1,0 +1,13 @@
+MetaVersion="1.0"
+Device="LeapsterExplorer"
+Type="System"
+ProductID=0x00170019
+PackageID="LST3-0x00170019-000001"
+Version="1.0.8.4530"
+Locale="en-us"
+Name="L3B_Data_en"
+Publisher="LeapFrog"," Inc."
+Developer="LeapFrog"," Inc."
+PartNumber="152-92221"
+Hidden=1
+Size=0x7000

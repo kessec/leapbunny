@@ -1,0 +1,245 @@
++++  187.16  2236   965 14621 Bgn Shutting down system
++++  187.22  2237   970 14621 End dbus-1 stop
++++  187.28  2239   973 14621 End vsftpd stop
++++  187.37  2239   981 14621 End telnetd stop
++++  187.45  2241   986 14621 End vbus stop
++++  187.56  2244   994 14621 End networking stop
++++  187.99  2252  1005 14643 End usbether stop
++++  188.08  2253  1013 14643 Bgn killall mainapp
++++  188.16  2254  1020 14643 End killall mainapp
++++  188.34  2258  1034 14643 Bgn umount -a
++++    1.35     6    72    24 End mounts
++++    2.30    33   126    25 Bgn app
++++    2.51    37   143    25 Bgn AppManager
++++    2.73    48   154    25 End display legal
++++    2.89    51   167    25 Bgn sounds/startup.wav
++++    1.08     2    56    24 End mount -a
++++    1.12     3    59    24 Bgn mounts
++++    3.71   104   195    25 End usbether
++++    4.09   119   218    25 End touchscreen
++++    4.63   143   248    25 End setcal
++++    5.28   184   265    25 End sounds/startup.wav
++++   12.29   576   351   160 Bgn Rest of networking at 10s
++++   12.42   576   358   160 Bgn CartManager
++++   13.10   618   382   160 End dbus-1
++++   13.79   662   404   160 End networking
++++   14.25   663   431   160 End avahi-daemon
++++   14.35   663   441   160 End vbus start
++++   14.41   665   444   160 End Rest of networking
++++   17.31   674   452   434 Bgn Version Logging at 15s
++++   18.36   687   509   434 End Version Logging
+[    0.000000] Linux version 2.6.31-leapfrog (rdowling@rdowling-t400) (gcc version 4.1.1) #1 Wed Mar 30 16:23:19 PDT 2011
+[    0.000000] CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache
+[    0.000000] Machine: ARM-LF1000
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] On node 0 totalpages: 11776
+[    0.000000] free_area_init_node: node 0, pgdat c0416b74, node_mem_map c0459000
+[    0.000000]   Normal zone: 92 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 11684 pages, LIFO batch:1
+[    0.000000] lf1000_oscvco_set.65 pll 0, not changed already set to 0x00DF2100
+[    0.000000] PLL0=393.218109 MHz   PLL1=144.000 MHz   Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 11684
+[    0.000000] Kernel command line: init=/sbin/init console=ttyS0,115200 loglevel=2 mem=46M mlc_fb=0x82E00000,0x01200000 ram=0x80000000-0x83FFFFFF screen_module=ILI6480G2 root=/dev/mmcblk0p3 rootwait 
+[    0.000000] PID hash table entries: 256 (order: 8, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 46MB = 46MB total
+[    0.000000] Memory: 42188KB available (3816K code, 396K data, 112K init, 0K highmem)
+[    0.000000] NR_IRQS:256
+[    0.000000] TIM0=  4.500 MHz   TIM1=  4.500 MHz   TIM2=  4.500 MHz   TIM3=  4.500 MHz   TIM4=  4.500 MHz   
+[    0.000000] console [ttyS0] enabled
+[    0.000000] Calibrating delay loop (skipped) preset value.. 786.43 BogoMIPS (lpj=3932181)
+[    0.000000] Mount-cache hash table entries: 512
+[    0.000000] CPU: Testing write buffer coherency: ok
+[    0.020000] NET: Registered protocol family 16
+[    0.060000] bio: create slab <bio-0> at 0
+[    0.070000] usbcore: registered new interface driver usbfs
+[    0.070000] usbcore: registered new interface driver hub
+[    0.070000] usbcore: registered new device driver usb
+[    0.090000] NET: Registered protocol family 2
+[    0.090000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.090000] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.090000] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.090000] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.090000] TCP reno registered
+[    0.090000] NET: Registered protocol family 1
+[    0.100000] arch/arm/mach-lf1000/gpio_main.c.check_for_touchscreen:1350 found touchscreen
+[    0.100000] Reading Board ID =  0x0b
+[    0.100000] lf1000-dpc lf1000-dpc: screen: 480x272
+[    0.110000] fuse init (API version 7.12)
+[    0.110000] msgmni has been set to 82
+[    0.120000] alg: No test for stdrng (krng)
+[    0.120000] io scheduler noop registered
+[    0.120000] io scheduler deadline registered (default)
+[    0.120000] lf1000-bl lf1000-bl: Using PWM Channel 2 for backlight
+[    0.120000] lf1000-bl lf1000-bl: PWM rate is 9600000
+[    0.120000] lf1000-fb lf1000-fb: layers=3, screen=480x272
+[    0.120000] lf1000-fb lf1000-fb: got IRQ 0
+[    0.120000] lf1000-fb lf1000-fb: layer=0, xyres=480x272
+[    0.120000] lf1000-fb lf1000-fb: layer=1, xyres=480x272
+[    0.130000] lf1000-fb lf1000-fb: layer=2, xyres=480x272
+[    0.160000] Serial: 8250/16550 driver $Revision: 1.90 $ 1 ports, IRQ sharing disabled
+[    0.160000] serial8250: ttyS0 at MMIO 0x0 (irq = 10) is a 8250
+[    0.160000] brd: module loaded
+[    0.160000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.160000] lf1000-ohci lf1000-ohci: LF1000 OHCI
+[    0.160000] lf1000-ohci lf1000-ohci: new USB bus registered, assigned bus number 1
+[    0.160000] lf1000-ohci lf1000-ohci: irq 28, io mem 0xc000d000
+[    0.230000] after hcd->driver->start
+[    0.230000] usb usb1: configuration #1 chosen from 1 choice
+[    0.230000] hub 1-0:1.0: USB hub found
+[    0.230000] hub 1-0:1.0: 2 ports detected
+[    0.230000] usb_add_hcd() returns 0
+[    0.240000] IRQ 31/lf1000-rtc: IRQF_DISABLED is not guaranteed on shared IRQs
+[    0.240000] lf1000-rtc: dev (254:0)
+[    0.240000] lf1000-rtc lf1000-rtc: rtc core: registered lf1000-rtc as rtc0
+[    0.240000] LF1000 Real Time Clock driver.
+[    0.240000] i2c /dev entries driver
+[    0.310000] Software Watchdog Timer: 0.07 initialized. soft_noboot=0 soft_margin=60 sec (nowayout= 0)
+[    0.360000] usbcore: registered new interface driver usbhid
+[    0.360000] usbhid: v2.6:USB HID core driver
+[    0.360000] MTD: Controller Initialized
+[    0.370000] nand_get_flash_type(...): Manu_ID = 49, Dev_ID = 49 
+[    0.380000] NAND device: Manufacturer ID: 0x49, Chip ID: 0x49 (Unknown NAND 128MiB 1,8V 16-bit)
+[    0.380000] NAND bus width 8 instead 16 bit
+[    0.380000] No NAND device found!!!
+[    0.380000] lf1000-nand lf1000-nand: Failed to find on board NAND
+[    0.380000] Creating 5 MTD partitions on "lf1000-base":
+[    0.380000] 0x000000000000-0x000000100000 : "Emerald_Boot"
+[    0.380000] mtd: partition "Emerald_Boot" is out of reach -- disabled
+[    0.400000] 0x000000100000-0x000000200000 : "I18n_Screens"
+[    0.400000] mtd: partition "I18n_Screens" is out of reach -- disabled
+[    0.400000] 0x000000200000-0x000000a00000 : "Kernel"
+[    0.400000] mtd: partition "Kernel" is out of reach -- disabled
+[    0.400000] 0x000000a00000-0x000006000000 : "RFS"
+[    0.400000] mtd: partition "RFS" is out of reach -- disabled
+[    0.400000] 0x000006000000-0x000000000000 : "Bulk"
+[    0.400000] mtd: partition "Bulk" is out of reach -- disabled
+[    0.410000] Probing nor-flash at physical address 0x00000000 (8-bit bankwidth)
+[    0.410000] Found: SST 39LF040
+[    0.410000] nor-flash: Found 1 x8 devices at 0x0 in 8-bit bank
+[    0.410000] number of JEDEC chips: 1
+[    0.410000] cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+[    0.410000] lf1000_flash_probe().96
+[    0.410000] lf1000_flash_probe().147
+[    0.410000] Creating 3 MTD partitions on "nor-flash":
+[    0.410000] 0x000000000000-0x00000007e000 : "NOR_Boot"
+[    0.410000] 0x00000007e000-0x00000007f000 : "MfgData0"
+[    0.410000] 0x00000007f000-0x000000080000 : "MfgData1"
+[    0.440000] lf1000-power lf1000-power: lf1000_power_probe.956 use LFP100 power control
+[    0.450000] input: Power Button as /class/input/input0
+[    0.450000] lf1000-power lf1000-power: lf1000_power_probe.1005 status is: 1
+[    0.450000] lf1000-power lf1000-power: lf1000_power_probe.1008 have_external is: 1
+[    0.450000] lf1000-power lf1000-power: lf1000_power_probe.1011 initial battery reading is: 0
+[    0.450000] input: LF1000 Keyboard as /class/input/input1
+[    0.450000] resource BUTTON_A (8) port is undefined (-1)
+[    0.450000] resource BUTTON_A (8) pin is undefined (-1)
+[    0.450000] resource BUTTON_B (9) port is undefined (-1)
+[    0.450000] resource BUTTON_B (9) pin is undefined (-1)
+[    0.450000] resource SHOULDER_LEFT (10) port is undefined (-1)
+[    0.450000] resource SHOULDER_LEFT (10) pin is undefined (-1)
+[    0.450000] resource SHOULDER_RIGHT (11) port is undefined (-1)
+[    0.450000] resource SHOULDER_RIGHT (11) pin is undefined (-1)
+[    0.450000] resource BUTTON_HOME (12) port is undefined (-1)
+[    0.450000] resource BUTTON_HOME (12) pin is undefined (-1)
+[    0.450000] resource BUTTON_HINT (13) port is undefined (-1)
+[    0.450000] resource BUTTON_HINT (13) pin is undefined (-1)
+[    0.450000] resource BUTTON_PAUSE (14) port is undefined (-1)
+[    0.450000] resource BUTTON_PAUSE (14) pin is undefined (-1)
+[    0.450000] resource BUTTON_BRIGHTNESS (15) port is undefined (-1)
+[    0.450000] resource BUTTON_BRIGHTNESS (15) pin is undefined (-1)
+[    0.450000] resource BUTTON_RED (23) port is undefined (-1)
+[    0.450000] resource BUTTON_RED (23) pin is undefined (-1)
+[    0.450000] input: LF1000 Accelerometer as /class/input/input2
+[    0.460000] bma_detect: BMA220 device found
+[    0.460000] Advanced Linux Sound Architecture Driver Version 1.0.20.
+[    0.460000] ALSA device list:
+[    0.460000]   No soundcards found.
+[    0.460000] TCP cubic registered
+[    0.460000] NET: Registered protocol family 17
+[    0.470000] lf1000_rtc_readtime(): 2011-01-01 00:00:43
+[    0.470000] lf1000-rtc lf1000-rtc: setting system clock to 2011-01-01 00:00:43 UTC (1293840043)
+[    0.470000] Waiting for root device /dev/mmcblk0p3...
+[    0.470000] mmc0: host does not support reading read-only switch. assuming write-enable.
+[    0.470000] mmc0: new high speed SD card at address b368
+[    0.480000] mmcblk0: mmc0:b368 SD04G 1.87 GiB 
+[    0.480000]  mmcblk0: p1 p2 p3 p4
+[    0.480000] mmcblk0: p4 size 3756024 exceeds device capacity, limited to end of disk
+[    0.580000] EXT3-fs: mmcblk0p3: couldn't mount because of unsupported optional features (240).
+[    0.610000] EXT4-fs (mmcblk0p3): barriers enabled
+[    0.610000] kjournald2 starting: pid 226, dev mmcblk0p3:8, commit interval 5 seconds
+[    0.610000] EXT4-fs (mmcblk0p3): internal journal on mmcblk0p3:8
+[    0.610000] EXT4-fs (mmcblk0p3): delayed allocation enabled
+[    0.610000] EXT4-fs: file extents enabled
+[    0.610000] EXT4-fs: mballoc enabled
+[    0.610000] EXT4-fs (mmcblk0p3): mounted filesystem with ordered data mode
+[    0.610000] VFS: Mounted root (ext4 filesystem) on device 179:3.
+[    0.610000] Freeing init memory: 112K
+[    1.210000] EXT3-fs: Unrecognized mount option "noauto_da_alloc" or missing value
+[    1.260000] EXT4-fs (mmcblk0p4): barriers disabled
+[    1.260000] kjournald2 starting: pid 247, dev mmcblk0p4:8, commit interval 5 seconds
+[    1.260000] EXT4-fs (mmcblk0p4): internal journal on mmcblk0p4:8
+[    1.260000] EXT4-fs (mmcblk0p4): delayed allocation enabled
+[    1.260000] EXT4-fs: file extents enabled
+[    1.260000] EXT4-fs: mballoc enabled
+[    1.260000] EXT4-fs (mmcblk0p4): mounted filesystem with writeback data mode
+[    1.380000] i2c-adapter i2c-0: no ACK in xfer_write
+[    1.380000] i2c: no ACK in xfer_read
+[    1.470000] No device for DAI lf1000-i2s
+[    1.520000] lfp100-codec 0-00cc: i2c-0xCC lfp100_i2c_probe
+[    1.560000] didj-asoc didj-asoc: didj_audio_probe.112
+[    1.580000] asoc: lfp100-codec <-> lf1000-i2s mapping ok
+[    2.720000] lf1000_pll1_clock_changed.930 TIMER_SYS_TICK=45000
+[    3.560000] lf1000-usbgadget lf1000-usbgadget: probe
+[    3.570000] input: LF1000 USB as /class/input/input3
+[    3.680000] lf1000-usbgadget lf1000-usbgadget: usb_gadget_register_driver 'g_ether'
+[    3.680000] lf1000-usbgadget lf1000-usbgadget: binding gadget driver 'g_ether'
+[    3.690000] usb0: MAC 80:38:fd:00:56:94
+[    3.690000] usb0: HOST MAC 80:38:fd:80:56:94
+[    3.690000] g_ether gadget: Ethernet Gadget, version: Veterans Day 2009
+[    3.690000] g_ether gadget: g_ether ready
+[    4.020000] input: LF1000 touchscreen interface as /class/input/input4
+[    4.040000] input: LF1000 touchscreen raw as /class/input/input5
+[    4.050000] input input4: lf1000_ts2: probe done ok
++++   32.53   692   516  1834 Bgn power-button
++++ AppManager: Entered main function: 5.01 0.03
++++ AppManager: Bgn Init Logging: 5.46 0.03
++++ AppManager: Bgn Get Splash Json: 5.47 0.03
++++ AppManager: Start splash video: 6.47 0.03
++++ AppManager: Bgn InitMutex: 6.48 0.03
++++ AppManager: End SetupSystem: 6.49 0.03
++++ AppManager: End Init CLogFile: 6.51 0.03
++++ AppManager: End Load DidjPatches: 6.51 0.03
++++ AppManager: Bgn Set Profile Logging: 6.51 0.03
++++ AppManager: End Set Profile Logging: 6.83 0.03
++++ AppManager: End Set Power & USB: 6.85 0.03
++++ AppManager: Bgn Load main.swf: 6.85 0.03
++++ AppManager: End Load main.swf: 7.87 0.03
++++ AppManager: UI loaded: 7.87 0.03
++++ AppManager: Flash: End Construct DidjPlayer: 7.89 0.03
++++ AppManager: Flash: Bgn LoadMovie: 7.93 0.03
++++ AppManager: Flash: Bgn CreatePlayer: 7.94 0.03
++++ AppManager: Flash: End CreatePlayer: 8.31 0.03
++++ AppManager: Flash: End SetFrameBuffer: 8.33 0.03
++++ AppManager: Flash: End LoadMovie: 8.34 0.03
++++ AppManager: UI entered: 8.34 0.03
++++ AppManager: UI updated: 9.42 0.03
++++ AppManager: End splash video: 11.84 0.04
++++ AppManager: Start shutdown video: 33.62 0.06
++++ AppManager: End shutdown video: 35.82 0.07
++++   36.77   785   548  2129 End AppManager exit(0)
++++   37.19   787   558  2129 Bgn Shutting down system
++++   37.28   789   564  2129 End dbus-1 stop
++++   37.34   791   568  2129 End vsftpd stop
++++   37.41   794   572  2129 End telnetd stop
++++   37.49   794   579  2129 End vbus stop
++++   37.68   799   588  2129 End networking stop
++++   38.55   807   597  2139 End usbether stop
++++   38.62   809   602  2139 Bgn killall mainapp
++++   38.71   813   607  2139 End killall mainapp
++++   38.88   818   619  2139 Bgn umount -a
++++    1.34     4    74    24 End mounts
++++    2.29    24   139    24 Bgn app
++++    1.08     2    56    24 End mount -a
++++    1.12     2    60    24 Bgn mounts

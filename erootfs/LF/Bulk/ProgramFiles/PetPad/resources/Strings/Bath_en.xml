@@ -1,0 +1,12 @@
+<object>
+	<word id="0" text="BATH TIME" />
+	
+	<word id="1" text="Finished?" />
+	<word id="2" text="Are you sure you want to quit?" />
+	<word id="3" text="All clean! Well done!" />
+	
+	<word id="4" text="Rinse your pet" />
+	<word id="5" text="Shampoo your pet" />
+	<word id="6" text="Scrub your pet" />
+	<word id="7" text="Dry your pet" />
+</object>

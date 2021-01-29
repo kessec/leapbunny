@@ -1,0 +1,8 @@
+<object>
+	<word id="0" text="FLINGO" />
+	
+	<word id="1" text="Finished?" />
+	<word id="2" text="Are you sure you want to quit?" />
+	
+	<word id="3" text="RESULT" />
+</object>

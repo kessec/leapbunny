@@ -1,0 +1,9 @@
+#!/bin/sh
+
+while true; do
+      new-calib
+      dd if=/dev/zero of=/dev/fb0 bs=$((320*240*4)) count=1
+      drawtext-fb /dev/fb0 /var/fonts/monotext8x16.rgb    " Success " 7 16 1
+      drawtext-fb /dev/fb0 /var/fonts/monotext8x16.rgb " Restarting... " 9 13 1
+      sleep 2;
+done

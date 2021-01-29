@@ -1,0 +1,5672 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2011.04.15 08:37:59 =~=~=~=~=~=~=~=~=~=~=~=
+ÿEB1.9.02h
+00000000
+Found LFP100 r00
+Search for NAND: mfg_id=00000000 dev_id=00000000 00000000 00000000
+All 4 bytes the same, no NAND found
+No nand found
+Search for SD1: mmc: detected SD 2.0 or later
+SD1 found
+mmc: detected SD 2.0 or later
+SD1 kernel passes CBF
+Uncompressing Linux............................................................................................................................ done, booting the kernel.
+init started: BusyBox v1.13.2 (2010-11-05 10:51:29 PDT)
+starting pid 227, tty '': '/etc/init.d/rcS'
+numid=2,iface=MIXER,name='Mic Capture Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=2,step=0
+  : values=2
+  | dBscale-min=30.00dB,step=10.00dB,mute=0
+Error: failed to create report socket
+failed to write/read.
+: Bad address
+Emerald Base: found LFP100 codec
+Emerald Base: Starting lfd ...
+Starting system logging.
+Recovery Keep-Alives: boot_image=PLAY boot_source=NOR panic=0 power=COLD request=BATTERY shutdown=DIRTY raw=0003EB5D
+
+Launching AppManager normally
+starting pid 369, tty '/dev/ttyS0': '-/bin/sh'
+Emerald Base: Locale: could not find /var/screens-en/LEGAL.png, defaulting to english
+Emerald Base: Locale: Loading /var/screens/Madrid-Boot-logoCW.png
+~ # Emerald Base: +++ 4.91 101 320 33 Bgn AppManager
+Emerald Base: Use ADC settings from NOR -108 2072
+Playing WAVE '/var/sounds/startup.wav' : Signed 16 bit Little Endian, Rate 32000 Hz, Stereo
+Emerald Base: Starting Ethernet USB driver ...
+Emerald Base: Starting touch screen driver ...
+setcal: Reading TS sensitivity calibration data from /flags/set-ts.sh
+Emerald Base: setcal: Reading TS sensitivity calibration data from /flags/set-ts.sh
+init=/sbin/init console=ttyS0,115200 loglevel=2 mem=46M mlc_fb=0x82E00000,0x01200000 ram=0x80000000-0x83FFFFFF screen_module=ILI6480G2 root=/dev/mmcblk0p3 rootfstype=ext3 rootwait 
+setcal: /flags/set-ts.sh success
+Emerald Base: setcal: /flags/set-ts.sh success
+Emerald Base: +++ 6.75 200 403 33 Bgn Mounting SD /LF/Bulk
+Success
+Emerald Base: +++ 7.14 213 419 33 End Mounting SD /LF/Bulk
+setcal: Using USERCAL in /flags/pointercal 50766 -139 -10775564 293 41654 -12797109 65536
+Emerald Base: setcal: Using USERCAL in /flags/pointercal 50766 -139 -10775564 293 41654 -12797109 65536
+Tue Jan  1 01:01:00 UTC 2008
++++   14.92   693   575    75 Bgn CartManager
+Starting system message bus: dbus.
+Emerald Base: Starting /etc/init.d/networking ...
+Emerald Base: /etc/init.d/networking: default: dynamic IP
+ * Starting Avahi mDNS/DNS-SD Daemon: avahi-daemon
+[ ok ]
+Emerald Base: Starting vbus-monitor ...
+vbus-monitor: vbus is low
+Emerald Base: hostname:         'Explorer-13191E00010B06010264'
+Emerald Base: Board ID:         'B'
+Emerald Base: NOR BootVersion:  '1.9.2.1892'
+Emerald Base: NOR SerialNumber: '13191E00010B06010264'
+Emerald Base: Firmware Release Version: 1.9.2-1892
+Emerald Base: Base bin Version: "1.9.2.6243"
+Emerald Base: Base lib Version: "1.9.2.6302"
+Emerald Base: Base UI Version: "1.9.2.6283"
+Emerald Base: Base Brio Version: "1.9.2.9163"
+
+~ # killall app AppManager
+~ # cd var/log
+/var/log # ls
+devices        new-calib.log.ev1  new-calib.log.factory
+new-calib.log  new-calib.log.ev2  wtmp
+/var/log # mv new-calib.log new-calib.log.ev3
+/var/log # new-calib.  -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.00 y= 0.75 t= 0.95
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.299573 > 2.500000 or 2.521023 > 2.500000.  Try again.
+Too Noisy!  2.041241 > 2.500000 or 6.123724 > 2.500000.  Try again.
+N=24 Avg=24
+min: 23 23 23 24 24 24 
+max: 25 25 25 24 24 24 
+N=24 Avg=18
+min: 18 18 18 18 18 18 
+max: 21 19 19 19 19 18 
+N=24 Avg=23
+min: 17 18 20 20 22 23 
+max: 26 26 25 25 25 25 
+N=24 Avg=25
+min: 24 24 24 24 24 24 
+max: 27 26 26 26 26 26 
+Using TNT center offset = 23
+TNT Plane Coef: a= -401 b=  810 c=-195430
+Fit Corners: 24, 19, 23, 29  Center: 23
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 26 (V2:39)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  20g: P=1998 T=210
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   2
+27:   3
+28:   3
+29:  33
+Mode  25g: P= 990 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   2
+25:  10
+26:   9
+27:  32
+28:   3
+29:   1
+Mode  30g: P= 882 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   1
+22:   3
+23:  22
+24:  55
+25:  10
+26:   2
+27:   0
+28:   0
+29:   1
+Mode  40g: P= 748 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   9
+22:  90
+23:   6
+24:   1
+25:   4
+26:   4
+27:   2
+28:   2
+29:   3
+Mode  50g: P= 666 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:   5
+20:  60
+21:  17
+22:   3
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 578 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:  12
+19:  89
+20:  19
+21:   5
+22:   1
+23:   0
+24:   2
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 540 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:  24
+19:  70
+20:  14
+21:   4
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 524 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   4
+18:  96
+19:  33
+20:   9
+21:   3
+22:   1
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   1
+29:   0
+Mode 200g: P= 506 T=18
+mx=13262.4235 b= 420.1322
+Fit x=  0.03333 y=882.00000 -> 862.71297
+Fit x=  0.02500 y=748.00000 -> 752.19278
+Fit x=  0.02000 y=666.00000 -> 685.88066
+Fit x=  0.01333 y=578.00000 -> 597.46450
+Fit x=  0.01000 y=540.00000 -> 553.25643
+Fit x=  0.00667 y=524.00000 -> 509.04835
+Fit x=  0.00500 y=506.00000 -> 486.94431
+Setting for max_tnt_down: 27
+Setting pressure: 427 437 486 509 553 597 685 752 862 
+/var/log # mv new-calib.log new-calib.log.scp1
+/var/log # /var/log # mv new-calib.log new-calib.log.scp1/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.91 y= 0.65 t= 0.95
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  2.637640 > 2.500000 or 0.746420 > 2.500000.  Try again.
+N=24 Avg=23
+min: 22 22 22 23 23 23 
+max: 25 25 25 24 24 24 
+N=24 Avg=16
+min: 15 15 15 15 15 15 
+max: 18 18 18 17 17 17 
+N=24 Avg=18
+min: 15 16 16 16 16 16 
+max: 22 22 22 21 21 21 
+N=24 Avg=23
+min: 23 23 23 23 23 23 
+max: 24 24 24 24 23 23 
+Using TNT center offset = 21
+TNT Plane Coef: a= -516 b=  272 c= 145081
+Fit Corners: 25, 18, 19, 26  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 24 (V2:36)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:   2
+28:   1
+29:   0
+Mode  20g: P=1998 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   5
+25:   3
+26:   1
+27:   0
+28:   2
+29:   0
+Mode  25g: P=1106 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   6
+23:   3
+24:   3
+25:   1
+26:   1
+27:   1
+28:   0
+29:  35
+Mode  30g: P= 984 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:   0
+20:   3
+21:   3
+22:  31
+23:  29
+24:   2
+25:   2
+26:   0
+27:   1
+28:   0
+29:   1
+Mode  40g: P= 694 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:  21
+21:  45
+22:   9
+23:   3
+24:   1
+25:   2
+26:   0
+27:   1
+28:   0
+29:   0
+Mode  50g: P= 618 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:  63
+20:  33
+21:   1
+22:   1
+23:   0
+24:   1
+25:   0
+26:   1
+27:   0
+28:   2
+29:   0
+Mode  75g: P= 556 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   1
+16:   0
+17:   1
+18:  64
+19:  50
+20:   7
+21:   3
+22:   1
+23:   2
+24:   2
+25:   2
+26:   0
+27:   0
+28:   1
+29:   0
+Mode 100g: P= 524 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   4
+18:  84
+19:  24
+20:   6
+21:   3
+22:   3
+23:   3
+24:   0
+25:   2
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 508 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  16
+18: 115
+19:  19
+20:   5
+21:   2
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 502 T=18
+mx=9490.9091 b= 440.4545
+Fit x=  0.02500 y=694.00000 -> 678.22727
+Fit x=  0.02000 y=618.00000 -> 630.77273
+Fit x=  0.01333 y=556.00000 -> 567.50000
+Fit x=  0.01000 y=524.00000 -> 535.86364
+Fit x=  0.00667 y=508.00000 -> 504.22727
+Fit x=  0.00500 y=502.00000 -> 488.40909
+Setting for max_tnt_down: 29
+Setting pressure: 445 452 488 504 535 567 630 678 757 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scp1 2
+/var/log # /var/log # mv new-calib.log new-calib.log.scp2/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.10 y= 0.69 t= 0.78
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=24
+min: 23 23 23 23 23 23 
+max: 29 26 26 26 25 25 
+N=24 Avg=16
+min: 15 15 15 15 15 15 
+max: 19 18 18 17 17 17 
+N=24 Avg=18
+min: 15 16 16 16 16 16 
+max: 24 24 23 23 22 20 
+N=24 Avg=25
+min: 25 25 25 25 25 25 
+max: 27 27 26 26 26 26 
+Using TNT center offset = 22
+TNT Plane Coef: a= -806 b=  364 c= 232574
+Fit Corners: 27, 16, 18, 29  Center: 22
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  20g: P=1998 T=35
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   2
+25:   2
+26:   2
+27:   1
+28:   2
+29:   4
+Mode  25g: P=1092 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   1
+22:   2
+23:   2
+24:   2
+25:   2
+26:   6
+27:  49
+28:  17
+29:   5
+Mode  30g: P= 890 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   2
+21:   2
+22:  25
+23:  15
+24:   6
+25:   7
+26:   3
+27:   2
+28:   1
+29:   0
+Mode  40g: P= 694 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:  52
+21:  36
+22:   2
+23:   1
+24:   0
+25:   0
+26:   0
+27:   2
+28:   0
+29:   0
+Mode  50g: P= 602 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   4
+19:  65
+20:  16
+21:   8
+22:   5
+23:   2
+24:   1
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 554 T=19
+10:   0
+11:   1
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   0
+18:  43
+19:  44
+20:   2
+21:   2
+22:   0
+23:   1
+24:   0
+25:   3
+26:   0
+27:   0
+28:   1
+29:   0
+Mode 100g: P= 524 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  18
+18: 113
+19:  21
+20:   1
+21:   2
+22:   0
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   1
+29:   1
+Mode 150g: P= 506 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   2
+17:  22
+18: 100
+19:  16
+20:   4
+21:   0
+22:   0
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 498 T=18
+mx=13025.2142 b= 398.8299
+Fit x=  0.03333 y=890.00000 -> 833.50367
+Fit x=  0.02500 y=694.00000 -> 724.96022
+Fit x=  0.02000 y=602.00000 -> 659.83415
+Fit x=  0.01333 y=554.00000 -> 572.99939
+Fit x=  0.01000 y=524.00000 -> 529.58201
+Fit x=  0.00667 y=506.00000 -> 486.16463
+Fit x=  0.00500 y=498.00000 -> 464.45594
+Setting for max_tnt_down: 27
+Setting pressure: 405 415 464 486 529 572 659 724 833 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scp2 3
+/var/log # /var/log # mv new-calib.log new-calib.log.scp3/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.85 y= 0.52 t= 0.66
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.632993 > 2.500000 or 3.674235 > 2.500000.  Try again.
+N=24 Avg=24
+min: 23 23 23 23 23 23 
+max: 28 27 26 24 24 24 
+N=24 Avg=16
+min: 15 16 16 16 16 16 
+max: 18 17 17 17 17 17 
+N=24 Avg=22
+min: 17 17 17 18 19 20 
+max: 28 24 24 24 24 24 
+N=24 Avg=23
+min: 22 22 22 22 22 22 
+max: 29 28 25 25 25 25 
+Using TNT center offset = 23
+TNT Plane Coef: a= -457 b=  720 c=-167744
+Fit Corners: 24, 18, 22, 28  Center: 23
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 26 (V2:39)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   1
+21:   8
+22:   3
+23:   3
+24:  11
+25:   5
+26:   2
+27:   5
+28:   0
+29:   0
+Mode  20g: P=1398 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   3
+25:   5
+26:   1
+27:   1
+28:   1
+29:   0
+Mode  25g: P=1098 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   1
+21:   4
+22:   1
+23:   3
+24:   0
+25:   1
+26:   1
+27:  15
+28:  35
+29:  88
+Mode  30g: P= 908 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   2
+21:  47
+22:  20
+23:   4
+24:   7
+25:   1
+26:   2
+27:   0
+28:   0
+29:   0
+Mode  40g: P= 646 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:  12
+20:  55
+21:   9
+22:   7
+23:   1
+24:   0
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  50g: P= 596 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   2
+19:  67
+20:  15
+21:   7
+22:   3
+23:   0
+24:   0
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 552 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  45
+19:  45
+20:   8
+21:   2
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 530 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  10
+18: 107
+19:  23
+20:   2
+21:   1
+22:   0
+23:   0
+24:   0
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 506 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  27
+18:  97
+19:  18
+20:   7
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 496 T=18
+mx=7320.0000 b= 456.7333
+Fit x=  0.02500 y=646.00000 -> 640.23333
+Fit x=  0.02000 y=596.00000 -> 603.63333
+Fit x=  0.01333 y=552.00000 -> 554.83333
+Fit x=  0.01000 y=530.00000 -> 530.43333
+Fit x=  0.00667 y=506.00000 -> 506.03333
+Fit x=  0.00500 y=496.00000 -> 493.83333
+Setting for max_tnt_down: 29
+Setting pressure: 460 466 493 506 530 554 603 640 701 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scp3 4
+/var/log # /var/log # mv new-calib.log new-calib.log.scp4/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.82 y= 0.68 t= 0.68
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.080123 > 2.500000 or 2.549510 > 2.500000.  Try again.
+Too Noisy!  2.608102 > 2.500000 or 0.960769 > 2.500000.  Try again.
+N=24 Avg=23
+min: 23 23 23 23 23 23 
+max: 28 28 25 25 24 24 
+N=24 Avg=17
+min: 16 16 17 17 17 17 
+max: 19 18 18 18 18 18 
+N=24 Avg=17
+min: 15 16 16 16 16 16 
+max: 23 20 19 19 19 18 
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 24 24 24 24 23 23 
+Using TNT center offset = 21
+TNT Plane Coef: a= -634 b=  -89 c= 361913
+Fit Corners: 26, 17, 17, 26  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 24 (V2:36)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   1
+26:   2
+27:   1
+28:   0
+29:   0
+Mode  20g: P=1998 T=215
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   8
+26:   5
+27:   1
+28:   2
+29:   0
+Mode  25g: P=1144 T=33
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   1
+23:   2
+24:   4
+25:  72
+26:  61
+27:  18
+28:   2
+29:   4
+Mode  30g: P= 808 T=25
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:  37
+22:  91
+23:  23
+24:   7
+25:   2
+26:   0
+27:   2
+28:   0
+29:   0
+Mode  40g: P= 666 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:   0
+19:   4
+20:  64
+21:  19
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  50g: P= 602 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  22
+19:  89
+20:  11
+21:   5
+22:   1
+23:   1
+24:   0
+25:   1
+26:   1
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 540 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   2
+18:  48
+19:  37
+20:   7
+21:   6
+22:   1
+23:   1
+24:   0
+25:   0
+26:   1
+27:   0
+28:   0
+29:   1
+Mode 100g: P= 526 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   1
+15:   0
+16:   0
+17:  15
+18: 107
+19:  16
+20:   5
+21:   1
+22:   0
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 502 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  32
+18: 106
+19:  14
+20:   3
+21:   3
+22:   1
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 496 T=18
+mx=10612.7295 b= 419.6034
+Fit x=  0.03333 y=808.00000 -> 773.86108
+Fit x=  0.02500 y=666.00000 -> 685.42166
+Fit x=  0.02000 y=602.00000 -> 632.35802
+Fit x=  0.01333 y=540.00000 -> 561.60649
+Fit x=  0.01000 y=526.00000 -> 526.23072
+Fit x=  0.00667 y=502.00000 -> 490.85496
+Fit x=  0.00500 y=496.00000 -> 473.16707
+Setting for max_tnt_down: 25
+Setting pressure: 425 433 473 490 526 561 632 685 773 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scp4 5
+/var/log # /var/log # mv new-calib.log new-calib.log.scp5/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.20 y= 0.89 t= 1.10
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.927248 > 2.500000 or 4.881940 > 2.500000.  Try again.
+N=24 Avg=23
+min: 22 22 23 23 23 23 
+max: 27 26 25 24 24 24 
+N=24 Avg=16
+min: 14 15 15 16 16 16 
+max: 20 18 17 17 17 17 
+N=24 Avg=17
+min: 15 15 15 15 15 15 
+max: 27 24 22 22 21 19 
+N=24 Avg=24
+min: 23 23 23 23 23 23 
+max: 26 26 26 26 26 26 
+Using TNT center offset = 22
+TNT Plane Coef: a= -807 b=  365 c= 200343
+Fit Corners: 27, 15, 17, 29  Center: 22
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   4
+24:   2
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode  20g: P=1998 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   1
+24:   0
+25:   0
+26:   0
+27:   1
+28:   0
+29:   0
+Mode  25g: P=1114 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   2
+23:   4
+24:   2
+25:   4
+26:   1
+27:   2
+28:   1
+29:  16
+Mode  30g: P= 996 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   9
+22:  76
+23:  19
+24:   4
+25:   2
+26:   4
+27:   2
+28:   0
+29:   1
+Mode  40g: P= 686 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:   3
+20:  78
+21:  19
+22:   1
+23:   1
+24:   2
+25:   1
+26:   0
+27:   1
+28:   1
+29:   0
+Mode  50g: P= 602 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   8
+19:  61
+20:  11
+21:   3
+22:   3
+23:   2
+24:   2
+25:   3
+26:   2
+27:   1
+28:   0
+29:   0
+Mode  75g: P= 546 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  50
+19:  34
+20:   6
+21:   1
+22:   2
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 526 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   1
+16:   0
+17:  21
+18: 111
+19:  18
+20:   3
+21:   2
+22:   1
+23:   3
+24:   1
+25:   0
+26:   0
+27:   1
+28:   1
+29:   0
+Mode 150g: P= 506 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   1
+16:   3
+17:  41
+18: 103
+19:   6
+20:   5
+21:   3
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 496 T=18
+mx=9021.8182 b= 440.0424
+Fit x=  0.02500 y=686.00000 -> 666.08788
+Fit x=  0.02000 y=602.00000 -> 620.97879
+Fit x=  0.01333 y=546.00000 -> 560.83333
+Fit x=  0.01000 y=526.00000 -> 530.76061
+Fit x=  0.00667 y=506.00000 -> 500.68788
+Fit x=  0.00500 y=496.00000 -> 485.65152
+Setting for max_tnt_down: 30
+Setting pressure: 445 451 485 500 530 560 620 666 741 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scp5 6
+/var/log # /var/log # mv new-calib.log new-calib.log.scp6/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.86 y= 0.64 t= 0.81
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.632993 > 2.500000 or 2.677063 > 2.500000.  Try again.
+N=24 Avg=23
+min: 23 23 23 23 23 23 
+max: 25 24 24 24 24 24 
+N=24 Avg=17
+min: 15 15 16 17 17 17 
+max: 20 19 19 19 19 18 
+N=24 Avg=18
+min: 16 16 16 16 17 17 
+max: 24 22 19 19 19 19 
+N=24 Avg=24
+min: 23 24 24 24 24 24 
+max: 25 24 24 24 24 24 
+Using TNT center offset = 21
+TNT Plane Coef: a= -633 b=   92 c= 299369
+Fit Corners: 26, 17, 18, 27  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 24 (V2:36)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   2
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   1
+Mode  20g: P= 686 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  25g: P=1142 T=33
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:  27
+28:  69
+29:  15
+Mode  30g: P= 908 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   1
+24:  27
+25:  41
+26:   1
+27:   3
+28:   0
+29:   1
+Mode  40g: P= 784 T=25
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   1
+20:  11
+21:  41
+22:   5
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   1
+Mode  50g: P= 634 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   1
+18:   4
+19:  60
+20:  27
+21:   0
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 570 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  55
+19:  49
+20:   3
+21:   1
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 532 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  12
+18: 125
+19:  14
+20:   1
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 512 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   2
+17:  26
+18: 105
+19:   3
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   1
+29:   0
+Mode 200g: P= 500 T=18
+mx=4855.5253 b= 512.3974
+Fit x=  0.05000 y=686.00000 -> 755.67365
+Fit x=  0.02500 y=784.00000 -> 634.28552
+Fit x=  0.02000 y=634.00000 -> 610.00789
+Fit x=  0.01333 y=570.00000 -> 577.63772
+Fit x=  0.01000 y=532.00000 -> 561.45264
+Fit x=  0.00667 y=512.00000 -> 545.26756
+Fit x=  0.00500 y=500.00000 -> 537.17501
+Setting for max_tnt_down: 28
+Setting pressure: 515 518 537 545 561 577 610 634 674 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scp6 d1
+/var/log # /var/log # mv new-calib.log new-calib.log.scpd1/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.32 y= 0.89 t= 1.16
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=22
+min: 22 22 22 23 23 23 
+max: 24 24 23 23 23 23 
+N=24 Avg=18
+min: 16 16 17 17 17 17 
+max: 22 20 19 19 19 19 
+N=24 Avg=18
+min: 16 17 17 17 17 17 
+max: 25 23 22 21 19 19 
+N=24 Avg=23
+min: 22 23 23 23 23 23 
+max: 24 24 24 24 24 24 
+Using TNT center offset = 21
+TNT Plane Coef: a= -517 b=   91 c= 239407
+Fit Corners: 25, 18, 19, 26  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 24 (V2:36)
+Entering calib_pressure_mfg
+Mode  20g: P=9999 T=1023
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  25g: P=1218 T=34
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  30g: P=1204 T=36
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   1
+24:  13
+25:  65
+26:  12
+27:   3
+28:   4
+29:   0
+Mode  40g: P= 788 T=25
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   3
+22:  54
+23:  16
+24:   2
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  50g: P= 690 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:   8
+20:  64
+21:   8
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 596 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  29
+19: 115
+20:   7
+21:   0
+22:   1
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 546 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   5
+18:  94
+19:  23
+20:   1
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 520 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   1
+15:   0
+16:   0
+17:  17
+18: 118
+19:   5
+20:   1
+21:   1
+22:   0
+23:   0
+24:   0
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 502 T=18
+FAILED to measure 20g weight
+mx=14149.0909 b= 418.3455
+Fit x=  0.02500 y=788.00000 -> 772.57273
+Fit x=  0.02000 y=690.00000 -> 701.82727
+Fit x=  0.01333 y=596.00000 -> 607.50000
+Fit x=  0.01000 y=546.00000 -> 560.33636
+Fit x=  0.00667 y=520.00000 -> 513.17273
+Fit x=  0.00500 y=502.00000 -> 489.59091
+Setting for max_tnt_down: 36
+Setting pressure: 425 436 489 513 560 607 701 772 890 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scpd1 2
+/var/log # /var/log # mv new-calib.log new-calib.log.scpd2/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Too Noisy!  0.816497 > 5.000000 or 6.940221 > 5.000000.  Try again.
+Entering calib_delay
+Release
+actual noise  x= 0.94 y= 0.51 t= 0.72
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=23
+min: 23 23 23 23 23 24 
+max: 25 25 25 24 24 24 
+N=24 Avg=18
+min: 17 17 17 18 18 19 
+max: 21 20 20 20 20 19 
+N=24 Avg=21
+min: 17 17 18 19 20 20 
+max: 28 27 25 24 24 21 
+N=24 Avg=23
+min: 22 22 22 23 23 23 
+max: 25 24 24 24 23 23 
+Using TNT center offset = 22
+TNT Plane Coef: a= -402 b=   90 c= 147456
+Fit Corners: 25, 19, 20, 25  Center: 22
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+Mode  20g: P=9999 T=1023
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  25g: P=1366 T=37
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  30g: P=1064 T=31
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   4
+28:  56
+29:  21
+Mode  40g: P= 936 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   1
+23:   0
+24:   2
+25:  69
+26:  50
+27:   1
+28:   1
+29:   1
+Mode  50g: P= 822 T=25
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   7
+21:  44
+22:   4
+23:   2
+24:   0
+25:   1
+26:   1
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 634 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:  49
+20:  37
+21:   1
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 578 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   5
+18:  78
+19:  31
+20:   2
+21:   2
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 524 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:  15
+18: 136
+19:  13
+20:   0
+21:   1
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 508 T=18
+FAILED to measure 20g weight
+mx=20957.8125 b= 382.6641
+Fit x=  0.02000 y=822.00000 -> 802.32031
+Fit x=  0.01333 y=634.00000 -> 662.60156
+Fit x=  0.01000 y=578.00000 -> 592.74219
+Fit x=  0.00667 y=524.00000 -> 522.88281
+Fit x=  0.00500 y=508.00000 -> 487.95312
+Setting for max_tnt_down: 31
+Setting pressure: 393 409 487 522 592 662 802 907 1081 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scpd2 3
+/var/log # /var/log # mv new-calib.log new-calib.log.scpd3/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 2.03 y= 0.52 t= 0.59
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 3.04 y= 2.50 t= 2.50
+Too Noisy!  1.064581 > 3.039098 or 2.886751 > 2.500000.  Try again.
+N=24 Avg=23
+min: 22 22 22 22 22 22 
+max: 27 24 24 24 24 23 
+N=24 Avg=19
+min: 17 17 18 19 19 19 
+max: 22 21 21 21 21 21 
+N=24 Avg=23
+min: 17 20 20 20 22 23 
+max: 27 25 25 25 24 24 
+N=24 Avg=23
+min: 22 22 22 23 23 23 
+max: 24 24 24 24 23 23 
+Using TNT center offset = 23
+TNT Plane Coef: a=  -57 b=  269 c=-126556
+Fit Corners: 23, 23, 23, 24  Center: 23
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 26 (V2:39)
+Entering calib_pressure_mfg
+Mode  20g: P=9999 T=1023
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  25g: P=1324 T=37
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  30g: P=1148 T=33
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  40g: P=1040 T=31
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   1
+25:   1
+26:  22
+27: 116
+28:  30
+29:   5
+Mode  50g: P= 876 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:  35
+22:  38
+23:   7
+24:   3
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 670 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   3
+20:  99
+21:  25
+22:   1
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   0
+29:   2
+Mode 100g: P= 606 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  55
+19:  43
+20:   4
+21:   0
+22:   1
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 532 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   3
+18:  81
+19:  34
+20:   0
+21:   0
+22:   2
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 520 T=18
+FAILED to measure 20g weight
+mx=24018.7500 b= 376.5938
+Fit x=  0.02000 y=876.00000 -> 857.46875
+Fit x=  0.01333 y=670.00000 -> 697.34375
+Fit x=  0.01000 y=606.00000 -> 617.28125
+Fit x=  0.00667 y=532.00000 -> 537.21875
+Fit x=  0.00500 y=520.00000 -> 497.18750
+Setting for max_tnt_down: 33
+Setting pressure: 389 407 497 537 617 697 857 977 1177 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scpd3 4
+/var/log # /var/log # mv new-calib.log new-calib.log.scpd4/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.56 y= 0.57 t= 0.62
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:   15
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.224745 > 2.500000 or 2.857738 > 2.500000.  Try again.
+Too Noisy!  1.000000 > 2.500000 or 3.968627 > 2.500000.  Try again.
+Too Noisy!  0.816497 > 2.500000 or 3.265986 > 2.500000.  Try again.
+N=24 Avg=23
+min: 22 22 23 23 23 23 
+max: 27 24 24 23 23 23 
+N=24 Avg=19
+min: 18 19 19 19 19 19 
+max: 20 20 20 20 20 20 
+N=24 Avg=19
+min: 18 19 19 19 19 19 
+max: 26 24 22 21 20 20 
+N=24 Avg=23
+min: 22 22 23 23 23 23 
+max: 26 24 24 24 24 23 
+Using TNT center offset = 22
+TNT Plane Coef: a= -344 b=    0 c= 147280
+Fit Corners: 24, 20, 20, 24  Center: 22
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  20g: P=1998 T=57
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  25g: P=1376 T=38
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  30g: P=1106 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  40g: P=1066 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   1
+28:  14
+29:  52
+Mode  50g: P= 952 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   2
+23:  48
+24:  23
+25:   3
+26:   3
+27:   1
+28:   0
+29:   1
+Mode  75g: P= 742 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:   3
+19:   1
+20:  63
+21: 109
+22:   2
+23:   1
+24:   0
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 630 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:   8
+19: 109
+20:  12
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 558 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   1
+15:   0
+16:   0
+17:   3
+18:  65
+19:  43
+20:   4
+21:   1
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 524 T=18
+mx=25891.5254 b= 386.9492
+Fit x=  0.01333 y=742.00000 -> 732.66949
+Fit x=  0.01000 y=630.00000 -> 646.36441
+Fit x=  0.00667 y=558.00000 -> 560.05932
+Fit x=  0.00500 y=524.00000 -> 516.90678
+Setting for max_tnt_down: 32
+Setting pressure: 400 419 516 560 646 732 905 1034 1250 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scpd4 5
+/var/log # /var/log # mv new-calib.log new-calib.log.scpd5/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.09 y= 0.60 t= 0.63
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=23
+min: 22 22 23 23 23 23 
+max: 24 24 24 24 24 24 
+N=24 Avg=21
+min: 17 17 19 20 21 22 
+max: 24 23 23 23 22 22 
+N=24 Avg=20
+min: 19 19 19 19 20 20 
+max: 26 24 24 23 22 21 
+N=24 Avg=24
+min: 23 23 23 24 24 24 
+max: 28 25 25 25 24 24 
+Using TNT center offset = 23
+TNT Plane Coef: a= -287 b=  -89 c= 181036
+Fit Corners: 25, 22, 21, 25  Center: 23
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 26 (V2:39)
+Entering calib_pressure_mfg
+Mode  20g: P=9999 T=1023
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  25g: P=1088 T=31
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  30g: P=1186 T=33
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  40g: P=1178 T=34
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   2
+Mode  50g: P=1002 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   4
+25:  71
+26:  13
+27:   3
+28:   1
+29:   0
+Mode  75g: P= 804 T=25
+10:   0
+11:   0
+12:   1
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   1
+20:   3
+21:  88
+22:  40
+23:   2
+24:   0
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 656 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  26
+19:  97
+20:  13
+21:   2
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 554 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   3
+18:  74
+19:  47
+20:   3
+21:   2
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 530 T=18
+FAILED to measure 20g weight
+mx=33274.5763 b= 344.8475
+Fit x=  0.01333 y=804.00000 -> 789.00847
+Fit x=  0.01000 y=656.00000 -> 678.09322
+Fit x=  0.00667 y=554.00000 -> 567.17797
+Fit x=  0.00500 y=530.00000 -> 511.72034
+Setting for max_tnt_down: 33
+Setting pressure: 361 386 511 567 678 789 1010 1177 1454 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scpd5 6
+/var/log # /var/log # mv new-calib.log new-calib.log.scpd6/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.18 y= 0.74 t= 1.12
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  2.037155 > 2.500000 or 2.559297 > 2.500000.  Try again.
+Too Noisy!  2.559297 > 2.500000 or 0.741620 > 2.500000.  Try again.
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 24 23 23 23 23 23 
+N=24 Avg=17
+min: 17 17 17 17 17 17 
+max: 20 19 19 18 18 18 
+N=24 Avg=15
+min: 14 14 15 15 15 15 
+max: 21 19 18 17 16 16 
+N=24 Avg=22
+min: 22 22 22 22 22 23 
+max: 24 24 23 23 23 23 
+Using TNT center offset = 20
+TNT Plane Coef: a= -691 b= -176 c= 453116
+Fit Corners: 26, 16, 15, 25  Center: 20
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 23 (V2:34)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   3
+Mode  20g: P=1052 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   1
+24:   0
+25:   4
+26:  63
+27:  67
+28:  12
+29:   5
+Mode  25g: P= 880 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   4
+25:  59
+26:  30
+27:   9
+28:   9
+29:  16
+Mode  30g: P= 808 T=25
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   3
+23:  74
+24:  30
+25:   8
+26:   2
+27:   1
+28:   2
+29:   2
+Mode  40g: P= 734 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   1
+21:  38
+22: 135
+23:  15
+24:   4
+25:   3
+26:   1
+27:   2
+28:   1
+29:   0
+Mode  50g: P= 668 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:  13
+20: 119
+21:  22
+22:   6
+23:   4
+24:   0
+25:   1
+26:   3
+27:   3
+28:   2
+29:   2
+Mode  75g: P= 596 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  43
+19: 105
+20:   8
+21:   0
+22:   1
+23:   1
+24:   0
+25:   3
+26:   0
+27:   1
+28:   3
+29:   1
+Mode 100g: P= 548 T=19
+10:   0
+11:   0
+12:   0
+13:   1
+14:   0
+15:   0
+16:   0
+17:   0
+18:  62
+19:  61
+20:   9
+21:   3
+22:   0
+23:   1
+24:   0
+25:   1
+26:   0
+27:   0
+28:   1
+29:   0
+Mode 150g: P= 536 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:  15
+18: 168
+19:  44
+20:   5
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 516 T=18
+mx=10580.0971 b= 457.9648
+Fit x=  0.04000 y=880.00000 -> 881.66869
+Fit x=  0.03333 y=808.00000 -> 811.13471
+Fit x=  0.02500 y=734.00000 -> 722.96723
+Fit x=  0.02000 y=668.00000 -> 670.06675
+Fit x=  0.01333 y=596.00000 -> 599.53277
+Fit x=  0.01000 y=548.00000 -> 564.26578
+Fit x=  0.00667 y=536.00000 -> 528.99879
+Fit x=  0.00500 y=516.00000 -> 511.36529
+Setting for max_tnt_down: 25
+Setting pressure: 463 471 511 528 564 599 670 722 811 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scpd6   np1
+/var/log # /var/log # mv new-calib.log new-calib.log.scnp1/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.15 y= 1.29 t= 1.44
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  2.679286 > 2.500000 or 2.442189 > 2.500000.  Try again.
+Too Noisy!  1.570563 > 2.500000 or 3.464102 > 2.500000.  Try again.
+N=24 Avg=22
+min: 21 22 22 22 22 22 
+max: 24 24 24 24 24 23 
+N=24 Avg=17
+min: 16 16 16 16 16 16 
+max: 18 18 18 18 18 18 
+N=24 Avg=17
+min: 14 14 15 15 15 15 
+max: 28 27 24 24 23 19 
+N=24 Avg=22
+min: 21 21 22 22 22 22 
+max: 25 23 23 23 23 23 
+Using TNT center offset = 21
+TNT Plane Coef: a= -516 b=   91 c= 206012
+Fit Corners: 25, 18, 18, 25  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   1
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   8
+Mode  20g: P=1048 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   2
+29:  32
+Mode  25g: P= 960 T=31
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   2
+27:  35
+28:  62
+29:  98
+Mode  30g: P= 882 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   1
+24:   0
+25:   6
+26:  85
+27:  84
+28:  56
+29:  53
+Mode  40g: P= 908 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   3
+22:   8
+23: 109
+24:  78
+25:  32
+26:  12
+27:   4
+28:   0
+29:   2
+Mode  50g: P= 724 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   5
+20:  73
+21:  16
+22:   0
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  75g: P= 608 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   0
+18:  11
+19:  65
+20:  33
+21:   4
+22:   9
+23:   1
+24:   1
+25:   0
+26:   0
+27:   1
+28:   2
+29:   2
+Mode 100g: P= 570 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  67
+19:  58
+20:  10
+21:   7
+22:   1
+23:   2
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   2
+Mode 150g: P= 536 T=18
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:  77
+19:  61
+20:  10
+21:   6
+22:   2
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 532 T=18
+mx=12924.1494 b= 451.7278
+Fit x=  0.03333 y=882.00000 -> 883.03278
+Fit x=  0.02000 y=724.00000 -> 710.71079
+Fit x=  0.01333 y=608.00000 -> 624.54979
+Fit x=  0.01000 y=570.00000 -> 581.46929
+Fit x=  0.00667 y=536.00000 -> 538.38880
+Fit x=  0.00500 y=532.00000 -> 516.84855
+Setting for max_tnt_down: 29
+Setting pressure: 458 468 516 538 581 624 710 775 883 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnp1 2
+/var/log # /var/log # mv new-calib.log new-calib.log.scnp2/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.44 y= 1.05 t= 1.30
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  2.160247 > 2.500000 or 2.549510 > 2.500000.  Try again.
+Too Noisy!  1.471960 > 2.500000 or 2.677063 > 2.500000.  Try again.
+N=24 Avg=21
+min: 21 21 21 21 22 22 
+max: 23 22 22 22 22 22 
+N=24 Avg=17
+min: 15 15 16 16 17 17 
+max: 22 18 18 18 18 17 
+N=24 Avg=14
+min: 14 14 14 14 14 14 
+max: 16 15 15 15 15 15 
+N=24 Avg=22
+min: 20 21 21 21 21 22 
+max: 27 25 24 24 23 23 
+Using TNT center offset = 19
+TNT Plane Coef: a= -748 b=  -85 c= 451674
+Fit Corners: 25, 15, 14, 25  Center: 19
+Setting for min_tnt_up:   521
+Setting for max_tnt_down: 22 (V2:33)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:   4
+28:  53
+29:  75
+Mode  20g: P= 958 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   1
+26:  53
+27:  75
+28:  21
+29:  13
+Mode  25g: P= 860 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   1
+25:   6
+26:  12
+27:  23
+28:  22
+29:  64
+Mode  30g: P= 954 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   3
+24:  40
+25:   6
+26:   5
+27:   2
+28:   3
+29:   2
+Mode  40g: P= 760 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   3
+20:  31
+21:  54
+22:   0
+23:   1
+24:   2
+25:   2
+26:   2
+27:   1
+28:   0
+29:   1
+Mode  50g: P= 630 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:  36
+20:  48
+21:   4
+22:   2
+23:   1
+24:   0
+25:   4
+26:   2
+27:   2
+28:   0
+29:   0
+Mode  75g: P= 586 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:   8
+19:  69
+20:  10
+21:   7
+22:   4
+23:   1
+24:   1
+25:   1
+26:   1
+27:   4
+28:   1
+29:   3
+Mode 100g: P= 560 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:  56
+19:  97
+20:  11
+21:   7
+22:   4
+23:   0
+24:   3
+25:   2
+26:   1
+27:   2
+28:   2
+29:   1
+Mode 150g: P= 546 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   2
+18:  78
+19:  46
+20:   7
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 532 T=18
+mx=9852.9055 b= 470.2359
+Fit x=  0.04000 y=860.00000 -> 864.85212
+Fit x=  0.02500 y=760.00000 -> 717.05854
+Fit x=  0.02000 y=630.00000 -> 667.79402
+Fit x=  0.01333 y=586.00000 -> 602.10798
+Fit x=  0.01000 y=560.00000 -> 569.26496
+Fit x=  0.00667 y=546.00000 -> 536.42194
+Fit x=  0.00500 y=532.00000 -> 520.00043
+Setting for max_tnt_down: 29
+Setting pressure: 475 483 520 536 569 602 667 717 799 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnp2 3
+/var/log # /var/log # mv new-calib.log new-calib.log.scnp3/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.80 y= 0.68 t= 0.69
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=22
+min: 21 21 22 22 22 22 
+max: 23 23 23 23 22 22 
+N=24 Avg=17
+min: 16 16 16 16 16 17 
+max: 21 20 19 19 18 18 
+N=24 Avg=15
+min: 14 14 14 14 14 14 
+max: 19 18 18 18 17 17 
+N=24 Avg=22
+min: 21 21 21 21 21 21 
+max: 27 26 25 24 24 23 
+Using TNT center offset = 20
+TNT Plane Coef: a= -574 b=    2 c= 298896
+Fit Corners: 25, 17, 17, 25  Center: 20
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 23 (V2:34)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   1
+25:   0
+26:   1
+27:  55
+28:  62
+29:  14
+Mode  20g: P= 908 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:  15
+28:  49
+29:  27
+Mode  25g: P= 928 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   1
+23:   1
+24:  18
+25:  35
+26:  76
+27:  50
+28:  34
+29:  24
+Mode  30g: P= 864 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   1
+22:   0
+23:  34
+24:  55
+25:  41
+26:  11
+27:   8
+28:   4
+29:   3
+Mode  40g: P= 748 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:  21
+21: 124
+22:  26
+23:   8
+24:   4
+25:   9
+26:   2
+27:   1
+28:   3
+29:   3
+Mode  50g: P= 640 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:   1
+19:  44
+20:  36
+21:   3
+22:   4
+23:   0
+24:   2
+25:   1
+26:   0
+27:   0
+28:   1
+29:   1
+Mode  75g: P= 584 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  11
+19: 119
+20:  38
+21:   2
+22:   1
+23:   1
+24:   1
+25:   0
+26:   1
+27:   1
+28:   2
+29:   1
+Mode 100g: P= 564 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   4
+18:  20
+19: 110
+20:  11
+21:   1
+22:   0
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 552 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   5
+18: 103
+19:  52
+20:  18
+21:   4
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 526 T=18
+mx=11621.7870 b= 451.5520
+Fit x=  0.03333 y=864.00000 -> 839.44492
+Fit x=  0.02500 y=748.00000 -> 742.59670
+Fit x=  0.02000 y=640.00000 -> 684.48776
+Fit x=  0.01333 y=584.00000 -> 607.00918
+Fit x=  0.01000 y=564.00000 -> 568.26989
+Fit x=  0.00667 y=552.00000 -> 529.53060
+Fit x=  0.00500 y=526.00000 -> 510.16095
+Setting for max_tnt_down: 26
+Setting pressure: 457 466 510 529 568 607 684 742 839 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnp3 4
+/var/log # /var/log # mv new-calib.log new-calib.log.scnp4/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.64 y= 0.73 t= 0.87
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  2.559297 > 2.500000 or 2.720294 > 2.500000.  Try again.
+Too Noisy!  2.265686 > 2.500000 or 2.732520 > 2.500000.  Try again.
+N=24 Avg=22
+min: 21 21 22 22 22 22 
+max: 24 24 23 23 23 23 
+N=24 Avg=17
+min: 17 17 17 17 17 17 
+max: 23 22 19 18 18 18 
+N=24 Avg=16
+min: 14 14 14 15 15 15 
+max: 23 23 23 22 19 18 
+N=24 Avg=23
+min: 22 22 22 22 22 22 
+max: 27 26 24 24 24 23 
+Using TNT center offset = 21
+TNT Plane Coef: a= -574 b=    1 c= 267597
+Fit Corners: 25, 17, 17, 25  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 24 (V2:36)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:  18
+29:  71
+Mode  20g: P= 990 T=31
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   8
+26:  52
+27:  35
+28:  47
+29:  22
+Mode  25g: P= 854 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   1
+23:  16
+24:  89
+25:  78
+26:  21
+27:  19
+28:   9
+29:   2
+Mode  30g: P= 764 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   3
+24:  34
+25: 119
+26:  27
+27:  37
+28:  11
+29:   4
+Mode  40g: P= 790 T=25
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   1
+21:   5
+22: 104
+23:  22
+24:   2
+25:   2
+26:   4
+27:   6
+28:   2
+29:   2
+Mode  50g: P= 692 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   2
+21:  67
+22:  12
+23:   3
+24:   7
+25:   6
+26:   0
+27:   0
+28:   2
+29:   2
+Mode  75g: P= 648 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  20
+19: 124
+20:  14
+21:   2
+22:   1
+23:   5
+24:   3
+25:   1
+26:   2
+27:   2
+28:   2
+29:   0
+Mode 100g: P= 552 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   2
+18:  50
+19: 112
+20:   3
+21:   1
+22:   1
+23:   0
+24:   0
+25:   1
+26:   0
+27:   0
+28:   1
+29:   0
+Mode 150g: P= 550 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   3
+18:  85
+19:  51
+20:   9
+21:   5
+22:   2
+23:   1
+24:   1
+25:   1
+26:   0
+27:   1
+28:   1
+29:   0
+Mode 200g: P= 532 T=18
+mx=9216.9903 b= 496.0910
+Fit x=  0.04000 y=854.00000 -> 865.27063
+Fit x=  0.03333 y=764.00000 -> 803.82403
+Fit x=  0.02500 y=790.00000 -> 727.01578
+Fit x=  0.02000 y=692.00000 -> 680.93083
+Fit x=  0.01333 y=648.00000 -> 619.48422
+Fit x=  0.01000 y=552.00000 -> 588.76092
+Fit x=  0.00667 y=550.00000 -> 558.03762
+Fit x=  0.00500 y=532.00000 -> 542.67597
+Setting for max_tnt_down: 24
+Setting pressure: 501 508 542 558 588 619 680 727 803 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnp4 5
+/var/log # /var/log # mv new-calib.log new-calib.log.scnp5/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.28 y= 1.05 t= 1.30
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.806074 > 2.500000 or 3.602248 > 2.500000.  Try again.
+Too Noisy!  2.586595 > 2.500000 or 1.123345 > 2.500000.  Try again.
+N=24 Avg=21
+min: 21 21 21 22 22 22 
+max: 23 23 22 22 22 22 
+N=24 Avg=16
+min: 15 15 15 15 16 16 
+max: 18 18 18 17 17 17 
+N=24 Avg=14
+min: 14 14 14 14 14 14 
+max: 16 16 15 15 15 15 
+N=24 Avg=22
+min: 21 22 22 22 22 22 
+max: 23 23 23 22 22 22 
+Using TNT center offset = 19
+TNT Plane Coef: a= -691 b= -176 c= 452448
+Fit Corners: 25, 15, 14, 24  Center: 19
+Setting for min_tnt_up:   521
+Setting for max_tnt_down: 22 (V2:33)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   9
+29:  42
+Mode  20g: P=1018 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:  11
+26:  34
+27:  26
+28:   8
+29:   4
+Mode  25g: P= 854 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:  10
+26:  39
+27:  76
+28:  10
+29:   0
+Mode  30g: P= 884 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   4
+24:  77
+25:  21
+26:   6
+27:   4
+28:   2
+29:   3
+Mode  40g: P= 774 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   1
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   1
+22:  24
+23: 124
+24:  26
+25:   4
+26:   4
+27:   4
+28:   0
+29:   4
+Mode  50g: P= 720 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:  57
+21: 118
+22:   6
+23:   2
+24:   1
+25:   5
+26:   3
+27:   1
+28:   0
+29:   3
+Mode  75g: P= 632 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   4
+19:  80
+20:  28
+21:   0
+22:   3
+23:   0
+24:   1
+25:   5
+26:   3
+27:   2
+28:   0
+29:   0
+Mode 100g: P= 570 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:  13
+19:  82
+20:  30
+21:   2
+22:   1
+23:   0
+24:   2
+25:   1
+26:   2
+27:   1
+28:   1
+29:   2
+Mode 150g: P= 560 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   1
+16:   0
+17:   1
+18:  87
+19:  91
+20:   6
+21:   6
+22:   3
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 538 T=19
+mx=10395.1456 b= 492.2597
+Fit x=  0.04000 y=854.00000 -> 908.56553
+Fit x=  0.03333 y=884.00000 -> 839.26456
+Fit x=  0.02500 y=774.00000 -> 752.63835
+Fit x=  0.02000 y=720.00000 -> 700.66262
+Fit x=  0.01333 y=632.00000 -> 631.36165
+Fit x=  0.01000 y=570.00000 -> 596.71117
+Fit x=  0.00667 y=560.00000 -> 562.06068
+Fit x=  0.00500 y=538.00000 -> 544.73544
+Setting for max_tnt_down: 27
+Setting pressure: 497 505 544 562 596 631 700 752 839 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnp5 6
+/var/log # /var/log # mv new-calib.log new-calib.log.scnp6/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.73 y= 1.11 t= 1.10
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.59 y= 2.50 t= 2.50
+Too Noisy!  1.064581 > 2.592088 or 2.744692 > 2.500000.  Try again.
+Too Noisy!  1.570563 > 2.592088 or 4.016632 > 2.500000.  Try again.
+Too Noisy!  1.101946 > 2.592088 or 2.771024 > 2.500000.  Try again.
+N=24 Avg=23
+min: 22 22 22 22 23 23 
+max: 25 24 24 23 23 23 
+N=24 Avg=17
+min: 15 16 16 16 16 16 
+max: 22 19 18 18 18 18 
+N=24 Avg=15
+min: 15 15 15 15 15 15 
+max: 25 20 17 16 16 16 
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 27 25 24 24 23 23 
+Using TNT center offset = 20
+TNT Plane Coef: a= -692 b= -176 c= 453515
+Fit Corners: 26, 16, 15, 25  Center: 20
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 23 (V2:34)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   3
+Mode  20g: P=1030 T=32
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:  33
+26:  64
+27:  21
+28:   4
+29:   1
+Mode  25g: P= 828 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:  18
+26:  67
+27:  23
+28:   0
+29:   4
+Mode  30g: P= 862 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   1
+23:  47
+24:  81
+25:  22
+26:  10
+27:   2
+28:   1
+29:   2
+Mode  40g: P= 750 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   5
+24:  40
+25:  18
+26:   5
+27:   0
+28:   1
+29:   3
+Mode  50g: P= 764 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   1
+20:  27
+21:  82
+22:  12
+23:   2
+24:   2
+25:   0
+26:   0
+27:   0
+28:   0
+29:   1
+Mode  75g: P= 634 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:  30
+20: 101
+21:  10
+22:   2
+23:   1
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   1
+Mode 100g: P= 596 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   1
+18:   6
+19: 106
+20:   9
+21:   4
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 560 T=19
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:  86
+19:  83
+20:   6
+21:   0
+22:   0
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 536 T=18
+mx=9365.5340 b= 511.7439
+Fit x=  0.04000 y=828.00000 -> 886.86529
+Fit x=  0.03333 y=862.00000 -> 824.42840
+Fit x=  0.02500 y=750.00000 -> 746.38228
+Fit x=  0.02000 y=764.00000 -> 699.55461
+Fit x=  0.01333 y=634.00000 -> 637.11772
+Fit x=  0.01000 y=596.00000 -> 605.89927
+Fit x=  0.00667 y=560.00000 -> 574.68083
+Fit x=  0.00500 y=536.00000 -> 559.07160
+Setting for max_tnt_down: 26
+Setting pressure: 516 523 559 574 605 637 699 746 824 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnp6 d1
+/var/log # /var/log # mv new-calib.log new-calib.log.scnpd1/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.16 y= 1.05 t= 1.14
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.095445 > 2.500000 or 3.130495 > 2.500000.  Try again.
+Too Noisy!  1.466288 > 2.500000 or 2.991655 > 2.500000.  Try again.
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 25 23 23 23 23 23 
+N=24 Avg=21
+min: 19 19 19 20 20 20 
+max: 28 25 24 23 22 22 
+N=24 Avg=15
+min: 15 15 15 15 15 15 
+max: 20 16 16 16 16 16 
+N=24 Avg=22
+min: 21 22 22 22 22 22 
+max: 28 26 25 23 23 23 
+Using TNT center offset = 21
+TNT Plane Coef: a= -460 b= -538 c= 520776
+Fit Corners: 26, 20, 17, 23  Center: 21
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 24 (V2:36)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:  19
+28:  51
+29:  32
+Mode  20g: P= 920 T=28
+Mode  25g: P=9999 T=1023
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:  10
+28:  49
+29:  43
+Mode  30g: P= 920 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:  51
+29:  62
+Mode  40g: P= 914 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:  12
+26: 163
+27:  58
+28:  10
+29:   4
+Mode  50g: P= 824 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:   0
+20:   2
+21:  73
+22:  39
+23:   6
+24:   1
+25:   1
+26:   0
+27:   1
+28:   1
+29:   0
+Mode  75g: P= 656 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   5
+20:  87
+21:  26
+22:   2
+23:   1
+24:   1
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 608 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:  15
+20:  90
+21:   9
+22:   2
+23:   2
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 596 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   1
+17:   0
+18:  45
+19: 114
+20:  11
+21:   4
+22:   2
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 546 T=19
+FAILED to measure 25g weight
+mx=17437.5000 b= 454.1875
+Fit x=  0.02000 y=824.00000 -> 803.43750
+Fit x=  0.01333 y=656.00000 -> 687.18750
+Fit x=  0.01000 y=608.00000 -> 629.06250
+Fit x=  0.00667 y=596.00000 -> 570.93750
+Fit x=  0.00500 y=546.00000 -> 541.87500
+Setting for max_tnt_down: 28
+Setting pressure: 463 476 541 570 629 687 803 890 1035 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnpd1 2
+/var/log # /var/log # mv new-calib.log new-calib.log.scnpd2/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Too Noisy!  3.265986 > 5.000000 or 201.674655 > 5.000000.  Try again.
+Entering calib_delay
+Release
+actual noise  x= 0.87 y= 0.88 t= 0.83
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  0.830949 > 2.500000 or 2.530763 > 2.500000.  Try again.
+Too Noisy!  1.632993 > 2.500000 or 4.020779 > 2.500000.  Try again.
+Too Noisy!  1.511858 > 2.500000 or 3.664502 > 2.500000.  Try again.
+Too Noisy!  2.857738 > 2.500000 or 1.224745 > 2.500000.  Try again.
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 27 24 24 24 23 23 
+N=24 Avg=25
+min: 23 23 23 23 24 24 
+max: 30 29 28 28 27 26 
+N=24 Avg=16
+min: 15 15 15 16 16 16 
+max: 27 18 18 17 17 17 
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 24 23 23 23 23 23 
+Using TNT center offset = 22
+TNT Plane Coef: a= -170 b= -810 c= 527906
+Fit Corners: 26, 23, 20, 22  Center: 22
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   1
+25:   0
+26:   9
+27:  39
+28:  14
+29:   9
+Mode  20g: P= 908 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:  27
+28:  45
+29:  14
+Mode  25g: P= 908 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   1
+25:   1
+26:  21
+27:  47
+28:  41
+29:   3
+Mode  30g: P= 908 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:  12
+26:  83
+27:  55
+28:  23
+29:   2
+Mode  40g: P= 844 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   1
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   9
+28:  53
+29: 123
+Mode  50g: P= 906 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   1
+20:   0
+21:   1
+22:  64
+23:  57
+24:   8
+25:   4
+26:   2
+27:   1
+28:   0
+29:   1
+Mode  75g: P= 694 T=22
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:   1
+20:  69
+21:  86
+22:   3
+23:   5
+24:   0
+25:   3
+26:   1
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 624 T=21
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   1
+20:  84
+21:  26
+22:   1
+23:   0
+24:   1
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 608 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:  20
+19: 138
+20:  20
+21:   1
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 550 T=19
+mx=14101.3216 b= 494.7841
+Fit x=  0.02500 y=844.00000 -> 847.81718
+Fit x=  0.01333 y=694.00000 -> 683.30176
+Fit x=  0.01000 y=624.00000 -> 636.29736
+Fit x=  0.00667 y=608.00000 -> 589.29295
+Fit x=  0.00500 y=550.00000 -> 565.79075
+Setting for max_tnt_down: 27
+Setting pressure: 502 512 565 589 636 683 777 847 965 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnpd2 3
+/var/log # /var/log # mv new-calib.log new-calib.log.scnpd3/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.85 y= 0.46 t= 0.57
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  0.000000 > 2.500000 or 123.603398 > 2.500000.  Try again.
+N=24 Avg=23
+min: 22 22 22 23 23 23 
+max: 25 25 24 24 24 23 
+N=24 Avg=22
+min: 21 21 21 21 21 21 
+max: 28 26 25 24 23 23 
+N=24 Avg=16
+min: 15 15 15 15 15 16 
+max: 20 20 17 17 17 17 
+N=24 Avg=22
+min: 22 22 22 22 22 22 
+max: 27 26 24 23 23 23 
+Using TNT center offset = 22
+TNT Plane Coef: a= -345 b= -540 c= 428963
+Fit Corners: 26, 21, 18, 23  Center: 22
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 25 (V2:37)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:  20
+28:  21
+29:   2
+Mode  20g: P= 942 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   1
+21:   1
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   3
+28:  10
+29:  43
+Mode  25g: P= 970 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   1
+26:   2
+27:  26
+28:  88
+29:  70
+Mode  30g: P= 896 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   1
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   1
+27:  38
+28:  66
+29:  20
+Mode  40g: P= 902 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   3
+27:  43
+28: 103
+29:  48
+Mode  50g: P= 892 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:  18
+24:  93
+25:  16
+26:   5
+27:   3
+28:   1
+29:   2
+Mode  75g: P= 748 T=24
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   2
+19:  23
+20:  82
+21:  17
+22:   5
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 592 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   5
+20: 107
+21:  34
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 608 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   2
+19:  66
+20:  82
+21:   2
+22:   2
+23:   0
+24:   0
+25:   0
+26:   1
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 584 T=20
+mx=12499.9170 b= 535.9734
+Fit x=  0.03333 y=896.00000 -> 953.13734
+Fit x=  0.02000 y=892.00000 -> 786.47178
+Fit x=  0.01333 y=748.00000 -> 703.13900
+Fit x=  0.01000 y=592.00000 -> 661.47261
+Fit x=  0.00667 y=608.00000 -> 619.80622
+Fit x=  0.00500 y=584.00000 -> 598.97303
+Setting for max_tnt_down: 28
+Setting pressure: 542 552 598 619 661 703 786 848 953 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnpd3 4
+/var/log # /var/log # mv new-calib.log new-calib.log.scnpd4/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 1.17 y= 0.67 t= 0.77
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  2.607681 > 2.500000 or 2.683282 > 2.500000.  Try again.
+Too Noisy!  2.857738 > 2.500000 or 1.080123 > 2.500000.  Try again.
+N=24 Avg=23
+min: 23 23 23 23 24 24 
+max: 26 24 24 24 24 24 
+N=24 Avg=24
+min: 22 22 23 23 23 23 
+max: 28 26 26 26 26 26 
+N=24 Avg=17
+min: 15 16 16 16 17 17 
+max: 21 20 19 18 18 18 
+N=24 Avg=23
+min: 23 23 23 23 23 23 
+max: 26 24 24 24 24 24 
+Using TNT center offset = 23
+TNT Plane Coef: a= -229 b= -719 c= 495235
+Fit Corners: 27, 23, 20, 23  Center: 23
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 26 (V2:39)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   1
+29:  22
+Mode  20g: P=1052 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   2
+26:  36
+27:  27
+28:   8
+29:   7
+Mode  25g: P= 870 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:  13
+27:  66
+28:  15
+29:   3
+Mode  30g: P= 886 T=27
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   1
+25:   7
+26:  95
+27:  38
+28:   6
+29:   2
+Mode  40g: P= 844 T=26
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   8
+29:  97
+Mode  50g: P= 928 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   2
+23:  87
+24:  61
+25:   4
+26:   4
+27:   0
+28:   2
+29:   0
+Mode  75g: P= 724 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:  16
+20: 152
+21:  44
+22:   4
+23:   3
+24:   0
+25:   1
+26:   1
+27:   0
+28:   0
+29:   0
+Mode 100g: P= 600 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   1
+19:  34
+20: 128
+21:  20
+22:   2
+23:   0
+24:   1
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 592 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   1
+18:   9
+19: 136
+20:  45
+21:   8
+22:   1
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 560 T=19
+mx=9747.3976 b= 539.4781
+Fit x=  0.04000 y=870.00000 -> 929.87405
+Fit x=  0.03333 y=886.00000 -> 864.89139
+Fit x=  0.02500 y=844.00000 -> 783.66308
+Fit x=  0.01333 y=724.00000 -> 669.94344
+Fit x=  0.01000 y=600.00000 -> 637.45212
+Fit x=  0.00667 y=592.00000 -> 604.96079
+Fit x=  0.00500 y=560.00000 -> 588.71513
+Setting for max_tnt_down: 27
+Setting pressure: 544 552 588 604 637 669 734 783 864 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnpd4 5
+/var/log # /var/log # mv new-calib.log new-calib.log.scnpd5/var/log # new-calib -m
+new-calib: New touch screen calibration program v3.5
+Manufacturing Mode
+Board ID: 0xB=Madrid
+Entering calib_delay
+Release
+actual noise  x= 0.96 y= 0.65 t= 0.77
+Using tnt_mode=1
+Setting for delay_in_us:        5
+Setting for y_delay_in_us:      5
+Setting for tnt_delay_in_us:    5
+Setting for max_delta_tnt:     20
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+Too Noisy!  1.341641 > 2.500000 or 2.569047 > 2.500000.  Try again.
+N=24 Avg=24
+min: 23 23 24 24 24 24 
+max: 27 27 26 26 26 26 
+N=24 Avg=22
+min: 20 21 21 21 21 21 
+max: 27 26 24 24 23 22 
+N=24 Avg=16
+min: 15 15 15 15 15 15 
+max: 27 21 20 18 18 17 
+N=24 Avg=24
+min: 23 23 23 23 23 23 
+max: 28 25 25 25 25 25 
+Using TNT center offset = 23
+TNT Plane Coef: a= -692 b= -541 c= 611733
+Fit Corners: 30, 20, 17, 27  Center: 23
+Setting for min_tnt_up:   523
+Setting for max_tnt_down: 26 (V2:39)
+Entering calib_pressure_mfg
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode  20g: P=1430 T=39
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   1
+29:  27
+Mode  25g: P= 978 T=30
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:  20
+28:  54
+29:  48
+Mode  30g: P= 908 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   4
+28:  60
+29:  91
+Mode  40g: P= 920 T=29
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   2
+28:  85
+29:  45
+Mode  50g: P= 904 T=28
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:   5
+23:  63
+24:  17
+25:   2
+26:   2
+27:   2
+28:   1
+29:   3
+Mode  75g: P= 720 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:   0
+21:   0
+22:  29
+23: 121
+24:   8
+25:   2
+26:   2
+27:   1
+28:   0
+29:   1
+Mode 100g: P= 720 T=23
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   0
+16:   0
+17:   0
+18:   0
+19:   0
+20:  63
+21:  60
+22:   1
+23:   0
+24:   0
+25:   1
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 150g: P= 622 T=20
+10:   0
+11:   0
+12:   0
+13:   0
+14:   0
+15:   1
+16:  26
+17: 154
+18:  13
+19:   1
+20:   1
+21:   0
+22:   0
+23:   0
+24:   0
+25:   0
+26:   0
+27:   0
+28:   0
+29:   0
+Mode 200g: P= 474 T=17
+mx=27498.3051 b= 393.3898
+Fit x=  0.01333 y=720.00000 -> 760.53390
+Fit x=  0.01000 y=720.00000 -> 668.87288
+Fit x=  0.00667 y=622.00000 -> 577.21186
+Fit x=  0.00500 y=474.00000 -> 531.38136
+Setting for max_tnt_down: 28
+Setting pressure: 407 428 531 577 668 760 943 1081 1310 
+/var/log # /var/log # new-calib -m/var/log # mv new-calib.log new-calib.log.scnpd5 6
+/var/log # ls
+devices       new-calib.log.scnp6   new-calib.log.scp4
+new-calib.log.ev1      new-calib.log.scnpd1  new-calib.log.scp5
+new-calib.log.ev2      new-calib.log.scnpd2  new-calib.log.scp6
+new-calib.log.ev3      new-calib.log.scnpd3  new-calib.log.scpd1
+new-calib.log.factory  new-calib.log.scnpd4  new-calib.log.scpd2
+new-calib.log.scnp1    new-calib.log.scnpd5  new-calib.log.scpd3
+new-calib.log.scnp2    new-calib.log.scnpd6  new-calib.log.scpd4
+new-calib.log.scnp3    new-calib.log.scp1    new-calib.log.scpd5
+new-calib.log.scnp4    new-calib.log.scp2    new-calib.log.scpd6
+new-calib.log.scnp5    new-calib.log.scp3    wtmp
+/var/log # vbus-monitor: USB event
+vbus-monitor: vbus is high
+
+/var/log # /etc/init.d/vsftpd start
+* starting FTP Server: vsftpd... done.
+/var/log # pu  ls
+devices       new-calib.log.scnpd1  new-calib.log.scp6
+new-calib.log.ev1      new-calib.log.scnpd2  new-calib.log.scpd1
+new-calib.log.ev2      new-calib.log.scnpd3  new-calib.log.scpd2
+new-calib.log.ev3      new-calib.log.scnpd4  new-calib.log.scpd3
+new-calib.log.factory  new-calib.log.scnpd5  new-calib.log.scpd4
+new-calib.log.scnp1    new-calib.log.scnpd6  new-calib.log.scpd5
+new-calib.log.scnp2    new-calib.log.scp1    new-calib.log.scpd6
+new-calib.log.scnp3    new-calib.log.scp2    vsftpd.log
+new-calib.log.scnp4    new-calib.log.scp3    wtmp
+new-calib.log.scnp5    new-calib.log.scp4
+new-calib.log.scnp6    new-calib.log.scp5
+/var/log # poweroff
+starting pid 678, tty '': '/etc/init.d/shutdown'
+/var/log # +++ 2811.71 59471 153395 64506 Bgn Shutting down system
+Stopping system message bus: stopped process in pidfile '/var/run/dbus/pid' (pid 473)
+dbus.
++++ 2811.78 59471 153401 64506 End dbus-1 stop
+* stopping FTP Server: vsftpd... stopped /usr/sbin/vsftpd (pid 672)
+done.
++++ 2811.82 59472 153405 64506 End vsftpd stop
+Terminated
++++ 2811.89 59472 153410 64506 End telnetd stop
+Emerald Base: Stopping vbus-monitor ...
+vbus-monitor: exiting...
+stopped vbus-monitor (pid 507)
++++ 2811.96 59473 153416 64506 End vbus stop
+Emerald Base: Stopping /etc/init.d/networking ...
++++ 2812.04 59477 153420 64506 End networking stop
+Emerald Base: Stopping Ethernet USB driver ...
++++ 2812.47 59483 153437 64527 End usbether stop
++++ 2812.54 59485 153442 64527 Bgn killall mainapp
+killall: app: no process killed
+killall: AppManager: no process killed
++++ 2812.63 59487 153447 64527 End killall mainapp
+Emerald Base: Stopping lfd ...
+Terminated
+Stopping system logging
+stopped lfd (pid 726 341)
+Emerald Base: Stopping system logging ... !
++++ 2813.61 59494 153462 64527 Bgn umount -a
+umount: can't umount /dev: Device or resource busy
+The system is going down NOW!
+Sending SIGTERM to all processes
+Sending Power down.

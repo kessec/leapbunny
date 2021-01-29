@@ -1,0 +1,7 @@
+How To
+http://elinux.org/Leapster_Explorer:_UART_Boot
+
+This patch is for Emerald Boot version 2.0.2 it contains the modifications necessary to enable UART booting via micromon and enables a LeapPad Madrid style SD boot check. If your cartridge has a properly formated SD card, it will load and run the kernel and rootfs from it, otherwise it will boot from NAND as normal.
+
+SD Partitioning
+http://elinux.org/Leapster_Explorer:_Emerald_Boot_SD0_Autoboot

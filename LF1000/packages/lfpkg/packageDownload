@@ -1,0 +1,71 @@
+#!/bin/sh -e
+#set -x
+
+date=`date '+%Y%m%d-%H%M'`
+scriptDir=`dirname $0`
+scriptName=`basename $0`
+
+usage() {
+cat <<EOF
+
+Usage:	$scriptName [options] <OutDir> <InDir>
+
+$scriptName is a wrapper for package.
+$scriptName creates an lf2 package for LeapsterExplorer and LeapPadExplorer
+
+Options:
+	-t <packageType>:	Specify type of package: LPAD, LST3, or ALL
+	-a:			Repackage all folders in InDir. Otherwise, we assume InDir is the folder to package.
+	-v <versionString>:	Option to update Version. If set, next argument should be new version number, in quotes.
+	OutDir:			Output directory.
+	InDir:			Either the path of the project, or all projects in that path (when -a is set).
+
+Examples:
+	$scriptName -t LPAD out/ gamespace/Downloads/
+	$scriptName -t ALL out/ gamespace/Downloads/
+	$scriptName -t LST3 -a -v "1.0.0.1" out/ gamespace/Downloads/
+	
+EOF
+}
+
+packageType="";
+doAll="";
+newVersion="";
+
+while getopts ":av:t:" Option
+do
+	case $Option in
+		a)	doAll="-a";
+			shift 1;;
+		v)	shift $(($OPTIND-2));
+			newVersion="-v $1";
+			shift 1;;
+		t)	shift $(($OPTIND-2));
+			packageType="$1";
+			shift 1;;
+		*)	usage;
+			exit 0;
+	esac
+done
+
+#check type
+if	[ $# != 2 ] ||
+	[ "$packageType" != "LPAD" ] &&
+	[ "$packageType" != "LST3" ] &&
+	[ "$packageType" != "ALL" ]; then
+	usage
+	exit 1
+fi
+
+outDir=$(readlink -f "$1");
+folder=$(readlink -f "$2");
+
+if [ $packageType != "ALL" ]; then
+	echo "Building $packageType";
+	package -t $packageType $doAll $newVersion $outDir $folder
+else
+	echo "Building LPAD";
+	package -t LPAD $doAll $newVersion $outDir $folder
+	echo "Building LST3";
+	package -t LST3 $doAll $newVersion $outDir $folder
+fi

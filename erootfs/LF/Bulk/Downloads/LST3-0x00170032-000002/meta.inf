@@ -1,0 +1,11 @@
+MetaVersion="1.0"
+Device="LeapsterExplorer"
+Type="Download"
+ProductID=0x00170032
+PackageID="LST3-0x00170032-000002"
+Version="1.0.0.0"
+Locale="en-us"
+Name="DISNEY FAIRIES"
+PreviewImage="TR_Tink.png"
+DeviceAccess=1
+Size=0x28e000

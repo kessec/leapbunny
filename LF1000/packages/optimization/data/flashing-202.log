@@ -1,0 +1,850 @@
+1.9.2-1892
++++ 0 fuse_flasher_getattr: Return 'DIR|555' path=/
++++ 0 fuse_flasher_getattr: Return 'DIR|555' path=/
++++ 0 fuse_flasher_getattr: Return 'DIR|555' path=/
++++ 0 fuse_flasher_getattr: Return 'DIR|777' path=/firmware
++++ 0 seen_path: Return 'Searching for path' path=/firmware/meta.inf
++++ 0 fuse_flasher_getattr: Return '!!! error' path=/firmware/meta.inf
++++ 0 seen_path: Return 'Searching for path' path=/firmware/meta.inf
++++ 0 add_path: Return 'Adding path' path=/firmware/meta.inf
++++ 0 fuse_flasher_create: Return 'adding path' path=/firmware/meta.inf
++++ 0 seen_path: Return 'Searching for path' path=/firmware/meta.inf
++++ 0 fuse_flasher_getattr: Return 'FILE|666' path=/firmware/meta.inf
++++ 0 fuse_flasher_write: Return 'assume we're in rootdir and saving meta.inf... Ug' path=/firmware/meta.inf
++++ 0 fuse_flasher_flush: Return 'assume we're in rootdir and saving meta.inf... Ug' path=/firmware/meta.inf
++++ 0 seen_path: Return 'Searching for path' path=/firmware/meta.inf
++++ 0 fuse_flasher_open: Return 'seen, skippping' path=/firmware/meta.inf
++++ 0 fuse_flasher_chmod: Exit path=/firmware/meta.inf
++++ 0 seen_path: Return 'Searching for path' path=/firmware/meta.inf
++++ 0 fuse_flasher_getattr: Return 'FILE|666' path=/firmware/meta.inf
++++ 0 fuse_flasher_flush: Return 'assume we're in rootdir and saving meta.inf... Ug' path=/firmware/meta.inf
++++ 0 norboot_getattr: Return '/sd/raw: DIR|777' path=/firmware/NORBoot
++++ 0 seen_path: Return 'Searching for path' path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_getattr: Return '!!! error' path=/firmware/NORBoot/madrid-boot.bin
++++ 0 seen_path: Return 'Searching for path' path=/firmware/NORBoot/madrid-boot.bin
++++ 0 add_path: Return 'Adding path' path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_create: Note mode=100644 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_open: Note flags=1101 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_open: Return 'Success' path=/firmware/NORBoot/madrid-boot.bin
++++ 0 seen_path: Return 'Searching for path' path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_getattr: Note seen: /firmware/NORBoot/madrid-boot.bin FILE|666 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 0 norboot_write: Note 2048 bytes. Ret=2048 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 2048 bytes. Ret=2048 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 2048 bytes. Ret=2048 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 2048 bytes. Ret=2048 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 4096 bytes. Ret=4096 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_write: Note 2685 bytes. Ret=2685 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_flush: Enter path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_flush: Note fi->fh=5 path=/firmware/NORBoot/madrid-boot.bin
++++ 1 norboot_flush: Note try 'flashcp -v "/tmp/madrid-boot.bin" /dev/mtd1' path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_flush: Return 'Success' path=/firmware/NORBoot/madrid-boot.bin
++++ 11 fuse_flasher_getattr: Return 'DIR|777' path=/firmware
++++ 11 norboot_getattr: Return '/sd/raw: DIR|777' path=/firmware/NORBoot
++++ 11 seen_path: Return 'Searching for path' path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_getattr: Note seen: /firmware/NORBoot/madrid-boot.bin FILE|666 path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_open: Note flags=2 path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_open: Return 'Early exit for O_RDWR' path=/firmware/NORBoot/madrid-boot.bin
++++ 11 fuse_flasher_chmod: Exit path=/firmware/NORBoot/madrid-boot.bin
++++ 11 seen_path: Return 'Searching for path' path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_getattr: Note seen: /firmware/NORBoot/madrid-boot.bin FILE|666 path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_flush: Enter path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_flush: Note fi->fh=0 path=/firmware/NORBoot/madrid-boot.bin
++++ 11 norboot_flush: Return 'Skip flush' path=/firmware/NORBoot/madrid-boot.bin
++++ 11 fuse_flasher_getattr: Return 'DIR|555' path=/firmware/sd
++++ 11 sd_partition_getattr: Return '/sd/partition: DIR|777' path=/firmware/sd/partition
++++ 11 seen_path: Return 'Searching for path' path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_getattr: Return 'error' path=/firmware/sd/partition/mbr2G.image
++++ 11 seen_path: Return 'Searching for path' path=/firmware/sd/partition/mbr2G.image
++++ 11 add_path: Return 'Adding path' path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_create: Note mode=100644 path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_open: Note flags=1101 path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_open: Note mmcblk='mmcblk0' path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_open: Exit path=/firmware/sd/partition/mbr2G.image
++++ 11 seen_path: Return 'Searching for path' path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_getattr: Note seen: /firmware/sd/partition/mbr2G.image FILE|666 path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_write: Note 512 bytes. Ret=512 path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_flush: Enter path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_flush: Note fi->fh=5 path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_flush: Note found device=mmc0:b368 path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_flush: Note device=mmc0:b368 unbound path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_flush: Note device=mmc0:b368 bound path=/firmware/sd/partition/mbr2G.image
++++ 11 sd_partition_flush: Note got mmcblk='mmcblk0'
+ path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_flush: Exit path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_open: Note flags=2 path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_open: Return 'Early exit for O_RDWR' path=/firmware/sd/partition/mbr2G.image
++++ 12 fuse_flasher_chmod: Exit path=/firmware/sd/partition/mbr2G.image
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_getattr: Note seen: /firmware/sd/partition/mbr2G.image FILE|666 path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_flush: Enter path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_flush: Note fi->fh=0 path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_partition_flush: Return 'Skip flush' path=/firmware/sd/partition/mbr2G.image
++++ 12 sd_raw_getattr: Return '/sd/raw: DIR|777' path=/firmware/sd/raw
++++ 12 sd_raw_getattr: Return '/sd/raw/N: DIR|777' path=/firmware/sd/raw/1
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_getattr: Return '!!! error' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 add_path: Return 'Adding path' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_create: Note mode=100644 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_open: Note flags=1101 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_open: Note using mmblk #=1' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_open: Note mmcblk='mmcblk0' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_open: Return 'Success' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_getattr: Note seen: /firmware/sd/raw/1/FIRST_Lpad.32.rle FILE|666 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_write: Note 2932 bytes. Ret=2932 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_flush: Enter path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_flush: Note fi->fh=5 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_flush: Return 'Success' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 fuse_flasher_getattr: Return 'DIR|777' path=/firmware
++++ 12 fuse_flasher_getattr: Return 'DIR|555' path=/firmware/sd
++++ 12 sd_raw_open: Note flags=2 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_open: Return 'Early exit for O_RDWR' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 fuse_flasher_chmod: Exit path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_getattr: Note seen: /firmware/sd/raw/1/FIRST_Lpad.32.rle FILE|666 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_flush: Enter path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_flush: Note fi->fh=0 path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_flush: Return 'Skip flush' path=/firmware/sd/raw/1/FIRST_Lpad.32.rle
++++ 12 sd_raw_getattr: Return '/sd/raw/N: DIR|777' path=/firmware/sd/raw/2
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_getattr: Return '!!! error' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 add_path: Return 'Adding path' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_create: Note mode=100644 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_open: Note flags=1101 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_open: Note using mmblk #=2' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_open: Note mmcblk='mmcblk0' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_open: Return 'Success' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 seen_path: Return 'Searching for path' path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_getattr: Note seen: /firmware/sd/raw/2/kernel.cbf FILE|666 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 12 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 13 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 14 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_flush: Enter path=/firmware/sd/raw/2/kernel.cbf
++++ 15 sd_raw_flush: Note fi->fh=5 path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_flush: Return 'Success' path=/firmware/sd/raw/2/kernel.cbf
++++ 16 fuse_flasher_getattr: Return 'DIR|777' path=/firmware
++++ 16 fuse_flasher_getattr: Return 'DIR|555' path=/firmware/sd
++++ 16 sd_raw_getattr: Return '/sd/raw: DIR|777' path=/firmware/sd/raw
++++ 16 sd_raw_getattr: Return '/sd/raw/N: DIR|777' path=/firmware/sd/raw/2
++++ 16 seen_path: Return 'Searching for path' path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_getattr: Note seen: /firmware/sd/raw/2/kernel.cbf FILE|666 path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_open: Note flags=2 path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_open: Return 'Early exit for O_RDWR' path=/firmware/sd/raw/2/kernel.cbf
++++ 16 fuse_flasher_chmod: Exit path=/firmware/sd/raw/2/kernel.cbf
++++ 16 seen_path: Return 'Searching for path' path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_getattr: Note seen: /firmware/sd/raw/2/kernel.cbf FILE|666 path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_flush: Enter path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_flush: Note fi->fh=0 path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_raw_flush: Return 'Skip flush' path=/firmware/sd/raw/2/kernel.cbf
++++ 16 sd_ext3_getattr: Return '/sd/ext3: DIR|777' path=/firmware/sd/ext3
++++ 16 sd_ext3_getattr: Return '/sd/ext3/N: DIR|777' path=/firmware/sd/ext3/3
++++ 16 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/3/rfs
++++ 16 sd_ext3_getattr: Return '!!! error' path=/firmware/sd/ext3/3/rfs
++++ 16 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/3/rfs
++++ 16 add_path: Return 'Adding path' path=/firmware/sd/ext3/3/rfs
++++ 16 sd_ext3_create: Note mode=100644 path=/firmware/sd/ext3/3/rfs
++++ 16 sd_ext3_open: Enter path=/firmware/sd/ext3/3/rfs
++++ 16 sd_ext3_open: Note flags=1101 path=/firmware/sd/ext3/3/rfs
++++ 16 sd_ext3_open: Note using mmblk #=3 Label='rfs' path=/firmware/sd/ext3/3/rfs
++++ 16 sd_ext3_open: Note try 'mkfs.ext3 -L "rfs" /dev/mmcblk0p3' path=/firmware/sd/ext3/3/rfs
++++ 30 sd_ext3_open: Note tar -C /mnt -x path=/firmware/sd/ext3/3/rfs
++++ 30 sd_ext3_open: Note Time=14 seconds path=/firmware/sd/ext3/3/rfs
++++ 30 sd_ext3_open: Return 'Success making ext3 and mounting' path=/firmware/sd/ext3/3/rfs
++++ 30 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/3/rfs
++++ 30 sd_ext3_getattr: Note seen: /firmware/sd/ext3/3/rfs FILE|666 path=/firmware/sd/ext3/3/rfs
++++ 30 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 33 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 36 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 42 sd_ext3_write: Note 1536 bytes. Ret=1536 path=/firmware/sd/ext3/3/rfs
++++ 51 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 58 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 66 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 69 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 78 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 84 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 96 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 100 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 106 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 118 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 122 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 131 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 140 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 145 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 154 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 166 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/3/rfs
++++ 168 sd_ext3_flush: Enter path=/firmware/sd/ext3/3/rfs
++++ 168 sd_ext3_flush: Note fi->fh=362056 path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_flush: Exit path=/firmware/sd/ext3/3/rfs
++++ 186 fuse_flasher_getattr: Return 'DIR|777' path=/firmware
++++ 186 fuse_flasher_getattr: Return 'DIR|555' path=/firmware/sd
++++ 186 sd_ext3_getattr: Return '/sd/ext3: DIR|777' path=/firmware/sd/ext3
++++ 186 sd_ext3_getattr: Return '/sd/ext3/N: DIR|777' path=/firmware/sd/ext3/3
++++ 186 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_getattr: Note seen: /firmware/sd/ext3/3/rfs FILE|666 path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_open: Enter path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_open: Note flags=2 path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_open: Return 'Early exit for O_RDWR' path=/firmware/sd/ext3/3/rfs
++++ 186 fuse_flasher_chmod: Exit path=/firmware/sd/ext3/3/rfs
++++ 186 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_getattr: Note seen: /firmware/sd/ext3/3/rfs FILE|666 path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_flush: Enter path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_flush: Note fi->fh=0 path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_flush: Return 'Skip flush' path=/firmware/sd/ext3/3/rfs
++++ 186 sd_ext3_getattr: Return '/sd/ext3/N: DIR|777' path=/firmware/sd/ext3/4
++++ 186 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/4/Bulk
++++ 186 sd_ext3_getattr: Return '!!! error' path=/firmware/sd/ext3/4/Bulk
++++ 186 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/4/Bulk
++++ 186 add_path: Return 'Adding path' path=/firmware/sd/ext3/4/Bulk
++++ 186 sd_ext3_create: Note mode=100644 path=/firmware/sd/ext3/4/Bulk
++++ 186 sd_ext3_open: Enter path=/firmware/sd/ext3/4/Bulk
++++ 186 sd_ext3_open: Note flags=1101 path=/firmware/sd/ext3/4/Bulk
++++ 186 sd_ext3_open: Note using mmblk #=4 Label='Bulk' path=/firmware/sd/ext3/4/Bulk
++++ 186 sd_ext3_open: Note try 'mkfs.ext3 -L "Bulk" /dev/mmcblk0p4' path=/firmware/sd/ext3/4/Bulk
++++ 221 sd_ext3_open: Note tar -C /mnt -x path=/firmware/sd/ext3/4/Bulk
++++ 221 sd_ext3_open: Note Time=35 seconds path=/firmware/sd/ext3/4/Bulk
++++ 221 sd_ext3_open: Return 'Success making ext3 and mounting' path=/firmware/sd/ext3/4/Bulk
++++ 221 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/4/Bulk
++++ 221 sd_ext3_getattr: Note seen: /firmware/sd/ext3/4/Bulk FILE|666 path=/firmware/sd/ext3/4/Bulk
++++ 221 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 223 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 226 sd_ext3_write: Note 1536 bytes. Ret=1536 path=/firmware/sd/ext3/4/Bulk
++++ 229 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 235 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 240 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 244 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 248 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 251 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 260 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 266 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 277 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 281 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 287 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 291 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 295 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 300 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 308 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 311 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 324 sd_ext3_write: Note 2560 bytes. Ret=2560 path=/firmware/sd/ext3/4/Bulk
++++ 335 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 338 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 343 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 352 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 354 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 360 sd_ext3_write: Note 4096 bytes. Ret=4096 path=/firmware/sd/ext3/4/Bulk
++++ 369 sd_ext3_flush: Enter path=/firmware/sd/ext3/4/Bulk
++++ 369 sd_ext3_flush: Note fi->fh=360248 path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_flush: Exit path=/firmware/sd/ext3/4/Bulk
++++ 376 fuse_flasher_getattr: Return 'DIR|777' path=/firmware
++++ 376 fuse_flasher_getattr: Return 'DIR|555' path=/firmware/sd
++++ 376 sd_ext3_getattr: Return '/sd/ext3: DIR|777' path=/firmware/sd/ext3
++++ 376 sd_ext3_getattr: Return '/sd/ext3/N: DIR|777' path=/firmware/sd/ext3/4
++++ 376 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_getattr: Note seen: /firmware/sd/ext3/4/Bulk FILE|666 path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_open: Enter path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_open: Note flags=2 path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_open: Return 'Early exit for O_RDWR' path=/firmware/sd/ext3/4/Bulk
++++ 376 fuse_flasher_chmod: Exit path=/firmware/sd/ext3/4/Bulk
++++ 376 seen_path: Return 'Searching for path' path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_getattr: Note seen: /firmware/sd/ext3/4/Bulk FILE|666 path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_flush: Enter path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_flush: Note fi->fh=0 path=/firmware/sd/ext3/4/Bulk
++++ 376 sd_ext3_flush: Return 'Skip flush' path=/firmware/sd/ext3/4/Bulk
++++ 376 fuse_flasher_getattr: Return 'DIR|555' path=/
+USB app_message=16
+starting pid 542, tty '': '/etc/init.d/shutdown'
+Jan  1 01:10:14 Emerald Base DFTP: dftpIsScriptRunning()=0
+
+Jan  1 01:10:14 Emerald Base DFTP: DFTP Version=1.8
+
+Jan  1 01:10:14 Emerald Base DFTP: Initialize DFTP
+
+USB app_message=0
++++  402.26  2015 13425  2682 Bgn Shutting down system
+Stopping system message bus: stopped process in pidfile '/var/run/dbus/pid' (pid 327)
+dbus.
++++  402.36  2020 13430  2682 End dbus-1 stop
+* stopping FTP Server: vsftpd... stopped /usr/sbin/vsftpd (pid 367)
+done.
++++  402.41  2021 13434  2682 End vsftpd stop
++++  402.46  2021 13439  2682 End telnetd stop
+Emerald Base: Stopping vbus-monitor ...
+no vbus-monitor found; none killed
++++  402.52  2021 13445  2682 End vbus stop
+Emerald Base: Stopping /etc/init.d/networking ...
++++  402.59  2022 13452  2682 End networking stop
+Emerald Base: Stopping Ethernet USB driver ...
++++  403.00  2028 13460  2708 End usbether stop
+# Success!  Clear Panic, set Play

@@ -1,0 +1,21 @@
+Idea:
+
+10 buckets, we get this partitioning:
+
+   268, 303, 396, 535, 592, 701, 712, 734, 790, 0
+
+Means
+
+
+      268     303     396     535     592     701     712     734     790 
+0     10%     20%     30%     40%     50%     60%     70%     80%     90%     100%
+000-267 268-302 303-395 396-534 535-591 592-700 701-711 712-733 734-389 790-inf
+   0       1       2       3       4       5       6       7       8       9
+
+Actually want one more bucket
+
+We may want to collect 2 histos: one for finger and one for stylus
+
+We want to collect them before test drive
+
+Want to add buckets to driver for automatic conversion of pressure to 0-100% scale.
