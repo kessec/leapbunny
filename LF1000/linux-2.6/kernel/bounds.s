@@ -4,12 +4,13 @@
 @ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 @ options passed:  -nostdinc -Iinclude
 @ -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include
-@ -Iarch/arm/mach-lf1000/include -D__KERNEL__ -D__LINUX_ARM_ARCH__=5 -Uarm
-@ -DKBUILD_STR(s)=#s -DKBUILD_BASENAME=KBUILD_STR(bounds)
-@ -DKBUILD_MODNAME=KBUILD_STR(bounds) -isystem -include -MD -mlittle-endian
-@ -marm -mabi=aapcs-linux -mno-thumb-interwork -mcpu=arm926ej-s
-@ -msoft-float -auxbase-strip -g -O3 -Wall -Wundef -Wstrict-prototypes
-@ -Wno-trigraphs -Werror-implicit-function-declaration -Wno-format-security
+@ -Iarch/arm/mach-lf1000/include -Iarch/arm/plat-mes/include -D__KERNEL__
+@ -D__LINUX_ARM_ARCH__=5 -Uarm -DKBUILD_STR(s)=#s
+@ -DKBUILD_BASENAME=KBUILD_STR(bounds) -DKBUILD_MODNAME=KBUILD_STR(bounds)
+@ -isystem -include -MD -mlittle-endian -marm -mabi=aapcs-linux
+@ -mno-thumb-interwork -mcpu=arm926ej-s -msoft-float -auxbase-strip -g -O3
+@ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs
+@ -Werror-implicit-function-declaration -Wno-format-security
 @ -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-aliasing
 @ -fno-common -fno-delete-null-pointer-checks -funwind-tables
 @ -fno-stack-protector -fomit-frame-pointer -fverbose-asm

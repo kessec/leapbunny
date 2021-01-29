@@ -12,6 +12,8 @@
 
 #include <linux/lf1000/mlc_ioctl.h>
 
+#include "check-fb.h"
+
 int main(int argc, char **argv)
 {
 	int mlc;
@@ -19,6 +21,11 @@ int main(int argc, char **argv)
 	int arg = 0;
 	int response;
 	union mlc_cmd c;
+
+	if (have_framebuffer()) {
+		printf("Error: this tool isn't compatible with FB graphics\n");
+		return 1;
+	}
 
 	if(argc < 4) {
 		printf( "usage: mlc-control <device> <action> <command> [args]\n\n"

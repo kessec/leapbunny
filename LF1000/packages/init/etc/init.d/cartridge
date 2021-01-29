@@ -1,10 +1,20 @@
 #!/bin/sh
 
 # This script mounts misc volumes late (after AppManager starts)
+# 4/1/11 SZ Added optional 2nd param to enable read-write mode when mounting cartridge
+# USAGE:   mount start|stop|fstop|restart [-w|rw|ro=default]
 
-CART=/LF/Cart
+set -x
+CART="/LF/Cart"
 sys_ret=0
 ubi_ret=0
+
+RW="ro"
+if [ ! -z "$2" ] ; then 
+	if [ "$2" == "-w" -o "$2" == "rw" ] ; then
+		RW="rw"
+	fi
+fi
 
 case "$1" in
         start)
@@ -24,12 +34,20 @@ case "$1" in
 			fi
 
 			if [ $ubi_ret = 0 ]; then
-				mount -t vfat -o ro /dev/mtdblock$mn $where
+				mount -t vfat -o $RW /dev/mtdblock$mn $where
 				if [ $? = 0 ]; then
 					echo "Success"
 				else
-					sys_ret=21
-					logger -s -t "Emerald Base" -p local4.err "Failed mount of mtd$un to $where"
+					echo "************************************"
+					echo "Retrying the mount once"
+					echo "************************************"
+					mount -t vfat -o $RW /dev/mtdblock$mn $where
+					if [ $? = 0 ]; then
+						echo "Success"
+					else
+						sys_ret=21
+						logger -s -t "Emerald Base" -p local4.err "Failed mount of mtd$un to $where"
+					fi
 				fi
 			else
 				sys_ret=11
@@ -102,7 +120,7 @@ case "$1" in
 		$0 start
 		;;
 	*)
-		echo "Usage: $0 {start|stop|restart}"
+		echo "Usage: $0 {start|stop|fstop|restart} [-w|rw|ro=default]"
 		exit 1
 		;;
 esac

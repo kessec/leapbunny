@@ -1,7 +1,7 @@
 /* string.c -- Basic <string.h> functionality without standard library 
  *	       (these are just the typical public-domain implementations)
  *
- * Copyright 2009-2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -61,7 +61,6 @@ void *memcpy(void * restrict s1, const void * restrict s2, unsigned int n)
 	return s1;
 }
 
-#if 0   // 28sep09  Not called in emerald-boot, but retaining just in case...
 int strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned char uc1, uc2;
@@ -79,6 +78,7 @@ int strncmp(const char *s1, const char *s2, unsigned int n)
 	return ((uc1 < uc2) ? -1 : (uc1 > uc2));
 }
 
+#if 0   // 28sep09  Not called in emerald-boot, but retaining just in case...
 char *strncat(char *restrict s1, const char *restrict s2, unsigned int n)
 {
 	char *s = s1;

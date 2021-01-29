@@ -20,8 +20,9 @@
 #define __ASM_ARCH_LF1000_H
 
 extern void __init lf1000_init(void);
-extern void __init lf1000_init_irq(void);
 extern void __init lf1000_map_io(void);
 extern struct sys_timer lf1000_timer;
+
+void lf1000_pll1_clock_changed(void);
 
 #endif

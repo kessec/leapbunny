@@ -22,6 +22,8 @@ SECTIONS
 	. = ALIGN(4);
 	.data : { *(.data) }
 	. = ALIGN(0x4);
+	_end_copy_from_nor = .;
+
 	.screens : { *(.screens) }
 
 	. = ALIGN(0x4);

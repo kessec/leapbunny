@@ -15,23 +15,23 @@
 /* 
  * location of NAND Controller base for NFDATA, NFCMD, and NFADDR registers 
  */
-#define LF1000_NAND_BASE	LF1000_STATIC11_BASE_HIGH
+#define LF1000_NAND_BASE	    LF1000_STATIC11_BASE_HIGH
 #define LF1000_NAND_BASE_LOW	LF1000_STATIC11_BASE_LOW
 #define LF1000_NAND_BASE_HIGH	LF1000_STATIC11_BASE_HIGH
-#define LF1000_NAND_SIZE	0x18
+#define LF1000_NAND_SIZE	    0x18
 
 /* NAND Controller Registers
  *
  * (offsets from LF1000_MCU_S_BASE) */
 #define NFCONTROL		0x74
-#define NFECCL			0x78	/*       LF1000.                     */
+#define NFECCL			0x78	
 #define NFECCH			0x7C
 #define NFORGECCL		0x80
 #define NFORGECCH		0x84
 #define NFCNT			0x88
 #define NFECCSTATUS		0x8C
-#define NFSYNDRONE31		0x90
-#define NFSYNDRONE75		0x94
+#define NFSYNDRONE31	0x90
+#define NFSYNDRONE75	0x94
 
 /* (offsets from LF1000_NAND_BASE) */
 #define NFDATA			0x00
@@ -41,24 +41,29 @@
 /* NAND Flash Control Register (NFCONTROL) */
 #define IRQPEND			15
 #define ECCRST			11
-#define RnB			9
+#define RnB			    9
 #define IRQENB			8
 #define NFBOOTENB		5
 #define NFTYPE			3
 #define NFBANK			0
 
 /* NFTYPE bits in NFCONTROL */
-#define NFTYPE_LBLOCK		4	/* large block Flash */
-#define NFTYPE_EADDR		3	/* extra address Flash */
+#define NFTYPE_LBLOCK	4	/* large block Flash */
+#define NFTYPE_EADDR	3	/* extra address Flash */
+
+/* Masks for NFCONTROL register fields */
+#define NFC_ECCRST_MASK (1 << ECCRST)
+#define NFC_NFTYPE_MASK (3 << NFTYPE)
+#define NFC_NFBANK_MASK (1 << NFBANK)
 
 /* NAND Flash Data Count Register (NFCNT) */
 #define NFWRCNT			16
 #define NFRDCNT			0
 
 /* NAND FLASH ECC STATUS REGISTER (NFECCSTATUS) */
-#define NFCHECKERROR		2
-#define NFECCDECDONE		1	/* (reading done) */
-#define NFECCENCDONE		0	/* (writing done) */
+#define NFCHECKERROR	2
+#define NFECCDECDONE	1	/* (reading done) */
+#define NFECCENCDONE	0	/* (writing done) */
 
 /* NAND FLASH ECC SYNDROME VALUE31 REGISTER (NFSYNDRONE31) */
 #define SYNDROM3		13
@@ -69,12 +74,12 @@
 #define SYNDROM5		0
 
 /* GPIO settings for Write Protect control */
-#define NAND_WP_PORT		GPIO_PORT_ALV
-#define NAND_WP_BASE		LF1000_ALIVE_BASE
-#define NAND_WP_OUT		GPIOALVOUT
-#define NAND_WP_OUT_ENB		GPIOALVOUTENB
-#define NAND_WP_PIN		1
-#define NAND_WP_LEVEL		0	/* level for "on" */
+#define NAND_WP_PORT	        GPIO_PORT_ALV
+#define NAND_WP_BASE	        LF1000_ALIVE_BASE
+#define NAND_WP_OUT		        GPIOALVOUT
+#define NAND_WP_OUT_ENB	        GPIOALVOUTENB
+#define NAND_WP_PIN		        1
+#define NAND_WP_LEVEL	        0	/* level for "on" */
 
 /* GPIO settings for cartridge detection */
 #define NAND_CART_DETECT_PORT	GPIO_PORT_A
@@ -84,13 +89,13 @@
 /*
  * Cartridge Type Detection
  */
-#define NAND_CART_TYPE_PORT	GPIO_PORT_B
-#define NAND_CART_TYPE_LOW	2
+#define NAND_CART_TYPE_PORT	    GPIO_PORT_B
+#define NAND_CART_TYPE_LOW	    2
 #define NAND_CART_TYPE_EMERALD	4
-#define NAND_CART_TYPE_HIGH	5
-#define NAND_CART_DEVELOPMENT	0xF	/* 1111 : Development = NAND, writable, ECC on */
+#define NAND_CART_TYPE_HIGH	    5
+#define NAND_CART_DEVELOPMENT	0xF	/* 1111: Development: writable NAND ECC on*/
 #define NAND_CART_MANUFACTURING	0xB	/* 1011 */
-#define NAND_CART_PRODUCTION	0x7	/* 0111 : Production = OTP, ECC off */
+#define NAND_CART_PRODUCTION	0x7	/* 0111: Production: OTP, ECC off */
 /*
  * The following are defined for non-MTD applications such as uniboot 
  */

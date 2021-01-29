@@ -22,7 +22,17 @@ for tar_file in `ls *.tar`; do tar -C $ROOTFS_PATH -xf $tar_file ; done
 
 # install busybox links manually for this build
 pushd $ROOTFS_PATH
-while read link; do if test ! -h "$ROOTFS_PATH$link"; then case "$link" in /*/*/*) to="../../bin/busybox";; /bin/*) to="busybox";; /*/*) to="../bin/busybox";; /*) to="/bin/busybox";; esac; ln -s $to $ROOTFS_PATH$link; fi; done <$ROOTFS_PATH/etc/busybox.links
+while read link; do 
+	if [ ! -h "$ROOTFS_PATH$link" -a ! -e "$ROOTFS_PATH$link" ]; then
+		case "$link" in
+			/*/*/*) to="../../bin/busybox";;
+			/bin/*) to="busybox";;
+			/*/*) to="../bin/busybox";;
+			/*) to="/bin/busybox";;
+		esac;
+		ln -s $to $ROOTFS_PATH$link;
+	fi;
+done <$ROOTFS_PATH/etc/busybox.links
 rm $ROOTFS_PATH/etc/busybox.links
 
 # Add link for curses library

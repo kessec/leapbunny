@@ -22,15 +22,38 @@
 #include <mach/platform.h>
 #include <mach/pwm.h>
 #include <mach/gpio.h>
+#include <mach/lfp100.h>
 
-#define BL_PWM_CHANNEL	1
+#define LF1000_INITIAL_BRIGHTNESS	318	// nominal second brightest
+#define LF1000_MAX_BRIGHTNESS		511
 
 struct lf1000_bl {
 	struct platform_device	*pdev;
 	struct backlight_device *bl;
-
 	u32			pwmds;
+	u32			pwm_channel;
 };
+
+/* convert 9 bit intensity range to 5 bit WLED range */
+#define LFP100_WLED_ENTRIES	32
+static int intensity_to_lfp100_wled[LFP100_WLED_ENTRIES] = {
+	 13,  25,  38,  50,  63,  76,  88, 101,
+	114, 126, 139, 151, 165, 182, 199, 217,
+	234, 245, 255, 266, 276, 287, 297, 308,
+	319, 345, 373, 401, 428, 456, 484, 512 };
+
+static int lf1000_intensity_to_wled(int intensity)
+{
+	int i;
+	for (i = 0; i < LFP100_WLED_ENTRIES; i++) {
+		if (intensity < intensity_to_lfp100_wled[i])
+			break;
+	}
+	if (i < LFP100_WLED_ENTRIES)
+		return i;
+	/* entry not found, at max */
+	return LFP100_WLED_ENTRIES - 1;
+}
 
 static int lf1000_bl_get_brightness(struct backlight_device *bd)
 {
@@ -44,15 +67,22 @@ static int lf1000_bl_set_brightness(struct backlight_device *bd)
 	struct lf1000_bl *priv = bl_get_data(bd);
 	int intensity = bd->props.brightness;
 
+#if 0
 	if (bd->props.power != FB_BLANK_UNBLANK)
 		intensity = 0;
 	if (bd->props.fb_blank != FB_BLANK_UNBLANK)
 		intensity = 0;
+#endif
 
-	if (pwm_set_duty_cycle(BL_PWM_CHANNEL, intensity))
-		return -EINVAL;
+	if (lfp100_have_lfp100()) {
+		lfp100_write_reg(LFP100_WLED, 
+			lf1000_intensity_to_wled(intensity));
+	} else {
+		if (pwm_set_duty_cycle(priv->pwm_channel, intensity))
+			return -EINVAL;
 
-	priv->pwmds = intensity;
+		priv->pwmds = intensity;
+	}
 
 	return 0;
 }
@@ -65,6 +95,7 @@ static struct backlight_ops lf1000_bl_ops = {
 static int lf1000_bl_probe(struct platform_device *pdev)
 {
 	int ret;
+	u8 polarity;
 	struct lf1000_bl *priv;
 
 	priv = kzalloc(sizeof(struct lf1000_bl), GFP_KERNEL);
@@ -85,19 +116,34 @@ static int lf1000_bl_probe(struct platform_device *pdev)
 	platform_set_drvdata(pdev, priv);
 
 	priv->bl->props.power = FB_BLANK_UNBLANK;
-	priv->bl->props.max_brightness = 512;
-	priv->bl->props.brightness = priv->bl->props.max_brightness / 2;
+	priv->bl->props.max_brightness = LF1000_MAX_BRIGHTNESS;
+	priv->bl->props.brightness = LF1000_INITIAL_BRIGHTNESS;
 
+	if (gpio_have_gpio_madrid()) {
+		priv->pwm_channel = PWM_CHAN2;
+		polarity = POL_INV;	/* inverted PWM polarity */
+	} else {
+		priv->pwm_channel = PWM_CHAN1;
+		//On Explorer, pin A30 (PWM0) is LED_ENA and should be on
+		//The bootloader does this, but can't hurt to do it here to be safe.
+		polarity = POL_BYP;	/* normal PWM polarity */
+		gpio_set_out_en(lf1000_l2p_port(LED_ENA),
+			lf1000_l2p_pin(LED_ENA), 1);
+		gpio_set_cur(lf1000_l2p_port(LED_ENA),
+			lf1000_l2p_pin(LED_ENA), GPIO_CURRENT_8MA);
+	}
+	dev_info(&pdev->dev, "Using PWM Channel %d for backlight\n", priv->pwm_channel);
+	
 	ret = pwm_get_clock_rate();
 	if (ret < 1) {
 		dev_err(&pdev->dev, "can't get PWM rate\n");
 		priv->pwmds = 0;
 	} else {
 		dev_info(&pdev->dev, "PWM rate is %d\n", ret);
-		pwm_configure_pin(BL_PWM_CHANNEL);
-		pwm_set_prescale(BL_PWM_CHANNEL, 1);
-		pwm_set_polarity(BL_PWM_CHANNEL, 1);
-		pwm_set_period(BL_PWM_CHANNEL, 512);
+		pwm_configure_pin(priv->pwm_channel);
+		pwm_set_prescale(priv->pwm_channel, 1);
+		pwm_set_period(priv->pwm_channel, 511);
+		pwm_set_polarity(priv->pwm_channel, polarity);
 	}
 
 	lf1000_bl_set_brightness(priv->bl);
@@ -138,7 +184,7 @@ static void __exit lf1000_bl_exit(void)
 module_init(lf1000_bl_init);
 module_exit(lf1000_bl_exit);
 
-MODULE_AUTHOR("Andrey Yurovsky");
+MODULE_AUTHOR("Daniel Lazzari");
 MODULE_DESCRIPTION("LF1000 backlight driver");
 MODULE_LICENSE("GPL");
 MODULE_ALIAS("platform:lf1000-bl");

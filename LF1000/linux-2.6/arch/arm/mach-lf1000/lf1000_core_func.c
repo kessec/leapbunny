@@ -311,18 +311,17 @@ void __init set_uart_baud( int uart, int baud)
  * helper routines that dynamicly adjust for NOR / NAND boot
  */
 
-/* return shadow mode */
 unsigned int lf1000_is_shadow(void)
 {
-	return(IS_SET(IO_ADDRESS(LF1000_MCU_S_BASE + NFCONTROL), NFBOOTENB));
-	
+	void __iomem *addr = (void __iomem *)IO_ADDRESS(LF1000_MCU_S_BASE + NFCONTROL);
+
+	return !!(readl(addr) & (1<<NFBOOTENB));
 }
 EXPORT_SYMBOL(lf1000_is_shadow);
 
 /* return location of SDRAM based on shadow bit setting */
 unsigned int lf1000_get_phys_offset(void)
 {
-	if (lf1000_is_shadow()) return PHYS_OFFSET_SHADOW;
-	else			return PHYS_OFFSET_NO_SHADOW;
+	return lf1000_is_shadow() ? PHYS_OFFSET_SHADOW : PHYS_OFFSET_NO_SHADOW;
 }
 EXPORT_SYMBOL(lf1000_get_phys_offset);

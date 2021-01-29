@@ -40,11 +40,27 @@ endchoice
 config LF1000_SCREEN
 	bool "Support for configurable LCD modules (screens)"
 	depends on ARCH_LF1000 && (FB_LF1000 || FB_LF1000_MODULE)
-	default Y
+	default y
 	---help---
 	This option enables platform support for LCD modules, including display
 	controller initialization.  IF you are using the LF1000 frame buffer,
 	say Y.
+
+config LF1000_DMA_CONTROLLER
+	bool "Support for the DMA controller in the LF1000 SoC"
+	depends on ARCH_LF1000 && !LF1000_DMA
+	default n
+	---help---
+	This option enables platform support for the DMA controller in the
+	LF1000 SoC.  If your drivers need DMA support, say Y.
+
+config LF1000_LFP100
+	bool "Support for the LFP100 audio/power/backlight chip"
+	depends on ARCH_LF1000
+	default y
+	---help---
+	This option enables platform support for the LF-P100 combination
+	chip.  It is checked at runtime.  If you are unsure, say Y.
 
 config LF1000_GPIO
        tristate "Device driver for LF1000 General Purpose IO"
@@ -59,6 +75,14 @@ config LF1000_GPIO_DEBUG
 	---help---
 	This option enables additional debugging for the LF1000 GPIO Driver.
 	If unsure, say N.
+
+config LF1000_ADC
+	bool "Device driver for LF1000 analog to digital converter"
+	depends on ARCH_LF1000 && LF1000_GPIO
+	default y
+	---help---
+	This option enables device driver support for the LF1000 analog to
+	digital converter.  If unsure, say Y.
 
 config LF1000_SDRAM_TUNE
 	bool "Enable sysfs entries for SDRAM tuning"

@@ -85,7 +85,7 @@ rm -rf $zipspace
 #### INIT
 # Login
 tar -C $EROOTFS_PATH -c dev | sudo tar -C $SURGEONFS -x
-tar -C $EROOTFS_PATH -c etc/{group,passwd,profile,inittab,fstab,default,version} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c etc/{group,passwd,profile,inittab,mtab,fstab,default,version} | tar -C $SURGEONFS -xv
 # tar -C $EROOTFS_PATH -c etc/sudoers usr/bin/sudo | tar -C $SURGEONFS -xv
 # sudo chown root:root $SURGEONFS/etc/sudoers $SURGEONFS/usr/bin/sudo
 # sudo chmod +s $SURGEONFS/usr/bin/sudo
@@ -97,6 +97,7 @@ tar -C $EROOTFS_PATH -c etc/mdev.conf etc/mdev | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c usr/bin/make_dev_nodes.sh | tar -C $SURGEONFS -xv
 # Modules
 tar -C $EROOTFS_PATH -c lib/modules/2.6.31-leapfrog/kernel/drivers/usb/gadget/{g_ether.ko,lf1000_udc.ko} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c lib/modules/2.6.31-leapfrog/kernel/drivers/input/touchscreen/lf1000_ts2.ko | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c lib/modules/2.6.31-leapfrog/modules.{alias,ieee1394map,pcimap,inputmap,seriomap,ccwmap,isapnpmap,symbols,dep,ofmap,order,usbmap} | tar -C $SURGEONFS -xv
 # if we get .bin's again, bring them in.
 if [ -e $EROOTFS_PATH/lib/modules/2.6.31-leapfrog/modules.dep.bin ]; then
@@ -104,8 +105,9 @@ if [ -e $EROOTFS_PATH/lib/modules/2.6.31-leapfrog/modules.dep.bin ]; then
 fi
 
 # Recovery
-tar -C $EROOTFS_PATH -c usr/bin/{recovery,recovery-functions,recovery-dftp,recovery-shutdown,show-scr,gpio-control,imager,flipbook,surgeon-usb-socket} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/bin/{recovery,recovery-functions,recovery-dftp,recovery-shutdown,show-scr,gpio-control,imager,imager-fb,flipbook,flipbook-fb,flipbook2,surgeon-usb-socket} | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c var/screens/{connect-pngs,SYS_0005_no_yellow.png} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c var/screens/{Madrid-sparkle-pngs,Madrid-Boot-StaticConnectScreen-01CW.png} | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c usr/lib/libpng12.so{,.0.22.0,.0} usr/lib/libpng.so usr/bin/libpng{,12}-config | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c usr/lib/libz.so{,.1,.1.2.3} | tar -C $SURGEONFS -xv
 
@@ -160,8 +162,17 @@ tar -C $EROOTFS_PATH -c usr/sbin/ubi{attach,detach,nfo,mkvol,rmvol} | tar -C $SU
 #### NOR
 tar -C $EROOTFS_PATH -c usr/sbin/flashcp | tar -C $SURGEONFS -xv
 
+#### SD
+tar -C $EROOTFS_PATH -c usr/sbin/fuse-flasher | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/lib/libfuse{.so,.so.2,.so.2.7.2} usr/lib/libulockmgr.so | tar -C $SURGEONFS -xv
+
+#### EXT3
+tar -C $EROOTFS_PATH -c sbin/{mkfs.ext3,mkfs.ext4,fsck.ext4,fsck.ext3,tune2fs,dumpe2fs} | tar -C $SURGEONFS -xv
+
+
 #### MFGDATA ==> mfgdata, mfgmode.sh
 tar -C $EROOTFS_PATH -c usr/bin/{mfgdata,mfgmode.sh} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/lib/libMfgData.so | tar -C $SURGEONFS -xv
 
 #### Connectivity
 # ftp
@@ -173,13 +184,15 @@ tar -C $EROOTFS_PATH -c usr/bin/telnet usr/sbin/telnetd etc/init.d/vsftpd | tar 
 
 #### Helpers
 tar -C $EROOTFS_PATH -c usr/bin/{relax-surgeon,update,play,iospeed} | tar -C $SURGEONFS -xv
-tar -C $EROOTFS_PATH -c usr/bin/{fileget,fileput,nandget,nandget2,norget,target,ubiget2,ver} | tar -C $SURGEONFS -xv
-tar -C $EROOTFS_PATH -c var/{0.6.0,1.1.0}.fs | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/bin/{fileget,fileput,nandget,nandget2,norget,target,ubiget2,ver,ddget} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c var/{0.6.0,1.2.0}.fs | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c var/mbr2G.image | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c usr/bin/flash-fw | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c usr/bin/{get-ip,lsof,rl,getmac.sh} | tar -C $SURGEONFS -xv
 tar -C $EROOTFS_PATH -c usr/bin/lfpkg | tar -C $SURGEONFS -xv
-tar -C $EROOTFS_PATH -c usr/bin/drawtext var/fonts/monotext8x16.rgb | tar -C $SURGEONFS -xv
-tar -C $EROOTFS_PATH -c usr/bin/{ts2nor,setcal,reset_lang,reset_profiles,reset_unit,partition_to_mtd,tim,evtest} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/bin/drawtext{,-fb} var/fonts/monotext8x16.rgb | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/bin/{ts2nor,setcal,reset_lang,reset_profiles,reset_unit,partition_to_mtd,tim,evtest,new-calib,list-input-devices} | tar -C $SURGEONFS -xv
+tar -C $EROOTFS_PATH -c usr/bin/i2c-ctl | tar -C $SURGEONFS -xv
 
 #####################################################################
 # Fix for uClibc 29/30 problem -- see make_payload.sh
@@ -236,7 +249,7 @@ make lf1000_ts_surgeon_defconfig
 SURGEONFS=$SURGEONFS ./install.sh
 cd ../scripts
 CBF=surgeon.cbf
-./make_cbf.py -o $CBF
+./make_compressed_cbf.py -o $CBF
 
 # Restore old kernel config
 cd $PROJECT_PATH/linux-2.6
@@ -276,7 +289,31 @@ BuildDate="`date +%x`"
 EOF
 rm -f $WHERE-*.lfp
 $LFPKG -a create $WHERE
-rm -rf $WHERE
+
+#Create Madrid Surgeon (which is the same surgeon with a new meta.inf!)
+WHERE_LPAD=Surgeon-Lpad
+mv $WHERE $WHERE_LPAD
+cat <<EOF > $WHERE_LPAD/meta.inf
+MetaVersion="1.0"
+Device="LeapPadExplorer"
+Type="System"
+ProductID=0x001E0011
+PackageID="LPAD-0x001E0011-000000"
+PartNumber="152-12546"
+Version="$VERSION"
+Locale="en-us"
+Name="Surgeon"
+ShortName="Surgeon"
+Publisher="LeapFrog, Inc."
+Developer="LeapFrog, Inc."
+Hidden=1
+BinFile="surgeon.cbf"
+BuildDate="`date +%x`"
+EOF
+rm -f $WHERE_LPAD-*.lfp
+$LFPKG -a create $WHERE_LPAD
+
+rm -rf $WHERE_LPAD
 
 popd
 

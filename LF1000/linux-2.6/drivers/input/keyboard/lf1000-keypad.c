@@ -21,17 +21,6 @@
 
 #include <mach/platform.h>
 #include <mach/gpio.h>
-#include <mach/i2s.h>
-
-/* FIXME this is a call into the DPC driver for backlight setting.  We should
- * move the backlight button handling to userspace or find a cleaner way to do
- * it in kernel space, if that's really needed.  Let's at least not have
- * setBacklightNext() if we're not using the DPC driver */
-#if defined CONFIG_LF1000_DPC || defined CONFIG_LF1000_DPC_MODULE
-extern int setBacklightNext(void);
-#else
-#define setBacklightNext()
-#endif
 
 /* 
  * Software debouncing: number of ISRs for which a button must be held before 
@@ -83,6 +72,7 @@ static struct button_entry button_map[] = {
  {-1, -1, BUTTON_VOLUMEDOWN, KEY_VOLUMEDOWN, EV_KEY, BUTTON_DELAY},
 							/* volume down*/
  {-1, -1, BUTTON_RED, KEY_RED, EV_KEY, BUTTON_DELAY},	/* K2 'red' key	*/
+ {-1, -1, BUTTON_ESC, KEY_ESC, EV_KEY, BUTTON_DELAY},	/* Madrid "Esc" key */
 							/* headphone jack */
  {-1, -1, HEADPHONE_JACK, SW_HEADPHONE_INSERT, EV_SW, BUTTON_DELAY},
 };
@@ -94,7 +84,7 @@ static struct button_entry button_map[] = {
 static unsigned int lf1000_keycode[]= {
 	KEY_UP, KEY_DOWN, KEY_RIGHT, KEY_LEFT, 
 	KEY_A, KEY_B, KEY_L, KEY_R, KEY_M, KEY_H, KEY_P, KEY_X,
-	KEY_VOLUMEUP, KEY_VOLUMEDOWN, KEY_RED};
+	KEY_VOLUMEUP, KEY_VOLUMEDOWN, KEY_RED, KEY_ESC};
 
 /*
  * device
@@ -104,8 +94,6 @@ struct lf1000_kp {
 	unsigned int keycode[ARRAY_SIZE(lf1000_keycode)];
 	struct input_dev *input;
 	struct timer_list input_timer;
-	uint last_audio_volumeDownCount; // monitor volume slider on Didj 08
-	uint last_audio_volumeUpCount;	 // monitor volume slider on Didj 08
 };
 
 static void input_monitor_task(unsigned long data)
@@ -119,28 +107,8 @@ static void input_monitor_task(unsigned long data)
 	for(i = 0; i < ARRAY_SIZE(button_map); i++) {
 		bme = &button_map[i];
 
-		/* synthesize Vol UP/DOWN buttons if system is Didj 08 with
-		 * volume slider */
-		/* note gpio = 0 when button pressed, so mimic this too */
-		if (bme->key == KEY_VOLUMEDOWN && (!gpio_have_volume_buttons())) { // volume slider
-			val =
-(audio_get_volumeDownCount() != i_dev->last_audio_volumeDownCount) ? 0 : 1;
-			if (!val) {
-				i_dev->last_audio_volumeDownCount =
-					audio_get_volumeDownCount();
-				bme->debounce = 0x1E;
-			}
-		} else if (bme->key == KEY_VOLUMEUP && (!gpio_have_volume_buttons())) { //vol slider
-			val =
-(audio_get_volumeUpCount() != i_dev->last_audio_volumeUpCount ? 0 : 1);
-			if (!val) {
-				i_dev->last_audio_volumeUpCount =
-					audio_get_volumeUpCount();
-				bme->debounce = 0x1E;
-			}
-		} else { /* assume push GPIO is normally low, invert if needed	*/
-			val = gpio_get_val(bme->port, bme->pin) ^ bme->push;
-		}
+		/* assume push GPIO is normally low, invert if needed	*/
+		val = gpio_get_val(bme->port, bme->pin) ^ bme->push;
 		old = bme->debounce & 0x10;
 		bme->debounce = old | ((bme->debounce << 1 | val) & 0xf);
 		switch(bme->debounce)
@@ -150,16 +118,6 @@ static void input_monitor_task(unsigned long data)
 			bme->debounce = 0x13;
 			break;
 		case 0x1C://1 1100  (key press)
-			/* synthesize volume slider on systems with volume */
-			/* buttons, ie Didj 09 and Leapster 3		   */
-			if(gpio_have_volume_buttons()) {
-				if (bme->key == KEY_VOLUMEDOWN)
-					audio_set_volume(AUDIO_VOLUME_DOWN);
-				else if (bme->key == KEY_VOLUMEUP)
-					audio_set_volume(AUDIO_VOLUME_UP);
-				else if (bme->key == KEY_X)
-					setBacklightNext();
-			}
 			input_event(i_dev->input, bme->type, bme->key, 1);
 			bme->debounce = 0x0C;
 			break;
@@ -190,7 +148,7 @@ static int lf1000_kp_probe(struct platform_device *pdev)
 	platform_set_drvdata(pdev, lf1000_kp_dev);
 
 	input_dev = input_allocate_device();
-	if(!input_dev) {setup_timer(&lf1000_kp_dev->input_timer, input_monitor_task, (unsigned long)lf1000_kp_dev);
+	if(!input_dev) {
 		ret = -ENOMEM;
 		goto fail_input;
 	}
@@ -205,11 +163,6 @@ static int lf1000_kp_probe(struct platform_device *pdev)
 	input_dev->id.product = 0x0001;
 	input_dev->id.version = 0x0001;
 	lf1000_kp_dev->input = input_dev;	
-
-	/* On Didj 08 generate button_down and button_up messages */
-	lf1000_kp_dev->last_audio_volumeDownCount = audio_get_volumeDownCount();
-	lf1000_kp_dev->last_audio_volumeUpCount   = audio_get_volumeUpCount();
-
 	
 	/* event types that we support */
 	input_dev->evbit[0] = BIT(EV_KEY) | BIT(EV_SW);

@@ -15,15 +15,14 @@ set_standard_opts $*
 
 pushd $PROJECT_PATH/packages/optimization
 
-GCC=gcc
+# clean build directory if requested
+if [ "$CLEAN" == "1" ]; then
+	make clean
+fi
 
-$CROSS_COMPILE$GCC $INCLUDES -o iospeed iospeed.c
-$CROSS_COMPILE$GCC $INCLUDES -o cpuspeed cpuspeed.c
-$CROSS_COMPILE$GCC $INCLUDES -o cpulog cpulog.c
-$CROSS_COMPILE$GCC $INCLUDES -o tim tim.c
+make all
 
-cp -pv iospeed cpuspeed cpulog tim faster-nand-timing nand-speed-timing-test \
-	$ROOTFS_PATH/usr/bin
+make install
 
 popd
 

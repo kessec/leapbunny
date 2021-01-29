@@ -128,6 +128,7 @@
 #define UPD29F064115	0x221C
 
 /* PMC */
+#define	PM39LV040	0x003E
 #define PM49FL002	0x006D
 #define PM49FL004	0x006E
 #define PM49FL008	0x006A
@@ -1250,6 +1251,18 @@ static const struct amd_flash_info jedec_table[] = {
 			ERASEINFO(0x08000,1),
 			ERASEINFO(0x02000,2),
 			ERASEINFO(0x04000,1),
+		}
+	}, {
+		.mfr_id		= MANUFACTURER_PMC,
+		.dev_id		= PM39LV040,
+		.name		= "PMC Pm39LV040",
+		.devtypes	= CFI_DEVICETYPE_X8,
+		.uaddr		= MTD_UADDR_0x5555_0x2AAA,
+		.dev_size	= SIZE_512KiB,
+		.cmd_set	= P_ID_AMD_STD,
+		.nr_regions	= 1,
+		.regions	= {
+			ERASEINFO( 0x01000, 128 )
 		}
 	}, {
 		.mfr_id		= MANUFACTURER_PMC,

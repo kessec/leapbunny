@@ -269,4 +269,14 @@ config INPUT_DM355EVM
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called dm355evm_keys.
+
+config INPUT_LF1000_ACLMTR
+	tristate "LF1000 Accelerometer support"
+	depends on ARCH_LF1000
+	default n
+	help
+	  Accelerometer driver for the LF1000 platform.
+	  Say Y here to enable accelerometer support, or M to build
+	  the driver as a module.
+
 endif

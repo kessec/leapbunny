@@ -43,6 +43,19 @@ case "$1" in
 			report 1 "$UV already mounted"
 			exit 0;
 		fi
+		# Easy mount for SD cards
+		if grep ext /proc/mounts > /dev/null; then
+			report 1 "`tim begin 'Mounting SD /LF/Bulk'`"
+			mount -o barrier=0,noauto_da_alloc,noatime,data=writeback /dev/mmcblk0p4 /LF/Bulk
+			if [ $? != 0 ]; then
+				report 1 "Failed mount of mmcblk0p4 from /LF/Bulk"
+				tuneup
+			fi
+			# Signal /LF/Bulk ready to AppManager
+			echo 1 > $DAVE
+			report 1 "`tim end 'Mounting SD /LF/Bulk'`"
+			exit 0;
+		fi
 		# Attach if needed
 		get_ud "$UV"
 		if [ -z "$ud" ]; then
@@ -73,6 +86,15 @@ case "$1" in
 		report 1 "`tim end \"Mounting $where ubi$ud\"`"
 		;;
 	stop)
+		# Easy umount for SD cards
+		if grep rootfstype=ext3 /proc/cmdline; then
+			report 1 "`tim begin 'Unmounting SD /LF/Bulk'`"
+			umount /dev/mmcblk0p4
+			report $? "Failed umount of mmcblk0p4 from /LF/Bulk"
+			report 1 "`tim end 'Unmounting SD /LF/Bulk'`"
+			exit 0;
+		fi
+		# More work for UBI
 		get_ud "$UV"
 		if [ -z "$ud" ]; then
 			report 1 "Failed to find $UV in /sys!"

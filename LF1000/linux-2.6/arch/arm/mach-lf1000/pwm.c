@@ -38,6 +38,26 @@ static struct pwm_device {
 	int 			clock_rate;
 } pwm;
 
+/*************
+ * show regs *
+ *************/
+
+void dump_regs(void)
+{
+	printk(KERN_ERR "%s.%d PWM registers\n", __FUNCTION__, __LINE__);
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM01PRES",  readw(pwm.base+PWM01PRES));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM0DUTY",   readw(pwm.base+PWM0DUTY));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM1DUTY",   readw(pwm.base+PWM1DUTY));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM0PERIOD", readw(pwm.base+PWM0PERIOD));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM1PERIOD", readw(pwm.base+PWM1PERIOD));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM2PRES",   readw(pwm.base+PWM2PRES));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM2DUTY",   readw(pwm.base+PWM2DUTY));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWM2PERIOD", readw(pwm.base+PWM2PERIOD));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWMCLKENB",  readw(pwm.base+PWMCLKENB));
+	printk(KERN_ERR "%11s: 0x%4.4X\n", "PWMCLKGEN",  readw(pwm.base+PWMCLKGEN));
+}
+
+
 /*********************
  * PWM API Functions *
  *********************/
@@ -50,15 +70,15 @@ int pwm_configure_pin(enum pwm_chan channel)
 	switch(channel) {
 		case PWM_CHAN0:
 		port = GPIO_PORT_A;
-		pin = 30;
+		pin = GPIO_PIN30;
 		break;
 		case PWM_CHAN1:
 		port = GPIO_PORT_A;
-		pin = 31;
+		pin = GPIO_PIN31;
 		break;
 		case PWM_CHAN2:
 		port = GPIO_PORT_C;
-		pin = 7;
+		pin = GPIO_PIN7;
 		break;
 		default:
 		return -1;
@@ -67,6 +87,7 @@ int pwm_configure_pin(enum pwm_chan channel)
 	gpio_set_fn(port, pin, GPIO_ALT1);
 	gpio_set_pu(port, pin, 0);
 	gpio_set_out_en(port, pin, 1);
+	gpio_set_cur(port, pin, GPIO_CURRENT_8MA);
 	return 0;
 }
 EXPORT_SYMBOL(pwm_configure_pin);
@@ -77,18 +98,27 @@ int pwm_set_prescale(enum pwm_chan channel, u32 prescale)
 	u8 shift = 0;
 	void *reg;
 
+
 	if(channel >= PWM_CHAN_INVALID || prescale >= 128)
 		return -EINVAL;
 
-	if(channel <= 1) { /* 0/1 */
-		reg = pwm.base+PWM01PRES;
+	switch(channel) {
+	case PWM_CHAN0:
+		reg = pwm.base + PWM01PRES;
+		shift = PWM0PRESCALE;
+		break;
+	case PWM_CHAN1:
+		reg = pwm.base + PWM01PRES;
+		shift = PWM1PRESCALE;
+		break;
+	case PWM_CHAN2:
+		reg = pwm.base + PWM2PRES;
+		shift = PWM2PRESCALE;
+		break;
+	default:
+		return -1;
+		break;
 	}
-	else { /* 2/3 */
-		reg = pwm.base+PWM23PRES;
-		channel /= 2; /* treat 2 like 0, 3 like 1 */
-	}
-
-	shift = channel == 0 ? PWM0PRESCALE : PWM1PRESCALE;
 
 	tmp = readw(reg);
 	tmp &= ~(0x3F<<shift); /* clear prescaler bits */
@@ -107,21 +137,30 @@ int pwm_set_polarity(enum pwm_chan channel, u8 polarity)
 	if( channel >= PWM_CHAN_INVALID || polarity >= POL_INVALID )
 		return -EINVAL;
 
-	if( channel <= 1 ) { /* 0/1 */
-		reg = pwm.base+PWM01PRES;
+	switch(channel) {
+	case PWM_CHAN0:
+		reg = pwm.base + PWM01PRES;
+		shift = PWM0POL;
+		break;
+	case PWM_CHAN1:
+		reg = pwm.base + PWM01PRES;
+		shift = PWM1POL;
+		break;
+	case PWM_CHAN2:
+		reg = pwm.base + PWM2PRES;
+		shift = PWM2POL;
+		break;
+	default:
+		return -1;
+		break;
 	}
-	else { /* 2/3 */
-		reg = pwm.base+PWM23PRES;
-		channel /= 2; /* treat 2 like 0, 3 like 1 */
-	}
-
-	shift = channel == 0 ? PWM0POL : PWM1POL;
 
 	tmp = readw(reg);
 	if(polarity == POL_INV)
 		tmp &= ~(1<<shift);
 	else
 		tmp |= (1<<shift);
+	writew(polarity, reg);
 	return 0;
 }
 EXPORT_SYMBOL(pwm_set_polarity);
@@ -161,7 +200,7 @@ int pwm_set_duty_cycle(enum pwm_chan channel, u32 duty)
 {
 	void *reg = NULL;
 
-	if(channel >= PWM_CHAN_INVALID || duty >= 1024)
+	if(channel >= PWM_CHAN_INVALID || duty >= PWM_MAX_VALUE)
 		return -EINVAL;
 
 	switch(channel) {

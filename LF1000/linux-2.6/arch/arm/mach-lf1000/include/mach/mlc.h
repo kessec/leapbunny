@@ -9,12 +9,8 @@
 #ifndef LF1000_MLC_H
 #define LF1000_MLC_H
 
-#ifdef _LF1000_BOOTLOADER
-#include <mach/platform.h>
-#else
 #include <mach/platform.h>
 #include <linux/types.h>
-#endif
 
 /* screen resolution (also used to calculate frame buffer size) */
 #define X_RESOLUTION		320
@@ -96,8 +92,6 @@ enum RGBFMT
 	VID_RGBFMT_A8B8G8R8	= 0x8653,   /* 32bpp { A8, B8, G8, R8 }. */
 };
 
-
-#ifndef _LF1000_BOOTLOADER
 
 struct mlc_layer_position {
 	u32 top;
@@ -220,7 +214,5 @@ int mlc_SetLayerInvisibleAreaEnable(u8 layer, u8 en);
 int mlc_GetLayerInvisibleAreaEnable(u8 layer);
 int mlc_SetLayerInvisibleArea(u8 layer, s32 top, s32 left, s32 right, s32 bottom);
 int mlc_GetLayerInvisibleArea(u8 layer, struct mlc_layer_position *p);
-
-#endif
 
 #endif

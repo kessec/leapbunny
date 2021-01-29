@@ -2,16 +2,27 @@
 
 # launch CartManager
 (
-sleep 10s
-tim begin "CartManager"
-# Enable the Cartridge bus
-modprobe lfcart; # tim done "modprobe lfcart"
-if [ ! -e /flags/console_out ] ; then
-        CartManager &> /dev/null
-else
-        CartManager
-fi
+	tim begin "CartManager"
+	# Enable the Cartridge bus
+	modprobe lfcart; # tim done "modprobe lfcart"
+	cartmanagerresult=1;
+	while [ ! cartmanagerresult = 0 ]; do
+		if [ ! -e /flags/console_out ] ; then
+			CartManager &> /dev/null
+		else
+			CartManager
+		fi
+		cartmanagerresult=$?;
+		rm /var/run/CartManager.pid;
+	done;
 ) &
+
+# Play intro video
+{
+tim begin "Start splash video"
+su game -c "VideoDaemon /var/sounds/StartupVideo.ogg"
+tim done "End splash video" 
+} &
 
 # Relaunch AppManager on any non-zero exit code
 count=0
@@ -28,6 +39,10 @@ while [ ! $result = 0 ]; do
 	uptime=`cut -d '.' -f 1 /proc/uptime`
 	count=$((++count))
 	logger -s -t "/usr/bin/app" -p local4.notice "AppManager exit($result) count=$count uptime=$uptime"
+
+	# TTpro 978 Save time +3 hours to file system
+	S=$(date +%s)
+	echo $((3*60*60+S)) > /flags/lasttime
 
 	# TTPro 2139/2159: Unhandled exceptions that leave OGL locked
 	# up need to reboot the system since OGL is left dead
@@ -58,5 +73,17 @@ while [ ! $result = 0 ]; do
 	fi
 done;
 
+# Play shutdown video
+#{
+#tim begin "Start shutdown video"
+#VideoDaemon /var/sounds/ShutdownVideo.ogg
+#tim done "End shutdown video"
+#} &
+
 # /flags/poweron handled inside AppManager now
-poweroff
+# Skip shutdown sync on units using SD Card
+if [ -e /dev/mmcblk0 ]; then
+	poweroff -n
+else
+	poweroff
+fi

@@ -1,6 +1,9 @@
 #!/bin/sh
 
 TIMING=/sys/devices/platform/lf1000-nand/timing
+if [ ! -e $TIMING ]; then
+	exit 0
+fi
 
 # ACS,COS,ACC,COH,CAH:  For all but ACC, fastest->slowest is 3,0,1,2
 # 0,0,4,0,0 = 4.52MB/sec default

@@ -5,7 +5,3 @@ ubi-y += misc.o
 
 ubi-$(CONFIG_MTD_UBI_DEBUG) += debug.o
 obj-$(CONFIG_MTD_UBI_GLUEBI) += gluebi.o
-
-ubi-$(CONFIG_MTD_NAND_LF1000_STRESS_TEST) += stress.o
-
-obj-$(CONFIG_MTD_UBI_BLOCK) += ubiblock.o

@@ -3,6 +3,12 @@
 # $2 should be the program name that crashed
 # $3 should be the PID of the crash process
 
+# skip coredump by default, unless in developer mode
+if [ ! -e /flags/coredump ]; then
+	echo "skipping coredump" 
+	exit 0
+fi
+
 exec 1>/dev/console
 exec 2>/dev/console
 

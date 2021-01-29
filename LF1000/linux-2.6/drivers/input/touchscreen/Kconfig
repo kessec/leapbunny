@@ -491,6 +491,14 @@ config TOUCHSCREEN_LF1000
 	  To compile this driver as a module, choose M here: the
 	  module will be called lf1000_touch.
 
+config TOUCHSCREEN_LF1000_PRESSURE
+	bool "Use pressure readings/calculations in the driver"
+	depends on TOUCHSCREEN_LF1000
+	default n
+	help
+	  Say Y here to enable the driver to use calculated pressure to
+	  judge when the screen is touched.
+
 config TOUCHSCREEN_TSC2007
 	tristate "TSC2007 based touchscreens"
 	depends on I2C

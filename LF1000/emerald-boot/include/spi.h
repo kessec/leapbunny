@@ -1,6 +1,6 @@
 /* spi.h - Basic polling SPI driver
  *
- * Copyright 2007-2009 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
  *

@@ -2040,28 +2040,12 @@ config FB_SH7760
 	  panels <= 320 pixel horizontal resolution.
 
 config FB_LF1000
-	tristate "Framebuffer support for the LF1000 SoC"
+	tristate "LF1000 SoC Framebuffer support"
 	select LF1000_SCREEN
 	depends on ARCH_LF1000 && FB
 	---help---
 	  Say Y here to enable support for the LF1000 display controller
 	  and Multi-Layer controller.  Say M to build it as a module.
-
-config FB_LF1000_START_ADDR
-	hex "Framebuffer start address"
-	default 0x82E00000
-	depends on FB_LF1000
-	---help---
-	  Set the start address for the frame buffer here.  If you are unsure,
-	  use the default.
-
-config FB_LF1000_SIZE
-	hex "Framebuffer size"
-	default 0x01200000
-	depends on FB_LF1000
-	---help---
-	  Set the size of the frame buffer here.  If you are unsure, use the
-	  default.
 
 config FB_VIRTUAL
 	tristate "Virtual Frame Buffer support (ONLY FOR TESTING!)"

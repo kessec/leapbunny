@@ -12,6 +12,8 @@
 
 #include <linux/lf1000/dpc_ioctl.h>
 
+#include "check-fb.h"
+
 int main(int argc, char **argv)
 {
 	int dpc;
@@ -21,6 +23,11 @@ int main(int argc, char **argv)
 	union dpc_cmd c;
 	int response;
 	char type = 0;
+
+	if (have_framebuffer()) {
+		printf("Error: this tool isn't compatible with FB graphics\n");
+		return 1;
+	}
 
 	if(argc < 4) {
 		printf( "usage: %s <device> <command> <value>\n\n"

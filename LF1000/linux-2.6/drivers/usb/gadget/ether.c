@@ -24,6 +24,7 @@
 
 #include <linux/kernel.h>
 #include <linux/utsname.h>
+#include <mach/gpio.h>
 
 #include "u_ether.h"
 
@@ -68,6 +69,7 @@
 #define DRIVER_VERSION	        "Veterans Day 2009"
 #define PREFIX			        ""
 #define PRODUCT_ID_STRING       "Leapster Explorer"
+#define PRODUCT_ID_STRING_MADRID       "LeapPad Explorer"
 #define MANUFACTURER_ID_STRING  "LeapFrog Enterprises, Inc."
 #define SERIAL_ID_STRING	""
 #else   
@@ -136,6 +138,7 @@ static inline bool has_rndis(void)
 /* Match Belcarra Windows Driver */
 #define CDC_VENDOR_NUM		0x0f63	/* LeapFrog */
 #define CDC_PRODUCT_NUM		0x0010	/* Linux-USB Ethernet Gadget */
+#define CDC_PRODUCT_NUM_MADRID		0x0011
 
 #else
 /* Thanks to NetChip Technologies for donating this product ID.
@@ -315,6 +318,13 @@ static int __init eth_bind(struct usb_composite_dev *cdev)
 	if (can_support_ecm(cdev->gadget)) {
 		/* ECM */
 		eth_config_driver.label = "CDC Ethernet (ECM)";
+		/* Override product name and product ID for madrid */
+		if(gpio_have_gpio_madrid())
+		{
+			device_desc.idProduct = cpu_to_le16(CDC_PRODUCT_NUM_MADRID);
+			strings_dev[STRING_PRODUCT_IDX].s = PRODUCT_ID_STRING_MADRID;
+		}
+			
 	} else {
 		/* CDC Subset */
 		eth_config_driver.label = "CDC Subset/SAFE";

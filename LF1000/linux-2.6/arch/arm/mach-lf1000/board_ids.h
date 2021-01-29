@@ -11,7 +11,7 @@
  * the Free Software Foundation
  */
 
-#ifndef LF1000_BOARDS_H
+#ifndef LF1000_BOARD_IDS_H
 #define LF1000_BOARD_IDS_H
 
 /* This is a list of board types that can be detected at runtime to deal with
@@ -51,17 +51,9 @@
  * 512KB Boot Flash, No TV Out, RTC SuperCap */
 #define LF1000_BOARD_EMERALD_NOTV_CAP	0x07
 
-/* Leapster Explorer CIP POP, 8GB SLC Flash, 64MB SDRAM,
- * 512KB Boot Flash, TV Out, No RTC SuperCap */
-#define LF1000_BOARD_EMERALD_CIP_POP	0x09
-
-/* Leapster Explorer CIP, 8GB SLC Flash, 64MB SDRAM,
- * 512KB Boot Flash, No TV Out, No RTC SuperCap */
-#define LF1000_BOARD_EMERALD_CIP	0x0A
-
-/* Leapster Explorer CIP, 8GB SLC Flash, 64MB SDRAM,
- * 512KB Boot Flash, TV Out, No RTC SuperCap */
-#define LF1000_BOARD_EMERALD_CIP_TV	0x0B
+/* Leapster Explorer 8GB SLC Flash, 64MB Samsung
+ * SDRAM, 512KB Boot Flash, No TV Out, No RTC SuperCap */
+#define LF1000_BOARD_EMERALD_SAMSUNG	0x0A
 
 
 /*
@@ -71,4 +63,24 @@
 /* K2 Base, 8GB SLC Flash, 64MB SDRAM, 512KB Boot Flash */
 #define	LF1000_BOARD_K2			0x10
 
-#endif
+
+/*
+ * Madrid Boards
+ */
+
+/* Madrid, 5" LCD 2GB MLC Flash + SD Controller, 64MB SDRAM,
+ *512KB Boot Flash, No TV Out, No RTC SuperCap, Accelerometer,
+ * Vibration motor, USB Camera SDIO WIFI  */
+#define LF1000_BOARD_MADRID		0x0B
+
+/* Madrid, 5" LCD 2GB MLC Flash + SD Controller, 64MB SDRAM,
+ *512KB Boot Flash, TV Out, No RTC SuperCap, Accelerometer,
+ * Vibration motor, USB Camera SDIO WIFI  */
+#define LF1000_BOARD_MADRID_POP		0x0C
+
+/* Madrid, 5" LCD 2GB MLC Flash + SD Controller, 64MB SDRAM,
+ *512KB Boot Flash, No TV Out, No RTC SuperCap, Accelerometer,
+ * Vibration motor, USB Camera SDIO WIFI, LFP100  */
+#define LF1000_BOARD_MADRID_LFP100	0x0D
+
+#endif /* LF1000_BOARD_IDS_H */

@@ -28,11 +28,15 @@
 static void lf1000_start_hc(struct platform_device *dev, struct usb_hcd *hcd)
 {
 	int pll_divisor;
+	int enable = gpio_have_gpio_madrid() ? 1 : 0;	/* enabled on demand for Madrid */
 
 	/* start VUSB (turn on DC power to devices) */
-	gpio_set_fn(GPIO_PORT_A, GPIO_PIN9, GPIO_GPIOFN);
-	gpio_set_val(GPIO_PORT_A, GPIO_PIN9, 0);
-	gpio_set_out_en(GPIO_PORT_A, GPIO_PIN9, 1);
+	gpio_set_fn(lf1000_l2p_port(DOCK_POWER), lf1000_l2p_pin(DOCK_POWER),
+			GPIO_GPIOFN);
+	gpio_set_val(lf1000_l2p_port(DOCK_POWER), lf1000_l2p_pin(DOCK_POWER),
+			enable);
+	gpio_set_out_en(lf1000_l2p_port(DOCK_POWER), lf1000_l2p_pin(DOCK_POWER),
+			1);
 
 	/* calculate USB Host 48 Mhz divisor */
 	pll_divisor = get_pll_freq(PLL1) / 48000000;
@@ -46,9 +50,12 @@ static void lf1000_start_hc(struct platform_device *dev, struct usb_hcd *hcd)
 static void lf1000_stop_hc(struct platform_device *dev, struct usb_hcd *hcd)
 {
 	/* stop VUSB (turn off DC power to devices) */
-	gpio_set_fn(GPIO_PORT_A, GPIO_PIN9, GPIO_GPIOFN);
-	gpio_set_val(GPIO_PORT_A, GPIO_PIN9, 1);
-	gpio_set_out_en(GPIO_PORT_A, GPIO_PIN9, 0);
+	gpio_set_fn(lf1000_l2p_port(DOCK_POWER), lf1000_l2p_pin(DOCK_POWER),
+		GPIO_GPIOFN);
+	gpio_set_val(lf1000_l2p_port(DOCK_POWER), lf1000_l2p_pin(DOCK_POWER),
+		1);
+	gpio_set_out_en(lf1000_l2p_port(DOCK_POWER), lf1000_l2p_pin(DOCK_POWER),
+		0);
 
 	/* stop USB Host clock */
 	writew(0, hcd->regs + 0xC0);
@@ -226,3 +233,4 @@ static struct platform_driver ohci_hcd_lf1000_driver = {
 };
 
 MODULE_ALIAS("platform:lf1000-ohci");
+MODULE_LICENSE("GPL");

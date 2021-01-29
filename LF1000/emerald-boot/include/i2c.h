@@ -1,6 +1,6 @@
 /* i2c.h - Basic polling I2C driver
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
  *

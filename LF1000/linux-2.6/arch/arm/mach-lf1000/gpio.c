@@ -35,7 +35,7 @@ struct gpio_handler gpio_handlers[GPIO_PORT_ALV+1][GPIO_PIN31+1];
 int gpio_set_fn(enum gpio_port port, enum gpio_pin pin,
 		 enum gpio_function f)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if(!gpio.mem || !IS_GPIO_PORT(port) || pin >= 32)
@@ -48,10 +48,10 @@ int gpio_set_fn(enum gpio_port port, enum gpio_pin pin,
 	}
 
 	pin *= 2; /* setting two bits per pin */
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 	tmp &= ~(3<<pin);
 	tmp |= (f<<pin);
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 
 	return 0;
 }
@@ -59,7 +59,7 @@ int gpio_set_fn(enum gpio_port port, enum gpio_pin pin,
 /* Get the pin function */
 int gpio_get_fn(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if(!gpio.mem || !IS_GPIO_PORT(port) || pin >= 32)
 		return -EINVAL;
@@ -71,7 +71,7 @@ int gpio_get_fn(enum gpio_port port, enum gpio_pin pin)
 	}
 
 	/* getting two bits per pin */
-	return ((ioread32(reg) >> (pin*2)) & 0x3);
+	return ((readl(reg) >> (pin*2)) & 0x3);
 }
 
 /* set or clear output enable.  Clearing output enable means this pin is an
@@ -79,7 +79,7 @@ int gpio_get_fn(enum gpio_port port, enum gpio_pin pin)
  */
 int gpio_set_out_en(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		if(!en)
@@ -91,18 +91,33 @@ int gpio_set_out_en(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 		reg = gpio.mem + GPIOAOUTENB + port*0x40;
 	else
 		return -EINVAL;
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 
 	en ? BIT_SET(tmp, pin) : BIT_CLR(tmp, pin);
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 
 	return 0;
+}
+
+/* get output enable value */
+int gpio_get_out_en(enum gpio_port port, enum gpio_pin pin)
+{
+	void __iomem *reg;
+	if (port == GPIO_PORT_ALV) {
+		return -EINVAL;	/* LF1000 ALIVE pins don't have direction */
+	}
+	else if(gpio.mem != NULL && IS_GPIO_PORT(port))
+		reg = gpio.mem + GPIOAOUTENB + port*0x40;
+	else
+		return -EINVAL;
+
+	return(int)((readl(reg) >> pin) & 0x1);
 }
 
 /* set or clear the pull-up enable */
 void gpio_set_pu(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if(pin >= 32)
@@ -115,17 +130,16 @@ void gpio_set_pu(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 		reg = gpio.mem + GPIOAPUENB + port*0x40;
 	else
 		return;
-   	tmp = ioread32(reg);
+   	tmp = readl(reg);
 
 	en ? BIT_SET(tmp, pin) : BIT_CLR(tmp, pin);
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 }
 
 /* get the input value of the pin */
 int gpio_get_pu(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
-	unsigned long tmp;
+	void __iomem *reg;
 
 	if(pin >= 32)
 		return -EINVAL;
@@ -137,15 +151,16 @@ int gpio_get_pu(enum gpio_port port, enum gpio_pin pin)
 		reg = gpio.mem + GPIOAPUENB + port*0x40;
 	else
 		return -EINVAL;
-   	tmp = ioread32(reg);
 
-	return (int)((ioread32(reg) >> pin) & 0x1);
+	return (int)((readl(reg) >> pin) & 0x1);
 }
 
 /* set the output value of the pin */
 int gpio_set_val(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 {
-	void *reg, *set_reg, *clr_reg;
+	void __iomem *reg;
+	void __iomem *set_reg;
+	void __iomem *clr_reg;
 	unsigned long tmp;
 
 	if(pin >= 32)
@@ -160,7 +175,7 @@ int gpio_set_val(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 		 */
 
 		/* enable writing to GPIO ALIVE registers */
-		iowrite32(1 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
+		writel(1 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
 		
 		if (en) { /* set R/S bit */
 			set_reg = gpio.amem + ALIVEGPIOSETREG;
@@ -170,15 +185,15 @@ int gpio_set_val(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 			set_reg = gpio.amem + ALIVEGPIORSTREG;
 		}
 
-		tmp = ioread32(clr_reg); /* clear bit first */
+		tmp = readl(clr_reg); /* clear bit first */
 		BIT_CLR(tmp,pin);
-		iowrite32(tmp,clr_reg);
-		tmp = ioread32(set_reg); /* then set bit */
+		writel(tmp,clr_reg);
+		tmp = readl(set_reg); /* then set bit */
 		BIT_SET(tmp,pin);
-		iowrite32(tmp,set_reg);
+		writel(tmp,set_reg);
 	
 		/* disable writing to GPIO ALIVE registers */
-		iowrite32(0 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
+		writel(0 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
 		return 0;
 	}
 	else if(gpio.mem != NULL && IS_GPIO_PORT(port))
@@ -186,9 +201,9 @@ int gpio_set_val(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 	else
 		return - EINVAL;
 	
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 	en ? BIT_SET(tmp, pin) : BIT_CLR(tmp, pin);
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 
 	return 0;
 }
@@ -196,7 +211,7 @@ int gpio_set_val(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 /* get the input value of the pin */
 int gpio_get_val(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if(pin >= 32)
@@ -212,9 +227,9 @@ int gpio_get_val(enum gpio_port port, enum gpio_pin pin)
 		reg = gpio.mem + GPIOAPAD + port*0x40;
 	else
 		return -EINVAL;
-   	tmp = ioread32(reg);
+   	tmp = readl(reg);
 
-	return (int)((ioread32(reg) >> pin) & 0x1);
+	return (int)((readl(reg) >> pin) & 0x1);
 }
 
 /* request an interrupt handler for a given pin. Returns -EBUSY if that pin
@@ -301,11 +316,12 @@ void gpio_free_irq(enum gpio_port port, enum gpio_pin pin,
 enum gpio_interrupt_mode gpio_get_int_mode(enum gpio_port port,
 					   enum gpio_pin pin)
 {
-	void *reg;
-	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
+	void __iomem *reg;
+
+	if (port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_get_int_mode\n");
 		return 0;
-	} else if(gpio.mem != NULL && IS_GPIO_PORT(port) && pin < 32) {
+	} else if (gpio.mem != NULL && IS_GPIO_PORT(port) && pin < 32) {
 		reg = gpio.mem + port*0x40;
 		if(pin < 16) {
 			reg += GPIOADETMODE0;
@@ -316,14 +332,14 @@ enum gpio_interrupt_mode gpio_get_int_mode(enum gpio_port port,
 	}
 	else
 		return 0; /*XXX*/
-	return (enum gpio_interrupt_mode)((ioread32(reg) >> (pin<<1)) & 0x3);
+	return (enum gpio_interrupt_mode)((readl(reg) >> (pin<<1)) & 0x3);
 }
 
 /* set the interrupt mode for a given pin */
 void gpio_set_int_mode(enum gpio_port port, enum gpio_pin pin,
 		       enum gpio_interrupt_mode mode)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
@@ -342,10 +358,10 @@ void gpio_set_int_mode(enum gpio_port port, enum gpio_pin pin,
 	else
 		return;
 
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 	tmp &= ~(0x3 << (pin<<1));
 	tmp |= (mode << (pin<<1));
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 }
 
 /* toggle the interrupt mode for a pin.  If the mode is currently
@@ -354,7 +370,7 @@ void gpio_set_int_mode(enum gpio_port port, enum gpio_pin pin,
  */
 void gpio_toggle_int_mode(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
@@ -373,15 +389,15 @@ void gpio_toggle_int_mode(enum gpio_port port, enum gpio_pin pin)
 	else
 		return;
 
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 	tmp ^= (0x1 << (pin<<1));
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 }
 
 /* enable or disable interrupt for a given pin */
 void gpio_set_int(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
@@ -396,16 +412,16 @@ void gpio_set_int(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 		return;
 	}
 
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 	en ? BIT_SET(tmp, pin) : BIT_CLR(tmp, pin);
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 
 }
 
 /* get the interrupt enable bit for a given pin */
 unsigned char gpio_get_int(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_get_int\n");
 		return 0;
@@ -415,13 +431,13 @@ unsigned char gpio_get_int(enum gpio_port port, enum gpio_pin pin)
 	else
 		return 0; /*XXX*/
 
-	return (unsigned char)((ioread32(reg) >> pin) & 0x1);
+	return (unsigned char)((readl(reg) >> pin) & 0x1);
 }
 
 /* get interrupt enable bits for all 32 pins in a given port */
 unsigned long gpio_get_int32(enum gpio_port port)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_get_int32\n");
@@ -432,7 +448,7 @@ unsigned long gpio_get_int32(enum gpio_port port)
 	else
 		return 0; /*XXX*/
 
-	return ioread32(reg);
+	return readl(reg);
 }
 
 /* set the interrupt enable bits for all 32 pins in a given port.  Use this
@@ -441,7 +457,7 @@ unsigned long gpio_get_int32(enum gpio_port port)
  */
 void gpio_set_int32(enum gpio_port port, unsigned long en)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_set_int32\n");
@@ -452,13 +468,13 @@ void gpio_set_int32(enum gpio_port port, unsigned long en)
 	else
 		return;
 
-	iowrite32(en, reg);
+	writel(en, reg);
 }
 
 /* clear the interrupt pending bit for a given pin */
 void gpio_clear_pend(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_clear_pend\n");
@@ -469,13 +485,13 @@ void gpio_clear_pend(enum gpio_port port, enum gpio_pin pin)
 	else
 		return;
 	
-	iowrite32(1<<pin, reg);
+	writel(1<<pin, reg);
 }
 
 /* get the interrupt pending bit for a given pin */
 unsigned char gpio_get_pend(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_get_pend\n");
 		return 0;
@@ -485,13 +501,13 @@ unsigned char gpio_get_pend(enum gpio_port port, enum gpio_pin pin)
 	else
 		return 0; /*XXX*/
 
-	return (unsigned char)((ioread32(reg) >> pin) & 0x1);
+	return (unsigned char)((readl(reg) >> pin) & 0x1);
 }
 
 /* get the interrupt pending bits for all pins in a given port */
 unsigned long gpio_get_pend32(enum gpio_port port)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_clear_pend32\n");
@@ -502,7 +518,7 @@ unsigned long gpio_get_pend32(enum gpio_port port)
 	else
 		return 0; /*XXX*/
 
-	return ioread32(reg);
+	return readl(reg);
 }
 
 /* clear the interrupt pending bits for all pins in a given port.  Use this
@@ -511,7 +527,7 @@ unsigned long gpio_get_pend32(enum gpio_port port)
  */
 void gpio_clear_pend32(enum gpio_port port, unsigned long flag)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if(port == GPIO_PORT_ALV && gpio.amem != NULL) {
 		printk(KERN_ALERT "gpio: ALV in gpio_clear_pend32\n");
@@ -522,14 +538,14 @@ void gpio_clear_pend32(enum gpio_port port, unsigned long flag)
 	else
 		return;
 
-	iowrite32(flag, reg);
+	writel(flag, reg);
 }
 
 
 /* get gpio pin drive current setting */
 unsigned long gpio_get_cur(enum gpio_port port, enum gpio_pin pin)
 {
-	void *reg;
+	void __iomem *reg;
 
 	if((port == GPIO_PORT_ALV) ||
 	    ((port == GPIO_PORT_C) && (pin > GPIO_PIN19))) {
@@ -548,13 +564,13 @@ unsigned long gpio_get_cur(enum gpio_port port, enum gpio_pin pin)
 	}
 	else
 		return 0; /*XXX*/
-	return ((ioread32(reg) >> (pin<<1)) & 0x3);
+	return ((readl(reg) >> (pin<<1)) & 0x3);
 }
 
 /* set the drive current for the gpio pin */
 void gpio_set_cur(enum gpio_port port, enum gpio_pin pin, enum gpio_current cur)
 {
-	void *reg;
+	void __iomem *reg;
 	unsigned long tmp;
 
 	if( (port == GPIO_PORT_ALV) ||
@@ -575,17 +591,17 @@ void gpio_set_cur(enum gpio_port port, enum gpio_pin pin, enum gpio_current cur)
 	else
 		return;
 
-	tmp = ioread32(reg);
+	tmp = readl(reg);
 	tmp &= ~(0x3 << (pin<<1));
 	tmp |= (cur << (pin<<1));
-	iowrite32(tmp, reg);
+	writel(tmp, reg);
 
 }
 
 /* gpio_get_scratch() -- get ALIVE scratch register value */
 unsigned long gpio_get_scratch(void)
 {
-	return(ioread32(gpio.amem + ALIVESCRATCHREADREG));
+	return(readl(gpio.amem + ALIVESCRATCHREADREG));
 }
 
 /* gpio_set_scratch() -- set ALIVE scratch register value */
@@ -597,23 +613,23 @@ void gpio_set_scratch(unsigned long value)
 		return;
 
 	/* enable writing to GPIO ALIVE registers */
-	reg32 = ioread32(gpio.amem + ALIVEPWRGATEREG);
+	reg32 = readl(gpio.amem + ALIVEPWRGATEREG);
 	BIT_SET(reg32, NPOWERGATING);	
-	iowrite32(reg32, gpio.amem + ALIVEPWRGATEREG);
+	writel(reg32, gpio.amem + ALIVEPWRGATEREG);
 
-	iowrite32(0, gpio.amem + ALIVESCRATCHRSTREG);
-	iowrite32(0, gpio.amem + ALIVESCRATCHSETREG);
+	writel(0, gpio.amem + ALIVESCRATCHRSTREG);
+	writel(0, gpio.amem + ALIVESCRATCHSETREG);
 
-	iowrite32(~value, gpio.amem + ALIVESCRATCHRSTREG);
-	iowrite32(value, gpio.amem + ALIVESCRATCHSETREG);
+	writel(~value, gpio.amem + ALIVESCRATCHRSTREG);
+	writel(value, gpio.amem + ALIVESCRATCHSETREG);
 
-	iowrite32(0, gpio.amem + ALIVESCRATCHRSTREG);	
-	iowrite32(0, gpio.amem + ALIVESCRATCHSETREG);
+	writel(0, gpio.amem + ALIVESCRATCHRSTREG);	
+	writel(0, gpio.amem + ALIVESCRATCHSETREG);
 	
 	/* disable writing to GPIO ALIVE registers */
-	reg32 = ioread32(gpio.amem + ALIVEPWRGATEREG);
+	reg32 = readl(gpio.amem + ALIVEPWRGATEREG);
 	BIT_CLR(reg32, NPOWERGATING);	
-	iowrite32(reg32, gpio.amem + ALIVEPWRGATEREG);
+	writel(reg32, gpio.amem + ALIVEPWRGATEREG);
 }
 
 /* gpio_get_power_config() -- get power bits of register */
@@ -788,8 +804,7 @@ int gpio_have_gpio_emerald(void)
 	case LF1000_BOARD_EMERALD_NOTV_NOCAP:
 	case LF1000_BOARD_EMERALD_TV_NOCAP:
 	case LF1000_BOARD_EMERALD_NOTV_CAP:
-	case LF1000_BOARD_EMERALD_CIP_POP:
-	case LF1000_BOARD_EMERALD_CIP_TV:
+	case LF1000_BOARD_EMERALD_SAMSUNG:
 		return(1);
 	}
 	return(0);
@@ -799,6 +814,17 @@ int gpio_have_gpio_k2(void)
 {
 	switch(gpio_get_board_config()) {
 	case LF1000_BOARD_K2:
+		return(1);
+	}
+	return(0);
+}
+
+int gpio_have_gpio_madrid(void)
+{
+	switch(gpio_get_board_config()) {
+	case LF1000_BOARD_MADRID:
+	case LF1000_BOARD_MADRID_LFP100:
+	case LF1000_BOARD_MADRID_POP:
 		return(1);
 	}
 	return(0);
@@ -820,8 +846,7 @@ int gpio_have_tvout(void)
 	case LF1000_BOARD_ACORN:
 	case LF1000_BOARD_EMERALD_POP:
 	case LF1000_BOARD_EMERALD_TV_NOCAP:
-	case LF1000_BOARD_EMERALD_CIP_POP:
-	case LF1000_BOARD_EMERALD_CIP_TV:
+	case LF1000_BOARD_MADRID_POP:
 		return(1);
 	}
 	return(0);
@@ -849,6 +874,7 @@ void gpio_set_user_0_config(u32 value)
 EXPORT_SYMBOL(gpio_set_fn);
 EXPORT_SYMBOL(gpio_get_fn);
 EXPORT_SYMBOL(gpio_set_out_en);
+EXPORT_SYMBOL(gpio_get_out_en);
 EXPORT_SYMBOL(gpio_get_pu);
 EXPORT_SYMBOL(gpio_set_pu);
 EXPORT_SYMBOL(gpio_set_val);
@@ -876,4 +902,5 @@ EXPORT_SYMBOL(gpio_have_gpio_acorn);
 EXPORT_SYMBOL(gpio_have_gpio_dev);
 EXPORT_SYMBOL(gpio_have_gpio_didj);
 EXPORT_SYMBOL(gpio_have_gpio_emerald);
+EXPORT_SYMBOL(gpio_have_gpio_madrid);
 EXPORT_SYMBOL(gpio_have_tvout);

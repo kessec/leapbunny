@@ -1,7 +1,11 @@
 #!/bin/sh
 
 TEXT=$1
-drawtext /dev/layer0 /var/fonts/monotext8x16.rgb "$TEXT" 12 11 1
+if [ -e /sys/class/graphics ]; then
+	drawtext-fb /dev/fb0 /var/fonts/monotext8x16.rgb "$TEXT" 12 11 1
+else
+	drawtext /dev/layer0 /var/fonts/monotext8x16.rgb "$TEXT" 12 11 1
+fi
 
 /etc/init.d/usbether start
 /etc/init.d/dbus-1 start

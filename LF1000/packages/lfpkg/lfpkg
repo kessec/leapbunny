@@ -170,8 +170,9 @@ fi
 if [ -f "$PKG" ]; then
 	LEN=`expr $PKG : '.*'`
 	SUFFIX=`echo $PKG | cut -c $(($LEN-3))-$LEN`
-	if [ ! "$SUFFIX" = ".lfp" ]; then
-		echo "Only .lfp packages are supported"
+	if [ "$SUFFIX" != ".lfp" -a "$SUFFIX" != ".lf2" ]; then
+		echo "Only .lfp packages are fully supported"
+		echo "lf2 packages are only installable"
 	fi
 fi
 
@@ -278,9 +279,16 @@ case "$ACTION" in
 			mkdir -p $BASE/tmp
 		fi
 		TMPDIR=`mktemp -d $BASE/tmp/lfpkg.XXXXXX`
-		META=`unzip -l $PKG | grep -e '.*meta.inf$' | tr -s " " | cut -d' ' -f5`
-		unzip $PKG $META -d $TMPDIR > /dev/null
-		PKGDIR=`ls $TMPDIR/`
+		if [ "$SUFFIX" = ".lfp" ]; then
+			META=`unzip -l $PKG | grep -e '.*meta.inf$' | tr -s " " | cut -d' ' -f5`
+			unzip $PKG $META -d $TMPDIR > /dev/null
+			PKGDIR=`ls $TMPDIR/`
+		else
+			tar -C $TMPDIR -xf $PKG meta.inf
+			PKGDIR=`fgrep "PackageID=" "$TMPDIR/meta.inf" | cut -d '=' -f 2 | tr -d '"'`
+			mkdir "$TMPDIR/$PKGDIR"
+			mv "$TMPDIR/meta.inf" "$TMPDIR/$PKGDIR"
+		fi
 		if [ ! -e "$TMPDIR/$PKGDIR/meta.inf" ] ; then
 			echo "$PKG does not contain a meta.inf file"
 			exit 1
@@ -303,7 +311,14 @@ case "$ACTION" in
 		if [ ! -d $BASE/$DIR ] ; then
 			mkdir -p $BASE/$DIR
 		fi
-		unzip -o $PKG -d $BASE/$DIR > /dev/null
+
+		if [ "$SUFFIX" = ".lfp" ]; then
+			unzip -o $PKG -d $BASE/$DIR > /dev/null
+		else
+			mkdir -p "$BASE/$DIR/$PKGDIR"
+			tar -C "$BASE/$DIR/$PKGDIR" -xf $PKG
+		fi
+
 		#chmod -R +x $BASE/$DIR  #this is a temporary fix for the zip not keeping attributes as executable
 		rm -rf $BASE/tmp 	#$TMPDIR
 

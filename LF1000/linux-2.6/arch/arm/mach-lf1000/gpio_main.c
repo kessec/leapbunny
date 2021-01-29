@@ -38,9 +38,6 @@
 #include <mach/gpio_hal.h>
 #include <linux/lf1000/gpio_ioctl.h>
 
-extern u32 gpio_get_scratch(void);
-extern void gpio_set_scratch(unsigned long value);
-
 /***********************
  * device private data *
  ***********************/
@@ -1073,6 +1070,18 @@ int gpio_ioctl(struct inode *inode, struct file *filp, unsigned int cmd,
 			retval = -EFAULT;
 		break;
 
+		case GPIO_IOCXOUTENB:
+		if(copy_from_user((void *)&c, argp, sizeof(struct func_cmd)))
+			return -EFAULT;
+		retval = gpio_get_out_en(c.func.port, c.func.pin);
+		if(retval < 0)
+			return -EFAULT;
+		c.func.func = (char)retval;
+		if(copy_to_user(argp, (void *)&c, sizeof(struct func_cmd)))
+			return -EFAULT;
+		retval = 0;
+		break;
+
 		case GPIO_IOCXINVAL:
 		if(copy_from_user((void *)&c, argp, sizeof(struct invalue_cmd)))
 			return -EFAULT;
@@ -1423,7 +1432,7 @@ static int lf1000_gpio_probe(struct platform_device *pdev)
 	gpio.touchscreen = check_for_touchscreen();
 
 	/* put board ID in flight recorder */
-	printk(KERN_INFO "Reading Board ID =  %d\n", gpio_get_board_config());
+	printk(KERN_INFO "Reading Board ID =  0x%2.2x\n", gpio_get_board_config());
 	
 	sysfs_create_group(&pdev->dev.kobj, &gpio_attr_group);
 
@@ -1478,10 +1487,10 @@ static int lf1000_alvgpio_probe(struct platform_device *pdev)
 	 */
 
 	/* init ALIVE S/R input registers to reset value */
-	iowrite32(1 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
-	iowrite32(0, gpio.amem + ALIVEGPIOSETREG);
-	iowrite32(0, gpio.amem + ALIVEGPIORSTREG);
-	iowrite32(0 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
+	writel(1 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
+	writel(0, gpio.amem + ALIVEGPIOSETREG);
+	writel(0, gpio.amem + ALIVEGPIORSTREG);
+	writel(0 << NPOWERGATING, gpio.amem + ALIVEPWRGATEREG);
 	
 	/* clear out all handlers */
 	memset(gpio_handlers, 0,

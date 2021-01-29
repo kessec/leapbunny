@@ -1,6 +1,6 @@
 /* nand_boot.c -- Reads remainder of bootstrap code from NAND to SDRam
  *
- * Copyright 2007-2010 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -11,16 +11,11 @@
  *       OOB layouts are not supported.
  */
 
-#include "include/autoconf.h"
-#include "include/board.h"
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/nand.h>
-#include <mach/gpio.h>
-
-#include "include/nand.h"
-#include "include/debug.h"
-
+#include <board.h>
+#include <common.h>
+#include <nand.h>
+#include <gpio.h>
+#include <debug.h>
 
 /* assume: size is NAND page size aligned */
 /* Only works for large-block devices!! */

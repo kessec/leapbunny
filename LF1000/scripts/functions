@@ -1,6 +1,11 @@
 # This file implements some common utility functions for the LinuxDist build.
 
 function check_vars() {
+	if [ "X$BUILD_TARGET" == "X" ]; then
+		export BUILD_TARGET="MADRIDANDCIP"
+		echo "BUILD_TARGET not set.  Using default $BUILD_TARGET"
+	fi
+
 	if [ "X$ROOTFS_PATH" == "X" ]; then
 		export ROOTFS_PATH=/home/lfu/nfsroot
 		echo "ROOTFS_PATH not set.  Using default $ROOTFS_PATH"
@@ -57,6 +62,17 @@ function check_vars() {
 		if [ ! -d $LIGHTNING_CORE_PATH ]; then
 			echo "Error: LIGHTNING_CORE_PATH $LIGHTNING_CORE_PATH does not exist."
 			echo "Please set LIGHTNING_CORE_PATH environment variable."
+			exit 1
+		fi
+		
+		if [ "X$LANGUAGEPACK_PATH" == "X" ]; then
+			LANGUAGEPACK_PATH=~/workspace/LanguagePacks/
+			echo "LANGUAGEPACK_PATH not set. Using default $LANGUAGEPACK_PATH"
+		fi
+		
+		if [ ! -d $LANGUAGEPACK_PATH ]; then
+			echo "Error: LANGUAGEPACK_PATH $LANGUAGEPACK_PATH does not exist."
+			echo "Please set LANGUAGEPACK_PATH environment variable."
 			exit 1
 		fi
 	fi

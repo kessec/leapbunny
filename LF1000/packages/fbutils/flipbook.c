@@ -5,8 +5,6 @@
 #define SCRX	320
 #define SCRY	240
 
-#define _FILE_OFFSET_BITS	64	// for correct off_t type
-
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>
@@ -21,6 +19,8 @@
 #include <string.h>
 
 #include <linux/lf1000/mlc_ioctl.h>
+
+#include "check-fb.h"
 
 /* Added for png support */
 #include "readpng.h"
@@ -54,6 +54,11 @@ int main(int argc, char **argv)
 	int bpp, fmt;
 	unsigned char *png_data[ORDER] = { NULL };
 	FILE *pngfile;
+
+	if (have_framebuffer()) {
+		printf("Error: this tool isn't compatible with FB graphics\n");
+		return 1;
+	}
 
 	fb = -1;
 	bg = -1;

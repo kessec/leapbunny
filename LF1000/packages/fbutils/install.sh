@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 . $PROJECT_PATH/scripts/functions
 

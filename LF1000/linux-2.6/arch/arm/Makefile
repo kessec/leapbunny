@@ -134,7 +134,7 @@ machine-$(CONFIG_ARCH_IXP4XX)		:= ixp4xx
 machine-$(CONFIG_ARCH_KIRKWOOD)		:= kirkwood
 machine-$(CONFIG_ARCH_KS8695)		:= ks8695
 machine-$(CONFIG_ARCH_L7200)		:= l7200
- machine-$(CONFIG_ARCH_LF1000)		:= lf1000
+machine-$(CONFIG_ARCH_LF1000)		:= lf1000
 machine-$(CONFIG_ARCH_LH7A40X)		:= lh7a40x
 machine-$(CONFIG_ARCH_LOKI) 		:= loki
 machine-$(CONFIG_ARCH_MMP)		:= mmp
@@ -176,6 +176,7 @@ plat-$(CONFIG_PLAT_PXA)		:= pxa
 plat-$(CONFIG_PLAT_S3C24XX)	:= s3c24xx s3c
 plat-$(CONFIG_PLAT_S3C64XX)	:= s3c64xx s3c
 plat-$(CONFIG_ARCH_STMP3XXX)	:= stmp3xxx
+plat-$(CONFIG_PLAT_MES)		:= mes
 
 ifeq ($(CONFIG_ARCH_EBSA110),y)
 # This is what happens if you forget the IOCS16 line.

@@ -1,6 +1,6 @@
 /* i2c.c - Basic polling I2C driver
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
  *
@@ -9,43 +9,81 @@
  * published by the Free Software Foundation.
  */
 
-#include <stdint.h>
-#include <mach/common.h>
-#include <mach/gpio.h>
-#include <mach/i2c.h>
-#include "include/autoconf.h"
-#include "include/mach-types.h"
-#include "include/board.h"
+#include <common.h>
+#include <gpio.h>
+#include <debug.h>
 
 #define I2C_NUM_CHANNELS	2
-#define I2C(c, x)		REG32(LF1000_I2C0_BASE+c*0x800+x)
+#define I2C_BASE		0xC000E000
+#define I2C(c, x)		REG32(I2C_BASE+c*0x800+x)
+
+/* registers, as offsets from I2C_BASE */
+#define ICCR                    0x000
+#define ICSR                    0x004
+#define IDSR                    0x00C
+#define QCNT_MAX                0x010
+#define BURST_CTRL              0x014
+#define IRQ_PEND                0x024
+#define I2C_CLKENB              0x100
+
+/* I2C Control Register (ICCR) */
+#define CLK_SRC                         6
+#define IRQ_ENB                         5
+#define CLK_SCALER                      0
+
+/* I2C Status Register (ICSR) */
+#define ST_ENB                          12
+#define MASTER_SLV                      7
+#define TX_RX                           6
+#define ST_BUSY                         5
+#define TXRX_ENB                        4
+#define ACK_STATUS                      0
+
+/* QCNT_MAX */
+#define CNT_MAX                         0
+
+/* IRQ Pending (IRQ_PEND) */
+#define OP_HOLD                         1
+#define PEND                            0
 
 static inline void i2c_start_stop_condition(u8 ch)
 {
 	I2C(ch, IRQ_PEND) |= (1<<OP_HOLD);
+	I2C(ch, IRQ_PEND) |= (1<<PEND);
 }
 
+#define MAX_ACK_LOOP	10000
 static inline int i2c_got_ack(u8 ch)
 {
 	int i = 0;
 
-	while (!I2C(ch, ICSR) & (1<<ACK_STATUS) && ++i < 10000);
+	while ((I2C(ch, ICSR) & (1<<ACK_STATUS)) && ++i < MAX_ACK_LOOP);
 
-	return i >= 10000 ? 0 : 1;
+	if (i >= MAX_ACK_LOOP) {
+		db_puts("i2c_got_ack NOACK ret(0)\n");
+	} else {
+		db_puts("i2c_got_ack ACK ret(1)\n");
+	}
+
+	return i >= MAX_ACK_LOOP ? 0 : 1;
 }
 
-static int i2c_wait_for_irq(u8 ch)
+#define MAX_IRQ_LOOP 10000
+static int i2c_got_irq(u8 ch)
 {
 	int i = 0;
 
-	while (!(I2C(ch, IRQ_PEND) & (1<<PEND)) && ++i < 10000);
+	while (!(I2C(ch, IRQ_PEND) & (1<<PEND)) && ++i < MAX_ACK_LOOP);
 	
-	if (i >= 10000)
-		return 1;
+	if (i >= MAX_IRQ_LOOP) {
+		db_puts("i2c_got_irq ret(0)\n");
+		return 0;
+	}
 
 	I2C(ch, IRQ_PEND) |= (1<<PEND);
 
-	return 0;
+	db_puts("i2c_got_irq ret(1)\n");
+	return 1;
 }
 
 static int i2c_start(u8 ch)
@@ -62,6 +100,7 @@ static int i2c_start(u8 ch)
 	I2C(ch, ICSR) = 0x1010;
 
 	i2c_start_stop_condition(ch);
+	db_puts("i2c_start ret(0)\n");
 
 	return 0;
 }
@@ -72,20 +111,23 @@ static int i2c_send_addr(u8 ch, u8 addr)
 
 	I2C(ch, IDSR) = addr;
 
+	db_puts("i2c_send_addr ch="); db_byte(ch);
+	db_puts("  addr="); db_byte(addr); db_putchar('\n');
+
+	tmp = I2C(ch, ICSR) & 0x1F0F;
+
 	if (addr & 0x01) { /* read */
-		tmp = I2C(ch, ICSR) & 0x1F0F;
-		tmp |= (1<<IRQ_ENB)|(1<<ST_ENB)|(1<<MASTER_SLV)|(1<<ST_BUSY)|
-			(1<<TXRX_ENB);
-		I2C(ch, ICSR) = tmp;
+		tmp |= (1<<ST_ENB)|(1<<MASTER_SLV)|(1<<ST_BUSY)|(1<<TXRX_ENB);
+		db_puts("i2c_send_addr - read\n");
 	} else { /* write */
-		tmp = I2C(ch, ICSR) & 0x10F0;
-		tmp |= (1<<IRQ_ENB)|(1<<ST_ENB)|(1<<MASTER_SLV)|(1<<ST_BUSY)|
-			(1<<TXRX_ENB)|(1<<TX_RX);
-		I2C(ch, ICSR) = tmp;
+		tmp |= (1<<ST_ENB)|(1<<MASTER_SLV)|(1<<TX_RX)|
+			(1<<ST_BUSY)|(1<<TXRX_ENB);
+		db_puts("i2c_send_addr - write\n");
 	}
+	I2C(ch, ICSR) = tmp;
 	i2c_start_stop_condition(ch); /* start */
 
-	if (i2c_wait_for_irq(ch))
+	if (!i2c_got_irq(ch))
 		return 2;
 
 	if (!i2c_got_ack(ch))
@@ -100,14 +142,22 @@ int i2c_read(u8 ch, u8 addr, u8 *buf, unsigned int len)
 	int ret = 0;
 	unsigned int i;
 
+	addr |= 1;	/* read bit 0 == 1 */
+	db_puts("i2c_read: ch=");db_byte(ch);
+	db_puts(" addr=");db_byte(addr);
+	db_puts(" buf[0]=");db_byte(buf[0]);
+	db_puts(" len=");db_int(len); db_putchar('\n');
+
 	if (ch >= I2C_NUM_CHANNELS)
 		return 1;
 
 	i2c_start(ch);
 
-	ret = i2c_send_addr(ch, addr | 0x01);
-	if (ret)
+	ret = i2c_send_addr(ch, addr);
+	if (ret) {
+		db_puts("C. i2c_read ret=");db_int(ret);db_putchar('\n');
 		goto out_read;
+	}
 
 	/* receive the data */
 
@@ -115,14 +165,15 @@ int i2c_read(u8 ch, u8 addr, u8 *buf, unsigned int len)
 		tmp = I2C(ch, IDSR);
 		buf[i] = (u8)tmp;
 		i2c_start_stop_condition(ch);
-		if (i2c_wait_for_irq(ch)) {
+		if (!i2c_got_irq(ch)) {
 			ret = 4;
+			db_puts("i2c_read ret(4)\n");
 			goto out_read;
 		}
 	}
 
 	/* done */
-	tmp = I2C(ch, ICSR) & 0x1F0F;
+	tmp = I2C(ch, ICSR) & ~(0x1F0F);
 	tmp |= (1<<ST_ENB)|(1<<MASTER_SLV)|(1<<TXRX_ENB);
 	I2C(ch, ICSR) = tmp;
 	i2c_start_stop_condition(ch);
@@ -139,6 +190,13 @@ int i2c_write(u8 ch, u8 addr, u8 *buf, unsigned int len)
 	int ret = 0;
 	unsigned int i;
 
+	addr &= 0xFE;	/* write bit 0 == 0 */
+
+	db_puts("i2c_write: ch=");db_byte(ch);
+	db_puts(" addr=");db_byte(addr);
+	db_puts(" buf[0]=");db_byte(buf[0]);
+	db_puts(" len=");db_int(len); db_putchar('\n');
+
 	if (ch >= I2C_NUM_CHANNELS)
 		return 1;
 
@@ -153,7 +211,7 @@ int i2c_write(u8 ch, u8 addr, u8 *buf, unsigned int len)
 	for (i = 0; i < len; i++) {
 		I2C(ch, IDSR) = buf[i];
 		i2c_start_stop_condition(ch);
-		if (i2c_wait_for_irq(ch)) {
+		if (!i2c_got_irq(ch)) {
 			ret = 4;
 			goto out_write;
 		}

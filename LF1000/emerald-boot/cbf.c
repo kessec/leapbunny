@@ -1,6 +1,6 @@
 /* cbf.c -- access to Common Boot Format, a simple packing format for binaries.
  *
- * Copyright 2009 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * Robert Dowling <rdowling@leapfrog.com>
  *
@@ -18,14 +18,14 @@ void db_int (u32 x) { printf ("%08lx", x); }
 void db_puts (char *s) { printf ("%s", s); }
 u8 cruft [2*1024*1024];
 #else
-#include <mach/common.h>
-#include "include/nand.h"
-#include "include/debug.h"
-#include "include/string.h"
-#include "include/cbf.h"
+#include <common.h>
+#include <nand.h>
+#include <debug.h>
+#include <global.h>
+#include <string.h>
+#include <cbf.h>
 #endif
 
-u32 calc_SDRAM_ADDRESS();
 
 /* Structure is as follows:
 	u32 magic;
@@ -68,12 +68,30 @@ struct cbf_class {
 	void *ram_base;
 	struct cbf_hdr hdr;
 	struct cbf_tail tail;
-} cbf_space, *get_cbf(void);
+} cbf_space;
 
 inline struct cbf_class *get_cbf(void)
 {
+#if 1	// 30mar11
+//#define NOR_RELOC_OFFSET	0x600000	
+#define NOR_RELOC_OFFSET	0x800000	
+#if 1	// 1apr11
+	u32 rambase = calc_SDRAM_ADDRESS();
+	if (rambase == 0x00000000) {	// If booted from NAND, don't alter addre
+		return &cbf_space;
+	}
+		// if booted from NOR and copied to RAM, adjust for RAM address and
+		// for offset within RAM
+	return ((struct cbf_class *)(rambase + NOR_RELOC_OFFSET + (u32)&cbf_space));
+#else
+	u32 ram_base = NOR_RELOC_OFFSET + calc_SDRAM_ADDRESS();
+	return (struct cbf_class *)(ram_base + (u8*)&cbf_space);
+#endif	// 1apr11
+
+#else	// repo
 	u32 ram_base = calc_SDRAM_ADDRESS();
 	return (struct cbf_class *)(ram_base + (u8*)&cbf_space);
+#endif
 }
 
 /* Prototypes for forward reference */
@@ -104,6 +122,31 @@ void cbf_init ()
 	db_puts ("\n");
 }
 
+/* 
+ * cbf_get_data_size()
+ *	If the cbf processing state indicates that the size of the cbf package is
+ *	known, return the number of bytes in the package (sizeof(header) + number
+ *	of data bytes + sizeof(tail)).
+ *	Otherwise return -1.
+ */
+int cbf_get_data_size() {
+	int size;
+	struct cbf_class *cbf = get_cbf();
+
+	switch (cbf->state) {
+	case INDATA:
+	case INTAIL:
+	case DONE:
+		size = cbf->hdr.num_bytes + sizeof(struct cbf_hdr)
+								  + sizeof(struct cbf_tail);
+		break;
+
+	default:
+		size = -1;
+		break;
+	}
+	return size;
+}
 
 /* cbf_get_jump_address (void **jump)
  * Return 0 for success or -1 for error in processing file
@@ -149,8 +192,11 @@ int cbf_process_chunk (u8 *buf, u32 len, u8 **suggested_buf)
 	// db_puts (" count="); db_int (cbf->count);
 	switch (cbf->state)
 	{
-	case ERROR:
 	default:
+			serio_puts("XXXXXXXXXXXXXXXXXXXXXX\n");
+			serio_int(cbf->state);
+			serio_putchar('\n');
+	case ERROR:
 		serio_puts ("CBF: ERROR\n");
 		return -1;
 	case INHEADER:
@@ -188,14 +234,14 @@ static inline void memcpy32(u32 *d, u32 *s, u32 len)
 	while (len--)
 		*d++ = *s++;
 }
-#if 1   // 7aug09
+
 static inline void memcpy16(u16 *d, u16 *s, u32 len)
 {
 	len >>= 1;
 	while (len--)
 		*d++ = *s++;
 }
-#endif  // 7aug09
+
 
 /* Worker
  * Return -1 for error (and db_puts string)
@@ -291,6 +337,7 @@ int cbf_common (u8 *buf, u32 len, u32 need, u8 *where, int (*next)(void),
 	return ret;
 }
 
+#if 0	// moved to an assembly language routine in startup.S
 /* Compute simple checksum
  * Pass in Incoming either 0 or checksum from previous block
  */
@@ -300,14 +347,32 @@ u32 cbf_checksum (u8 *buf, u32 len, u32 incoming)
 	u32 *buf32 = (u32 *)buf;
 	len >>= 2;
 	u32 cs = incoming;
+
+		/* while there are at least 8 more words to process, process 8 words
+		 * on each pass through this loop.
+		 * NOTE: we could experiment with different "unrolling" factors,
+		 *		 e.g., 4, 12, 16, 20, 24.
+		 */
+	while (len >= 8)  
+	{
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		cs = 1 + (cs ^ *buf32++);
+		len -= 8;
+	}
+		/* fewer than 8 more words to process.  Process one per pass. */
 	while (len--)
 	{
 		cs = 1 + (cs ^ *buf32++);
-		// if (len < 100)
-		//	printf ("*buf=%d crc=%d ", buf[-1], cs);
 	}
 	return cs;
 }
+#endif	// 4apr11
 
 /*
  * Finish accepting data

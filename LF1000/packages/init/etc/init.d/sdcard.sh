@@ -2,19 +2,25 @@
 
 case "$1" in
 	start)
-		modprobe lf1000_mmc
+		modprobe mes_sdhc
 		modprobe mmc_block
 		sleep 1
-		if [ -e /dev/mmcblk0p1 ]; then
-			mount /dev/mmcblk0p1 /mnt
+		if [ -e /dev/mmcblk0p3 ]; then
+			mount /dev/mmcblk0p3 /mnt
+		fi
+		if [ -e /dev/mmcblk0p4 ]; then
+			mount /dev/mmcblk0p4 /mnt2
 		fi
 		;;
 	stop)
-		if [ -e /dev/mmcblk0p1 ]; then
-			umount /dev/mmcblk0p1 > /dev/null
+		if [ -e /dev/mmcblk0p3 ]; then
+			umount /dev/mmcblk0p3 > /dev/null
+		fi
+		if [ -e /dev/mmcblk0p4 ]; then
+			umount /dev/mmcblk0p4 > /dev/null
 		fi
 		modprobe -r mmc_block 2> /dev/null
-		modprobe -r lf1000_mmc 2> /dev/null
+		modprobe -r mes_sdhc 2> /dev/null
 		;;
 	*)
 		echo "Usage: $0 {start|stop}"

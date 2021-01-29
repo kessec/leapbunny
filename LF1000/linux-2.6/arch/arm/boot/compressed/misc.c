@@ -332,8 +332,8 @@ decompress_kernel(ulg output_start, ulg free_mem_ptr_p, ulg free_mem_ptr_end_p,
 
 	makecrc();
 	putstr("Uncompressing Linux...");
-	/* Ping oscilloscope */
-	if (1)
+	/* 1=Ping oscilloscope */
+	if (0)
 	{
 #define REG32(addr) *((volatile u32 *)(addr))
 #define BIT_SET(v,b)	(v |= (1<<(b)))
@@ -362,7 +362,7 @@ decompress_kernel(ulg output_start, ulg free_mem_ptr_p, ulg free_mem_ptr_end_p,
 	}
 	gunzip();
 	/* Ping oscilloscope */
-	if (1)
+	if (0)
 	{
 		u32 reg, pin;
 		pin = GPIO_PIN8;

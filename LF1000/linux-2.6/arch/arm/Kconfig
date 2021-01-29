@@ -396,6 +396,7 @@ config ARCH_LF1000
 	depends on MMU
 	select CPU_ARM926T
 	select RUNTIME_PHYS_OFFSET
+	select PLAT_MES
 	help
 	  This enables support for LeapFrog LF1000 family of processors.
 
@@ -754,6 +755,9 @@ config PLAT_ORION
 	bool
 
 config PLAT_PXA
+	bool
+
+config PLAT_MES
 	bool
 
 source arch/arm/mm/Kconfig

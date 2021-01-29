@@ -21,6 +21,7 @@ make
 mkdir -p $ROOTFS_PATH/sbin/
 cp ./unotify $ROOTFS_PATH/sbin/
 cp ./cnotify $ROOTFS_PATH/sbin/
+cp ./vnotify $ROOTFS_PATH/sbin/
 
 popd
 

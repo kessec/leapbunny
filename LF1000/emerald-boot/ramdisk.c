@@ -1,6 +1,6 @@
 /* ramdisk.c -- ramdisk for nor boot usb
  *
- * Copyright 2009-2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -9,13 +9,12 @@
 
 #ifdef RAMDISK
 
-#include <mach/common.h>
-#include "include/ramdisk.h"
-#include "include/scsi.h"
-#include "include/string.h"
-#include "include/debug.h"
-#include "include/usb_payload.h"
-
+#include <common.h>
+#include <ramdisk.h>
+#include <scsi.h>
+#include <string.h>
+#include <debug.h>
+#include <usb_payload.h>
 
 u32 GetRamDiskAddr();
 
@@ -215,7 +214,6 @@ static char extBin[3]     = USB_PAYLOAD_EXT3;
 #define min(a,b)	(((a) <= (b)) ? (a) : (b))
 
 #include "include/cbf.h"
-u32 calc_SDRAM_ADDRESS();
 	// first we read data from a ramdisk cluster into this buffer.
 	// Then we pass this buffer's contents to the cbf functions.
 static u8 clusterBuffer[ SECTORS_PER_CLUSTER * BYTES_PER_SECTOR ];
@@ -339,6 +337,3 @@ void DiskInit( void )
 } 
 
 #endif	// ifdef RAMDISK
-
-/* EOF */
-

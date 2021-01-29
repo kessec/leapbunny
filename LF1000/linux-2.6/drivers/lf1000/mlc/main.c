@@ -736,7 +736,8 @@ static int lf1000_mlc_probe(struct platform_device *pdev)
 	int i;
 	int addr,format,hstride,vstride;
 	struct resource *res;
-
+	struct mlc_screen_size screen;
+	
 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);	
 	if(!res) {
 		printk(KERN_ERR "mlc: failed to get resource\n");
@@ -772,8 +773,13 @@ static int lf1000_mlc_probe(struct platform_device *pdev)
  	 * set up the hardware *
  	 ***********************/
 
+	/* MLC top layer is already setup by bootloader */
+	mlc_GetScreenSize(&screen);
+	printk (KERN_NOTICE "*** MLC screen size=%dx%d ***\n", screen.width, screen.height);
+	
 	mlc_SetClockMode(PCLKMODE_ONLYWHENCPUACCESS, BCLKMODE_DYNAMIC);
-	mlc_SetScreenSize(X_RESOLUTION, Y_RESOLUTION);
+	if (screen.width < X_RESOLUTION || screen.height < Y_RESOLUTION)
+		mlc_SetScreenSize(X_RESOLUTION, Y_RESOLUTION);
 	ret = mlc_SetLayerPriority(DISPLAY_VID_LAYER_PRIORITY);
 	if(ret < 0)
 		printk(KERN_ALERT "mlc: failed to set layer priority %08X\n",
@@ -791,7 +797,7 @@ static int lf1000_mlc_probe(struct platform_device *pdev)
 	vstride = mlc_GetVStride(0);
 	mlc_SetLayerEnable(0, true);
 	mlc_SetDirtyFlag(0);
-	mlc_SetBackground(0xFFFFFF);
+	mlc_SetBackground(0x000000);
 	mlc_SetMLCEnable(1);
 	mlc_SetTopDirtyFlag();
 	

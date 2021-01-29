@@ -1,6 +1,6 @@
 /* ram.c -- probe the ram available on board
  *
- * Copyright 2008-2010 LeapFrog Enterprises Inc.
+ * Copyright 2008-2011 LeapFrog Enterprises Inc.
  *
  * Robert Dowling <rdowling@leapfrog.com>
  *
@@ -9,11 +9,9 @@
  * published by the Free Software Foundation.
  */
 
-#include "include/autoconf.h"
-#include "include/board.h"
-#include <mach/platform.h>
-#include <mach/common.h>
-#include "include/string.h"
+#include <board.h>
+#include <common.h>
+#include <string.h>
 
 #define RAM_CMDLINE_SIZE 128
 static char ram_cmdline[RAM_CMDLINE_SIZE];
@@ -24,9 +22,9 @@ static u32 mlc_fb_size = 0;
 //static char LUT[] = "0123456789ABCDEF";
 static const char LUT[] = "0123456789ABCDEF";
 
-#if !defined CONFIG_LF1000_MLC_RESERVE_MEMORY
+#if !defined BOARD_MLC_RESERVE_MEMORY
 #warning Reserving 0 bytes for MLC frame buffer!
-#define CONFIG_LF1000_MLC_RESERVE_MEMORY 0
+#define BOARD_MLC_RESERVE_MEMORY 0
 #endif
 
 
@@ -95,7 +93,7 @@ static void append_dec (int x)
 
 // Fall back on reading some config registers
 
-const char *probe_ram ()
+char *probe_ram ()
 {
 	u32 addr, size;
 
@@ -126,8 +124,8 @@ const char *probe_ram ()
 	u32 mlc_fb_size = 0;
 
 	// Save this much RAM for FB off the top
-	mem -= CONFIG_LF1000_MLC_RESERVE_MEMORY;
-	mlc_fb_size = (CONFIG_LF1000_MLC_RESERVE_MEMORY)*SZ_1MB;
+	mem -= BOARD_MLC_RESERVE_MEMORY;
+	mlc_fb_size = (BOARD_MLC_RESERVE_MEMORY)*SZ_1MB;
 	mlc_fb_addr = ram_high_addr - mlc_fb_size;
 
 	strcpy (ram_cmdline, "mem=");

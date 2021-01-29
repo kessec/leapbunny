@@ -61,10 +61,15 @@ if [ $FOUND_STATE = 0 ]; then
 fi
 
 echo display_screen $FOUND_PATH
-layer-control /dev/layer2 s enable off
-imager /dev/layer0 $FOUND_PATH
-layer-control /dev/layer0 s enable on
-layer-control /dev/layer0 s dirty
-layer-control /dev/layer2 s dirty
+if [ -e /sys/class/graphics ]; then
+	echo 0 > /sys/class/graphics/fb0/blank
+	imager-fb /dev/fb0 $FOUND_PATH
+else
+	layer-control /dev/layer2 s enable off
+	imager /dev/layer0 $FOUND_PATH
+	layer-control /dev/layer0 s enable on
+	layer-control /dev/layer0 s dirty
+	layer-control /dev/layer2 s dirty
+fi
 
 exit 0;

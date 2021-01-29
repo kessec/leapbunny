@@ -1,4 +1,4 @@
-cmd_arch/arm/mach-lf1000/screen.o := arm-linux-gcc -Wp,-MD,arch/arm/mach-lf1000/.screen.o.d  -nostdinc -isystem /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/include -Iinclude  -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include -include include/linux/autoconf.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-lf1000/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O3 -marm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -D__LINUX_ARM_ARCH__=5 -mcpu=arm926ej-s -msoft-float -Uarm -fno-stack-protector -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign   -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(screen)"  -D"KBUILD_MODNAME=KBUILD_STR(screen)"  -c -o arch/arm/mach-lf1000/screen.o arch/arm/mach-lf1000/screen.c
+cmd_arch/arm/mach-lf1000/screen.o := arm-linux-gcc -Wp,-MD,arch/arm/mach-lf1000/.screen.o.d  -nostdinc -isystem /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/include -Iinclude  -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include -include include/linux/autoconf.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-lf1000/include -Iarch/arm/plat-mes/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O3 -marm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -D__LINUX_ARM_ARCH__=5 -mcpu=arm926ej-s -msoft-float -Uarm -fno-stack-protector -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign   -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(screen)"  -D"KBUILD_MODNAME=KBUILD_STR(screen)"  -c -o arch/arm/mach-lf1000/screen.o arch/arm/mach-lf1000/screen.c
 
 deps_arch/arm/mach-lf1000/screen.o := \
   arch/arm/mach-lf1000/screen.c \
@@ -301,6 +301,49 @@ deps_arch/arm/mach-lf1000/screen.o := \
   include/linux/pm_wakeup.h \
     $(wildcard include/config/pm.h) \
   include/linux/mod_devicetable.h \
+  include/linux/debugfs.h \
+    $(wildcard include/config/debug/fs.h) \
+  include/linux/fs.h \
+    $(wildcard include/config/dnotify.h) \
+    $(wildcard include/config/quota.h) \
+    $(wildcard include/config/fsnotify.h) \
+    $(wildcard include/config/inotify.h) \
+    $(wildcard include/config/security.h) \
+    $(wildcard include/config/fs/posix/acl.h) \
+    $(wildcard include/config/epoll.h) \
+    $(wildcard include/config/debug/writecount.h) \
+    $(wildcard include/config/file/locking.h) \
+    $(wildcard include/config/auditsyscall.h) \
+    $(wildcard include/config/block.h) \
+    $(wildcard include/config/fs/xip.h) \
+    $(wildcard include/config/migration.h) \
+  include/linux/limits.h \
+  include/linux/ioctl.h \
+  /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/ioctl.h \
+  include/asm-generic/ioctl.h \
+  include/linux/kdev_t.h \
+  include/linux/dcache.h \
+  include/linux/rculist.h \
+  include/linux/path.h \
+  include/linux/radix-tree.h \
+  include/linux/prio_tree.h \
+  include/linux/pid.h \
+  include/linux/capability.h \
+    $(wildcard include/config/security/file/capabilities.h) \
+  include/linux/fiemap.h \
+  include/linux/quota.h \
+  include/linux/dqblk_xfs.h \
+  include/linux/dqblk_v1.h \
+  include/linux/dqblk_v2.h \
+  include/linux/dqblk_qtree.h \
+  include/linux/nfs_fs_i.h \
+  include/linux/nfs.h \
+  include/linux/sunrpc/msg_prot.h \
+  include/linux/fcntl.h \
+  /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/fcntl.h \
+  include/asm-generic/fcntl.h \
+  include/linux/err.h \
+  include/linux/seq_file.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/uaccess.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/io.h \
   arch/arm/mach-lf1000/include/mach/io.h \
@@ -338,7 +381,6 @@ deps_arch/arm/mach-lf1000/screen.o := \
     $(wildcard include/config/taskstats.h) \
     $(wildcard include/config/audit.h) \
     $(wildcard include/config/inotify/user.h) \
-    $(wildcard include/config/epoll.h) \
     $(wildcard include/config/posix/mqueue.h) \
     $(wildcard include/config/keys.h) \
     $(wildcard include/config/user/sched.h) \
@@ -349,7 +391,6 @@ deps_arch/arm/mach-lf1000/screen.o := \
     $(wildcard include/config/rt/group/sched.h) \
     $(wildcard include/config/blk/dev/io/trace.h) \
     $(wildcard include/config/sysvipc.h) \
-    $(wildcard include/config/auditsyscall.h) \
     $(wildcard include/config/rt/mutexes.h) \
     $(wildcard include/config/task/xacct.h) \
     $(wildcard include/config/cpusets.h) \
@@ -363,8 +404,6 @@ deps_arch/arm/mach-lf1000/screen.o := \
     $(wildcard include/config/preempt/bkl.h) \
     $(wildcard include/config/group/sched.h) \
     $(wildcard include/config/mm/owner.h) \
-  include/linux/capability.h \
-    $(wildcard include/config/security/file/capabilities.h) \
   include/linux/timex.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/timex.h \
   arch/arm/mach-lf1000/include/mach/timex.h \
@@ -377,7 +416,6 @@ deps_arch/arm/mach-lf1000/screen.o := \
     $(wildcard include/config/mmu/notifier.h) \
   include/linux/auxvec.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/auxvec.h \
-  include/linux/prio_tree.h \
   include/linux/page-debug-flags.h \
     $(wildcard include/config/page/poisoning.h) \
     $(wildcard include/config/page/debug/something/else.h) \
@@ -395,13 +433,10 @@ deps_arch/arm/mach-lf1000/screen.o := \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/sigcontext.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/siginfo.h \
   include/asm-generic/siginfo.h \
-  include/linux/path.h \
-  include/linux/pid.h \
   include/linux/proportions.h \
   include/linux/percpu_counter.h \
   include/linux/seccomp.h \
     $(wildcard include/config/seccomp.h) \
-  include/linux/rculist.h \
   include/linux/rtmutex.h \
     $(wildcard include/config/debug/rt/mutexes.h) \
   include/linux/plist.h \
@@ -422,7 +457,6 @@ deps_arch/arm/mach-lf1000/screen.o := \
     $(wildcard include/config/task/io/accounting.h) \
   include/linux/latencytop.h \
   include/linux/cred.h \
-    $(wildcard include/config/security.h) \
   include/linux/key.h \
     $(wildcard include/config/sysctl.h) \
   include/linux/sysctl.h \

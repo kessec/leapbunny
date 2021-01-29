@@ -27,4 +27,6 @@ struct clk {
 
 int clk_register(struct clk *clk);
 void clk_unregister(struct clk *clk);
+int lf1000_clock_dev_init(void);
+void lf1000_clock_dev_exit(void);
 #endif

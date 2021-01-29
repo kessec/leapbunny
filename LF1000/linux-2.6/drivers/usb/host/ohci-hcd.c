@@ -503,14 +503,6 @@ static int ohci_init (struct ohci_hcd *ohci)
 	disable (ohci);
 	ohci->regs = hcd->regs;
 
-#if 1   // 28aug09  just for debugging; boots ok when this is enabled
-printk( "ohci->regs: x%x\n", (u32)ohci->regs);
-printk( "&ohci->regs->control: x%x\n", (u32)&ohci->regs->control);
-// next instruction causes kernel to hang while starting
-printk( "ioread32(&ohci->regs->control): 0x%x\n", 
-        ioread32(&ohci->regs->control));
-    //return -2;
-#endif  // 28aug09
 	/* REVISIT this BIOS handshake is now moved into PCI "quirks", and
 	 * was never needed for most non-PCI systems ... remove the code?
 	 */
@@ -1089,12 +1081,10 @@ MODULE_LICENSE ("GPL");
 #define TMIO_OHCI_DRIVER	ohci_hcd_tmio_driver
 #endif
 
-#if 1   // 25aug09
 #if defined(CONFIG_ARCH_LF1000)
 #include "ohci-lf1000.c"
 #define PLATFORM_DRIVER		ohci_hcd_lf1000_driver
 #endif
-#endif  // 25aug09
 
 #if	!defined(PCI_DRIVER) &&		\
 	!defined(PLATFORM_DRIVER) &&	\

@@ -54,10 +54,11 @@ fi
 TMPDIR=$ROOTFS_PATH/$E2FS_DIR
 
 # configure the package
-./configure --with-cc=arm-linux-gcc --host=arm-linux --build=x86-linux --prefix=$ROOTFS_PATH/usr/local --enable-shared=yes --mandir=$TMPDIR --bindir=$TMPDIR --sbindir=$TMPDIR
+./configure --with-cc=arm-linux-gcc --host=arm-linux --build=x86-linux --prefix=$ROOTFS_PATH/usr/local --enable-shared=yes --mandir=$TMPDIR --bindir=$ROOTFS_PATH/usr/bin --sbindir=$ROOTFS_PATH/sbin
 
 CROSS=$CROSS_COMPILE CFLAGS="-I$EXTRA_LINUX_HEADER_DIR -I$INCDIR -I$LZOINC -I$ARGPINC" LDFLAGS="-L$INCDIR -L$LZOLIB -L$ARGPLIB" make WITHOUT_XATTR=1 install
 
+echo "Removing TMPDIR=$TMPDIR"
 # remove Documentation and program files
 if [ -e $TMPDIR ]; then
 	rm -rf $TMPDIR

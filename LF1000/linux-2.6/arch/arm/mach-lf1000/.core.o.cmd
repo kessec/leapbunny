@@ -1,16 +1,17 @@
-cmd_arch/arm/mach-lf1000/core.o := arm-linux-gcc -Wp,-MD,arch/arm/mach-lf1000/.core.o.d  -nostdinc -isystem /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/include -Iinclude  -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include -include include/linux/autoconf.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-lf1000/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O3 -marm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -D__LINUX_ARM_ARCH__=5 -mcpu=arm926ej-s -msoft-float -Uarm -fno-stack-protector -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign   -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(core)"  -D"KBUILD_MODNAME=KBUILD_STR(core)"  -c -o arch/arm/mach-lf1000/core.o arch/arm/mach-lf1000/core.c
+cmd_arch/arm/mach-lf1000/core.o := arm-linux-gcc -Wp,-MD,arch/arm/mach-lf1000/.core.o.d  -nostdinc -isystem /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/include -Iinclude  -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include -include include/linux/autoconf.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-lf1000/include -Iarch/arm/plat-mes/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O3 -marm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -D__LINUX_ARM_ARCH__=5 -mcpu=arm926ej-s -msoft-float -Uarm -fno-stack-protector -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign   -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(core)"  -D"KBUILD_MODNAME=KBUILD_STR(core)"  -c -o arch/arm/mach-lf1000/core.o arch/arm/mach-lf1000/core.c
 
 deps_arch/arm/mach-lf1000/core.o := \
   arch/arm/mach-lf1000/core.c \
     $(wildcard include/config/mach/lf/lf1000.h) \
     $(wildcard include/config/i2c/lf1000.h) \
-    $(wildcard include/config/mmc/lf1000.h) \
+    $(wildcard include/config/mmc/mes.h) \
+    $(wildcard include/config/mmc/mes/channel0.h) \
+    $(wildcard include/config/mmc/mes/channel1.h) \
     $(wildcard include/config/mtd/lf1000.h) \
     $(wildcard include/config/fb/lf1000.h) \
-    $(wildcard include/config/fb/lf1000/start/addr.h) \
-    $(wildcard include/config/fb/lf1000/size.h) \
     $(wildcard include/config/backlight/lf1000/pwm.h) \
     $(wildcard include/config/keyboard/lf1000.h) \
+    $(wildcard include/config/input/lf1000/aclmtr.h) \
     $(wildcard include/config/spi/lf1000.h) \
     $(wildcard include/config/spi/lf1000/channel/0.h) \
     $(wildcard include/config/spi/lf1000/channel/1.h) \
@@ -562,6 +563,7 @@ deps_arch/arm/mach-lf1000/core.o := \
   arch/arm/mach-lf1000/include/mach/clkpwr.h \
   arch/arm/mach-lf1000/include/mach/gpio_hal.h \
   arch/arm/mach-lf1000/include/mach/gpio_map.h \
+  arch/arm/mach-lf1000/include/mach/lfp100.h \
   arch/arm/mach-lf1000/include/mach/timer.h \
   arch/arm/mach-lf1000/include/mach/ic.h \
   include/linux/cnt32_to_63.h \
@@ -2835,6 +2837,7 @@ deps_arch/arm/mach-lf1000/core.o := \
     $(wildcard include/config/mach/htctopaz.h) \
     $(wildcard include/config/mach/matrix504.h) \
     $(wildcard include/config/mach/mrfsa.h) \
+  arch/arm/plat-mes/include/plat/irq.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/mach/arch.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/mach/flash.h \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/mach/irq.h \

@@ -29,6 +29,7 @@
 #include <linux/sysfs.h>
 #include <linux/device.h>
 #include <linux/delay.h>
+#include <linux/i2c.h>
 #include <asm/uaccess.h>
 #include <asm/io.h>
 
@@ -75,7 +76,11 @@ static ssize_t show_registers(struct device *dev, struct device_attribute *attr,
 				char *buf)
 {
 	ssize_t len = 0;
+	u32 mem = dpc.mem;
+	int n;
 
+	for (n = 0; n < 2; n++, dpc.mem += 0x400)
+	{
 	len += sprintf(buf+len, "DPCHTOTAL   = 0x%04X @ 0x%04X\n",
 			ioread16(dpc.mem+DPCHTOTAL), DPCHTOTAL);
 	len += sprintf(buf+len, "DPCHSWIDTH  = 0x%04X @ 0x%04X\n",
@@ -122,6 +127,18 @@ static ssize_t show_registers(struct device *dev, struct device_attribute *attr,
 			ioread32(dpc.mem+DPCCLKGEN0), DPCCLKGEN0);
 	len += sprintf(buf+len, "DPCCLKGEN1  = 0x%08X @ 0x%04X\n",
 			ioread32(dpc.mem+DPCCLKGEN1), DPCCLKGEN1);
+	len += sprintf(buf+len, "VENCCTRLA   = 0x%04X @ 0x%04X\n",
+			ioread16(dpc.mem+VENCCTRLA), VENCCTRLA);
+	len += sprintf(buf+len, "VENCCTRLB   = 0x%04X @ 0x%04X\n",
+			ioread16(dpc.mem+VENCCTRLB), VENCCTRLB);
+	len += sprintf(buf+len, "DPUPSCALECON0   = 0x%04X @ 0x%04X\n",
+			ioread16(dpc.mem+DPUPSCALECON0), DPUPSCALECON0);
+	len += sprintf(buf+len, "DPUPSCALECON1   = 0x%04X @ 0x%04X\n",
+			ioread16(dpc.mem+DPUPSCALECON1), DPUPSCALECON1);
+	len += sprintf(buf+len, "DPUPSCALECON2   = 0x%04X @ 0x%04X\n",
+			ioread16(dpc.mem+DPUPSCALECON2), DPUPSCALECON2);
+	}
+	dpc.mem = mem;
 
 	return len;
 }
@@ -514,6 +531,64 @@ struct file_operations dpc_fops = {
 	.ioctl = dpc_ioctl,
 };
 
+#define LFP100_ADDR	0xCC
+
+static bool have_i2c_backlight(void)
+{
+	struct i2c_adapter* i2c;
+	struct i2c_msg i2c_messages[2];
+	u8 buf[2];
+
+	i2c = i2c_get_adapter(0);
+	if (!i2c)
+		return 0;
+	
+	buf[0] = 0; /* chip ID */
+	buf[1] = 0;
+
+	/* write portion */
+	i2c_messages[0].addr = LFP100_ADDR;
+	i2c_messages[0].buf = buf;
+	i2c_messages[0].len = 1;
+	i2c_messages[0].flags = 0; /* write */
+
+	/* read portion */
+	i2c_messages[1].addr = LFP100_ADDR;
+	i2c_messages[1].buf = buf;
+	i2c_messages[1].len = 2;
+	i2c_messages[1].flags = I2C_M_RD;
+
+	if (i2c_transfer(i2c, i2c_messages, 2) < 0) {
+		i2c_put_adapter(i2c);
+		return 0;
+	}
+
+	i2c_put_adapter(i2c);
+	return ((buf[1] & 0xF0) == 0x00);
+}
+
+static void init_pwm_backlight(void)
+{
+	gpio_configure_pin(lf1000_l2p_port(LED_ENA),lf1000_l2p_pin(LED_ENA),
+		GPIO_GPIOFN, 1, 0, 1);
+	gpio_set_cur(lf1000_l2p_port(LED_ENA), lf1000_l2p_pin(LED_ENA),
+		GPIO_CURRENT_8MA);
+
+	if (pwm_get_clock_rate() < 1) {
+		dev_err(&dpc.pdev->dev, "PWM clock not set up?\n");
+		dpc.backlight = 0;
+		return;
+	}
+
+	pwm_configure_pin(LCD_BACKLIGHT);
+	pwm_set_prescale(LCD_BACKLIGHT, 1);
+	pwm_set_polarity(LCD_BACKLIGHT, POL_BYP);
+	pwm_set_period(LCD_BACKLIGHT, LCD_BACKLIGHT_PERIOD);
+
+	/* initial backlight setting, try to match bootstrap */
+	setBacklightVirt(backlight_l2v[dpc.backlight_logical]);
+}
+
 /********************
  * Module Functions *
  ********************/
@@ -688,40 +763,17 @@ static int lf1000_dpc_probe(struct platform_device *pdev)
 		goto fail_add;
 	}
 
-#if defined CONFIG_MACH_ME_LF1000 || defined CONFIG_MACH_LF_LF1000
-	/* enable backlight control 
-	 * XXX: on the LF1000 Development Board v1.1, this causes the backlight
-	 * 	to be on 100% */
-	gpio_configure_pin(lf1000_l2p_port(LED_ENA),lf1000_l2p_pin(LED_ENA),
-		GPIO_GPIOFN, 1, 0, 1);
-#endif
-
-	ret = pwm_get_clock_rate();
-	if(ret < 1) {
-		printk(KERN_ERR "dpc: PWM clock not set up?\n");
-		dpc.backlight = 0;
-	}
-	else { /* set up the backlight */
-		printk("dpc: PWM clock rate is %d\n", ret);
-		pwm_configure_pin(LCD_BACKLIGHT);
-		pwm_set_prescale(LCD_BACKLIGHT, 1);
-		pwm_set_polarity(LCD_BACKLIGHT, POL_BYP);
-		pwm_set_period(LCD_BACKLIGHT, LCD_BACKLIGHT_PERIOD);
-		/* initial backlight setting, try to match bootstrap */
-		setBacklightVirt(backlight_l2v[dpc.backlight_logical]);
-	}
-
-	/**********************
-	 * LCD hardware setup *
-	 **********************/
+	if (!have_i2c_backlight())
+		init_pwm_backlight();
 
 	/* on older boards, make sure LCD is not in reset */
-	if(gpio_have_gpio_dev()) {
+	if (gpio_have_gpio_dev()) {
 		gpio_configure_pin(lf1000_l2p_port(LCD_RESET),
 		lf1000_l2p_pin(LCD_RESET), GPIO_GPIOFN, 1, 0, LCD_nRESET_LEVEL);
 	}
 
-	sysfs_create_group(&pdev->dev.kobj, &dpc_attr_group);
+	if (dpc.backlight)
+		sysfs_create_group(&pdev->dev.kobj, &dpc_attr_group);
 
 	return 0;
 
@@ -753,7 +805,8 @@ static int lf1000_dpc_remove(struct platform_device *pdev)
 		iounmap(dpc.mem);
 	release_mem_region(res->start, (res->end - res->start) + 1);
 
-	sysfs_remove_group(&pdev->dev.kobj, &dpc_attr_group);
+	if (dpc.backlight)
+		sysfs_remove_group(&pdev->dev.kobj, &dpc_attr_group);
 	return 0;
 }
 

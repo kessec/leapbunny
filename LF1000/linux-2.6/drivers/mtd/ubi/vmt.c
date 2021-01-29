@@ -54,13 +54,6 @@ static struct device_attribute attr_vol_data_bytes =
 static struct device_attribute attr_vol_upd_marker =
 	__ATTR(upd_marker, S_IRUGO, vol_attribute_show, NULL);
 
-#ifdef CONFIG_MTD_UBI_GLUEBI
-static struct device_attribute attr_vol_mtd_name =
-	__ATTR(vol_mtd_name, S_IRUGO, vol_attribute_show, NULL);
-static struct device_attribute attr_vol_mtd_num =
-	__ATTR(vol_mtd_num, S_IRUGO, vol_attribute_show, NULL);
-#endif
-
 /*
  * "Show" method for files in '/<sysfs>/class/ubi/ubiX_Y/'.
  *
@@ -116,17 +109,6 @@ static ssize_t vol_attribute_show(struct device *dev,
 		ret = sprintf(buf, "%lld\n", vol->used_bytes);
 	else if (attr == &attr_vol_upd_marker)
 		ret = sprintf(buf, "%d\n", vol->upd_marker);
-
-#ifdef CONFIG_MTD_UBI_GLUEBI
-#if 0
-	// removed from Linux 2.6.31
-	else if (attr == &attr_vol_mtd_name)
-		ret = sprintf(buf, "%s\n", vol->gluebi_mtd.name);
-	else if (attr == &attr_vol_mtd_num)
-		ret = sprintf(buf, "%d\n", vol->gluebi_mtd.index);
-#endif
-#endif
-
 	else
 		/* This must be a bug */
 		ret = -EINVAL;
@@ -187,14 +169,6 @@ static int volume_sysfs_init(struct ubi_device *ubi, struct ubi_volume *vol)
 	if (err)
 		return err;
 	err = device_create_file(&vol->dev, &attr_vol_upd_marker);
-#ifdef CONFIG_MTD_UBI_GLUEBI
-	err = device_create_file(&vol->dev, &attr_vol_mtd_name);
-	if (err)
-		return err;
-	err = device_create_file(&vol->dev, &attr_vol_mtd_num);
-	if (err)
-		return err;
-#endif
 	return err;
 }
 
@@ -204,10 +178,6 @@ static int volume_sysfs_init(struct ubi_device *ubi, struct ubi_volume *vol)
  */
 static void volume_sysfs_close(struct ubi_volume *vol)
 {
-#ifdef CONFIG_MTD_UBI_GLUEBI
-	device_remove_file(&vol->dev, &attr_vol_mtd_num);
-	device_remove_file(&vol->dev, &attr_vol_mtd_name);
-#endif
 	device_remove_file(&vol->dev, &attr_vol_upd_marker);
 	device_remove_file(&vol->dev, &attr_vol_data_bytes);
 	device_remove_file(&vol->dev, &attr_vol_usable_eb_size);

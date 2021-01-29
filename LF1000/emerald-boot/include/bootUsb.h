@@ -1,6 +1,6 @@
 /* bootUsb.h  -- USB communication protocol
  *
- * Copyright 2009-2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -9,6 +9,8 @@
 
 #ifndef BOOTUSB_H
 #define BOOTUSB_H
+
+#include <display.h>
 
 #define min(a,b)	(((a) <= (b)) ? (a) : (b))
 
@@ -129,10 +131,6 @@ typedef struct _USB_DEVICE_REQUEST
 
 #define REQUEST_SENSE_RESPONSE_LEN	18
 
-const bool TRUE   = 1;
-const bool FALSE  = 0;
-
-
 #define kManufacturerStringIndex	1
 #define kProductStringIndex			2
 #define kSerialNumStringIndex		3
@@ -143,7 +141,8 @@ const bool FALSE  = 0;
 #define USB_STR_NUM (3)
 
 #define VENDORID	0x0f63	// Leap Frog VID
-#define PRODUCTID	0x0016	// Emerald Firmware's product ID
+#define PRODUCTID_EMERALD	0x0016	// Emerald Firmware's product ID
+#define PRODUCTID_MADRID	0x001B	// Emerald Firmware's product ID
 
 
 #define SIZEOF_CBW	31
@@ -190,6 +189,6 @@ typedef union {
 
 #define OFFSET_CBW_VERIFY10_LUN_BYTECHK	(1 + OFFSET_CBW_CB)
 
+void wait_for_usb_host(struct display_module *disp);
 
 #endif	// BOOTUSB_H
-

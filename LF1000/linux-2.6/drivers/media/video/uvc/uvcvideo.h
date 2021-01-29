@@ -143,7 +143,7 @@ struct uvc_xu_control {
 #define DRIVER_VERSION_NUMBER	KERNEL_VERSION(0, 1, 0)
 
 /* Number of isochronous URBs. */
-#define UVC_URBS		5
+#define UVC_URBS		2
 /* Maximum number of packets per URB. */
 #define UVC_MAX_PACKETS		32
 /* Maximum number of video buffers. */

@@ -235,6 +235,10 @@ uch *readpng_get_image(double display_exponent, int *pChannels, ulg *pRowbytes)
         color_type == PNG_COLOR_TYPE_GRAY_ALPHA)
         png_set_gray_to_rgb(png_ptr);
 
+    /* swizzle red/blue per source format */
+    if (color_type == PNG_COLOR_TYPE_RGB ||
+        color_type == PNG_COLOR_TYPE_RGB_ALPHA)
+        png_set_bgr(png_ptr);
 
     /* unlike the example in the libpng documentation, we have *no* idea where
      * this file may have come from--so if it doesn't have a file gamma, don't

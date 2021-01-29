@@ -14,17 +14,4 @@
 #define INTPENDL	0x20
 #define INTPENDH	0x24
 
-#ifndef __ASSEMBLY__
-struct lf1000_ic { /* LF1000_IC_BASE+0x08 */
-	volatile unsigned int	intmodel;
-	volatile unsigned int	intmodeh;
-	volatile unsigned int	intmaskl;
-	volatile unsigned int	intmaskh;
-	volatile unsigned int	priorder;
-	volatile unsigned int	primode;
-	volatile unsigned int	intpendl;
-	volatile unsigned int	intpendh;
-};
-#endif
-
 #endif

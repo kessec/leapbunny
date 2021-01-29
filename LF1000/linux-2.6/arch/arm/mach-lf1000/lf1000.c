@@ -27,9 +27,15 @@
 #include <asm/io.h>
 #include <asm/irq.h>
 #include <asm/mach-types.h>
-
 #include <asm/mach/arch.h>
+
 #include <mach/core.h>
+#include <plat/irq.h>
+
+static void __init lf1000_init_irq(void)
+{
+	mes_irq_init(__io(IO_ADDRESS(LF1000_IC_BASE)));
+}
 
 MACHINE_START(DIDJ, "ARM-LF1000")
 	.phys_io	= LF1000_SYS_IO,

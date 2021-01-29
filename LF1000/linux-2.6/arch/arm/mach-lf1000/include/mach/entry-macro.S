@@ -21,43 +21,27 @@
 		.macro  arch_ret_to_user, tmp1, tmp2
 		.endm
 
-		.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
-		ldr	\irqstat, [\base, #INTPENDL]	@ get masked status
-		mov	\irqnr, #0
-		teq	\irqstat, #0
-		beq	1003f
+		.macro	get_irqnr_and_base, irqnr, irqpend, base, tmp
 
-1001:		tst	\irqstat, #15
-		bne	1002f
-		add	\irqnr, \irqnr, #4
-		movs	\irqstat, \irqstat, lsr #4
+		mov	\irqnr, #0x0
+		ldr	\irqpend, [\base, #INTPENDL]	@ get masked status
+		cmp	\irqpend, #0x0
+		bne	1001f				@ low irq pending, calc irq number
+
+		ldr	\irqpend, [\base, #INTPENDH]	@ check if high irq pending
+		cmp	\irqpend, #0x0
+		beq	1003f				@ oops, there is no irq pending.
+		movne	\irqnr, #32
+
+1001:		/* get irq number */
+		and	\tmp, \irqpend, #0x1
+		cmp	\tmp, #0x1
+		addne	\irqnr, \irqnr, #1
+		movne	\irqpend, \irqpend, LSR #1
 		bne	1001b
-1002:		tst	\irqstat, #1
-		bne	2003f
-		add	\irqnr, \irqnr, #1
-		movs	\irqstat, \irqstat, lsr #1
-		bne	1002b
+
 1003:
-		ldr	\irqstat, [\base, #INTPENDH]	@ get masked status
-		teq	\irqstat, #0
-		beq	2003f
-		add	\irqnr, #32
-
-2001:		tst	\irqstat, #15
-		bne	2002f
-		add	\irqnr, \irqnr, #4
-		movs	\irqstat, \irqstat, lsr #4
-		bne	2001b
-2002:		tst	\irqstat, #1
-		bne	2003f
-		add	\irqnr, \irqnr, #1
-		movs	\irqstat, \irqstat, lsr #1
-		bne	2002b
-2003:
-		teq	\irqnr, #0
-@		movs	\irqnr, \irqnr
-
-@		clz	\irqnr, \irqstat
-@1003:		/* EQ will be set if we reach MAXIRQNUM */
+		cmp 	\irqpend, #0x0
 		.endm
+
 

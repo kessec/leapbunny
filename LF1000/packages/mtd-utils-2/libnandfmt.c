@@ -402,7 +402,7 @@ int nandfmt_close (void (*pBusyCallback)(int percent))
 }
 
 // Process an arbitrary chunk of data
-int nandfmt_write (char *buf, int length)
+int nandfmt_write (const char *buf, int length)
 {
 	unsigned long i = 0;
 	int try;

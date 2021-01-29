@@ -1,8 +1,7 @@
-cmd_arch/arm/mach-lf1000/clock_dev.o := arm-linux-gcc -Wp,-MD,arch/arm/mach-lf1000/.clock_dev.o.d  -nostdinc -isystem /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/include -Iinclude  -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include -include include/linux/autoconf.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-lf1000/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O3 -marm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -D__LINUX_ARM_ARCH__=5 -mcpu=arm926ej-s -msoft-float -Uarm -fno-stack-protector -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign   -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(clock_dev)"  -D"KBUILD_MODNAME=KBUILD_STR(clock_dev)"  -c -o arch/arm/mach-lf1000/clock_dev.o arch/arm/mach-lf1000/clock_dev.c
+cmd_arch/arm/mach-lf1000/clock_dev.o := arm-linux-gcc -Wp,-MD,arch/arm/mach-lf1000/.clock_dev.o.d  -nostdinc -isystem /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/include -Iinclude  -I/vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include -include include/linux/autoconf.h -D__KERNEL__ -mlittle-endian -Iarch/arm/mach-lf1000/include -Iarch/arm/plat-mes/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O3 -marm -mabi=aapcs-linux -mno-thumb-interwork -funwind-tables -D__LINUX_ARM_ARCH__=5 -mcpu=arm926ej-s -msoft-float -Uarm -fno-stack-protector -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign   -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(clock_dev)"  -D"KBUILD_MODNAME=KBUILD_STR(clock_dev)"  -c -o arch/arm/mach-lf1000/clock_dev.o arch/arm/mach-lf1000/clock_dev.c
 
 deps_arch/arm/mach-lf1000/clock_dev.o := \
   arch/arm/mach-lf1000/clock_dev.c \
-    $(wildcard include/config/lf1000/oss.h) \
   include/linux/module.h \
     $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
@@ -307,6 +306,7 @@ deps_arch/arm/mach-lf1000/clock_dev.o := \
     $(wildcard include/config/has/ioport.h) \
   /vol/hdd0/Git/leapbunny/LF1000/linux-2.6/arch/arm/include/asm/io.h \
   arch/arm/mach-lf1000/include/mach/io.h \
+  arch/arm/mach-lf1000/include/mach/core.h \
   arch/arm/mach-lf1000/include/mach/clkpwr.h \
   arch/arm/mach-lf1000/include/mach/platform.h \
     $(wildcard include/config/mach/me/lf1000.h) \

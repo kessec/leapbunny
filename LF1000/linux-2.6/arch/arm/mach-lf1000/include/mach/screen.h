@@ -13,6 +13,7 @@
 #define __LF1000_SCREEN_H__
 
 struct lf1000_screen_info {
+	const char *name;
 	u16 xres;
 	u16 yres;
 
@@ -30,5 +31,8 @@ struct lf1000_screen_info {
 };
 
 struct lf1000_screen_info *lf1000_get_screen_info(void);
+void lf1000_dpc_enable_int(bool en);
+bool lf1000_dpc_int_pending(void);
+void lf1000_dpc_clear_int(void);
 
 #endif /* __LF1000_SCREEN_H__ */

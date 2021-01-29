@@ -18,6 +18,7 @@
 
 char *pin_functions[] = {"GPIO", "ALT1", "ALT2"};
 char *pin_drive[]     = {"2MA", "4MA", "6MA", "8MA"};
+char *pin_enable[]    = {"INPUT", "OUTPUT"};
 char *pin_pullup[]    = {"DISABLE", "ENABLE"};
 
 int main(int argc, char **argv)
@@ -32,6 +33,7 @@ int main(int argc, char **argv)
 		printf( "usage: %s <device> <command> <arguments>\n\n"
 				"commands:\n"
 				"\toutvalue  <port> <pin> <value>\n"
+				"\tgetenable <port> <pin>\n"
 				"\toutenable <port> <pin> <value>\n"
 				"\tinvalue <port> <pin>\n"
 				"\tfunc <port> <pin> <func>\n"
@@ -73,6 +75,25 @@ int main(int argc, char **argv)
 		c.outenb.value	= atoi(argv[5]);
 		req = GPIO_IOCSOUTENB;
 		response = ioctl(gpio, req, &c);
+	}
+	else if(!strcmp(argv[2], "getenable")) {
+		if(argc < 5) {
+			printf("error: invalid number of arguments.\n");
+			close(gpio);
+			return 1;
+		}
+		c.func.port = atoi(argv[3]);
+		c.func.pin  = atoi(argv[4]);
+		req = GPIO_IOCXOUTENB;
+		response = ioctl(gpio, req, &c);
+		if(response >= 0) {
+			response = c.func.func;
+			if(response > 4)
+				printf("\nunknown drive (%d)\n", response);
+			else
+				printf("\nenable = %d (%s)\n", response,
+						pin_enable[response]);
+		}
 	}
 	else if(!strcmp(argv[2],"invalue")) {
 		if(argc < 5) {

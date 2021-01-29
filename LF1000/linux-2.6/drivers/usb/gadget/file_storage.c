@@ -1984,7 +1984,9 @@ unsigned char get_battery_value(void)
 	switch(s) {
 		case CRITICAL_BATTERY:	return BATT_CRITICAL;
 		case LOW_BATTERY:	return BATT_LOW;
+		case NIMH:
 		case BATTERY:		return BATT_GOOD;
+		case NIMH_CHARGER:
 		case EXTERNAL:		return BATT_FULL;
 		case UNKNOWN:		return BATT_UNKNOWN;
 	}

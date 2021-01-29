@@ -1,17 +1,16 @@
 /* bbtest.c -- Bad-block test code.
  *
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
 
-#include "include/autoconf.h"
-#include "include/mach-types.h" /* for machine info */
-#include <mach/platform.h>
-#include <mach/common.h>
-#include "include/board.h"
-#include "include/nand.h"
-#include "include/buttons.h"
+#include <common.h>
+#include <board.h>
+#include <nand.h>
+#include <buttons.h>
 
 #ifndef TEST_BOOT_WITH_KERNEL_BAD_BLOCKS
 #error "Shouldn't be building bbtest.c"

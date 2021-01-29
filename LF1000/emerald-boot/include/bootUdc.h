@@ -1,6 +1,6 @@
 /* bootUdc.h  -- LF1000 USB Device Controller
  *
- * Copyright 2009-2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -17,27 +17,6 @@
  * consistent with our other Linux source code.
  */
 
-/* --------- Moved here from platform.h, ic.h, and common.h ------------------*/
-/* 
- * register helpers for bootloaders and the like
- */
-#define REG8(addr)  *((volatile u8 *)(addr))
-#define REG16(addr) *((volatile u16 *)(addr))
-#define REG32(addr) *((volatile u32 *)(addr))
-
-#define LF1000_IC_BASE		0xC0000800
-
-/* offsets from LF1000_IC_BASE */
-#define INTMODEL	0x08
-#define INTMODEH	0x0C
-#define INTMASKL	0x10
-#define INTMASKH	0x14
-#define PRIORDER	0x18
-#define INTPENDL	0x20
-#define INTPENDH	0x24
-
-/* UDC (USB) */
-#define LF1000_UDC_BASE		0xC0018000
 //#define LF1000_UDC_END		0xC0018880
 #define LF1000_UDC_IRQ		20
 
@@ -225,7 +204,7 @@
  * In principle, it can also be used to detect the vbus status, but that's just
  * not how we do it.
  */
-#include <mach/gpio.h>
+#include <gpio.h>
 #define VBUS_DET_PIN GPIO_PIN5
 /* On the LF1000 board made by MagicEyes, the VBUS pin goes directly to the
  * USBVBUS pin on the chip, so the GPIO pins are not used for VBUS handling.
@@ -333,9 +312,9 @@
 #define GEP_CTL_INPKTHLD_BIT        0x1000	// (1 << INPKTHLD)
 #define GEP_CTL_SRE_BIT             0x8000	// unused
 
-#define CTRLR_BASE_REG_ADDR(offset) ((volatile u16*) ( LF1000_UDC_BASE + offset))
+#define CTRLR_BASE_REG_ADDR(offset) ((volatile u16*) (UDC_BASE + offset))
 
-#define UDC16(x)	REG16(LF1000_UDC_BASE+x)
+#define UDC16(x)	REG16(UDC_BASE+x)
 
 
 #endif	// BOOTUDC_H

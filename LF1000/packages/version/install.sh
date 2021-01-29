@@ -2,7 +2,7 @@
 
 # THIS IS A MAGIC FORMAT!  Don't mess with it!  
 # See emerald-boot.bin/install.sh
-CURRENT_MAJOR_VERSION=1.1.46
+CURRENT_MAJOR_VERSION=2.2.2
 
 set -e
 

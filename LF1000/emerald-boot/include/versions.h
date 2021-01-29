@@ -1,6 +1,6 @@
 /* versions.h  -- emerald-boot versions
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2010-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -14,13 +14,13 @@
 //       #defines in this file and revise them as necessary
 
  
-#define EMERALD_BOOT_VERSION_STRING "EB1.1.46\n"
+#define EMERALD_BOOT_VERSION_STRING "EB2.2.2\n"
         // This is the string that is sent to the serial port during boot,
         // whether or not the boot module was built with DEBUG defined.
         // The numeric fields are the same as those in the firmware release
         // version.
-#
-#define INQ_PRODUCT_REVISION_LEVEL 	'1', '.', '1', 'k'
+
+#define INQ_PRODUCT_REVISION_LEVEL 	'2', '.', '2', '2'
         // This is the product revision level that's in bytes 32-35 of
         // the response to a scsi INQUIRY command.
         // The first character represents the first field of the firmware

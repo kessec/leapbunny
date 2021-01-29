@@ -1,31 +1,26 @@
 /* buttons.c -- Button mapping and lookup.
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
 
-#include "include/autoconf.h"   /* for partition info */
-#include "include/mach-types.h" /* for machine info */
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/uart.h>
-#include <mach/gpio.h>
-#include <mach/gpio_hal.h>
-#include <mach/gpio_map.h>  /* GPIO button mappings */
+#include <common.h>
+#include <board.h>
+#include <global.h>
+#include <gpio.h>
+#include <gpio_hal.h>
+#include <gpio_map.h>  /* GPIO button mappings */
+#include <buttons.h>
+#include <debug.h>
 
-#include "include/board.h"
-#include "include/string.h"
-#include "include/setup.h"
-#include "include/debug.h"
-#include "include/gpio.h"
-#include "include/buttons.h"
-
-void buttons_get_state(int board_id, struct buttons_state *b)
+void buttons_get_state(struct buttons_state *b)
 {
-	switch(board_id) {
+	global_var * gptr = get_global();
+
+	switch(gptr->board_id) {
 	case LF1000_BOARD_DEV:
 		b->a = !gpio_get_val(DEV_BUTTON_A_PORT, DEV_BUTTON_A_PIN);
 		b->b = !gpio_get_val(DEV_BUTTON_B_PORT, DEV_BUTTON_B_PIN);
@@ -63,9 +58,11 @@ void buttons_get_state(int board_id, struct buttons_state *b)
 		b->down = !gpio_get_val(ACORN_DPAD_DOWN_PORT, ACORN_DPAD_DOWN_PIN);
 #endif
 		break;
+	case LF1000_BOARD_EMERALD_POP:
 	case LF1000_BOARD_EMERALD_NOTV_NOCAP:
 	case LF1000_BOARD_EMERALD_TV_NOCAP:
 	case LF1000_BOARD_EMERALD_NOTV_CAP:
+	case LF1000_BOARD_EMERALD_SAMSUNG:
 		b->a = !gpio_get_val(EMERALD_BUTTON_A_PORT, EMERALD_BUTTON_A_PIN);
 		b->b = !gpio_get_val(EMERALD_BUTTON_B_PORT, EMERALD_BUTTON_B_PIN);
 		b->rs = !gpio_get_val(EMERALD_SHOULDER_RIGHT_PORT, EMERALD_SHOULDER_RIGHT_PIN);
@@ -88,6 +85,21 @@ void buttons_get_state(int board_id, struct buttons_state *b)
 #ifdef TEST_BOOT_WITH_KERNEL_BAD_BLOCKS
 		b->up   = !gpio_get_val(K2_DPAD_UP_PORT, K2_DPAD_UP_PIN);
 		b->down = !gpio_get_val(K2_DPAD_DOWN_PORT, K2_DPAD_DOWN_PIN);
+#endif
+		break;
+	case LF1000_BOARD_MADRID:
+	case LF1000_BOARD_MADRID_LFP100:
+	case LF1000_BOARD_MADRID_POP:
+		//FIXME: missing some boot buttons, just zero them for now
+		b->a = !gpio_get_val(MADRID_BUTTON_VOLUMEDOWN_PORT, MADRID_BUTTON_VOLUMEDOWN_PIN);
+		b->b = !gpio_get_val(MADRID_BUTTON_VOLUMEUP_PORT, MADRID_BUTTON_VOLUMEUP_PIN);
+		b->rs = !gpio_get_val(MADRID_DPAD_RIGHT_PORT, MADRID_DPAD_RIGHT_PIN);
+		b->ls = !gpio_get_val(MADRID_BUTTON_VOLUMEDOWN_PORT, MADRID_BUTTON_VOLUMEDOWN_PIN);
+		b->p = 0;
+		b->hint = !gpio_get_val(MADRID_BUTTON_ESC_PORT, MADRID_BUTTON_ESC_PIN);
+#ifdef TEST_BOOT_WITH_KERNEL_BAD_BLOCKS
+		b->up   = !gpio_get_val(MADRID_DPAD_UP_PORT, MADRID_DPAD_UP_PIN);
+		b->down = !gpio_get_val(MADRID_DPAD_DOWN_PORT, MADRID_DPAD_DOWN_PIN);
 #endif
 		break;
 	default:

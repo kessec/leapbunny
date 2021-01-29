@@ -1,33 +1,49 @@
-/* timer.c -- simple LF1000 timer driver for profiling
+/* timer.c -- simple timer for profiling
  *
- * Copyright 2007 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
+ *
+ * Note: this driver is designed to utilize the CPU's timer hardware to enable
+ * simple profiling operations for optimizing bootloader code.  As such, its
+ * routines work as a 'stopwatch'.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
- *
- * Note: this driver is designed to utilize the LF1000 CPU's timer hardware to
- *       enable simple profiling operations for optimizing bootloader code.  As
- *       such, its routines work as a 'stopwatch'.
  */
 
-#include "autoconf.h"
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/timer.h>
-#include "include/timer.h"
+#include <common.h>
+#include <base.h>
 
-#define TIMER32(r)	REG32(TIMER_BASE+r)
+/* Timer n Registers (offsets from TIMERn_BASE) */
+#define TMRCOUNT        0x00
+#define TMRCONTROL      0x08
+#define TMRCLKENB       0x40
+#define TMRCLKGEN       0x44
+
+/* Timer Control Register n (TMRCONTROLn) */
+#define LDCNT           6
+#define RUN             3
+#define SETCLK          0
+
+/* Timer Clock Generation Enable Register n (TMRCLKENBn) */
+#define TCLKGENENB      2 /* added T to differentiate from others */
+
+/* Timer Clock Generation Control Register n (TMRCLKGENn) */
+#define TCLKDIV         4 /* added T to differentiate from others */
+#define TCLKSRCSEL      1
 
 /* 
  * settings 
  */
-#define TIMER_BASE	LF1000_TIMER0_BASE
+
+#define TIMER_BASE	TIMER0_BASE
 #define TIMER_CLK_SRC	1
 #define TIMER_PRES	17			/* divide by 18 */
 #define TIMER_CLK	2			/* divide by 8 */
+
+#define TIMER32(r)	REG32(TIMER_BASE+r)
 
 /*
  * Timer Clock Rate:

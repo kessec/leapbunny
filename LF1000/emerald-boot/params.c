@@ -1,6 +1,6 @@
 /* params.c -- buffer where kernel parameter structures are stored
  *
- * Copyright 2009-2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * Robert Dowling <rdowling@leapfrog.com>
  *
@@ -25,5 +25,5 @@
  *       code writes into my_kernel_params[], the text segment must be copied
  * to SDRam before code writes into my_kernel_params[].
  */
-#include <mach/common.h>
+#include <common.h>
 u32 __attribute__((section(".text"))) my_kernel_params[0x800/sizeof(u32)];

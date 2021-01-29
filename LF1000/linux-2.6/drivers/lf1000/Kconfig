@@ -13,40 +13,6 @@ config LFCART
 	---help---
 	This option enables the LeapFrog cartridge bus.
 
-config LF1000_OSS
-	tristate "Device driver for CS42L52 and CS43L22 audio codecs using OSS"
-	select I2C_LF1000
-	select LF1000_GPIO
-	select LF1000_DMA
-	select LF1000_ADC
-	---help---
-	This option enables device driver support for the CS42L52 and CS43L22
-	audio codecs.  If unsure, say Y.
-
-config LF1000_AUDIO_STATS
-	bool "Driver statistics"
-	default n
-	depends on LF1000_OSS
-	---help---
-	This option enables some statistcs, such as buffer underrun counting,
-	in the audio driver.  It may be helpful for debugging and development,
-	otherways say N.
-
-config LF1000_AUDIO_DEBUG
-	bool "LF1000 Audio Driver debugging"
-	default n
-	depends on LF1000_OSS
-	---help---
-	This option enables additional debugging for the LF1000 Audio Driver.
-	If unsure, say N.
-
-config LF1000_ADC
-	tristate "Device driver for LF1000 analog to digital converter"
-	depends on ARCH_LF1000
-	---help---
-	This option enables device driver support for the LF1000 analog to 
-	digital converter.  If unsure, say Y.
-
 config LF1000_DPC
 	tristate "Device driver for LF1000 Display Controller"
 	depends on ARCH_LF1000
@@ -114,20 +80,6 @@ config LF1000_GA3D
 	  This option enables device driver support for LF1000 Graphics Accelerator 3D.
 
 	  If unsure, say Y.
-
-config LF1000_DMA
-	tristate "Device driver for LF1000 DMA"
-	depends on ARCH_LF1000
-	---help---
-	  This option enables support for LF1000 DMA.
-
-	  If unsure, say Y.
-
-config LF1000_DMATEST
-	tristate "Dummy example and test for LF1000 DMA"
-	depends on LF1000_DMA
-	---help---
-	You probably don't want to enable this.
 
 config LF1000_IDCT
 	tristate "Device driver for LF1000 IDCT Macro Block Decoder"

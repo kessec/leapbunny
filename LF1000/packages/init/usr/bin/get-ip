@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WHICH=device
+WHICH=dev
 if [ "$1" = "host" ]; then
 	WHICH=host
 fi
@@ -16,7 +16,7 @@ if [ -e $CACHE -a -z "$2" ]; then
 	fi
 fi
 
-MAC=`mfgdata get $WHICH`
+MAC=`cat /sys/module/g_ether/parameters/${WHICH}_addr`
 NAME=`avahi-browse -a -t | grep -i $MAC | cut -d ' ' -f 4`
 IP=`avahi-resolve-host-name -4 -n $NAME.local | cut -f 2`
 # echo "MAC=$MAC NAME=$NAME IP=$IP" 1>&2

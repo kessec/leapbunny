@@ -55,7 +55,6 @@ struct lf1000_clock {
     volatile unsigned int	clkmodereg;
     volatile unsigned int	pllsetreg0;
     volatile unsigned int	pllsetreg1;
-//    volatile union pllsetreg	pllsetreg1;
     volatile unsigned int	reserved0;
     volatile unsigned int	reserved1[0xc];
     volatile unsigned int	gpiowakeupenb;
@@ -201,6 +200,10 @@ struct lf1000_clock {
 #define LF1000_NOR_MFGDATA_SIZE		( 4096 )
 #define LF1000_NOR_BOOT_SIZE ( LF1000_NOR_FLASH_SIZE - 2*LF1000_NOR_MFGDATA_SIZE )
 
+/* Framebuffer address defaults (prior to kernel command line options) */
+#define LF1000_FB_START_ADDR	0x82E00000
+#define LF1000_FB_SIZE		0x01200000
+
 /* DMA Controller */
 #define LF1000_DMA_BASE		0xC0000000
 #define LF1000_DMA_IRQ		3
@@ -222,11 +225,12 @@ struct lf1000_clock {
 
 /* Display Controller (DPC) */
 #define LF1000_DPC_BASE		0xC0003000
-#define LF1000_DPC_END		0xC00031C8
+#define LF1000_DPC_END		0xC00035CF
+#define LF1000_DPC_IRQ		0
 
 /* Multi-Layer Controller (MLC) */
 #define LF1000_MLC_BASE		0xC0004000
-#define LF1000_MLC_END		0xC00041C0
+#define LF1000_MLC_END		0xC00047CF
 
 /* Analog to Digital Converter (ADC) */
 #define LF1000_ADC_BASE		0xC0005000
@@ -268,10 +272,10 @@ struct lf1000_clock {
 
 /* I2C */
 #define LF1000_I2C0_BASE	0xC000E000
-#define LF1000_I2C0_END		0xC000E028
+#define LF1000_I2C0_END		0xC000E104
 #define LF1000_I2C0_IRQ		32
 #define LF1000_I2C1_BASE	0xC000E800
-#define LF1000_I2C1_END		0xC000E828
+#define LF1000_I2C1_END		0xC000E904
 #define LF1000_I2C1_IRQ		33
 
 /* CLOCK and POWER */

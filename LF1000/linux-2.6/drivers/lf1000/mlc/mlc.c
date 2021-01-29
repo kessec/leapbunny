@@ -616,6 +616,11 @@ int mlc_GetPosition(u8 layer, struct mlc_layer_position *p)
 	tmp = ioread32(mlc.mem+MLCTOPBOTTOM0+0x34*layer);
 	p->top  = ((tmp & (0x7FF<<TOP))>>TOP);
 	p->bottom = ((tmp & (0x7FF<<BOTTOM))>>BOTTOM);
+	
+	/* account for pre-decrement in mlc_SetPosition() */
+	p->right++;
+	p->bottom++;
+	
 	return 0;
 }
 
@@ -700,13 +705,25 @@ int mlc_SetOverlaySize(u8 layer, u32 srcwidth, u32 srcheight, u32 dstwidth,
 
 int mlc_GetOverlaySize(u8 layer, struct mlc_overlay_size *psize)
 {
+	struct mlc_layer_position pos = {0, 0, 0, 0};
+	
 	u32 hscale = ioread32(mlc.mem+MLCHSCALE);
 	u32 vscale = ioread32(mlc.mem+MLCVSCALE);
 
-	psize->srcwidth = (hscale>>11) & 0x7FF;
-	psize->srcheight = hscale & 0x7FF;
-	psize->dstwidth = (vscale>>11) & 0x7FF;
-	psize->dstheight = vscale & 0x7FF;
+	/* Need destination size to derive source size from scaler ratio */
+	mlc_GetPosition(layer, &pos);
+	psize->dstwidth = pos.right - pos.left;
+	psize->dstheight = pos.bottom - pos.top;
+
+	if (hscale & (1<<28))
+		psize->srcwidth = (((hscale & ~(1<<28)) * (psize->dstwidth-1)) >> 11) + 1;
+	else
+		psize->srcwidth = (hscale * (psize->dstwidth) >> 11);
+
+	if (vscale & (1<<28))
+		psize->srcheight = (((vscale & ~(1<<28)) * (psize->dstheight-1)) >> 11) + 1;
+	else
+		psize->srcheight = (vscale * (psize->dstheight) >> 11);
 
 	return 0;
 }

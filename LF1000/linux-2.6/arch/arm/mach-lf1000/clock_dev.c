@@ -1,5 +1,7 @@
 /* LF1000 clock utilities
  * 
+ * Andrey Yurovsky <ayurovsky@leapfrog.com>
+ *
  * Copyright 2010 LeapFrog Enterprises Inc.
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -17,14 +19,10 @@
 #include <linux/io.h>
 #include <linux/sysfs.h>
 
+#include <mach/core.h>
 #include <mach/clkpwr.h>
 
 #define RESSIZE(res) (((res)->end - (res)->start)+1)
-
-#if defined CONFIG_LF1000_OSS || defined CONFIG_LF1000_OSS_MODULE
-extern int getAudioRate(void);
-extern void setAudioRate(int sample_rate);
-#endif
 
 struct lf1000_clk {
 	void __iomem *mem;
@@ -44,19 +42,11 @@ static ssize_t set_cpu_freq_in_hz(struct device *dev,
 	struct device_attribute *attr, const char *buf, size_t count)
 {
 	unsigned int value;
-	int audioRate;
 
 	if (sscanf(buf, "%u", &value) != 1)
 		return -EINVAL;
 
-#if defined CONFIG_LF1000_OSS || defined CONFIG_LF1000_OSS_MODULE
-	audioRate = getAudioRate();	/* save old audio setting */
-#endif
 	set_cpu_freq(value);
-
-#if defined CONFIG_LF1000_OSS || defined CONFIG_LF1000_OSS_MODULE
-	setAudioRate(audioRate);	/* update audio to new cpu freq */
-#endif
 
 	return count;
 }
@@ -111,6 +101,10 @@ static ssize_t set_pll1(struct device *pdev, struct device_attribute *attr,
 	ret = set_pll(clkdev, buf, 1);
 	if (ret)
 		return ret;
+
+	/* update linux system tick counter when freq changed */
+	lf1000_pll1_clock_changed();
+
 	return count;
 }
 
@@ -225,11 +219,16 @@ int lf1000_clock_dev_init(void)
 {
 	return platform_driver_register(&lf1000_clock_drv);
 }
+EXPORT_SYMBOL_GPL(lf1000_clock_dev_init);
 
 void lf1000_clock_dev_exit(void)
 {
 	platform_driver_unregister(&lf1000_clock_drv);
 }
+EXPORT_SYMBOL_GPL(lf1000_clock_dev_exit);
 
 module_init(lf1000_clock_dev_init);
 module_exit(lf1000_clock_dev_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_ALIAS("platform:clock");

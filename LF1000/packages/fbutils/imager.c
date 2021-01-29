@@ -1,7 +1,5 @@
 /* Faster example for writing raw image file to the frame buffer */
 
-#define _FILE_OFFSET_BITS	64	// for correct off_t type
-
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>
@@ -20,6 +18,8 @@
 #include "readpng.h"
 #include "formats.h"
 
+#include "check-fb.h"
+
 int main(int argc, char **argv)
 {
 	int layer = -1;
@@ -35,6 +35,11 @@ int main(int argc, char **argv)
 	int bpp;
 	unsigned char *png_data = NULL;
 	int fmt;
+
+	if (have_framebuffer()) {
+		printf("Error: this tool isn't compatible with FB graphics\n");
+		return 1;
+	}
 
 	if(argc < 3) {
 		printf("Writes raw RGB B8G8R8 data to a frame buffer.\n"
@@ -91,12 +96,11 @@ int main(int argc, char **argv)
 			goto cleanup;
 		}	
 
-		/* If bpp is 3, assume B8G8R8 which is 0xC653.  If bpp is 4,
-		 * assume A8B8G8R8 which is 0x8653 */
+		/* Use RGB pixel formats compatible with Brio. */
 		if (bpp == 3) {
-			fmt = 0xC653;
+			fmt = 0x4653; /* R8G8B8 */
 		} else if (bpp == 4) {
-			fmt = 0x8653;
+			fmt = 0x0653; /* A8R8G8B8 */
 		} else {
 			fprintf(stderr, "Unsupported bytes per pixel: %d\n", bpp);
 			goto cleanup;
@@ -109,9 +113,9 @@ int main(int argc, char **argv)
 		}
 		
 		/* Check image format */
-		if(pos.bottom - pos.top + 1 != height ||
-		   pos.right - pos.left + 1 != width ||
-		   bpr/bpp != pos.right - pos.left + 1) {
+		if(pos.bottom - pos.top != height ||
+		   pos.right - pos.left != width ||
+		   bpr/bpp != pos.right - pos.left) {
 			fprintf(stderr,
 				"Image dimensions don't match screen\n");
 			goto cleanup;

@@ -1,6 +1,6 @@
 /* debug.h  -- UART debug output functions
  *
- * Copyright 2009 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This file contains prototypes for five groups of functions:
  *      db_init()           this function configures the LF1000's uart as
@@ -34,11 +34,24 @@
 #define LIGHTNING_BOOT_UART_H
 
 u16 db_init(void);
+//#define NO_SERIAL_OUT  
+#ifdef NO_SERIAL_OUT	// 25mar11
+#define serio_puts(...) 
+#define serio_putchar(...) 
+#define serio_getchar(...) 
+#define serio_hex(...) 
+#define serio_int(...) 
+#define serio_byte(...) 
+#else	// 25mar11
+
 void serio_puts(const char *s);
 void serio_putchar(char c);
+int serio_getchar(char *c);
 void serio_hex(unsigned int val);
 void serio_int(unsigned int val);
 void serio_byte(unsigned char val);
+#endif	// 25mar11
+
 #ifdef DEBUG
 #define db_putchar(c) serio_putchar(c)
 #define db_puts(s)    serio_puts(s)

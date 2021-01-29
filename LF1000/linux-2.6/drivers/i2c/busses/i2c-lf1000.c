@@ -36,6 +36,7 @@
 #include <mach/i2c.h>
 #include <mach/gpio.h>
 
+#define DRIVER_NAME		"lf1000-i2c"
 #define I2C_CHANNEL		CONFIG_I2C_LF1000_CHANNEL
 #define LF1000_I2C_TIMEOUT	10 /* (in jiffies) */
 #define LF1000_I2C_RATE_HZ	100000
@@ -158,6 +159,36 @@ static void lf1000_i2c_hwinit(struct lf1000_i2c *i2c)
 	start_stop_condition(i2c); /* STOP */
 }
 
+static void xfer_start(struct lf1000_i2c *i2c, bool transmit)
+{
+	u32 tmp;
+
+	/* configure for master transmit or receive mode */
+	tmp = ioread32(i2c->reg_base+ICSR);
+	tmp &= 0x1F0F;
+	tmp |= ((1<<ST_ENB)|(1<<MASTER_SLV)|(1<<ST_BUSY)|(1<<TXRX_ENB));
+	if (transmit)
+		tmp |= (1<<TX_RX); /* transmitter */
+	iowrite32(tmp, i2c->reg_base+ICSR);
+
+	start_stop_condition(i2c); /*START*/
+}
+
+static void xfer_stop(struct lf1000_i2c *i2c, bool transmit)
+{
+	u32 tmp;
+
+	/* set up to generate STOP condition */
+	tmp = ioread32(i2c->reg_base+ICSR);
+	tmp &= 0x1F0F;
+	tmp |= ((1<<ST_ENB)|(1<<MASTER_SLV)|(1<<TXRX_ENB));
+	if (transmit)
+		tmp |= (1<<TX_RX);
+	iowrite32(tmp, i2c->reg_base+ICSR);
+
+	start_stop_condition(i2c); /* STOP */
+}
+
 /* write to a slave device, see page 17-6 in the MP2530 data book */
 static int xfer_write(struct lf1000_i2c *i2c, unsigned char *buf, int length)
 {
@@ -165,36 +196,40 @@ static int xfer_write(struct lf1000_i2c *i2c, unsigned char *buf, int length)
 	int ret;
 	enum lf1000_i2c_state state = I2C_SEND_ADDR;
 
-	/* configure for master transmitter mode */
-	tmp = (ioread32(i2c->reg_base+ICSR) & 0x10F0);
-	tmp |= ((1<<IRQ_ENB)|(1<<ST_ENB)|(1<<MASTER_SLV)|(1<<TX_RX)|
-			(1<<ST_BUSY)|(1<<TXRX_ENB));
-	iowrite32(tmp, i2c->reg_base+ICSR);
-
-	start_stop_condition(i2c); /*START*/	
-
 	while(1) {
 		switch(state) {
 			case I2C_SEND_ADDR:
 			ret = lf1000_i2c_wait(i2c);
-			if(ret != 0)
+			if (ret != 0)
 				goto done_write;
-			tmp = ioread32(i2c->reg_base+ICSR); /* check for an ACK */
-			if(tmp & (1<<ACK_STATUS)) {
-				printk(KERN_INFO "i2c: no ACK in xfer_write\n");
+
+			tmp = readl(i2c->reg_base+ICSR);
+			if (tmp & (1<<ACK_STATUS)) {
+				dev_err(&i2c->adap.dev, "no ACK in %s\n",
+						__FUNCTION__);
 				ret = -EFAULT;
 				goto done_write;
 			}
+
 			state = I2C_SEND_DATA;
 			break;
 
 			case I2C_SEND_DATA:
-			iowrite32(*buf++, i2c->reg_base+IDSR); /* write data */
+			writel(*buf++, i2c->reg_base+IDSR); /* write data */
 			start_stop_condition(i2c); /* START */
 			ret = lf1000_i2c_wait(i2c); /* wait for IRQ */
-			if(ret != 0)
+			if (ret != 0)
 				goto done_write;
-			if(--length <= 0)
+
+			tmp = readl(i2c->reg_base+ICSR);
+			if (tmp & (1<<ACK_STATUS)) {
+				dev_err(&i2c->adap.dev, "no DATA ACK in %s\n",
+						__FUNCTION__);
+				ret = -EFAULT;
+				goto done_write;
+			}
+
+			if (--length <= 0)
 				state = I2C_SEND_DONE;
 			break;
 
@@ -205,14 +240,6 @@ static int xfer_write(struct lf1000_i2c *i2c, unsigned char *buf, int length)
 	}
 
 done_write:
-	/* set up to generate STOP condition */
-	tmp = (ioread32(i2c->reg_base+ICSR) & 0x1F0F);
-	tmp |= ((1<<ST_ENB)|(1<<MASTER_SLV)|(1<<TX_RX)|(1<<TXRX_ENB));
-	iowrite32(tmp, i2c->reg_base+ICSR);
-
-	start_stop_condition(i2c); /* STOP */
-
-	iowrite32(0, i2c->reg_base+ICSR); /* turn off I2C controller */
 	return 0;
 }
 
@@ -222,14 +249,6 @@ static int xfer_read(struct lf1000_i2c *i2c, unsigned char *buf, int length)
 	u32 tmp;
 	int ret;
 	enum lf1000_i2c_state state = I2C_SEND_ADDR;
-
-	/* configure for master receiver mode */
-	tmp = (ioread32(i2c->reg_base+ICSR) & 0x1F0F);
-	tmp |= ((1<<IRQ_ENB)|(1<<ST_ENB)|(1<<MASTER_SLV)|
-			(1<<ST_BUSY)|(1<<TXRX_ENB));
-	iowrite32(tmp, i2c->reg_base+ICSR);
-
-	start_stop_condition(i2c); /*START*/	
 
 	while(1) {
 		switch(state) {
@@ -243,11 +262,21 @@ static int xfer_read(struct lf1000_i2c *i2c, unsigned char *buf, int length)
 				ret = -EFAULT;
 				goto done_read;
 			}
+			/* master generates ACK for received bytes */
+			tmp = readl(i2c->reg_base+ICCR);
+			tmp |= (1<<ACK_GEN);
+			writel(tmp, i2c->reg_base+ICCR);
 			state = I2C_SEND_DATA;
 			break;
 
 			case I2C_SEND_DATA:
 			*buf++ = ioread32(i2c->reg_base+IDSR); /* get data */
+			/* master stops generating ACK on last byte */
+			if (length <= 1) {
+				tmp = readl(i2c->reg_base+ICCR);
+				tmp &= ~(1<<ACK_GEN);
+				writel(tmp, i2c->reg_base+ICCR);
+			}
 			start_stop_condition(i2c); /* START (request more data) */
 			ret = lf1000_i2c_wait(i2c); /* wait for IRQ */
 			if(ret != 0)
@@ -264,15 +293,6 @@ static int xfer_read(struct lf1000_i2c *i2c, unsigned char *buf, int length)
 	}
 
 done_read:
-	/* set up to generate STOP condition */
-	tmp = ioread32(i2c->reg_base+ICSR);
-	tmp &= ~(0x1F0F);
-	tmp |= ((1<<ST_ENB)|(1<<MASTER_SLV)|(1<<TXRX_ENB));
-	iowrite32(tmp, i2c->reg_base+ICSR);
-
-	start_stop_condition(i2c); /* STOP */
-
-	iowrite32(0, i2c->reg_base+ICSR); /* turn off I2C controller */
 	return ret;
 }
 
@@ -289,7 +309,6 @@ static int lf1000_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[], int num)
 		spin_unlock_irqrestore(&i2c->bus_access, flags);
 		if(wait_event_interruptible(i2c->bus_access, 
 					    i2c_bus_available(i2c))) {
-			i2c->busy = 0; 
 			return -ERESTARTSYS;
 		}
 		spin_lock_irqsave(&i2c->bus_access, flags);
@@ -299,12 +318,15 @@ static int lf1000_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[], int num)
 
 	lf1000_i2c_clock(i2c, 1);
 
-	for(i = 0; i < num; i++) {
-		lf1000_i2c_hwinit(i2c);
+	lf1000_i2c_hwinit(i2c);
 
+	for(i = 0; i < num; i++) {
 		/* set slave device address */
 		iowrite32(msgs[i].addr | ((msgs[i].flags & I2C_M_RD) ? 1 : 0), 
 				  i2c->reg_base+IDSR);
+
+		/* signal start for each message part */
+		xfer_start(i2c, (msgs[i].flags & I2C_M_RD) ? 0 : 1);
 
 		if(msgs[i].len && msgs[i].buf) {
 			if(msgs[i].flags & I2C_M_RD) 
@@ -319,7 +341,14 @@ static int lf1000_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[], int num)
 	ret = i;
 
 xfer_done:
+	/* signal stop at end of message */
+	xfer_stop(i2c, (msgs[i].flags & I2C_M_RD) ? 0 : 1);
+
+	/* turn off I2C controller */
+	iowrite32(0, i2c->reg_base+ICSR);
+
 	lf1000_i2c_clock(i2c, 0);
+
 	/* realease the bus */
 	spin_lock_irqsave(&i2c->bus_access, flags);
 	i2c->busy = 0;
@@ -521,7 +550,7 @@ static struct platform_driver lf1000_i2c_driver = {
 	.suspend    = lf1000_i2c_suspend,
 	.resume     = lf1000_i2c_resume,
 	.driver     = {
-		.name   = "lf1000-i2c",
+		.name   = DRIVER_NAME,
 		.owner  = THIS_MODULE,
 	},
 };

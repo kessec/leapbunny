@@ -56,5 +56,7 @@ union gpio_cmd {
 #define GPIO_IOCSPULLUP		_IOW(GPIO_IOC_MAGIC,  7, struct func_cmd *)
 /* get pin DRIVE */
 #define GPIO_IOCXPULLUP		_IOWR(GPIO_IOC_MAGIC, 8, struct func_cmd *)
+/* get pin output enable */
+#define GPIO_IOCXOUTENB		_IOW(GPIO_IOC_MAGIC,  9, struct outenb_cmd *)
 
 #endif

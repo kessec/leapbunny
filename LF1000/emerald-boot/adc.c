@@ -1,22 +1,33 @@
 /* adc.c -- Basic ADC functionality for battery monitoring
  *
- * Copyright 2007 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
+ * Scott Esters <sesters@leapfrog.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
 
-#include "include/autoconf.h"
-#include "include/mach-types.h" /* for machine info */
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/adc.h>
+#include <common.h>
+#include <base.h>
 
-#define ADC32(r)	REG32(LF1000_ADC_BASE+r)
-#define ADC16(r)	REG16(LF1000_ADC_BASE+r)
+/*
+ * ADC Registers (offsets from ADC_BASE) 
+ */
+#define ADCCON                  0x00
+#define ADCDAT                  0x04
+#define ADCCLKENB               0x40
+
+/* ADC control register (ADCCON) */
+#define APEN                    14
+#define APSV                    6
+#define ASEL                    3
+#define ADEN                    0
+
+#define ADC32(r)	REG32(ADC_BASE+r)
+#define ADC16(r)	REG16(ADC_BASE+r)
 
 void adc_init(void)
 {

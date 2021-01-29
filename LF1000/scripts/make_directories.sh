@@ -38,6 +38,11 @@ chmod 777 LF/Base/FR mfgdata flags www
 chmod -R 777 LF/Bulk/Data # Games can write anything in here
 chmod 777 LF/Base # So AppManager can write settings.cfg there
 
+# Force notslib for now to hide TTPro:Brio-Base#86 -- REMOVED for TTP #1747
+# touch flags/notslib
+# NOT Putting /flags/coredump flag into place by default as we are near GM build.
+# touch flags/coredump
+
 # Make compatibility links
 L=usr/bin/compatibility-links.sh
 cat <<EOF > $L
@@ -47,6 +52,12 @@ echo "Installing..."
 ln -s /LF/Bulk/LanguagePack_en/Tutorials LF/Base/Tutorials
 echo "To remove compatibility links type:"
 echo "   rm LF/Base/Tutorials"
+echo "These links are for allowing legacy movies to display errors"
+echo "Installing..."
+ln -s /LF/Base/L3B/Art LF/Base/L3B_Art
+ln -s /LF/Base/L3B/Audio LF/Base/L3B_Audio
+echo "To remove compatibility links type:"
+echo "   rm LF/Base/L3B_Art LF/Base/L3B_Audio"
 EOF
 chmod +x $L
 # run this now:

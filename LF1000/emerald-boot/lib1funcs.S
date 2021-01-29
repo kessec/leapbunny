@@ -33,9 +33,8 @@ the Free Software Foundation, 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
 
-#include <linux/linkage.h>
+#include <linkage.h>
 #include <asm/assembler.h>
-#include "include/autoconf.h"
 
 .macro ARM_DIV_BODY dividend, divisor, result, curbit
 

@@ -21,6 +21,11 @@ pushd $PROJECT_PATH/packages/init/rl
 ./install.sh $*
 popd
 
+pushd $PROJECT_PATH/packages/init/syncd
+make
+install -m 0755 syncd $ROOTFS_PATH/usr/bin/
+popd
+
 pushd $PROJECT_PATH/packages/init
 
 # Copy symlinks correctly

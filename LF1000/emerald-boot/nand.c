@@ -1,6 +1,6 @@
 /* nand.c -- LF1000 NAND Controller Driver
  *
- * Copyright 2007-2010 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <andrey@cozybit.com>
  *
@@ -13,16 +13,13 @@
  *       not supported.
  */
 
-#include "include/autoconf.h"
-#include "include/board.h"
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/nand.h>
-#include <mach/gpio.h>
-
-#include "include/nand.h"
-#include "include/debug.h"
-
+#include <board.h>
+#include <common.h>
+#include <base.h>
+#include <nand.h>
+#include <nand_controller.h>
+#include <gpio.h>
+#include <debug.h>
 
 /* assume: size is NAND page size aligned */
 /* Only works for large-block devices!! */
@@ -90,56 +87,110 @@ static int check_data( unsigned char * pStart,      // start of data
 	int           status;
 
 	nand_calculate_ecc(pStart, calcd_ecc);
-	if ((status = nand_correct_data(pStart, pStoredEcc, calcd_ecc))
-	    < 0)
-	{
+	if ((status = nand_correct_data(pStart, pStoredEcc, calcd_ecc)) < 0) {
+		int i;
+		int j;
+
 		report_uncorrectable_error( page, byteOffset, dataSize);
 		report_stored_calcd_ecc( pStoredEcc, calcd_ecc);
-#if 1   // 30dec09
-		{
-			int i;
-			int j;
-			for (i = 0; i < dataSize; i += 16) {
-				serio_byte(i);  serio_puts(": ");
-				for (j = 0; j < 16; ++j) {
-					serio_byte( *(pStart+i+j));  serio_putchar(' ');
-				}
-				serio_putchar('\n');
+		for (i = 0; i < dataSize; i += 16) {
+			serio_byte(i);  serio_puts(": ");
+			for (j = 0; j < 16; ++j) {
+				serio_byte( *(pStart+i+j));  serio_putchar(' ');
 			}
+			serio_putchar('\n');
 		}
-#endif
 		return -1;
 	}
-	else if (status == 1) {
-		// report the error and keep going
+	else if (status == 1) {	// report the error and keep going
 		report_error_in_ecc_bytes(page, byteOffset, dataSize);
 	}
-	else if (status >= 2)
-	{
-		// report the corrected error and keep going
-		report_correctable_error( page, ((status & 0x0000FFFF) - 2) + byteOffset,
-					  status >> 16);
+	else if (status >= 2) { // report the corrected error and keep going
+		report_correctable_error( page, 
+                                 ((status & 0x0000FFFF) - 2) + byteOffset,
+					              status >> 16);
 	}
 	// else no error detected (status == 0)
 	return 0;
 }
 
-/* NOTE: This routine does not verify that the eraseblock in which 'offset'
- *       lies is a good eraseblock.  Before calling this function, the caller
- * ought to call nand_check_block() to see if the eraseblock is good.
+/* NOTE: The nand_readX() routines do not verify that the eraseblock in which
+ *       'offset' lies is a good eraseblock.  Before calling this function,
+ * the caller ought to call nand_check_block() to see if the eraseblock is
+ * good.
  *
  * NOTE:
- * We effectively assume that the routine will be called to read data from only
- * one eraseblock.  If that assumption is not valid, we ought to change this
- * routine by adding code to check if subsequent eraseblocks are good and
+ * We effectively assume that the routines will be called to read data from only
+ * one eraseblock.  If that assumption is not valid, we ought to change the
+ * routines by adding code to check if subsequent eraseblocks are good and
  * by adding another parameter that indicates the maximum offset (from the
  * beginning of device) from which the routine ought to read data.
  *
- * NOTE: the routine assumes that u_size is a multiple of the nand's page size.
- *       The routine stores
+ * NOTE: the routines assume that u_size is a multiple of the nand's page size.
+ *       The routines store
  *          NAND_PAGE_SIZE * (u_size + NAND_PAGE_SIZE -1)/NAND_PAGE_SIZE
  *       bytes, starting at 'buf'.
  */
+
+/* Micron NAND Internal ECC mode */
+#define MT29F4G08ABADA_NAND_REWRITE    0x08
+int nand_read0(u32 *buf, u32 offset, u32 u_size, struct nand_size_info *pInfo)
+{
+	u32 page = (offset >> pInfo->page_shift); // page's index on the NAND device
+	int i;
+	long size = u_size;
+
+	unsigned int nand_cmd;		/* address of nand controller CMD register */
+	unsigned int nand_addr;     /*                            ADDR         */
+	unsigned int nand_data;     /*                            DATA         */
+
+    unsigned char status;
+
+	db_puts("Internal ECC\n");
+
+	nand_init(&nand_cmd, &nand_addr, &nand_data);
+
+	/* use the size for 32-bit chunks */
+	size >>=2;
+
+	do { /* read one page at a time */
+
+		/* Send a Read command */
+		nand_send_read_cmd(page, 0);
+		nand_wait_for_ready();
+
+    	nand_command(CMD_READ_STATUS);
+        do {
+            status = NFDATA8();
+        } while (!(status & NAND_STATUS_READY)); 
+          /* loop until the Ready bit is set */
+
+        if (status & NAND_STATUS_ERROR) {
+        	serio_puts("Internal ECC error on page "); 
+            serio_int(page);
+            serio_putchar('\n');
+            return -1;
+        }
+        if (status & MT29F4G08ABADA_NAND_REWRITE) {
+        	serio_puts("Recommend rewrite: corrected ECC errors on page "); 
+            serio_int(page);
+            serio_putchar('\n');
+        }
+        /* now send a Read cmd to get back to Read mode (after reading status)*/
+    	nand_command(0x00); 
+
+		/* Read the page's data */
+		for(i = 0; i < pInfo->page_size/sizeof(u32); i++) {
+			*buf++ = NFDATA32();
+			--size;
+		}
+		++page;
+
+	} while(size > 0);
+
+	return 0;
+}
+
 /* 1 bit ECC mode */
 int nand_read1(u32 *buf, u32 offset, u32 u_size, struct nand_size_info *pInfo)
 {
@@ -183,53 +234,22 @@ int nand_read1(u32 *buf, u32 offset, u32 u_size, struct nand_size_info *pInfo)
 		for(i = 0; i < (pInfo->oob_size>>2); i++)
 			oob_buf[i] = NFDATA32();
 
-		// NOTE: no check for bad block, because we assume caller has already
-		//       verified that the block is good.
-
-#if 0   // used during initial tests
-		//if (step == 0)
-		if (step == 3)
-		{
-			//    if (page == (offset >> NAND_PAGE_SHIFT))
-			if (page == 7 + (offset >> pInfo->page_shift))
-			{
-				//pStart[0] ^= 8; /* flip bit 3 of byte 0 */
-				pStart[17]  ^= 2; /* flip bit 1 of byte 0 */
-				pStart[257] ^= 0x20; /* flip bit 5 of byte 257 */
-				pStart[258] ^= 0x08; /* flip bit 3 of byte 258 */
-				//serio_puts("Flipped byte 0, bit 3; byte 257, bit 5; byte 258, bit 3\n");
-				serio_puts("Flipped byte 0x611, bit 1; byte 0x701, bit 5; byte 0x702, bit 3\n");
-			}
-			if (page == 2 + (offset >> pInfo->page_shift))
-			{
-				pStoredEcc[1] ^= 0x10;
-				serio_puts("Flipped an ECC bit\n");
-			}
-			else serio_putchar('.');
-		}
-#endif
-
 		/* Now check (and correct if possible) the page's data */
 		for(step = 0; step < pInfo->ecc_steps; step++) {
 
 			if (0 > check_data( pStart, pStoredEcc, page,
-					    step * NAND_BCH_SIZE, 256))
-			{
+					            step * NAND_BCH_SIZE, 256)) {
 				return -1;
 			}
-
 			pStoredEcc += 3;
 			pStart     += 256;
 			if (0 > check_data( pStart, pStoredEcc, page,
-					    256 + step * NAND_BCH_SIZE,
-					    256))
-			{
+					            256 + step * NAND_BCH_SIZE, 256)) {
 				return -1;
 			}
 			pStoredEcc += 3;
 			pStart     += 256;
 		}
-
 		++pagesRead;
 		++page;
 		if(++pageModulus >= pInfo->pages_per_eb) {
@@ -245,10 +265,10 @@ int TryToCorrectBCH_Errors(u8 * pData, u8 * readECC) ;
 /* 4 bit ECC mode */
 int nand_read4(u32 *buf, u32 offset, u32 u_size, struct nand_size_info *pInfo)
 {
-	u32 page = (offset>>pInfo->page_shift);        // page's index on the NAND device
+	u32 page = (offset>>pInfo->page_shift); // page's index on the NAND device
 	u32 pageModulus = (page & ((pInfo->eb_size >> pInfo->page_shift) - 1));
-	// page's index within erase block
-	int pagesRead = 0;              // # of pages read by this routine
+	                                        // page's index within erase block
+	int pagesRead = 0;                      // # of pages read by this routine
 	u32 oob_buf[WORST_OOB_SIZE>>2];
 	int i;
 	int step;
@@ -306,11 +326,11 @@ int nand_read4(u32 *buf, u32 offset, u32 u_size, struct nand_size_info *pInfo)
 			pStart = (unsigned char *)buf;
 
 			/* retrieve the ECC, store in ORGECC for BCH decoder */
-			REG32(LF1000_MCU_S_BASE+NFORGECCL) =  pStoredEcc[0]
+			REG32(MCU_S_BASE+NFORGECCL) =  pStoredEcc[0]
 				+ ((u32)pStoredEcc[1] << 8)
 				+ ((u32)pStoredEcc[2] << 16)
 				+ ((u32)pStoredEcc[3] << 24);
-			REG32(LF1000_MCU_S_BASE+NFORGECCH) =  pStoredEcc[4]
+			REG32(MCU_S_BASE+NFORGECCH) =  pStoredEcc[4]
 				+ ((u32)pStoredEcc[5] << 8)
 				+ ((u32)pStoredEcc[6] << 16);
 			/* read data from this chunk */
@@ -325,12 +345,11 @@ int nand_read4(u32 *buf, u32 offset, u32 u_size, struct nand_size_info *pInfo)
 			}
 
 			/* wait for decoder to finish */
-			while(IS_CLR(REG32(LF1000_MCU_S_BASE+NFECCSTATUS),
-				     NFECCDECDONE));
+			while(IS_CLR(REG32(MCU_S_BASE+NFECCSTATUS), NFECCDECDONE))
+                ;
 
 			/* did decoder detect an error? */
-			if(IS_SET(REG32(LF1000_MCU_S_BASE+NFECCSTATUS),
-				  NFCHECKERROR))
+			if(IS_SET(REG32(MCU_S_BASE+NFECCSTATUS), NFCHECKERROR))
 			{   // if all the data was 0xFFFFFFFF, check if all ECC bytes are FF
                 if (allFF == 0xFFFFFFFF) {  
                     for (i = 0; i < 7; ++i) {

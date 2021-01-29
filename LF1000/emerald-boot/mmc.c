@@ -1,6 +1,6 @@
 /* mmc.c - Basic polling MMC/SD driver
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2010-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
  *
@@ -9,8 +9,8 @@
  *
  * FIXME: read from FIFO
  *
- * TODO: switch to 4-bit mode on if card CSR says it's supported
- * TODO: support reading multiple sectors
+ * TODO: switch to 4-bit mode only if card CSR says it's supported, right now
+ *       we assume that 4-bit mode is supported.
  * TODO: support different sector sizes (querry SD card)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -19,13 +19,12 @@
  */
 
 #include <stdint.h>
-#include <mach/common.h>
-#include <mach/gpio.h>
-#include "include/autoconf.h"
-#include "include/mach-types.h"
-#include "include/board.h"
-#include "include/lf1000_mmc.h"
-#include "include/debug.h"
+#include <common.h>
+#include <base.h>
+#include <gpio.h>
+#include <board.h>
+#include <sdhc.h>
+#include <debug.h>
 
 #ifdef MMC_DEBUG
 #define mmc_err(...)	serio_puts("mmc: " __VA_ARGS__)
@@ -35,23 +34,11 @@
 
 #define mmc_info(...)	serio_puts("mmc: " __VA_ARGS__)
 
-#ifndef MMC_CHANNEL
-#define MMC_CHANNEL	0
-#elif MMC_CHANNEL > 1
-#error "MMC_CHANNEL is invalid: chose 0 or 1"
-#endif
-
 /* Base address */
-
-#if MMC_CHANNEL == 0
-#define MMC(x)		REG32(LF1000_SDIO0_BASE+x)
-#elif MMC_CHANNEL == 1
-#define MMC(x)		REG32(LF1000_SDIO1_BASE+x)
-#endif
+#define MMC(x)		REG32(sdhc_base+x)
 
 /* Clock settings */
 
-#define MMC_CLK_SRC	1	/* use PLL1 */
 #define MMC_CLK_DIV	3	/* PLL1/3 gives 147MHz/3 = 49MHz */
 #define MMC_DIV_400KHZ	62	/* divider for 400KHz: 49MHz/(62*2) */
 #define MMC_DIV_FULL	0	/* divider for full speed */
@@ -83,6 +70,7 @@
 #define SD_CMD_SELECT_CARD		MMC_COMMAND(7,	MMC_RESP_R1)
 #define SD_CMD_SEND_IF_COND		MMC_COMMAND(8,  MMC_RESP_R1)
 #define MMC_CMD_SEND_CSD		MMC_COMMAND(9,	MMC_RESP_R2)
+#define SD_CMD_STOP_TRANSMISSION	MMC_COMMAND(12, MMC_RESP_R1)
 #define SD_CMD_SEND_STATUS		MMC_COMMAND(13, MMC_RESP_R1)
 #define SD_CMD_SET_BLOCKLEN		MMC_COMMAND(16, MMC_RESP_R1)
 #define SD_CMD_READ_SINGLE_BLOCK	MMC_COMMAND(17, MMC_RESP_R1|(1<<DATEXP))
@@ -118,12 +106,12 @@ static struct {
 	unsigned high_capacity : 1;
 } mmc;
 
-static inline void mmc_clear_int_status(void)
+static inline void mmc_clear_int_status(u32 sdhc_base)
 {
 	MMC(SDI_RINTSTS) = 0xFFFFFFFF;
 }
 
-static void mmc_reset_fifo(void)
+static void mmc_reset_fifo(u32 sdhc_base)
 {
 	u32 tmp;
 	unsigned int i = 0;
@@ -133,7 +121,7 @@ static void mmc_reset_fifo(void)
 	while ((MMC(SDI_CTRL) & (1<<FIFORST)) && ++i < MMC_RETRY_MAX);
 }
 
-static int mmc_wait_for_cmd(void)
+static int mmc_wait_for_cmd(u32 sdhc_base)
 {
 	unsigned int i = 0;
 
@@ -142,29 +130,29 @@ static int mmc_wait_for_cmd(void)
 	return i >= MMC_RETRY_MAX;
 }
 
-static int mmc_update_clock(void)
+static int mmc_update_clock(u32 sdhc_base)
 {
 	unsigned int i = 0;
 
 	do {
 		MMC(SDI_RINTSTS) = (1<<HLEINT);
 		MMC(SDI_CMD) = (1<<STARTCMD)|(1<<UPDATECLKONLY)|(1<<WAITPRVDAT);
-		mmc_wait_for_cmd();
+		mmc_wait_for_cmd(sdhc_base);
 	} while ((MMC(SDI_RINTSTS) & (1<<HLEINT)) && ++i < MMC_RETRY_MAX);
 
 	return i >= MMC_RETRY_MAX;
 }
 
-static int mmc_set_clock(u8 div)
+static int mmc_set_clock(u32 sdhc_base, u8 div)
 {
 	MMC(SDI_CLKENA) &= ~(1<<CLKENA);
 	MMC(SDI_CLKDIV) = div;
 
-	mmc_update_clock();
+	mmc_update_clock(sdhc_base);
 
 	MMC(SDI_CLKENA) |= (1<<CLKENA);
 
-	mmc_update_clock();
+	mmc_update_clock(sdhc_base);
 
 	MMC(SDI_SYSCLKENB) = (1<<PCLKMODE)|(1<<CLKGENENB);
 
@@ -173,10 +161,14 @@ static int mmc_set_clock(u8 div)
 
 #define STATUS_TXFER_BUSY	((1<<FSMBUSY)|(1<<FIFOEMPTY))
 
-static int mmc_send_command(u32 cmd, u32 arg)
+static int mmc_send_command(u32 sdhc_base, u32 cmd, u32 arg )
 {
 	u32 irqm = (1<<MSKHLE)|(1<<MSKRE)|(1<<MSKCD);
 	unsigned int i;
+
+	db_puts("mmc_send_command  sdhc_base:");db_int(sdhc_base);
+	db_puts(" cmd:"); db_int(cmd);
+	db_puts(" arg:"); db_int(arg); db_puts("\n");
 
 	cmd |= (1<<STARTCMD);
 	if ((cmd & 0x3F) != 13)
@@ -189,25 +181,31 @@ static int mmc_send_command(u32 cmd, u32 arg)
 
 	/* send the command */
 	do {
-		mmc_clear_int_status();
+		mmc_clear_int_status(sdhc_base);
 		MMC(SDI_INTMASK) = irqm;
 		MMC(SDI_CMDARG) = arg;
 		MMC(SDI_CMD) = cmd;
 		i = 0;
 		while ((MMC(SDI_CMD) & 1<<STARTCMD) && ++i < MMC_RETRY_MAX);
-		if (i >= MMC_RETRY_MAX)
+		if (i >= MMC_RETRY_MAX) {
+			db_puts("mmc_send_command.");
+			db_int(__LINE__);db_puts(": return 1\n");
 			return 1;
+		}
 	} while (MMC(SDI_MINTSTS) & (1<<MSKHLE));
 
 	/* reset the FIFO if data transfer is busy */
 	if ((MMC(SDI_STATUS) & STATUS_TXFER_BUSY) == STATUS_TXFER_BUSY)
-		mmc_reset_fifo();
+		mmc_reset_fifo(sdhc_base);
 
 	/* wait until the command response comes back*/
 	i = 0;
 	while (!(MMC(SDI_MINTSTS) & (1<<MSKCD)) && ++i < MMC_RETRY_MAX);
-	if (i >= MMC_RETRY_MAX)
+	if (i >= MMC_RETRY_MAX) {
+		db_puts("mmc_send_command.");
+		db_int(__LINE__);db_puts(": return 2\n");
 		return 2;
+	}
 	
 	MMC(SDI_RINTSTS) = (1<<MSKCD);
 
@@ -221,6 +219,8 @@ static int mmc_send_command(u32 cmd, u32 arg)
 		if (MMC(SDI_RINTSTS) & (1<<RTOINT))
 			mmc_err("error RTO\n");
 #endif /* MMC_DEBUG */
+		db_puts("mmc_send_command.");
+		db_int(__LINE__);db_puts(": return 3\n");
 		return 3;
 	}
 
@@ -231,24 +231,38 @@ static int mmc_send_command(u32 cmd, u32 arg)
 			mmc.resp[1] = MMC(SDI_RESP2);
 			mmc.resp[2] = MMC(SDI_RESP1);
 			mmc.resp[3] = MMC(SDI_RESP0);
+			db_puts(":");
+			db_int(mmc.resp[0]);
+			db_puts(":");
+			db_int(mmc.resp[1]);
+			db_puts(":");
+			db_int(mmc.resp[2]);
+			db_puts(":");
+			db_int(mmc.resp[3]);
+			db_puts("\n");
 		} else
+		{
 			mmc.resp[0] = MMC(SDI_RESP0);
+			db_puts(":");
+			db_int(mmc.resp[0]);
+			db_puts("\n");
+		}
 	}
 
 	return 0;
 }
 
-static int mmc_send_app_command(u32 cmd, u32 arg)
+static int mmc_send_app_command(u32 sdhc_base, u32 cmd, u32 arg)
 {
 	int i;
 	int ret;
 
 	for (i = 0; i < 100; i++) {
-		ret = mmc_send_command(SD_CMD_APP, mmc.rca);
+		ret = mmc_send_command(sdhc_base, SD_CMD_APP, mmc.rca);
 		if (ret)
 			return 1;
 
-		ret = mmc_send_command(cmd, arg);
+		ret = mmc_send_command(sdhc_base, cmd, arg);
 		if (ret == 0)
 			return 0;
 	}
@@ -256,7 +270,7 @@ static int mmc_send_app_command(u32 cmd, u32 arg)
 	return ret;
 }
 
-static int mmc_detect(void)
+static int mmc_detect(u32 sdhc_base)
 {
 	u32 hcs = 0;
 	unsigned int i;
@@ -264,15 +278,15 @@ static int mmc_detect(void)
 
 	mmc.rca = 0;
 
-	if (mmc_set_clock(MMC_DIV_400KHZ)) {
+	if (mmc_set_clock(sdhc_base, MMC_DIV_400KHZ)) {
 		mmc_err("failed to set clock\n");
 		return 1;
 	}
 
-	mmc_send_command(SD_CMD_GO_IDLE_STATE, 0);
+	mmc_send_command(sdhc_base, SD_CMD_GO_IDLE_STATE, 0);
 	
 	/* check for VHS 2.7-3.6V, check pattern 0xAA */
-	ret = mmc_send_command(SD_CMD_SEND_IF_COND, (1<<8)|0xAA);
+	ret = mmc_send_command(sdhc_base, SD_CMD_SEND_IF_COND, (1<<8)|0xAA);
 	if (ret)
 		mmc_err("voltage mismatch?\n");
 	else {
@@ -288,7 +302,7 @@ static int mmc_detect(void)
 	/* validate voltage (3.0-3.6V) and wait for powerup */
 	i = 0;
 	do {
-		ret = mmc_send_app_command(SD_CMD_APP_OP_COND,
+		ret = mmc_send_app_command(sdhc_base, SD_CMD_APP_OP_COND,
 				hcs | 0x00FC0000);
 		if (ret)
 			return 3;
@@ -305,7 +319,7 @@ static int mmc_detect(void)
 
 	/* get the card CID */
 
-	if (mmc_send_command(SD_CMD_ALL_SEND_CID, 0)) {
+	if (mmc_send_command(sdhc_base, SD_CMD_ALL_SEND_CID, 0)) {
 		mmc_err("failed to get CID\n");
 		return 5;
 	}
@@ -326,7 +340,7 @@ static int mmc_detect(void)
 #endif
 
 	/* get the RCA */
-	if (mmc_send_command(SD_CMD_SEND_REL_ADDR, 0)) {
+	if (mmc_send_command(sdhc_base, SD_CMD_SEND_REL_ADDR, 0)) {
 		mmc_err("failed to send relative addr\n");
 		return 6;
 	}
@@ -335,12 +349,12 @@ static int mmc_detect(void)
 	return 0;
 }
 
-static inline int mmc_set_block_length(unsigned int len)
+static inline int mmc_set_block_length(u32 sdhc_base, unsigned int len)
 {
-	return mmc_send_command(SD_CMD_SET_BLOCKLEN, len);
+	return mmc_send_command(sdhc_base, SD_CMD_SET_BLOCKLEN, len);
 }
 
-static int mmc_set_bus_width(u8 width)
+static int mmc_set_bus_width(u32 sdhc_base, u8 width)
 {
 	int ret;
 
@@ -351,7 +365,8 @@ static int mmc_set_bus_width(u8 width)
 	    (width == 1 && !(MMC(SDI_CTYPE) & (1<<WIDTH))))
 		return 0;
 
-	ret = mmc_send_app_command(SD_CMD_APP_SET_BUS_WIDTH, width>>1);
+	ret = mmc_send_app_command(sdhc_base, SD_CMD_APP_SET_BUS_WIDTH,
+				width>>1);
 	if (ret)
 		return ret;
 
@@ -363,31 +378,51 @@ static int mmc_set_bus_width(u8 width)
 	return 0;
 }
 
-static int mmc_select_card(void)
+static int mmc_select_card(u32 sdhc_base)
 {
-	return mmc_send_command(SD_CMD_SELECT_CARD, mmc.rca);
+	return mmc_send_command(sdhc_base, SD_CMD_SELECT_CARD, mmc.rca);
 }
 
-static inline void mmc_pin_init(void)
+static void mmc_pin_init(u32 sdhc_base)
 {
-#if MMC_CHANNEL == 0
-	gpio_configure_pin(GPIO_PORT_B, 2, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 3, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 4, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 5, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 0, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 1, GPIO_ALT1, 1, 0, 1);
-#elif MMC_CHANNEL == 1
-	gpio_configure_pin(GPIO_PORT_B, 8, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 9, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 10, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 11, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 6, GPIO_ALT1, 1, 0, 1);
-	gpio_configure_pin(GPIO_PORT_B, 7, GPIO_ALT1, 1, 0, 1);
-#endif
+	db_puts("mmc_pin_init: "); db_int(sdhc_base); db_puts("\n");
+
+	switch (sdhc_base) {
+	case SDHC0_BASE:
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN0, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN1, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN2, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN3, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN4, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN5, GPIO_ALT1, 1, 0, 1);
+
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN0, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN1, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN2, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN3, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN4, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN5, GPIO_CURRENT_2MA);
+		break;
+
+	case SDHC1_BASE:
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN6, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN7, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN8, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B,  GPIO_PIN9, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B, GPIO_PIN10, GPIO_ALT1, 1, 0, 1);
+		gpio_configure_pin(GPIO_PORT_B, GPIO_PIN11, GPIO_ALT1, 1, 0, 1);
+
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN6, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN7, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN8, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B,  GPIO_PIN9, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B, GPIO_PIN10, GPIO_CURRENT_2MA);
+		gpio_set_cur(GPIO_PORT_B, GPIO_PIN11, GPIO_CURRENT_2MA);
+		break;
+	}
 }
 
-static void mmc_read8(u32 *dest)
+static void mmc_read8(u32 sdhc_base, u32 *dest)
 {
 	*dest++ = MMC(SDI_DAT);
 	*dest++ = MMC(SDI_DAT);
@@ -401,7 +436,7 @@ static void mmc_read8(u32 *dest)
 
 /* Read the remaining amount of data left in the FIFO based on the FIFOCOUNT
  * found in the STATUS register. */
-static void mmc_read(u32 *dest)
+static void mmc_read(u32 sdhc_base, u32 *dest)
 {
 	int count = MMC(SDI_STATUS)>>FIFOCOUNT & 0x1F;
 	
@@ -409,17 +444,20 @@ static void mmc_read(u32 *dest)
 		*dest++ = MMC(SDI_DAT);
 }
 
-int mmc_read_sector(u32 sector, u32 *dest)
+int mmc_read_sector(u32 sdhc_base, u32 sector, u32 *dest)
 {
 	int ret;
 	unsigned int i = 0, j = 0;
 
-	if (!mmc.rca)
+	db_puts("mmc_read_sector\n");
+
+	if (!mmc.rca || !dest)
 		return 1;
 
 	/* wait until the card is ready for data (bit 8 in status) */
 	do {
-		ret = mmc_send_command(SD_CMD_SEND_STATUS, mmc.rca);
+		ret = mmc_send_command(sdhc_base, SD_CMD_SEND_STATUS,
+			mmc.rca);
 		if (ret)
 			return (ret<<16)|2;
 	} while (!(mmc.resp[0] & (1<<8)) && ++i < MMC_RETRY_MAX);
@@ -430,7 +468,7 @@ int mmc_read_sector(u32 sector, u32 *dest)
 	MMC(SDI_BYTCNT) = 1*MMC_BLOCK_LEN;
 
 	mmc.data_buf = dest;
-	ret = mmc_send_command(SD_CMD_READ_SINGLE_BLOCK,
+	ret = mmc_send_command(sdhc_base, SD_CMD_READ_SINGLE_BLOCK,
 			mmc.high_capacity ? sector: sector*MMC_BLOCK_LEN);
 	if (ret)
 		return (ret<<16)|3;
@@ -440,7 +478,7 @@ int mmc_read_sector(u32 sector, u32 *dest)
 			++j < 10*MMC_RETRY_MAX) {
 		/* There's an 8-word chunk of data in the FIFO */
 		if (MMC(SDI_STATUS) & (1<<RXWMARK)) {
-			mmc_read8(dest);
+			mmc_read8(sdhc_base, dest);
 		       	dest += 8;
 			i++;
 			j = 0;
@@ -448,9 +486,9 @@ int mmc_read_sector(u32 sector, u32 *dest)
 	
 		/* Transfer is over, read remaining data (if any) */
 		if (MMC(SDI_MINTSTS) & (1<<DTOINT)) {
-			mmc_read(dest);
+			mmc_read(sdhc_base, dest);
 			MMC(SDI_RINTSTS) = (1<<DTOINT);
-			mmc_reset_fifo();
+			mmc_reset_fifo(sdhc_base);
 			j = 0;
 			break;
 		}
@@ -464,15 +502,67 @@ int mmc_read_sector(u32 sector, u32 *dest)
 	return 0;
 }
 
-int mmc_init(void)
+int mmc_read_multiblock(u32 sdhc_base,  u32 sector, u32 num_sectors, u32 *dest)
+{
+	int ret;
+	unsigned int i = 0;
+
+	db_puts("mmc_read_multiblock\n");
+
+	if (!mmc.rca || !dest)
+		return 1;
+
+	/* wait until the card is ready for data (bit 8 in status) */
+	do {
+		ret = mmc_send_command(sdhc_base, SD_CMD_SEND_STATUS,
+			mmc.rca);
+		if (ret)
+			return (ret<<16)|2;
+	} while (!(mmc.resp[0] & (1<<8)) && ++i < MMC_RETRY_MAX);
+
+	if (i >= MMC_RETRY_MAX)
+		return MMC_RETRY_ERR | 2;
+
+	/* Fill in the number of bytes we'll be reading */
+	MMC(SDI_BYTCNT) = num_sectors * MMC_BLOCK_LEN;
+
+	mmc.data_buf = dest;
+	ret = mmc_send_command(sdhc_base, SD_CMD_READ_MULTIPLE_BLOCK,
+			mmc.high_capacity ? sector: sector*MMC_BLOCK_LEN);
+	if (ret)
+		return (ret<<16)|3;
+
+	i = 0;
+	while ( i < ( num_sectors * MMC_BLOCK_LEN ) / ( 8 * sizeof(u32) ) ) {
+		/* There's an 8-word chunk of data in the FIFO */
+		if (MMC(SDI_STATUS) & (1<<RXWMARK)) {
+			mmc_read8(sdhc_base, dest);
+		       	dest += 8;
+			i++;
+		}
+	}
+	
+	/* Transfer is over, Send Stop */
+	mmc_send_command(sdhc_base, SD_CMD_STOP_TRANSMISSION, 0);
+	mmc_reset_fifo(sdhc_base);
+
+	return 0;
+	
+}
+
+
+int mmc_init(u32 sdhc_base)
 {
 	int i, ret;
 	u32 tmp;
 
+	db_puts("mmc_init."); db_int(__LINE__); db_puts(": ");
+	db_int(sdhc_base); db_puts("\n");
+
 	for (i = 0; i < sizeof(mmc); i++)
 		*(((char *)&mmc)+i) = 0;
 
-	mmc_pin_init();
+	mmc_pin_init(sdhc_base);
 
 	MMC(SDI_CLKENA) = 0;
 	MMC(SDI_CLKGEN) = (2<<CLKSRCSEL0)|((MMC_CLK_DIV-1)<<CLKDIV0);
@@ -484,20 +574,29 @@ int mmc_init(void)
 	/* reset the controller */
 	tmp = MMC(SDI_CTRL) & ~((1<<DMARST)|(1<<FIFORST));
 	MMC(SDI_CTRL) = (tmp | (1<<CTRLRST));
+	
+	db_puts("mmc_init."); db_int(__LINE__); db_puts("\n");
+
 	i = 0;
 	while ((MMC(SDI_CTRL) & (1<<CTRLRST)) && ++i < MMC_RETRY_MAX);
-	if (i >= MMC_RETRY_MAX)
+	if (i >= MMC_RETRY_MAX) {
+		db_puts("mmc_init."); db_int(__LINE__); db_puts(" return 1\n");
 		return 1;
+	}
+
+	db_puts("mmc_init."); db_int(__LINE__); db_puts("\n");
 
 	/* reset the DMA */
 	tmp = MMC(SDI_CTRL) & ~((1<<CTRLRST)|(1<<FIFORST));
 	MMC(SDI_CTRL) = (tmp | (1<<DMARST));
 	i = 0;
 	while ((MMC(SDI_CTRL) & (1<<DMARST)) && ++i < MMC_RETRY_MAX);
-	if (i >= MMC_RETRY_MAX)
+	if (i >= MMC_RETRY_MAX) {
+		db_puts("mmc_init."); db_int(__LINE__); db_puts(" return 2\n");
 		return 2;
+	}
 
-	mmc_reset_fifo();
+	mmc_reset_fifo(sdhc_base);
 
 	MMC(SDI_CTRL) &= ~(1<<DMA_ENA); /* no DMA */
 	MMC(SDI_CTYPE) &= ~(1<<WIDTH); /* 1-bit mode */
@@ -506,25 +605,36 @@ int mmc_init(void)
 	MMC(SDI_BLKSIZ) = MMC_BLOCK_LEN;
 	MMC(SDI_FIFOTH) = ((8-1)<<RXTH)|(8<<TXTH);
 	MMC(SDI_INTMASK) = 0;
-	mmc_clear_int_status();
+	mmc_clear_int_status(sdhc_base);
 
 	/* now try to find a card and initialize it */
-	ret = mmc_detect();
+	ret = mmc_detect(sdhc_base);
 	if (ret) {
+		db_puts("mmc_init."); db_int(__LINE__); db_puts(" return 3\n");
 		mmc_err("didn't find a card\n");
 		return ret;
 	}
 
-	if (mmc_set_clock(MMC_DIV_FULL))
+	if (mmc_set_clock(sdhc_base, MMC_DIV_FULL))
 		mmc_err("failed to set full clock speed\n");
-	if (mmc_select_card())
+	if (mmc_select_card(sdhc_base))
 		mmc_err("failed to select card\n");
-	if (mmc_send_app_command(SD_CMD_APP_CLR_CD, 0))
+	if (mmc_send_app_command(sdhc_base, SD_CMD_APP_CLR_CD, 0))
 		mmc_err("failed to disable card detect pullup\n");
-	if (mmc_set_bus_width(4))
+	if (mmc_set_bus_width(sdhc_base, 4))
 		mmc_err("failed to set 4-bit mode\n");
-	if (mmc_set_block_length(MMC_BLOCK_LEN))
+	if (mmc_set_block_length(sdhc_base, MMC_BLOCK_LEN))
 		mmc_err("failed to set block length\n");
 	
 	return 0;
+}
+
+void mmc_exit(u32 sdhc_base)
+{
+//	mmc_send_command(sdhc_base, SD_CMD_GO_IDLE_STATE, 0);
+	mmc_clear_int_status(sdhc_base);
+
+	MMC(SDI_CTRL) &= ~(1<<DMA_ENA); /* no DMA */
+	MMC(SDI_CTRL) &= ~(1<<INT_ENA); /* no INT */
+	MMC(SDI_SYSCLKENB) &= ~(1<<CLKGENENB); /* no CLK */
 }

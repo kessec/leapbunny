@@ -29,20 +29,19 @@ if [ `cat /sys/devices/platform/lf1000-gpio/request` = "UPDATE" ]; then
 	logger -s -t "Emerald Base" -p local4.notice  "FW Update Reboot ... !"	
 fi
 
-# Save volume setting if touchscreen unit, ie no volume slider
-TOUCHSCREEN="/sys/devices/platform/lf1000-gpio/touchscreen"
-if [ -e ${TOUCHSCREEN} -a `cat ${TOUCHSCREEN}` = "YES" ] ; then
-	vol=`cat /sys/devices/platform/lf1000-audio/volume`
-	if [ $vol -eq 0 ]; then
-		vol=383
-	fi
-	echo $vol > /flags/volume
+# Save volume setting
+lfd-ctrl get volume > /flags/volume
+# ...but reset 0 volume to 3 per "System Behavior" doc
+if grep '^0$' /flags/volume; then
+	echo 3 > /flags/volume
 fi
 
 # KillApp
 tim begin "killall mainapp"
 killall app AppManager CartManager
 tim done "killall mainapp"
+
+/etc/init.d/lfd stop
 
 echo "Stopping system logging"
 /etc/init.d/flight-recorder stop
@@ -62,5 +61,3 @@ echo 0 > /sys/devices/platform/lf1000-gpio/panic
 tim begin "umount -a"
 umount -a
 
-# XXX: power off the screen
-#mlc-control /dev/mlc s enable off

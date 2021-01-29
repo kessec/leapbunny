@@ -9,6 +9,7 @@ argp
 lzo
 lzop
 e2fsprogs
+dosfstools
 mtd-utils-2
 lfpkg
 libpng
@@ -30,11 +31,13 @@ oe-bin
 otp-write
 optimization
 vbus-monitor
-threewire
-hx8238
 iperf
 kbtool
 unotify
 wifi-USB-8786
 wifi-SDIO-8786
 pixart
+# Add just header and config file; lib itself built and deployed in oe-bin
+tslib
+ts-utils
+fuse-flasher

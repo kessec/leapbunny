@@ -18,458 +18,10 @@
 #include <asm/io.h>
 #include <asm/sizes.h>
 
-/* control registers */
-#define NAND_BASE	IO_ADDRESS(LF1000_MCU_S_BASE)
-
 #if defined CPU_LF1000 && defined CONFIG_MTD_NAND_LF1000_HWECC
 
-/**
- * lf1000_nand_read_page_syndrome - [REPLACABLE] hardware ecc syndrom based page read
- * @mtd:	mtd info structure
- * @chip:	nand chip info structure
- * @buf:	buffer to store read data
- *
- * The hw generator calculates the error syndrome automatically. Therefor
- * we need a special oob layout and handling.
- */
-int lf1000_nand_read_page_syndrome(struct mtd_info *mtd, struct nand_chip *chip,
-				   uint8_t *buf)
-{
-	int i,j, eccsize = chip->ecc.size;
-	int eccbytes = chip->ecc.bytes;
-	int eccsteps = chip->ecc.steps;
-	uint8_t *p = buf;
-	uint8_t *oob = chip->oob_poi;
-	uint8_t oob_whole[NAND_MAX_OOBSIZE];
-	uint32_t *eccpos = chip->ecc.layout->eccpos;
-
-	int is_large_block = mtd->writesize > 512;
-	printk (KERN_DEBUG "!!! lf1000_nand_read_page_syndrome() is_large_block=%d\n", is_large_block);
-
-	// Position over to oob, read whole oob
-	// chip->read_buf(mtd, p, eccsize);
-	// chip->read_buf(mtd, oob, mtd->oobsize);
-	memset (oob_whole, 0xaa, mtd->oobsize);
-	if (is_large_block)
-		chip->cmdfunc(mtd, NAND_CMD_RNDOUT, mtd->writesize, -1);
-	else
-		chip->cmdfunc(mtd, NAND_CMD_READOOB, 0, -1);
-	chip->read_buf(mtd, oob_whole, mtd->oobsize);
-
-	if (0)
-	{ char buf[80]; int x;
-		for (i=0; i<mtd->oobsize; i+=16)
-		{
-			for (x=0, j=0; j<16; j++)
-				x+=sprintf (buf+x, " %02x", oob_whole[i+j]);
-			printk (KERN_DEBUG "%02x: %s\n", i, buf);
-		}
-	}
-
-	// Position back to main area, read whole area a piece at a time
-	if (is_large_block)
-		chip->cmdfunc(mtd, NAND_CMD_RNDOUT, 0, -1);
-	else
-		chip->cmdfunc(mtd, NAND_CMD_READ0, 0, -1);
-	for (i = 0; eccsteps; eccsteps--, i += eccbytes, p += eccsize) {
-		int stat;
-
-		/* Set up oob for ecc.hwctl */
-		for (j=0; j<eccbytes; j++)
-		{
-			oob[j] = oob_whole[eccpos[i+j]];
-		}
-
-		chip->ecc.hwctl(mtd, NAND_ECC_READ);	// Copy oob[0-6] oob into hardware regs
-		chip->read_buf(mtd, p, eccsize);	// Read main data into p
-		printk (KERN_DEBUG " read_buf=%02x,%02x,%02x,%02x  oob=%02x,%02x,%02x,%02x\n", p[0], p[1], p[2], p[3], oob[0], oob[1], oob[2], oob[3]);
-		stat = chip->ecc.correct(mtd, p, oob, NULL);
-
-		if (stat < 0)
-			mtd->ecc_stats.failed++;
-		else
-			mtd->ecc_stats.corrected += stat;
-	}
-
-	// Position back to end of oob
-        chip->cmdfunc(mtd, NAND_CMD_RNDOUT, mtd->writesize+mtd->oobsize, -1);
-
-	/* Calculate remaining oob bytes
-	i = mtd->oobsize - (oob - chip->oob_poi);
-	if (i)
-		chip->read_buf(mtd, oob, i);
-
-	*/
-	return 0;
-}
-
-/**
- * lf1000_nand_write_page_syndrome - [REPLACABLE] hardware ecc syndrom based page write
- * @mtd:	mtd info structure
- * @chip:	nand chip info structure
- * @buf:	data buffer
- *
- * The hw generator calculates the error syndrome automatically. Therefor
- * we need a special oob layout and handling.
- */
-void lf1000_nand_write_page_syndrome(struct mtd_info *mtd,
-				    struct nand_chip *chip, const uint8_t *buf)
-{
-	int i, j, eccsize = chip->ecc.size;
-	int eccbytes = chip->ecc.bytes;
-	int eccsteps = chip->ecc.steps;
-	const uint8_t *p = buf;
-	uint8_t *oob = chip->oob_poi;
-	uint8_t oob_whole[NAND_MAX_OOBSIZE];
-	uint32_t *eccpos = chip->ecc.layout->eccpos;
-
-	printk (KERN_DEBUG "!!! lf1000_nand_write_page_syndrome() eccsize=%d\n", eccsize);
-
-	memset (oob_whole, 0xff, mtd->oobsize);
-	for (i = 0; eccsteps; eccsteps--, i += eccbytes, p += eccsize) {
-
-		u32 s4, s5, s6, s7;
-
-		chip->ecc.hwctl(mtd, NAND_ECC_WRITE);
-		// s4 = foo9 ();
-		chip->write_buf(mtd, p, eccsize);
-		// s5 = foo9 ();
-		// chip->write_buf(mtd, p, eccsize/2);
-		// s6 = foo9 ();
-
-		/*
-		if (chip->ecc.prepad) {
-			chip->write_buf(mtd, oob, chip->ecc.prepad);
-			oob += chip->ecc.prepad;
-		}
-		*/
-		chip->ecc.calculate(mtd, p, oob);
-		// s7 = foo9 ();
-		for (j=0; j<eccbytes; j++)
-		{
-			oob_whole[eccpos[i+j]] = oob[j];
-		}
-
-		// chip->write_buf(mtd, oob, eccbytes);
-		// bar = foo9 ();
-
-		/*
-		printk (KERN_DEBUG " in nand_base, s4=%d s5=%d s6=%d s7=%d foo=%d bar=%d\n", s4, s5, s6, s7, foo, bar);
-		printk (KERN_DEBUG " write_buf=%02x,%02x,%02x,%02x  oob=%02x,%02x,%02x,%02x\n", p[0], p[1], p[2], p[3], oob[0], oob[1], oob[2], oob[3]);
-		*/
-		
-		/*
-		if (chip->ecc.postpad) {
-			chip->write_buf(mtd, oob, chip->ecc.postpad);
-			oob += chip->ecc.postpad;
-		}
-		*/
-	}
-
-	if (0)
-	{ char buf[80]; int x;
-		for (i=0; i<mtd->oobsize; i+=16)
-		{
-			for (x=0, j=0; j<16; j++)
-				x+=sprintf (buf+x, " %02x", oob_whole[i+j]);
-			printk (KERN_DEBUG "%02x: %s\n", i, buf);
-		}
-	}
-
-	/* Calculate remaining oob bytes */
-	i = mtd->oobsize; // - (oob - chip->oob_poi);
-	if (i)
-		chip->write_buf(mtd, oob_whole, i);
-}
-
-
-int foo9 ()
-{
-	return IS_CLR(readl(NAND_BASE+NFECCSTATUS), NFECCENCDONE);
-}
-
-/*
- * The LF1000 hardware ECC is always enabled so no initialization is needed 
- * here.
- *
- * nand_read_page_syndrome() uses this function as follows:
- * - calls with NAND_ECC_READ, we need to grab the ECC and put it into ORGECC
- * - reads ecc.size bytes
- * - calls with NAND_ECC_READSYN, we need to wait for the decoder to finish
- *
- * nand_write_page_syndrome() uses this function as follows:
- * - calls with NAND_ECC_WRITE, we don't have to do anything
- * - writes ecc.size bytes
- * - (calls lf1000_calculate_ecc(), where we can wait for encoder to finish)
- */ 
-void lf1000_enable_hwecc(struct mtd_info *mtd, int mode)
-{
-	u32 x, s7, s5, s3, s1, val32;
-	struct nand_chip *chip = mtd->priv;
-	uint8_t *oob = chip->oob_poi;
-
-	switch(mode) {
-	case NAND_ECC_READ:
-		/* TODO: 'seek' to the right spot in the OOB, retrieve the ECC data
-		 * 	 and place into the ORGECC registers and then reset the column
-		 * 	 address for the normal write that will take place. */
-		/* XXX: for now, we will just zero out the ORGECC */
-		printk (KERN_DEBUG "!!! lf1000_enable_hwecc(NAND_ECC_READ)\n");
-
-		/* Reset the HW ECC block (without changing the interrupts pending)
-		 * Note: This was commented out of the VTK demo code, but it seems to help make writes consistent
-		 */
-		x = readl(NAND_BASE+NFCONTROL);
-		x &= ~((1UL << ECCRST) | (1UL << IRQPEND));
-		x |= (1UL << ECCRST);
-		writel (x, NAND_BASE+NFCONTROL);
-		
-		val32 = oob[0] 
-			+ (oob[1] << 8)
-			+ (oob[2] << 16)
-			+ (oob[3] << 24);
-		printk (KERN_DEBUG "  val32 Low =%08x\n", val32);
-		writel(val32, NAND_BASE+NFORGECCL); 
-
-		val32 = oob[4] 
-			+ (oob[5] << 8)
-			+ (oob[6] << 16);
-		printk (KERN_DEBUG "  val32 High=%08x\n", val32);
-		writel(val32, NAND_BASE+NFORGECCH); 
-
-		/* WORK IN PROGRESS... Fake out ECC for known patterns for debugging */
-		/* Stuff fake ECC code for now */
-		/* writel(0xd59e1ce9, NAND_BASE+NFORGECCL);	* for all ff data */
-		/* writel(0x000b92b9, NAND_BASE+NFORGECCH);	* for all ff data */
-		/*   writel(0xcdfb7ec1, NAND_BASE+NFORGECCL);	 * for 1234567890 then all ff data */
-		/*   writel(0x000a0189, NAND_BASE+NFORGECCH);	 * for 1234567890 then all ff data */
-		/* writel(0x2dd2bac0, NAND_BASE+NFORGECCL);	* for 1334567890 then all ff data */
-		/* writel(0x000a1fd2, NAND_BASE+NFORGECCH);	* for 1334567890 then all ff data */
-		break;
-
-	case NAND_ECC_WRITE:
-		s1 = foo9 ();
-		printk (KERN_DEBUG "!!! lf1000_enable_hwecc(NAND_ECC_WRITE)\n");
-		// MagicEyes data sheet says reading ECC resets ENCDONE bit
-		val32 = readl(NAND_BASE+NFECCH) & 0xffffff;
-		val32 = readl(NAND_BASE+NFECCL);
-		s3 = foo9 ();
-		/* Reading NAND_BASE+NFCNT does not help...
-		 *  x = readw(NAND_BASE+NFCNT); printk (KERN_DEBUG "    NFCNT = %08x\n", x); */
-		/* Reset the HW ECC block (without changing the interrupts pending)
-		 * Note: This was commented out of the VTK demo code, but it seems to help make writes consistent */
-		
-		x = readl(NAND_BASE+NFCONTROL);
-		x &= ~((1UL << ECCRST) | (1UL << IRQPEND));
-		x |= (1UL << ECCRST);
-		writel (x, NAND_BASE+NFCONTROL);
-
-		s5 = foo9 ();
-		printk (KERN_DEBUG "!!! lf1000_enable_hwecc(NAND_ECC_WRITE) s1=%d s3=%d s5=%d\n", s1,s3,s5);
-		break;
-
-	case NAND_ECC_READSYN:
-		printk (KERN_DEBUG "!!! lf1000_enable_hwecc(NAND_ECC_READSYN)\n");
-		/* wait for ECC decoder to be done */
-		while(IS_CLR(readl(NAND_BASE+NFECCSTATUS), NFECCDECDONE))
-			;
-
-		/* Pull out the 4 syndrome words */
-		x = readl(NAND_BASE+NFSYNDRONE75);
-		s7 = (x >> SYNDROM7) & 0x1fff;
-		s5 = (x >> SYNDROM5) & 0x1fff;
-		x = readl(NAND_BASE+NFSYNDRONE31);
-		s3 = (x >> SYNDROM3) & 0x1fff;
-		s1 = (x >> SYNDROM1) & 0x1fff;
-		printk (KERN_DEBUG "!!!! s1=%04x s3=%04x s5=%04x s7=%04x\n", s1, s3, s5, s7);
-		break;
-	}
-}
-
-/* 
- * Retrieve the ECC.  Since we have Syndrome mode, this function is called only
- * on writes.  Here we need to make sure that the ECC Encoder is done encoding,
- * and then retrieve the encoded ECC so that it can be written to the OOB area.
- */
-
-/* FYI: *dat is a 256 byte block of raw data */
-int lf1000_calculate_ecc(struct mtd_info *mtd, const uint8_t *dat,
-				uint8_t *ecc_code)
-{
-	int i = 0;
-	u32 ecch, eccl;
-
-	/* u32 x = readl(NAND_BASE+NFCNT);
-	   printk (KERN_DEBUG "    NFCNT = %08x\n", x); */
-
-	/* wait for ECC encoder to be done */
-	while(IS_CLR(readl(NAND_BASE+NFECCSTATUS), NFECCENCDONE))	/* Was readw */
-		;
-
-	eccl = readl(NAND_BASE+NFECCL);
-	ecch = readl(NAND_BASE+NFECCH) & 0xffffff;
-
-	/* retrieve encoded ECC, to be written to the OOB area */
-	/* Order of ecc_code 0=low[lsb]..3=low[msb],4=high[lsb]..7=high[msb] */
-	for(; i < 4; i++)
-	{
-		ecc_code[i] = eccl & 0xff;
-		eccl >>= 8;
-	}
-	for(; i < 7; i++)
-	{
-		ecc_code[i] = ecch & 0xff;
-		ecch >>= 8;
-	}
-	printk (KERN_DEBUG "!!!! lf1000_calculate_ecc (on write) '%10.10s' %02x %02x %02x %02x %02x %02x %02x\n", (char *)dat,
-		ecc_code[0], ecc_code[1], ecc_code[2], ecc_code[3], ecc_code[4], ecc_code[5], ecc_code[6]);
-
-	// eccl = readl(NAND_BASE+NFORGECCL);
-	// ecch = readl(NAND_BASE+NFORGECCH) & 0xffffff;
-	eccl = readl(NAND_BASE+NFCNT);
-	printk (KERN_DEBUG "!!!! lf1000_calculate_ecc cnt=%08x\n", eccl);
-
-
-	return 0;
-}
-
-/* This function is called on a read, after retrieving data and decoding the
- * ECC.  The hardware will generate an error bit and the Odd Syndrome.
- * Return: Number of corrected errors or -1 for failure */
-int lf1000_correct_ecc(struct mtd_info *mtd, uint8_t *dat,
-				uint8_t *read_ecc, uint8_t *calc_ecc)
-{
-	u32 x;
-	u16 s7, s5, s3, s1;
-	int lf1000_GetErrorLocation (int *pLocation, u16 s1, u16 s3, u16 s5, u16 s7);
-	int loc[5], numErrors, numFixed=0;
-	struct nand_chip *chip = mtd->priv;
-	int eccbytes = chip->ecc.bytes;
-	int eccsize = chip->ecc.size;
-
-	printk (KERN_DEBUG "!!! lf1000_correct_ecc\n");
-
-	/* wait for ECC decoder to be done */
-	while(IS_CLR(readl(NAND_BASE+NFECCSTATUS), NFECCDECDONE))
-		;
-	/* Check if hardware detected any error at all */
-	if(IS_SET(readl(NAND_BASE+NFECCSTATUS), NFCHECKERROR)) {
-		/* Erorr detected */
-		printk("!!!! mtd-lf1000: ECC reports an error\n");
-
-		/* TODO: Here we need to use the Odd Syndrome to determine the
-		 *       error position, and then try to fix it.
-		 */
-		
-		/* Pull out the 4 syndrome words */
-		x = readl(NAND_BASE+NFSYNDRONE75);
-		s7 = (x >> SYNDROM7) & 0x1fff;
-		s5 = (x >> SYNDROM5) & 0x1fff;
-		x = readl(NAND_BASE+NFSYNDRONE31);
-		s3 = (x >> SYNDROM3) & 0x1fff;
-		s1 = (x >> SYNDROM1) & 0x1fff;
-		loc[0] = loc[1] = loc[2] = loc[3] = loc[4] = -1;
-		numErrors= lf1000_GetErrorLocation (&loc, s1, s3, s5, s7);
-		printk (KERN_DEBUG "!!!! lf1000_correct_ecc: s1=%04x s3=%04x s5=%04x s7=%04x numErrors=%d Loc=%d,%d,%d,%d,%d\n", 
-			s1, s3, s5, s7, numErrors, loc[0], loc[1], loc[2], loc[3], loc[4]);
-
-		if (numErrors < 0)  /* uncorrectable errors */
-		{
-			/* Check if the section and its ECC area are completely
-			 * erased.  If they are, don't report an uncorrectable
-			 * error.
-			 * TODO: FIXME: Decide if this is what we ought to check
-			 *				that the entire page and OOB are FF before
-			 * saying that the "uncorrectable" error is due to an
-			 * erased and unwritten page.
-			 */
-			int eccSubIndex;
-			int dataIndex;
-			for (eccSubIndex = 0; eccSubIndex < eccbytes; ++eccSubIndex)
-			{
-				if (read_ecc[eccSubIndex] != 0xFF)
-					break;
-			}
-			/*  check the data only if all ECC bytes are 0xFF */
-			if (eccSubIndex >= eccbytes)
-			{
-				for (dataIndex = 0; dataIndex < eccsize; ++dataIndex)
-				{
-					if (dat[dataIndex] != 0xFF)
-						break;
-				}
-				if (dataIndex >= eccsize)
-				{
-					printk(KERN_INFO "Totally erased.  Ignoring ECC\n");
-					return 0;
-				}
-			}
-			/* If an uncorrectable error, increment mtd->ecc_stats.failed
-			 * and return immediately with an error indication
-			 */
-			if ((eccSubIndex < eccbytes) || (dataIndex < eccsize))
-			{
-				mtd->ecc_stats.failed++;
-				printk(KERN_INFO "Uncorrectable ECC error\n");
-
-				// Lets print everything out now
-				{
-					int i, j, b;
-					char chuf[128];
-					for (b=0, i=0; i<eccbytes; i++)
-						b+=sprintf (chuf+b, "%02x ", read_ecc[i]);
-					printk ("ECC: %s\n", chuf);
-					for (i=0; i<512; i+=16)
-					{
-						for (b=0, j=0; j<16; j++)
-							b+=sprintf (chuf+b, "%02x ", dat[i+j]);
-						printk ("%04x: %s\n", i, chuf);
-					}
-				}
-				// Fail and return IO error
-				return -EIO;
-			}
-		}
-		/* If there is one or more correctable errors
-		 * ('numErrors' is the number of correctable errors)
-		 */
-		else if (numErrors > 0)
-		{
-			int errorOffset;
-			int errorMask;
-			int j;
-			for (j = 0; j < numErrors; ++j)
-			{
-				int k;
-				for (k = 0; k < j; ++k)
-				{
-					if (loc[j] == loc[k])
-
-					{
-						break;	// break if we've already seen this error
-					}
-				}
-				if (k >= j)
-				{
-					// We've never before seen this bit flipped
-					errorOffset = loc[j] >> 3;
-					errorMask   = 1 << (loc[j] & 7);
-					/* We see errorOffset >= 512 when an ECC bit is in error
-					 * Don't bother correcting ECC bit errors, because the
-					 * bit positions might be beyond the end of the buffer.
-					 */
-					if (errorOffset < eccsize)
-					{
-						*(dat + errorOffset) ^= errorMask;
-					}
-					printk(KERN_INFO "  (%d, %d, x%02x)\n", loc[j], errorOffset, errorMask);
-					numFixed++;
-				}
-			}
-		}
-	}
-	return numFixed;
-}
+/* control registers */
+#define NAND_BASE	IO_ADDRESS(LF1000_MCU_S_BASE)
 
 /******************************************************************************
  * Lifted from Magic Eyes ./vtk/test/NAND_Flash/mes_nand.c
@@ -665,6 +217,56 @@ int lf1000_GetErrorLocation (int *pLocation, u16 s1, u16 s3, u16 s5, u16 s7)
 			return -1;
 		}
 	}
+}
+
+    /* returns 0 if no errors
+     *      N >0 if N errors were corrected
+     *        <0 if uncorrectable errors
+     */
+int TryToCorrectBCH_Errors( u8 * pData ) 
+{
+    u32 x, s7, s5, s3, s1;
+    int errorLocations[4];
+    int numErrors;
+    int eccsize  = 512;
+
+        /* Pull out the 4 syndrome words */
+    x  = readl(NAND_BASE+NFSYNDRONE75);
+    s7 = (x >> SYNDROM7) & 0x1fff;
+    s5 = (x >> SYNDROM5) & 0x1fff;
+
+    x  = readl(NAND_BASE+NFSYNDRONE31);
+    s3 = (x >> SYNDROM3) & 0x1fff;
+    s1 = (x >> SYNDROM1) & 0x1fff;
+
+    numErrors = lf1000_GetErrorLocation( &errorLocations[0], s1, s3, s5, s7);
+	    /* If there is one or more correctable errors 		 
+         * ('numErrors' is the number of correctable errors)
+	     */
+    if (numErrors > 0)
+    {
+        int errorOffset;
+        int errorMask;
+        int j;
+
+        printk( KERN_INFO "Found %d correctable ECC errors\n", numErrors);
+        for (j = 0; j < numErrors; ++j)
+        {
+            errorOffset = errorLocations[j] >> 3;
+            errorMask   = 1 << (errorLocations[j] & 7);
+		        /* We see errorOffset >= 512 when an ECC bit is in error
+		    	 * Don't bother correcting ECC bit errors, because the
+				 * bit positions might be beyond the end of the buffer.
+				 */
+			if (errorOffset < eccsize)
+			{
+                printk(KERN_INFO "Flip bit %d; offset %d; mask %02x\n",
+                        errorLocations[j], errorOffset, errorMask);
+               	*(pData + errorOffset) ^= errorMask;
+			}
+        }
+    }
+    return numErrors;
 }
 
 #endif /* CPU_LF1000 && CONFIG_MTD_NAND_LF1000_HWECC */

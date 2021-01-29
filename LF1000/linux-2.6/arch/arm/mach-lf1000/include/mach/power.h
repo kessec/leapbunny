@@ -21,5 +21,18 @@ enum lf1000_power_status {
 	BATTERY			= 2,	/* on battery power */
 	LOW_BATTERY		= 3,
 	CRITICAL_BATTERY	= 4,
+	NIMH			= 5,	/* on NIMH battery power   */
+	NIMH_CHARGER		= 6,	/* in NiMH battery charger */
 };
+
+enum lf1000_power_source {
+	POWER_UNKNOWN		= 0,	/* Unknown power source	*/
+	POWER_OTHER		= 1,	/* Unknown power source	*/
+	POWER_NIMH		= 2,	/* using NiMH battery */
+	POWER_NIMH_CHARGER	= 3,	/* in NiMH battery charger */
+	POWER_NIMH_EXTERNAL	= 4,	/* using NiMH with external power */
+	POWER_BATTERY		= 5,	/* standard battery */
+	POWER_EXTERNAL		= 6,	/* external power source */
+};
+	
 #endif

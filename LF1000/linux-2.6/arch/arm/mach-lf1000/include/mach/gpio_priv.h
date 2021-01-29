@@ -18,9 +18,9 @@
 #define GPIO_MAJOR		246
 
 struct gpio_device {
-	void *mem;
-	void *mem_cur;
-	void *amem;
+	void __iomem *mem;
+	void __iomem *mem_cur;
+	void __iomem *amem;
 	struct cdev cdev;
 	dev_t dev;
 	int devnum;

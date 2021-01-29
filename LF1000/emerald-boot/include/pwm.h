@@ -1,15 +1,15 @@
 /* pwm.h  -- PWM initialization
  *
- * Copyright 2009-2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
 
-#ifndef LIGHTNING_BOOT_PWM_H
-#define LIGHTNING_BOOT_PWM_H
+#ifndef __PWM_H__
+#define __PWM_H__
 
-void pwm_init(int board_id);
+void pwm_init(int channel);
 
-#endif /* LIGHTNING_BOOT_PWM_H */
+#endif /* __PWM_H__ */

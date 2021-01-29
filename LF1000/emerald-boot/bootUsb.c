@@ -1,6 +1,6 @@
 /* bootUsb.c -- boot USB device functions.
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -140,52 +140,65 @@
  * with the USB specification.
  *----------------------------------------------------------------------------*/
 
-#include "include/autoconf.h"
-#include "include/mach-types.h" /* for machine info */
-#include <mach/common.h>
-#include <mach/gpio.h>
-#include <mach/gpio_map.h>	/* GPIO button mappings */
+#include <board.h>
+#include <common.h>
+#include <base.h>
+#include <gpio.h>
+#include <gpio_map.h>
 
-#include "include/bootUdc.h"
-#include "include/bootUsb.h"
-#include "include/usb_payload.h"
-#include "include/scsi.h"
+#include <bootUdc.h>
+#include <bootUsb.h>
+#include <usb_payload.h>
+#include <scsi.h>
 #ifdef RAMDISK
-#include "include/ramdisk.h"
+#include <ramdisk.h>
 #else
 #define BYTES_PER_SECTOR 	0x200
 #endif
 
-#include "include/board.h"
-#include "include/cbf.h"
-#include "include/debug.h"
-#include "include/display.h"
-#include "include/mlc.h"
-#include "include/setup.h"
-#include "include/string.h"
-#include "include/screens.h"
-#include "include/versions.h"
+#include <buttons.h>
+#include <cbf.h>
+#include <debug.h>
+#include <display.h>
+#include <global.h>
+#include <mlc.h>
+#include <setup.h>
+#include <string.h>
+#include <screens.h>
+#include <versions.h>
+#include <lfp100.h>
 
-/* offsets from LF1000_IC_BASE */
+ /* offsets from IC_BASE */
 #define INTMODEL        0x08
 #define INTMODEH        0x0C
 #define INTMASKL        0x10
 #define INTMASKH        0x14
+#define PRIORDER        0x18
+#define INTPENDL        0x20
+#define INTPENDH        0x24
 
 #define POWER_PORT	GPIO_PORT_C	/* power button */
 #define POWER_PIN	GPIO_PIN20
 
+#if 1	// 6apr11
+#define TRUE   ((bool)1)
+#define FALSE  ((bool)0)
+#else
+const bool TRUE   = 1;
+const bool FALSE  = 0;
+#endif	// 6apr11
+
 void DisableInterrupts();
 void EnableInterrupts();
 void cleanup_for_linux(void);
-u32  calc_SDRAM_ADDRESS();
 void die(void);
 
 /*------------------------------------------------------------------------------
  * The USB descriptor structures (device, configuration, interface, endpoint)
  * and associated strings are in usbDescriptors.c
  *----------------------------------------------------------------------------*/
-#include "usbDescriptors.c"
+//#include "usbDescriptors.c"
+#include <usbDescriptors.h>
 
 /*---------------------------
  * Static Variables
@@ -270,7 +283,7 @@ static int TransmitCSW(void);
 
 static inline u32 now () {
 	u32 t;
-	volatile u32 *rtccntread = (u32 *)(LF1000_RTC_BASE+4);
+	volatile u32 *rtccntread = (u32 *)(RTC_BASE+4);
 	t = *rtccntread;
 	return t;
 }	
@@ -611,8 +624,6 @@ static void ClearEndpointDataPid(u32 dwEndpoint)
  *	If it obtained an entry address for the recovery kernel, this routine 
  *	calls calc_PARAMS_ADDRESS() to get the address of a buffer where the
  *	kernel's command line ought to be stored.  
- *	It also calls get_cmdline_buffer() to get the address of the command line
- *	that ought to be passed to the kernel.
  *	Then the routine disables the LF1000's USB controller, disables interrupts,
  *	and calls cleanup_for_linux(), which turns off and flushes the caches.
  *	The routine calls build_params(), which initializes the parameter structure
@@ -623,29 +634,28 @@ static void ClearEndpointDataPid(u32 dwEndpoint)
  *----------------------------------------------------------------------------*/
 void 	build_params(char *cmdline, struct tag *params);
 u32 	calc_PARAMS_ADDRESS();
-char  * get_cmdline_buffer ();
 
 static void JumpToKernel() 
 {
 	void * jumpAddr;
+	global_var * gptr = get_global();
 
 	if (0 == cbf_get_jump_address( &jumpAddr) ) {
 
 		struct tag * pParams = (struct tag *)calc_PARAMS_ADDRESS();
-		char *cmdline_buffer = get_cmdline_buffer ();
 
-		idb_puts (cmdline_buffer); idb_puts ("\n");
+		idb_puts (gptr->cmdline_buffer); idb_puts ("\n");
 		/* disable the USB controller */
-		BIT_SET(REG16(LF1000_UDC_BASE+UDC_PCR), PCE);
+		BIT_SET(REG16(UDC_BASE+UDC_PCR), PCE);
 
 		DisableInterrupts();
 		cleanup_for_linux();
-		build_params(cmdline_buffer, pParams);
+		build_params(gptr->cmdline_buffer, pParams);
 
             // Casting jumpAddr to u32 before casting it to a function pointer
             // prevents a warning from the compiler
 		((void(*)(int r0, int r1, unsigned int r2))((u32)jumpAddr))
-			(0, MACH_TYPE_DIDJ, (unsigned int)pParams);
+			(0, MACH_TYPE, (unsigned int)pParams);
 
             // We do not expect the kernel to return.  If it does, the unit
             // is in an unexpected and unknown condition.  Just power off.
@@ -653,7 +663,7 @@ static void JumpToKernel()
 	}
 	else
 	{
-		show_attention_needed ();
+		show_attention_needed();
 	}
 }
 
@@ -2082,7 +2092,7 @@ HandleEndpoint0Event(void)
 	}
 		/* if neither TST nor RSR, just return */
 	if (0 == (bEP0IrqStatus & (EP0_STS_TST_BIT | EP0_STS_RSR_BIT))) {
-		idb_putchar('-');
+		//idb_putchar('-');
 		idb_byte((char)bEP0IrqStatus);
 		return;
 	}
@@ -2198,23 +2208,6 @@ const unsigned char senseArray[ 15 ][ 3 ] =
     {0x02, 0x04, 0x01}     // senseNotReady               0x0e  
     };
 
-// data to be sent in response to an Inquiry command
-// SBC direct access device
-// Removable
-const unsigned char device_info[] = {
-#ifndef RAMDISK
-	0, 0, 0, 0, 0x1F, 0, 0, 0,
-#else	// with the RMB bit set
-	0, 0x80, 0, 0x01, 0x1F, 0, 0, 0,
-#endif
-	/* Vendor information: "LeapFrog" */
-	'L', 'e', 'a', 'p', 'f', 'r', 'o', 'g', 
-	/* Product information: "LeapsterExplorer" (max 16 chars) */
-	'L', 'e', 'a', 'p', 's', 't', 'e', 'r',
-	'E', 'x', 'p', 'l', 'o', 'r', 'e', 'r', 
-    /* Product Revision Level (#defined in versions.h) */
-    INQ_PRODUCT_REVISION_LEVEL
-};
 
 #ifdef RAMDISK
 	// This contains the last logical block address and the block length 
@@ -2902,7 +2895,7 @@ static void ProcessCBW()
 		case INQUIRY:
 			idb_putchar('I');
 			StdScsiInputRequest( cbwTag, cbwDataXferLen, tempbuf,
-								 device_info, sizeof(device_info));
+								 device_info, device_info_size);
 			break;
 
 #ifdef RAMDISK
@@ -3360,7 +3353,7 @@ HandleUSBBusIrq(u16 bUSBBusIrqStat)
 		if (wTstReg & USB_TEST_VBUS) {
 			if (vbusStatus == VBUS_STATUS_OFF) {
 				vbusStatus = VBUS_STATUS_ON;
-				idb_putchar('+');
+				//idb_putchar('+');
 				// After VBUS goes on, we expect the host will Reset the
 				// connection.  When we detect the reset, we'll initialize
 				// other variables.
@@ -3369,7 +3362,7 @@ HandleUSBBusIrq(u16 bUSBBusIrqStat)
 		else {
 			if (vbusStatus == VBUS_STATUS_ON) {
 				vbusStatus = VBUS_STATUS_OFF;
-				idb_putchar('-');
+				//idb_putchar('-');
 				// I think there's no need to change any other variables, 
 				// because we won't receive anything on USB while VBUS is off.
 			}
@@ -3415,7 +3408,7 @@ static void HandleUDC_Interrupt(void)
 	WriteReg(USB_INT_REG_OFFSET, bUSBBusIrqStat);
 	u16 wTstReg			= ReadReg(TEST_REG_OFFSET);
 
-	idb_putchar('+');
+	//idb_putchar('+');
 	if (bUSBBusIrqStat & (  USB_INT_BAERR_BIT		// byte align error 
 						  	| USB_INT_TMERR_BIT		// timeout error
 							| USB_INT_BSERR_BIT 	// bit stuff error
@@ -3437,7 +3430,7 @@ static void HandleUDC_Interrupt(void)
 	if(wTstReg & (USB_TEST_EUERR 				// EB Underrun error
 				  | USB_TEST_PERR))				// PID error
 	{
-		idb_putchar('-');
+		//idb_putchar('-');
 		SetRegBits(TEST_REG_OFFSET, 
 					wTstReg & (USB_TEST_EUERR | USB_TEST_PERR));
 		// call SetRegBits() instead of WriteReg() because the TEST register
@@ -3487,8 +3480,8 @@ void LF_IRQHandler() {
 	unsigned int pendL;
 	unsigned int pendH;
 
-	pendL = REG32(LF1000_IC_BASE+INTPENDL);
-	pendH = REG32(LF1000_IC_BASE+INTPENDH);
+	pendL = REG32(IC_BASE+INTPENDL);
+	pendH = REG32(IC_BASE+INTPENDH);
 
 		// If it's a UDC interrupt
 	if (pendL & 0x00100000)
@@ -3498,17 +3491,18 @@ void LF_IRQHandler() {
 	else idb_putchar(']');
 
 		// Clear the pending interrupt flags
-	REG32(LF1000_IC_BASE+INTPENDL) = pendL;
-	REG32(LF1000_IC_BASE+INTPENDH) = pendH;
+	REG32(IC_BASE+INTPENDL) = pendL;
+	REG32(IC_BASE+INTPENDH) = pendH;
 
-	idb_putchar('*');
+	//idb_putchar('*');
 }
 
 #ifdef RAMDISK
-int GetJumpButton(int board_id) {
+int GetJumpButton(void) {
 	int button_l;
+	global_var * gptr = get_global();
 
-	switch(board_id) {
+	switch(gptr->board_id) {
 	case LF1000_BOARD_DEV:
 		button_l = !gpio_get_val(DEV_BUTTON_PAUSE_PORT, DEV_BUTTON_PAUSE_PIN);
 		break;
@@ -3570,7 +3564,7 @@ int GetJumpButton(int board_id) {
  * detects an error before jumping to the kernel.
  *----------------------------------------------------------------------------*/
 
-void wait_for_usb_host(	int board_id)
+void wait_for_usb_host(struct display_module *disp)
 {
             // power_button_debouncer is initialized to -1.
             // when this code detects the power button as unpressed,
@@ -3579,10 +3573,14 @@ void wait_for_usb_host(	int board_id)
             // it increments power_button_debouncer.  When its value
             // equals a threshold, the code calls die() to power off the 
             // device.
-    int     power_button_debouncer;
-	u32		loop_counter;
-	u32		l_shldr_btn_pressed;
-    u32     cur_time;
+	int     power_button_debouncer;
+	u32	loop_counter;
+	u32	l_shldr_btn_pressed;
+	u32	cur_time;
+	int	power_button;
+
+	global_var * gptr = get_global();	/* point at global data area */
+
 
 	/* Configure the LF1000's UDC */
 	usb_init();
@@ -3592,12 +3590,12 @@ void wait_for_usb_host(	int board_id)
 		 * This makes all interrupt sources use Normal interrupt mode (IRQ)
 		 * instead of Fast interrupt mode (FIQ).
 		 */
-	REG32(LF1000_IC_BASE+INTMODEL) = 0;
-	REG32(LF1000_IC_BASE+INTMODEH) = 0;
+	REG32(IC_BASE+INTMODEL) = 0;
+	REG32(IC_BASE+INTMODEH) = 0;
 	db_puts("...1\n");
 		/* Mask all interrupts except UDC           */
-	REG32(LF1000_IC_BASE+INTMASKL) = ~(1 << 20);
-	REG32(LF1000_IC_BASE+INTMASKH) = ~0;
+	REG32(IC_BASE+INTMASKL) = ~(1 << 20);
+	REG32(IC_BASE+INTMASKH) = ~0;
 	db_puts("...2\n");
 
 		/* Enable interrupts                        */
@@ -3612,7 +3610,7 @@ void wait_for_usb_host(	int board_id)
 	while (1) {
 #ifdef RAMDISK
 		if ((loop_counter & 0x01ffff) == 0) {
-			if (GetJumpButton(board_id)) {
+			if (GetJumpButton()) {
 				if (!l_shldr_btn_pressed) {
 					// show_update_in_progress ();
 					db_puts("L\n");
@@ -3644,14 +3642,20 @@ void wait_for_usb_host(	int board_id)
 			idb_output();
 		}
 		if ((++loop_counter & 0x01ffff) == 0) {
-			db_puts(">>\n");
+			//db_puts(">>\n");
 
-			// If the power button is pressed, check if it has been released
-            // and if it was pressed during the previous pass through here.
-            // (This provides a little debouncing of the button press.)  
+		// If the power button is pressed, check if it has been released
+		// and if it was pressed during the previous pass through here.
+		// (This provides a little debouncing of the button press.)  
             // If it was, call die() to power off.
 
-			if (gpio_get_val(POWER_PORT, POWER_PIN))
+			if (gptr->use_lfp100)
+				power_button = lfp100_get_power_button();
+			else
+				power_button =
+					gpio_get_val(POWER_PORT, POWER_PIN);
+
+			if (power_button)
 			{
 
 #define POWER_OFF_THRESHOLD 2
@@ -3672,7 +3676,7 @@ void wait_for_usb_host(	int board_id)
 			{
 				die ();
 			}
-            db_puts("now: "); db_int(cur_time); db_puts("\n");
+            //db_puts("now: "); db_int(cur_time); db_puts("\n");
 		}
 
 		// Show a new screen if there was a change: timeout, or vbus changing state

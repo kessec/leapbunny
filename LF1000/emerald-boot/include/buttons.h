@@ -1,6 +1,8 @@
 /* buttons.h -- Button mapping API.
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
+ *
+ * Andrey Yurovsky <ayurovsky@leapfrog.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -16,11 +18,11 @@ struct buttons_state {
 	unsigned ls		: 1;
 	unsigned rs		: 1;
 	unsigned p		: 1;
-	unsigned hint	: 1;
+	unsigned hint		: 1;
 	unsigned up		: 1;
-	unsigned down	: 1;
+	unsigned down		: 1;
 };
 
-void buttons_get_state(int board_id, struct buttons_state *b);
+void buttons_get_state(struct buttons_state *b);
 
 #endif /* __BUTTONS_H__ */

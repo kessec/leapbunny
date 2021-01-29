@@ -1,6 +1,6 @@
 /* bbtest.h - test code for bad block handling / kernel loading
  *
- * Copyright 2010 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as

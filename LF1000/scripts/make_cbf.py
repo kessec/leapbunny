@@ -50,7 +50,7 @@ def pack_file(path):
 	return size
 
 def crc(buf):
-	a = array.array ('L', buf)
+	a = array.array ('i', buf)
 	crc = 0;
 	for c in a:
 		crc = 1 + (crc ^ c)
@@ -81,13 +81,13 @@ if __name__ == '__main__':
 	if not size:
 		sys.exit(1)
 	# MAGIC, VERSION, load, jump, len, crc, <data>, crc
-	summary = struct.pack('lLLLL', CBF_MAGIC, CBF_VERSION, 
+	summary = struct.pack('iiiii', CBF_MAGIC, CBF_VERSION, 
 			      KERNEL_LOAD, KERNEL_JUMP, size)
 	# Tack on crcs
 	summary_crc = crc(summary)
-	summary += struct.pack('L', summary_crc)
+	summary += struct.pack('i', summary_crc)
 	buffer_crc = crc(buffer);
-	buffer += struct.pack('L', buffer_crc)
+	buffer += struct.pack('i', buffer_crc)
 	print "summary crc=%08x buffer crc=%08x buffer len=%08x" \
 	    % (summary_crc, buffer_crc, size)
 

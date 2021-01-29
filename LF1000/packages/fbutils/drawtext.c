@@ -1,8 +1,6 @@
 /* Example for writing mono-spaced text glyphs to the frame buffer */
 /* Each text glyph is 8x16 RGB pixels mapped to ASCII char codes 0x20..0x80 in rows of 0x10 */
 
-#define _FILE_OFFSET_BITS	64	// for correct off_t type
-
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>
@@ -17,6 +15,8 @@
 #include <stdlib.h>
 
 #include <linux/lf1000/mlc_ioctl.h>
+
+#include "check-fb.h"
 
 int main(int argc, char **argv)
 {
@@ -34,7 +34,12 @@ int main(int argc, char **argv)
 	unsigned char* d;
 	const char * text = "Hello World";
 	enum mode_type { normal=0, invert=1 } mode=normal;
-	
+
+	if (have_framebuffer()) {
+		printf("Error: this tool isn't compatible with FB graphics\n");
+		return 1;
+	}
+
 	if(argc < 4) {
 		printf("Draw mono-spaced text glyphs to a frame buffer.\n"
 			   "\tusage: drawtext <layer> <rgb_file> <text> [<row> [<col> [<mode>]]]\n"

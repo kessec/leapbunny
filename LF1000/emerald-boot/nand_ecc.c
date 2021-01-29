@@ -1,6 +1,6 @@
 /* nand_ecc.c -- Routines and data for computing 1-bit ECC and correcting errors
  *
- * Copyright 2009 LeapFrog Enterprises Inc.
+ * Copyright 2009-2011 LeapFrog Enterprises Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -8,14 +8,13 @@
  *
  */
 
-#include "include/autoconf.h"
-#include "include/board.h"
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/nand.h>
-#include <mach/gpio.h>
+#include <board.h>
+#include <common.h>
+#include <base.h>
+#include <nand.h>
+#include <nand_controller.h>
+#include <debug.h>
 
-#include "include/debug.h"
 
 // Moved here from linux/drivers/mtd/nand/nand_ecc.c
 typedef unsigned int uint32_t;
@@ -311,7 +310,7 @@ int nand_calculate_ecc( const unsigned char *buf, unsigned char *code)
 	 * possible, but benchmarks showed that on the system this is developed
 	 * the code below is the fastest
 	 */
-#ifdef CONFIG_MTD_NAND_ECC_SMC
+#ifdef BOARD_NAND_ECC_SMC
 	code[0] =
 	    (invparity[rp7] << 7) |
 	    (invparity[rp6] << 6) |
@@ -399,7 +398,7 @@ int nand_correct_data( unsigned char *buf,
 	 * we might need the xor result  more than once,
 	 * so keep them in a local var
 	*/
-#ifdef CONFIG_MTD_NAND_ECC_SMC
+#ifdef BOARD_NAND_ECC_SMC
 	b0 = read_ecc[0] ^ calc_ecc[0];
 	b1 = read_ecc[1] ^ calc_ecc[1];
 #else
@@ -473,13 +472,7 @@ int nand_correct_data( unsigned char *buf,
  * MES_NAND_GetErrorLocation( int *pLocation )
  ******************************************************************************/
 
-#if 1   // 4mar10
 #include "bch_tables.c"
-#else
-extern const short BCH_AlphaToTable[8192];
-extern const short BCH_IndexOfTable[8192];
-extern const unsigned int BCH_TGRTable[52][2];
-#endif
 
 //------------------------------------------------------------------------------
 // Derived from Magic Eyes's
@@ -504,27 +497,22 @@ int lf1000_GetErrorLocation (int *pLocation, u16 s1, u16 s3, u16 s5, u16 s7)
     s[6] = s7;
 
     // Even syndrome = (Odd syndrome) ** 2
-    for( i=1,j=0 ; i<8 ; i+=2, j++ )
-    {
+    for( i=1,j=0 ; i<8 ; i+=2, j++ ) {
         if( s[j] == 0 ) s[i] = 0;
         else            s[i] = BCH_AlphaToTable[ (2 * BCH_IndexOfTable[s[j]])
                                                 % 8191];
     }
 
     // Initialization of elp, B and register
-    for( i=0 ; i<=8 ; i++ )
-    {
+    for( i=0 ; i<=8 ; i++ ) {
         L[i] = 0 ;
-        for( j=0 ; j<=8 ; j++ )
-        {
+        for( j=0 ; j<=8 ; j++ ) {
             elp[i][j] = 0 ;
             B[i][j] = 0 ;
         }
     }
 
-    for( i=0 ; i<=4 ; i++ )
-    {
-        //      root[i] = 0 ;
+    for( i=0 ; i<=4 ; i++ ) {
         reg[i] = 0 ;
     }
 
@@ -537,57 +525,43 @@ int lf1000_GetErrorLocation (int *pLocation, u16 s1, u16 s3, u16 s5, u16 s7)
     else
         B[1][0] = 0;
 
-    for( r=3 ; r<=8-1 ; r=r+2 )
-    {
+    for( r=3 ; r<=8-1 ; r=r+2 ) {
         // Compute discrepancy
         Delta = s[r-1] ;
-        for( i=1 ; i<=L[r-2] ; i++ )
-        {
+        for( i=1 ; i<=L[r-2] ; i++ ) {
             if( (s[r-i-1] != 0) && (elp[r-2][i] != 0) )
                 Delta ^= BCH_AlphaToTable[(BCH_IndexOfTable[s[r-i-1]] 
                                            + BCH_IndexOfTable[elp[r-2][i]])
                                           % 8191];
         }
-
-        if( Delta == 0 )
-        {
+        if( Delta == 0 ) {
             L[r] = L[r-2] ;
-            for( i=0 ; i<=L[r-2] ; i++ )
-            {
+            for( i=0 ; i<=L[r-2] ; i++ ) {
                 elp[r][i] = elp[r-2][i];
                 B[r][i+2] = B[r-2][i] ;
             }
         }
-        else
-        {
+        else {
             // Form new error locator polynomial
-            for( i=0 ; i<=L[r-2] ; i++ )
-            {
+            for( i=0 ; i<=L[r-2] ; i++ ) {
                 elp[r][i] = elp[r-2][i] ;
             }
-
-            for( i=0 ; i<=L[r-2] ; i++ )
-            {
+            for( i=0 ; i<=L[r-2] ; i++ ) {
                 if( B[r-2][i] != 0 )
                     elp[r][i+2] ^= BCH_AlphaToTable[ (BCH_IndexOfTable[Delta] 
                                                 + BCH_IndexOfTable[B[r-2][i]]) 
                                                     % 8191];
             }
-
             // Form new scratch polynomial and register length
-            if( 2 * L[r-2] >= r )
-            {
+            if( 2 * L[r-2] >= r ) {
                 L[r] = L[r-2] ;
-                for( i=0 ; i<=L[r-2] ; i++ )
-                {
+                for( i=0 ; i<=L[r-2] ; i++ ) {
                     B[r][i+2] = B[r-2][i];
                 }
             }
-            else
-            {
+            else {
                 L[r] = r - L[r-2];
-                for( i=0 ; i<=L[r-2] ; i++ )
-                {
+                for( i=0 ; i<=L[r-2] ; i++ ) {
                     if( elp[r-2][i] != 0 )
                         B[r][i] = BCH_AlphaToTable[
                                             (BCH_IndexOfTable[elp[r-2][i]]
@@ -600,60 +574,49 @@ int lf1000_GetErrorLocation (int *pLocation, u16 s1, u16 s3, u16 s5, u16 s7)
         }
     }
 
-    if( L[8-1] > 4 )
-    {
+    if( L[8-1] > 4 ) {
         return -1;
     }
-    else
-    {
+    else {
         // Chien's search to find roots of the error location polynomial
         // Ref: L&C pp.216, Fig.6.1
         for( i=1 ; i<=L[8-1] ; i++ )
             reg[i] = elp[8-1][i];
 
         count = 0;
-        for( i=1 ; i<=8191 ; i++ )
-        {
+        for( i=1 ; i<=8191 ; i++ ) {
             elp_sum = 1;
-            for( j=1 ; j<=L[8-1] ; j++ )
-            {
-                if( reg[j] != 0 )
-                {
+            for( j=1 ; j<=L[8-1] ; j++ ) {
+                if( reg[j] != 0 ) {
                     reg[j] = BCH_AlphaToTable[(BCH_IndexOfTable[reg[j]] + j)
                                               % 8191] ;
                     elp_sum ^= reg[j] ;
                 }
             }
-
-            if( !elp_sum )      // store root and error location number indices
-            {
+            if( !elp_sum ) {    // store root and error location number indices
                 // Convert error location from systematic form to storage form
                 pLocation[count] = 8191 - i;
 
-                if (pLocation[count] >= 52)
-                {
+                if (pLocation[count] >= 52) {
                     // Data Bit Error
                     pLocation[count] = pLocation[count] - 52;
                     pLocation[count] = 4095 - pLocation[count];
                 }
-                else
-                {
+                else {
                     // ECC Error
                     pLocation[count] = pLocation[count] + 4096;
                 }
-
-                if( pLocation[count] < 0 )  return -1;
+                if( pLocation[count] < 0 )  
+                    return -1;
 
                 count++;
             }
         }
 
-        if( count == L[8-1] ) // # of roots = degree of elp hence <= 4 errors
-        {
+        if( count == L[8-1] ) { // # of roots = degree of elp hence <= 4 errors
             return L[8-1];
         }
-        else  // Number of roots != degree of ELP => >4 errors and cannot solve
-        {
+        else { // Number of roots != degree of ELP => >4 errors and cannot solve
             return -1;
         }
     }
@@ -676,11 +639,11 @@ int TryToCorrectBCH_Errors(u8 * pData, u8 * readECC)
         /* Pull out the 4 syndrome words */
 			
 
-    x  = REG32(LF1000_MCU_S_BASE+NFSYNDRONE75);
+    x  = REG32(MCU_S_BASE+NFSYNDRONE75);
     s7 = (x >> SYNDROM7) & 0x1fff;
     s5 = (x >> SYNDROM5) & 0x1fff;
 
-    x  = REG32(LF1000_MCU_S_BASE+NFSYNDRONE31);
+    x  = REG32(MCU_S_BASE+NFSYNDRONE31);
     s3 = (x >> SYNDROM3) & 0x1fff;
     s1 = (x >> SYNDROM1) & 0x1fff;
 
@@ -716,10 +679,10 @@ int TryToCorrectBCH_Errors(u8 * pData, u8 * readECC)
 		    }
 		}
     }
-	    /* If there is one or more correctable errors 		 * ('numErrors' is the number of correctable errors)
+	    /* If there is one or more correctable errors 		 
+         * ('numErrors' is the number of correctable errors)
 	     */
-    else if (numErrors > 0)
-    {
+    else if (numErrors > 0) {
         int errorOffset;
         int errorMask;
         int j;
@@ -728,20 +691,18 @@ int TryToCorrectBCH_Errors(u8 * pData, u8 * readECC)
         {
             errorOffset = errorLocations[j] >> 3;
             errorMask   = 1 << (errorLocations[j] & 7);
-serio_puts("Flip bit "); serio_int(errorLocations[j]);
-serio_puts("; offset "); serio_int(errorOffset);
-serio_puts("; mask ");   serio_byte(errorMask);
-serio_puts("\n");
+            serio_puts("Flip bit "); serio_int(errorLocations[j]);
+            serio_puts("; offset "); serio_int(errorOffset);
+            serio_puts("; mask ");   serio_byte(errorMask);
+            serio_puts("\n");
 		        /* We see errorOffset >= 512 when an ECC bit is in error
 		    	 * Don't bother correcting ECC bit errors, because the
 				 * bit positions might be beyond the end of the buffer.
 				 */
-			if (errorOffset < eccsize)
-			{
+			if (errorOffset < eccsize) {
             //  TODO: FIXME: test error detection/correction.
                	*(pData + errorOffset) ^= errorMask;
 			}
-
         }
     }
     return numErrors;

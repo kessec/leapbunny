@@ -1,17 +1,72 @@
 #!/bin/sh
 
-# Load the touchscreen calibration into the touchscreen driver
+log ()
+{
+	echo $1
+	logger -s -t "Emerald Base" -p local4.notice "$1"
+}
+
+# See if we find a new calibration file for non-pointercal data
+NEWCAL=/flags/set-ts.sh
+if [ -x $NEWCAL -a -s $NEWCAL ]; then
+	log "setcal: Reading TS sensitivity calibration data from $NEWCAL"
+else
+	log "setcal: Missing TS sensitivity calibration data file: $NEWCAL"
+	log "setcal: Creating new one from 'tsp' region in NOR..."
+	mfgdata get tsp > $NEWCAL
+	chmod +x $NEWCAL
+fi
+
+# Run it
+$NEWCAL
+if [ $? == 0 ]; then
+	log "setcal: $NEWCAL success"
+	# Based on version, set "tails" flag on for older, off for newer
+	SYS=/sys/devices/platform/lf1000-touchscreen
+	version=$(grep "Version=" $NEWCAL | cut -d = -f 2)
+	tails=0 # Fix bug for newer calibrations
+	if [ $version -lt 4 ]; then
+		tails=1 # Older calibrations, leave bug on
+	fi
+	log "setcal: Setting tails to $tails based on $NEWCAL version $version"
+	echo $tails > $SYS/tails
+else
+	if grep "ILI6480G2" /proc/cmdline > /dev/null; then
+		log "setcal: $NEWCAL generated from missing or corrupted NOR 'tsp' data; using defaults for 5inch"
+		SYS=/sys/devices/platform/lf1000-touchscreen
+		echo 50 > $SYS/max_tnt_down
+		echo 500 > $SYS/min_tnt_up
+		echo 20 > $SYS/max_delta_tnt
+		echo 30 > $SYS/delay_in_us
+		echo 15 > $SYS/y_delay_in_us
+		echo 40 > $SYS/tnt_delay_in_us
+		echo "384 777 806 821 848 1061 1102 1133 1186" > $SYS/pressure_curve
+		# ILI9322
+		# NT39016
+		# HX8238
+	else
+		log "setcal: $NEWCAL generated from missing or corrupted NOR 'tsp' data; using defaults for 3inch"
+	fi
+	# log "setcal: ###### To remove this message, please calibrate with ######"
+	# log "setcal: ###### new-calib, then run this line to update NOR:  ######"
+	# log "setcal: ###### mfgdata set tspr `cat /tmp/mfgdata-tspr-data` ######"
+fi
+
+# Load the touchscreen calibration matrix into the touchscreen driver
 USERCAL=/flags/pointercal
 MFGDATA=/usr/bin/mfgdata
 DEFAULT=/sys/devices/platform/lf1000-touchscreen/pointercal
 SETCAL=/sys/devices/platform/lf1000-touchscreen
 
-# Add ability to force calibration by holding hint during boot
-. /usr/bin/recovery-functions
-if button_down $BUTTON_HINT; then
-	touch /tmp/force_cal # force calibration
-	touch /tmp/splash # skip movie too
-fi
+# RTD 7/18/2011: Remove this because Madrids were getting mysteriously recal'd
+# and we think this is because it was too easy to enter cal program
+# 
+## Add ability to force calibration by holding hint during boot
+# . /usr/bin/recovery-functions
+# if button_down $BUTTON_HINT || button_down $BUTTON_ESC; then
+# 	touch /tmp/force_cal # force calibration
+# 	touch /tmp/splash # skip movie too
+# fi
 
 validate ()
 {
@@ -42,13 +97,14 @@ validate ()
 # Give to driver
 accept ()
 {
-	echo $3 > $SETCAL/a0
-	echo $1 > $SETCAL/a1
-	echo $2 > $SETCAL/a2
-	echo $6 > $SETCAL/a3
-	echo $4 > $SETCAL/a4
-	echo $5 > $SETCAL/a5
-	echo $7 > $SETCAL/a6
+	# echo $3 > $SETCAL/a0
+	# echo $1 > $SETCAL/a1
+	# echo $2 > $SETCAL/a2
+	# echo $6 > $SETCAL/a3
+	# echo $4 > $SETCAL/a4
+	# echo $5 > $SETCAL/a5
+	# echo $7 > $SETCAL/a6
+	echo $* > $DEFAULT
 }
 
 # Atomic Save in NAND for faster access next time
@@ -60,12 +116,6 @@ save ()
 	# is an atomic write (i.e, mv).  And /flags is 777, so anyone can mv.
 	sync # I want fsync here, but I don't know how to get it.
 	mv $USERCAL.new $USERCAL
-}
-
-log ()
-{
-	echo $1
-	logger -s -t "Emerald Base" -p local4.notice "$1"
 }
 
 # Pick the best pointercal data we can find...

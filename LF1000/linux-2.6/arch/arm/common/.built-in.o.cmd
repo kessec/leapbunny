@@ -1,1 +1,1 @@
-cmd_arch/arm/common/built-in.o :=  arm-linux-ld -EL    -r -o arch/arm/common/built-in.o arch/arm/common/ic-lf1000.o 
+cmd_arch/arm/common/built-in.o :=  rm -f arch/arm/common/built-in.o; arm-linux-ar rcs arch/arm/common/built-in.o

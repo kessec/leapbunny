@@ -1,6 +1,6 @@
 /* gpio.c -- GPIO functions.
  *
- * Copyright 2007-2010 LeapFrog Enterprises Inc.
+ * Copyright 2007-2011 LeapFrog Enterprises Inc.
  *
  * Andrey Yurovsky <ayurovsky@leapfrog.com>
  *
@@ -9,26 +9,25 @@
  * published by the Free Software Foundation.
  */
 
-#include "include/autoconf.h"
-#include "include/mach-types.h" /* for machine info */
-#include <mach/platform.h>
-#include <mach/common.h>
-#include <mach/gpio.h>
-#include <mach/gpio_hal.h>
+#include <common.h>
+#include <base.h>
+#include <gpio.h>
+#include <gpio_hal.h>
 
-#define GPIO32(x)	REG32(LF1000_GPIO_BASE+x)
-#define ALIVE32(x)	REG32(LF1000_ALIVE_BASE+x)
+#define GPIO32(x)		REG32(GPIO_BASE+x)
+#define ALIVE32(x)		REG32(ALIVE_BASE+x)
+#define GPIOCURRENT32(x)	REG32(GPIOCURRENT_BASE+x)
 
-int gpio_set_fn(enum gpio_port port, enum gpio_pin pin, enum gpio_function f)
+void gpio_set_fn(enum gpio_port port, enum gpio_pin pin, enum gpio_function f)
 {
 	u32 reg, tmp;
 
-	if(port == GPIO_PORT_ALV)
-		return -1;
+	if (port == GPIO_PORT_ALV)
+		return;
 	
 	reg = GPIOAALTFN0 + port*0x40;
 	
-	if(pin >= 16) {
+	if (pin >= 16) {
 		reg += 4;
 		pin -= 16;
 	}
@@ -38,22 +37,20 @@ int gpio_set_fn(enum gpio_port port, enum gpio_pin pin, enum gpio_function f)
 	tmp &= ~(3<<pin);
 	tmp |= (f<<pin);
 	GPIO32(reg) = tmp;
-
-	return 0;
 }
 
 void gpio_set_out_en(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 {
-	if(port == GPIO_PORT_ALV) {
+	u32 reg;
+
+	if (port == GPIO_PORT_ALV)
 		return;
-	}
-	else {
-		u32 reg = GPIOAOUTENB + port*0x40;
-		if(en)
-			BIT_SET(GPIO32(reg), pin);
-		else
-			BIT_CLR(GPIO32(reg), pin);
-	}
+
+	reg = GPIOAOUTENB + port*0x40;
+	if (en)
+		BIT_SET(GPIO32(reg), pin);
+	else
+		BIT_CLR(GPIO32(reg), pin);
 }
 
 /* TODO: add Alive port support, if needed */
@@ -66,12 +63,12 @@ void gpio_set_val(enum gpio_port port, enum gpio_pin pin, u8 en)
 {
 	u32 reg, set_reg, clr_reg;
 
-	if(port == GPIO_PORT_ALV) {
+	if (port == GPIO_PORT_ALV) {
 		/* enable writing to Alive registers */
 		BIT_SET(ALIVE32(ALIVEPWRGATEREG), NPOWERGATING);
 
 		/* we're operating an S/R flip-flop */
-		if(en) {
+		if (en) {
 			set_reg = ALIVEGPIOSETREG;
 			clr_reg = ALIVEGPIORSTREG;
 		}
@@ -90,7 +87,7 @@ void gpio_set_val(enum gpio_port port, enum gpio_pin pin, u8 en)
 	}
 
 	reg = GPIOAOUT + port*0x40;
-	if(en)
+	if (en)
 		BIT_SET(GPIO32(reg), pin);
 	else
 		BIT_CLR(GPIO32(reg), pin);
@@ -98,16 +95,16 @@ void gpio_set_val(enum gpio_port port, enum gpio_pin pin, u8 en)
 
 void gpio_set_pu(enum gpio_port port, enum gpio_pin pin, unsigned char en)
 {
-	if(port == GPIO_PORT_ALV) {
+	u32 reg;
+
+	if (port == GPIO_PORT_ALV)
 		return;
-	}
-	else {
-		u32 reg = GPIOAPUENB + port*0x40;
-		if(en)
-			BIT_SET(GPIO32(reg), pin);
-		else
-			BIT_CLR(GPIO32(reg), pin);
-	}
+
+	reg = GPIOAPUENB + port*0x40;
+	if (en)
+		BIT_SET(GPIO32(reg), pin);
+	else
+		BIT_CLR(GPIO32(reg), pin);
 }
 
 void gpio_configure_pin(enum gpio_port port, enum gpio_pin pin, 
@@ -117,6 +114,56 @@ void gpio_configure_pin(enum gpio_port port, enum gpio_pin pin,
 	gpio_set_out_en(port, pin, out_en);
 	gpio_set_pu(port, pin, pu_en);
 	gpio_set_val(port, pin, val);
+}
+
+/* get gpio pin drive current setting */
+unsigned long gpio_get_cur(enum gpio_port port, enum gpio_pin pin)
+{
+	u32 reg;
+
+	if((port == GPIO_PORT_ALV) ||
+			((port == GPIO_PORT_C) && (pin > GPIO_PIN19)))
+		/* We can't set current for GPIO ALIVE block or for GPIOC pins
+		 * above 19 
+		 */
+		return 0;
+
+	reg = port*8;
+	if(pin < 16) {
+		reg += GPIOPADSTRENGTHGPIOAL;
+	} else {
+		reg += GPIOPADSTRENGTHGPIOAH;
+		pin -= 16;
+	}
+	return ((GPIOCURRENT32(reg) >> (pin<<1)) & 0x3);
+}
+
+/* set the drive current for the gpio pin */
+void gpio_set_cur(enum gpio_port port, enum gpio_pin pin, enum gpio_current cur)
+{
+	u32 reg;
+	unsigned long tmp;
+
+	if( (port == GPIO_PORT_ALV) ||
+			((port == GPIO_PORT_C) && (pin > GPIO_PIN19)))
+		/* We can't set current for GPIO ALIVE block or for
+		 * GPIOC pins above 19 
+		 */
+		return;
+
+	reg = port*8;
+	if(pin < 16) {
+		reg += GPIOPADSTRENGTHGPIOAL;
+	} else {
+		reg += GPIOPADSTRENGTHGPIOAH;
+		pin -= 16;
+	}
+
+	tmp = GPIOCURRENT32(reg);
+	tmp &= ~(0x3 << (pin<<1));
+	tmp |= (cur << (pin<<1));
+	GPIOCURRENT32(reg) = tmp;
+
 }
 
 u32 gpio_get_scratchpad(void)

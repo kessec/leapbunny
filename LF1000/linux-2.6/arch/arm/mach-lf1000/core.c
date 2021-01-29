@@ -28,6 +28,7 @@
 #include <mach/gpio.h>
 #include <mach/gpio_hal.h>
 #include <mach/gpio_map.h>
+#include <mach/lfp100.h>
 #include <mach/timer.h>
 #include <mach/ic.h>
 #include <linux/cnt32_to_63.h>
@@ -39,6 +40,8 @@
 #include <mach/lf1000.h>
 #include <asm/hardware/vic.h>
 #include <asm/mach-types.h>
+
+#include <plat/irq.h>
 
 #include <asm/mach/arch.h>
 #include <asm/mach/flash.h>
@@ -60,31 +63,6 @@ static u64 dma_mask_default = 0xffffffffUL;
  * is the start of the Interrupt Controller registers, LF1000_IC_BASE starts
  * with a coupe of words that are reserved.
  */
-#define LF1000_VA_IC_BASE	IO_ADDRESS(LF1000_IC_BASE+INTMODEL)
-
-#define	BP( bit_position)	( (u64)1ULL << bit_position)
-void __init lf1000_init_irq(void)
-{
-	ic_init(__io(LF1000_VA_IC_BASE), IRQ_IC_START,
-			BP(LF1000_SYS_TIMER_IRQ)|
-			BP(LF1000_DMA_IRQ)	|
-			BP(LF1000_ADC_IRQ)	|
-			BP(LF1000_AUDIO_IRQ)	|
-			BP(LF1000_SPI0_IRQ)	|
-			BP(LF1000_SPI1_IRQ)	|
-			BP(LF1000_SPI2_IRQ)	|
-			BP(LF1000_GPIO_IRQ)	|
-			BP(LF1000_I2C0_IRQ)	|
-			BP(LF1000_I2C1_IRQ)	|
-			BP(LF1000_RTC_IRQ)	|
-			BP(LF1000_SYS_UART_IRQ)	|
-			BP(LF1000_UDC_IRQ)	|
-			BP(LF1000_UHC_IRQ)	|
-			BP(LF1000_AUDIO_IRQ)	|
-			BP(LF1000_SDIO0_IRQ)	|
-			BP(LF1000_SDIO1_IRQ)	|
-			BP(LF1000_EXTINT1));
-}
 
 static struct map_desc lf1000_io_desc[] __initdata = {
 	{	/* SHADOW bit fixup code assumes first entry has NAND info */
@@ -116,17 +94,14 @@ static struct map_desc lf1000_io_desc[] __initdata = {
 void __init lf1000_map_io(void)
 {
 	/* fixup NAND address based on SHADOW bit setting */
-	if (IS_SET(REG32(IO_ADDRESS(LF1000_MCU_S_BASE + NFCONTROL)),NFBOOTENB)) {
+	if (lf1000_is_shadow()) {
 		lf1000_io_desc[0].virtual = IO_ADDRESS(LF1000_NAND_BASE_HIGH);
 		lf1000_io_desc[0].pfn    = __phys_to_pfn(LF1000_NAND_BASE_HIGH);
 	} else {
 		lf1000_io_desc[0].virtual = IO_ADDRESS(LF1000_NAND_BASE_LOW);
 		lf1000_io_desc[0].pfn     = __phys_to_pfn(LF1000_NAND_BASE_LOW);
 	}
-	/* TIMRD:2 / RESERVED:F / Low Precharge TRP:2 / RAS to CAS TRCD:2 */
-	writew(0x2F22, IO_ADDRESS(LF1000_MCU_Y_BASE + LF1000_MEMTIME0));
-	/* MODESET: 1 / RESERVED:0 / CAS LAT: 10 / TRC: 8 / TRAS:6 / TWR:2 */
-	writew(0x9862, IO_ADDRESS(LF1000_MCU_Y_BASE + LF1000_MEMTIME1));
+
 	/* PAD_STRENGTH_BUS: reduce drive to LCD */
 	writel(0x00fc0000, IO_ADDRESS(LF1000_GPIOCURRENT_BASE + GPIOPADSTRENGTHBUS));
 	iotable_init(lf1000_io_desc, ARRAY_SIZE(lf1000_io_desc));
@@ -182,6 +157,25 @@ struct resource lf1000_i2c1_resources[] = {
 	},
 };
 
+/* supported I2C devices (boards) */
+
+static struct i2c_board_info __initdata lf1000_i2c_codec_cs43l22 = {
+	I2C_BOARD_INFO("CS43L22", 0x94),
+	.irq = 0,
+};
+
+static struct i2c_board_info __initdata lf1000_i2c_codec_lfp100 = {
+	I2C_BOARD_INFO("lfp100-codec", 0xCC),
+	.irq = 0,
+};
+
+static struct i2c_board_info __initdata lf1000_i2c_chip_lfp100 = {
+	I2C_BOARD_INFO("lfp100-chip", 0x0),
+	.irq = 0,
+};
+
+/* supported I2C busses (channels) */
+
 struct platform_device lf1000_i2c_devices[] = {
 	[0] = {
 		.name			= "lf1000-i2c",
@@ -198,8 +192,17 @@ struct platform_device lf1000_i2c_devices[] = {
 };
 #endif /* defined CONFIG_I2C_LF1000 || CONFIG_I2C_LF1000_MODULE */
 
-#if defined CONFIG_MMC_LF1000 || defined CONFIG_MMC_LF1000_MODULE
-struct resource lf1000_sdio_resources[] = {
+struct platform_device lf1000_asoc_device = {
+	.name				= "didj-asoc",
+	.id				= -1,
+	.resource			= NULL,
+	.num_resources			= 0,
+};
+
+#if defined CONFIG_MMC_MES || defined CONFIG_MMC_MES_MODULE
+
+#ifdef CONFIG_MMC_MES_CHANNEL0
+struct resource lf1000_sdhc0_resources[] = {
 	[0] = {
 		.start		= LF1000_SDIO0_BASE,
 		.end		= LF1000_SDIO0_END,
@@ -210,25 +213,38 @@ struct resource lf1000_sdio_resources[] = {
 		.end		= LF1000_SDIO0_IRQ,
 		.flags		= IORESOURCE_IRQ,
 	},
-	[2] = {
+};
+
+struct platform_device lf1000_sdhc0_device = {
+	.name			= "mes-sdhc",
+	.id			= 0,
+	.num_resources		= ARRAY_SIZE(lf1000_sdhc0_resources),
+	.resource		= lf1000_sdhc0_resources,
+};
+#endif
+
+#ifdef CONFIG_MMC_MES_CHANNEL1
+struct resource lf1000_sdhc1_resources[] = {
+	[0] = {
 		.start		= LF1000_SDIO1_BASE,
 		.end		= LF1000_SDIO1_END,
 		.flags		= IORESOURCE_MEM,
 	},
-	[3] = {
+	[1] = {
 		.start		= LF1000_SDIO1_IRQ,
 		.end		= LF1000_SDIO1_IRQ,
 		.flags		= IORESOURCE_IRQ,
 	},
 };
 
-struct platform_device lf1000_sdio_device = {
-	.name			= "lf1000-sdio",
-	.id			= -1,
-	.num_resources		= ARRAY_SIZE(lf1000_sdio_resources),
-	.resource		= lf1000_sdio_resources,
+struct platform_device lf1000_sdhc1_device = {
+	.name			= "mes-sdhc",
+	.id			= 1,
+	.num_resources		= ARRAY_SIZE(lf1000_sdhc1_resources),
+	.resource		= lf1000_sdhc1_resources,
 };
-#endif /* CONFIG_MMC_LF1000 || CONFIG_MMC_LF1000_MODULE */
+#endif
+#endif /* CONFIG_MMC_MES || CONFIG_MMC_MES_MODULE */
 
 struct resource lf1000_nand_resource = {
 	.start			= LF1000_NAND_BASE_LOW,
@@ -314,16 +330,20 @@ struct platform_device lf1000_rtc_device = {
 
 struct resource lf1000_fb_resources[] = {
 	[0] = {	/* frame buffer memory */
-		.start		= CONFIG_FB_LF1000_START_ADDR,
-		.end		= CONFIG_FB_LF1000_START_ADDR +
-				  CONFIG_FB_LF1000_SIZE,
+		.start		= LF1000_FB_START_ADDR,
+		.end		= LF1000_FB_START_ADDR+LF1000_FB_SIZE,
 		.flags		= IORESOURCE_MEM,
 	},
 	[1] = { /* MLC registers */
 		.start		= LF1000_MLC_BASE,
 		.end		= LF1000_MLC_END,
 		.flags		= IORESOURCE_MEM,
-	}
+	},
+	[2] = { /* DPC VSYNC */
+		.start		= LF1000_DPC_IRQ,
+		.end		= LF1000_DPC_IRQ,
+		.flags		= IORESOURCE_IRQ,
+	},
 };
 
 struct platform_device lf1000_fb_device = {
@@ -336,6 +356,19 @@ struct platform_device lf1000_fb_device = {
 	.num_resources		= ARRAY_SIZE(lf1000_fb_resources),
 	.resource		= lf1000_fb_resources,
 };
+
+/* Get MLC FB address and size from mlc_fb=ADDR,SIZE kernel cmd line arg */
+static int __init mlc_fb_setup(char *str)
+{
+	char *s;
+	lf1000_fb_resources[0].start = simple_strtol(str, &s, 0);
+	if (*s == ',')
+		lf1000_fb_resources[0].end = simple_strtol(s+1, &s, 0);
+	lf1000_fb_resources[0].end += lf1000_fb_resources[0].start;
+	return 1;
+}
+
+__setup("mlc_fb=", mlc_fb_setup);
 
 #else /* old graphics framework */
 
@@ -436,6 +469,14 @@ struct platform_device lf1000_alvgpio_device = {
 #if defined CONFIG_KEYBOARD_LF1000 || defined CONFIG_KEYBOARD_LF1000_MODULE
 struct platform_device lf1000_kp_device = {
 	.name			= "lf1000-keypad",
+	.id			= -1,
+	.num_resources		= 0,
+};
+#endif
+
+#if defined CONFIG_INPUT_LF1000_ACLMTR || defined CONFIG_INPUT_LF1000_ACLMTR_MODULE
+struct platform_device lf1000_aclmtr_device = {
+	.name			= "lf1000-aclmtr",
 	.id			= -1,
 	.num_resources		= 0,
 };
@@ -569,7 +610,7 @@ struct platform_device lf1000_spi_device_2 = {
 struct resource lf1000_dma_resources[] = {
 	[0] = {
 		.start		= LF1000_DMA_BASE,
-		.end		= LF1000_DMA_BASE + 2*1024 - 1,
+		.end		= LF1000_DMA_BASE + 8 * 0x80 - 1,
 		.flags		= IORESOURCE_MEM,
 	},
 	[1] = {
@@ -647,6 +688,15 @@ struct platform_device lf1000_clock_device = {
 static struct platform_device *devices[] __initdata = {
 	&lf1000_gpio_device,
 	&lf1000_alvgpio_device,
+	&lf1000_dma_device,
+#if defined CONFIG_MMC_MES || defined CONFIG_MMC_MES_MODULE
+#ifdef CONFIG_MMC_MES_CHANNEL0
+	&lf1000_sdhc0_device,
+#endif
+#ifdef CONFIG_MMC_MES_CHANNEL1
+	&lf1000_sdhc1_device,
+#endif
+#endif
 	&lf1000_nand_device,
 #ifdef CONFIG_MTD_LF1000
 	&lf1000_flash_device,
@@ -654,8 +704,8 @@ static struct platform_device *devices[] __initdata = {
 	&lf1000_pwm_device,
 #if defined CONFIG_I2C_LF1000 || CONFIG_I2C_LF1000_MODULE
 	&lf1000_i2c_devices[0],
-#endif
 	&lf1000_i2c_devices[1],
+#endif
 #if defined CONFIG_SPI_LF1000 || defined CONFIG_SPI_LF1000_MODULE
 #if defined CONFIG_SPI_LF1000_CHANNEL_0
 	&lf1000_spi_device_0,
@@ -677,18 +727,18 @@ static struct platform_device *devices[] __initdata = {
 #if defined(CONFIG_BACKLIGHT_LF1000_PWM) || defined (CONFIG_BACKLIGHT_LF1000_PWM_MODULE)
 	&lf1000_bl_device,
 #endif
-	&lf1000_dma_device,
 	&lf1000_udc_device,
 	&lf1000_uhc_device,
 	&lf1000_rtc_device,
 	&lf1000_audio_device,
+	&lf1000_asoc_device,
 	&lf1000_ga3d_device,
 	&lf1000_power_device,
-#if defined CONFIG_MMC_LF1000 || defined CONFIG_MMC_LF1000_MODULE
-	&lf1000_sdio_device,
-#endif
 #if defined CONFIG_KEYBOARD_LF1000 || defined CONFIG_KEYBOARD_LF1000_MODULE
 	&lf1000_kp_device,
+#endif
+#if defined CONFIG_INPUT_LF1000_ACLMTR || defined CONFIG_INPUT_LF1000_ACLMTR_MODULE
+	&lf1000_aclmtr_device,
 #endif
 	&lf1000_idct_device,
 	&lf1000_clock_device,
@@ -712,7 +762,11 @@ static void lf1000_poweroff(void)
 	gpio_set_val(GPIO_PORT_A, GPIO_PIN31, 0);       // PWMPUT[1]
 
 	/* cut the power */
-	gpio_set_val(GPIO_PORT_ALV, VDDPWRONSET, 0);
+	if (lfp100_have_lfp100()) {
+		lfp100_set_power_standby();
+	} else {
+		gpio_set_val(GPIO_PORT_ALV, VDDPWRONSET, 0);
+	}
 
 	arm_machine_restart('h', NULL);
 }
@@ -734,8 +788,6 @@ static void lf1000_restart(char mode, const char *cmd)
  * Machine Initialization
  */
 
-extern int lf1000_clock_dev_init(void);
-
 void __init lf1000_init(void)
 {
 	pm_power_off = lf1000_poweroff;
@@ -743,7 +795,7 @@ void __init lf1000_init(void)
 
 #ifdef CONFIG_MTD_LF1000
 	/* set NOR flash and NAND addresses depending on boot mode */
-	if (IS_SET(REG32(IO_ADDRESS(LF1000_MCU_S_BASE + NFCONTROL)),NFBOOTENB)) {
+	if (lf1000_is_shadow()) {
 		lf1000_flash_resource.start = LF1000_NOR_FLASH_BASE_HIGH0;
 		lf1000_nand_resource.start = LF1000_NAND_BASE_HIGH;
 	} else {
@@ -755,10 +807,15 @@ void __init lf1000_init(void)
 				    LF1000_NOR_FLASH_SIZE - 1;
 	lf1000_nand_resource.end  = lf1000_nand_resource.start +
 				    LF1000_NAND_SIZE - 1;
-#endif	
-	platform_add_devices(devices, ARRAY_SIZE(devices));
+#endif
 
-	lf1000_clock_dev_init();
+#if defined CONFIG_I2C_LF1000 || CONFIG_I2C_LF1000_MODULE
+	i2c_register_board_info(0, &lf1000_i2c_codec_cs43l22, 1);
+	i2c_register_board_info(0, &lf1000_i2c_codec_lfp100, 1);
+	i2c_register_board_info(0, &lf1000_i2c_chip_lfp100, 1);
+#endif
+
+	platform_add_devices(devices, ARRAY_SIZE(devices));
 }
 
 /* configure static bus timings as needed */
@@ -858,6 +915,23 @@ static unsigned long lf1000_gettimeoffset(void)
 }
 
 /*
+ * PLL1 changed, adjust other dependent timers
+ *
+ * currently have only the Linux system timer
+ */
+void lf1000_pll1_clock_changed(void)
+{
+	struct lf1000_timer* timer_p = get_timer_pnt(LF1000_SYS_TIMER);
+
+	/* update Linux system timer */
+	iowrite32(TIMER_SYS_TICK, &timer_p->tmrmatch);
+	iowrite32(0, &timer_p->tmrcount);
+	printk(KERN_INFO "%s.%d TIMER_SYS_TICK=%ld\n",
+		__FUNCTION__, __LINE__, TIMER_SYS_TICK);
+}
+EXPORT_SYMBOL(lf1000_pll1_clock_changed);
+
+/*
  * IRQ handler for the timer
  */
 static irqreturn_t lf1000_timer_interrupt(int irq, void *dev_id)
@@ -867,8 +941,6 @@ static irqreturn_t lf1000_timer_interrupt(int irq, void *dev_id)
 	struct lf1000_timer* timer_p = get_timer_pnt(LF1000_SYS_TIMER);
 	struct lf1000_timer* tick_p = get_timer_pnt(LF1000_INTERTICK_TIMER);
 	
-	//write_seqlock(&xtime_lock);
-
 	// ...clear the interrupt
 	clear_timer_irq(irq);
 

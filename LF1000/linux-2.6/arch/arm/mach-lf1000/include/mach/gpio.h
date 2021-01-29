@@ -94,7 +94,13 @@ enum gpio_resource {
 	TOUCHSCREEN_X2			= 21,
 	TOUCHSCREEN_Y2			= 22,
 	BUTTON_RED			= 23,
-	GPIO_NUMBER_VALUES		= 24,
+	EXT_POWER			= 24,
+	BUTTON_ESC			= 25,
+	DOCK_POWER			= 26,
+	BATTERY_PACK			= 27,
+	SD1_POWER			= 28,
+	LFP100_INT			= 29,
+	GPIO_NUMBER_VALUES		= 30,
 };
 
 /*
@@ -197,8 +203,6 @@ int gpio_get_val(enum gpio_port port, enum gpio_pin pin);
 /* get the pullup resistor setting */
 int gpio_get_pu(enum gpio_port port, enum gpio_pin pin);
 
-#ifndef _LF1000_BOOTLOADER /* not building a bootloader */
-
 #include <linux/interrupt.h>
 
 /* Interrupt handler type for gpio interrupts.  Both the gpio_port and gpio_pin
@@ -219,6 +223,9 @@ int gpio_get_fn(enum gpio_port port, enum gpio_pin pin);
  * input.
  */
 int gpio_set_out_en(enum gpio_port port, enum gpio_pin pin, unsigned char en);
+
+/* Get the output enable setting */
+int gpio_get_out_en(enum gpio_port port, enum gpio_pin);
 
 /* set or clear the pull-up enable */
 void gpio_set_pu(enum gpio_port port, enum gpio_pin pin, unsigned char en);
@@ -337,6 +344,9 @@ int gpio_have_gpio_emerald(void);
 /* have k2 board gpio layout? 1=yes */
 int gpio_have_gpio_k2(void);
 
+/* have madrid board gpio layout? 1=yes */
+int gpio_have_gpio_madrid(void);
+
 /* have tvout? 1=yes */
 int gpio_have_tvout(void);
 
@@ -376,6 +386,9 @@ int lf1000_l2p_port(enum gpio_resource logical_value);
 /* translate GPIO pin for different boards */
 int lf1000_l2p_pin(enum gpio_resource logical_value);
 
+unsigned long gpio_get_scratch(void);
+void gpio_set_scratch(unsigned long value);
+
 #ifdef CONFIG_LF1000_STRESS_TEST
 #define POWER_ERASE     0
 #define POWER_WRITE     1
@@ -385,7 +398,5 @@ void stress_config_power(void);
 void stress_cut_power(void);
 void stress_cut_cart(int cut);
 #endif /* CONFIG_LF1000_STRESS_TEST */
-
-#endif /* _LF1000_BOOTLOADER */
 
 #endif /* LF1000_GPIO_H */

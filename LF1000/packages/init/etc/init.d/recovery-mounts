@@ -9,11 +9,17 @@ if [ ! -e $SYS ]; then
 	exit 1
 fi
 
+# Madrid/ext?
+EXT=0
+if [ -e /sys/block/mmcblk0 ]; then
+	EXT=1
+fi
+
 # Two mounts points and flags to indicate doneness
 mp_root=/patient-rfs
 mp_bulk=/patient-bulk
 tp0=/tmp/ready_
-fs=/var/1.1.0.fs
+fs=/var/1.2.0.fs
 
 operation="$1"
 shift
@@ -49,7 +55,32 @@ case "$operation" in
 		if [ $operation == startro ]; then
 			rwmode=ro
 		fi
-		# Process each mount point we're interested
+
+		# For Madrid, do mounts the "easy" way.  [Not so easy now!]
+		if [ $EXT = 1 ]; then
+			# Process each mount point we're interested in
+			while read dev where name; do
+				# Early out if already mounted
+				if grep $dev /proc/mounts > /dev/null; then
+					echo "$dev already mounted"
+					continue;
+				fi
+				mount -o $rwmode $dev $where
+				if [ $? != 0 ]; then
+					echo "failed to mount $dev $where."
+				else
+					echo "success mounting $uv"
+				fi
+				# We're done: leave a flag 
+				touch ${tp0}$name
+			done <<EOF
+/dev/mmcblk0p3 $mp_root rfs
+/dev/mmcblk0p4 $mp_bulk bulk
+EOF
+			exit 0; # Early out for Madrid
+		fi
+
+		# Process each mount point we're interested in
 		# Get data from "here doc" about 50 lines down from, uh, here.
 		while read match name uv where; do
 			# Find match in $fs
@@ -95,7 +126,7 @@ case "$operation" in
 				fi
 				get_ud "$uv"
 				if [ -z "$ud" ]; then
-					echo "Failed to find $UV in /sys!  Impossible!!!"
+					echo "Failed to find $uv in /sys!  Impossible!!!"
 					continue;
 				fi
 			else
@@ -129,6 +160,25 @@ bulk.ubi Bulk ubi_bulk $mp_bulk
 EOF
 		;;
 	stop)
+		# For Madrid, do mounts the "easy" way.  [Not so easy now!]
+		if [ $EXT = 1 ]; then
+			for uv in /dev/mmcblk0p3 /dev/mmcblk0p4; do
+				# umount
+				if grep $uv /proc/mounts > /dev/null; then
+					umount $uv
+					res=$?
+					if [ $res != 0 ]; then
+						echo "failed to umount $uv $where: exit=$res"
+					else
+						echo "success: umount $where"
+					fi
+				else
+					echo "No mount for $uv found"
+				fi
+			done
+			exit 0; # Early out for Madrid
+		fi
+
 		# Undo three steps in reverse order
 		# 3) umount
 		# 2) ubi detach
@@ -137,7 +187,7 @@ EOF
 		while read uv; do
 			# umount
 			if grep $uv /proc/mounts > /dev/null; then
-				where=`awk /$uv/' { print $2; }' proc/mounts`
+				where=`awk /$uv/' { print $2; }' /proc/mounts`
 				umount $where
 				res=$?
 				if [ $res != 0 ]; then
