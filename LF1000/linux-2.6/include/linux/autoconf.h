@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.31
- * Fri Jan 29 05:58:32 2021
+ * Sat Jan 30 19:37:47 2021
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_UBIFS_FS_ZLIB 1

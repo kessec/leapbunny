@@ -1,0 +1,21 @@
+{
+	"ElementType": 3,
+	"ID": 0,
+	"Position": [160.000000, 120.000000],
+	"Animation":    [
+		{
+		"ElementType": 2,
+		"ID": 0,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 0,
+				"ID": 0,
+				"URL": "MyPage_Pet_DogBrown_NLG_Dog_Brown.png",
+				"Position": [-24.750000, 26.150000, 0.100000],
+				"Reg": [-2.000000, 66.000000]
+				}
+			]
+		}
+	]
+}

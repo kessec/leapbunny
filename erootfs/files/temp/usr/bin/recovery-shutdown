@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# No need for this, since recovery only runs on surgeon with no FR
+### logger -s -t "Emerald Base" -p local4.notice  "Recovery Shutdown ... !"
+
+# There are a couple of flags can check for success
+#   /tmp/incision if exists, indicates that a file was transferred
+#   /LF/doom is created by PC and removed after update is finished.  
+#       It should be gone, but it may never have been created USB yanked early,
+#       so make sure there was an incision first    	     
+#
+# Incision  Doom  Meaning
+# -----------------------
+#   no        no  Never started update.  UPDATE->Request
+#   no       yes  Impossible, since Surgeon file system is fresh every boot
+#  yes        no  Success: 0->Panic, PLAY->Request
+#  yes       yes  Interrupted transfer after starting 3->Panic
+
+if [ -e /LF/doom ]; then
+	echo "# Interrupted!  Set Panic"
+	echo 3 > /sys/devices/platform/lf1000-gpio/panic
+elif [ -e /tmp/incision ]; then
+	echo "# Success!  Clear Panic, set Play"
+	echo 0 > /sys/devices/platform/lf1000-gpio/panic
+	echo "PLAY" > /sys/devices/platform/lf1000-gpio/request
+else
+	echo "# Interrupted before DFTP started.  Request UPDATE again"
+	echo "UPDATE" > /sys/devices/platform/lf1000-gpio/request
+fi
+
+# echo "Try to umount patient's file systems"
+# /etc/init.d/recovery-mounts stop

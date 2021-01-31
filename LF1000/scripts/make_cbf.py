@@ -81,7 +81,7 @@ if __name__ == '__main__':
 	if not size:
 		sys.exit(1)
 	# MAGIC, VERSION, load, jump, len, crc, <data>, crc
-	summary = struct.pack('iiiii', CBF_MAGIC, CBF_VERSION, 
+	summary = struct.pack('iIIII', CBF_MAGIC, CBF_VERSION, 
 			      KERNEL_LOAD, KERNEL_JUMP, size)
 	# Tack on crcs
 	summary_crc = crc(summary)

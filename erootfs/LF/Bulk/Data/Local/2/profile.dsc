@@ -1,5 +1,0 @@
-ID=0x0
-Name=DAD
-Points=0x0
-Grade=0xff
-NumLoginsSinceLastConnect=0x52

@@ -1,0 +1,128 @@
+{
+	"BadgeEarnedLabelText": "BADGE EARNED",
+	"BadgesEarnedLabelText": "BADGES EARNED",
+	"YellowStarAwardText": "YELLOW STAR",
+	"YellowStarRangeText": "1 - 9",
+	"YellowStarAudio": [
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_10Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ABronzeMedal_3.mp3"
+	],
+	"BronzeMedalAwardText": "BRONZE MEDAL",
+	"BronzeMedalRangeText": "10 - 24",
+	"BronzeMedalAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ABronzeMedal_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_25Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ASilverMedal_3.mp3"
+	],
+	"SilverMedalAwardText": "SILVER MEDAL",
+	"SilverMedalRangeText": "25 - 49",
+	"SilverMedalAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ASilverMedal_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_50Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_AGoldMedal_3.mp3"
+	],
+	"GoldMedalAwardText": "GOLD MEDAL",
+	"GoldMedalRangeText": "50 - 99",
+	"GoldMedalAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_AGoldMedal_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_100Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ABronzePlaque_3.mp3"
+	],
+	"BronzePlaqueAwardText": "BRONZE PLAQUE",
+	"BronzePlaqueRangeText": "100 - 249",
+	"BronzePlaqueAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ABronzePlaque_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_250Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ASilverPlaque_3.mp3"
+	],
+	"SilverPlaqueAwardText": "SILVER PLAQUE",
+	"SilverPlaqueRangeText": "250 - 499",
+	"SilverPlaqueAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ASilverPlaque_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_500Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_AGoldPlaque_3.mp3"
+	],
+	"GoldPlaqueAwardText": "GOLD PLAQUE",
+	"GoldPlaqueRangeText": "500 - 749",
+	"GoldPlaqueAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_AGoldPlaque_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_750Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_APlatinumPlaque_3.mp3"
+	],
+	"PlatinumPlaqueAwardText": "PLATINUM PLAQUE",
+	"PlatinumPlaqueRangeText": "750 - 999",
+	"PlatinumPlaqueAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_APlatinumPlaque_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_1000Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ABronzeTrophy_3.mp3"
+	],
+	"BronzeTrophyAwardText": "BRONZE TROPHY",
+	"BronzeTrophyRangeText": "1,000 - 1,249",
+	"BronzeTrophyAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ABronzeTrophy_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_1250Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ASilverTrophy_3.mp3"
+	],
+	"SilverTrophyAwardText": "SILVER TROPHY",
+	"SilverTrophyRangeText": "1,250 - 1,499",
+	"SilverTrophyAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ASilverTrophy_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_1500Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_AGoldTrophy_3.mp3"
+	],
+	"GoldTrophyAwardText": "GOLD TROPHY",
+	"GoldTrophyRangeText": "1,500 - 1,749",
+	"GoldTrophyAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_AGoldTrophy_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_1750Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_APlatinumTrophy_3.mp3"
+	],
+	"PlatinumTrophyAwardText": "PLATINUM TROPHY",
+	"PlatinumTrophyRangeText": "1,750 - 1,999",
+	"PlatinumTrophyAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_APlatinumTrophy_3.mp3",
+		"L3B_en/Audio/h_BN_YouNeedToEarn_2.mp3",
+		"L3B_en/Audio/h_BN_2000Badges_2.mp3",
+		"L3B_en/Audio/h_BN_ToGet_2.mp3",
+		"L3B_en/Audio/h_BN_ADiamondTrophy_3.mp3"
+	],
+	"DiamondTrophyAwardText": "DIAMOND TROPHY",
+	"DiamondTrophyRangeText": "2,000+",
+	"DiamondTrophyAudio": [
+		"L3B_en/Audio/h_BN_YouveEarned_1.mp3",
+		"L3B_en/Audio/h_BN_ADiamondTrophy_3.mp3"
+	]
+}

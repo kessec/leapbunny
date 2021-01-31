@@ -1,0 +1,125 @@
+#!/bin/sh -e
+FLASHNOR=1;
+
+usage ()
+{
+	echo "Usage:"
+	echo "    $0 [-b] partitions.fs"
+	echo "    -b: Flash base NAND instead of cart NAND"
+	echo "        Note that 'cart' IS base if booted from ATAP"
+	exit 1
+}
+
+if [ -z "$1"  ]; then
+	usage
+fi
+
+# Accept arguments 
+TARGET="Cartridge"
+CART=1
+while true; do
+	case "$1" in
+		"-b")
+			TARGET="Base"
+			CART=0
+			shift
+			;;
+		"-*")
+			usage
+			;;
+		*)
+			break
+			;;
+	esac
+done
+FS=$1
+
+# Make sure we can find the .fs input file
+if [ -z "$FS" -o ! -e "$FS" ]; then
+	usage
+fi
+
+# Find NOR in mtd
+# Format: 
+#   mtd0: 00020000 00020000 "LF1000_uniboot"
+NOR=`grep NOR_Boot /proc/mtd 2>/dev/null | cut -d ':' -f 1`
+
+# Wake up Cartridge if needed
+HOTSWAP=/sys/devices/platform/lf1000-nand/cart_hotswap
+if [ $CART = 1 ]; then
+	if [ `cat $HOTSWAP | cut -f 1` = 0 ]; then
+		echo 1 > $HOTSWAP
+		while [ `cat $HOTSWAP` = 0 ]; do
+			echo " Waiting for Cart to come on line..."
+			sleep 1
+		done
+	fi
+	if [ `cat $HOTSWAP | cut -f 1` != 1 ]; then
+		echo "Failed to init cart device"
+		exit 1;
+	fi
+fi
+
+# Find NAND in mtd
+NAND=`grep $TARGET /proc/mtd 2>/dev/null | cut -d ':' -f 1`
+if  [ -z "$NAND" ]; then
+	echo "Can't find NAND to operate on!"
+	exit 1;
+fi
+
+# Turn on 1 bit ECC mode or die trying for cartridge flash
+if [ $CART = 1 ]; then
+	echo 1 > /sys/devices/platform/lf1000-nand/cart_ecc_mode
+	if [ `cat /sys/devices/platform/lf1000-nand/cart_ecc_mode` != 1 ]; then
+		echo "Can't change /sys/devices/platform/lf1000-nand/cart_ecc_mode!!"
+		exit 1
+	fi
+fi
+
+# Check for FTP server able to serve up first file
+read start len file < $FS
+# Currently, this just hangs if it can't connect.  Also test for failure
+ftpget -u lfu -p lfuser `get-ip host` /dev/null $file 2>&1
+if [ $? != 0 ]; then
+	echo "FTP failed to get $file.  Aborting"
+	exit 1;
+fi
+
+# Determine size of NAND for clipping over-erases
+hexSIZE=`grep $TARGET /proc/mtd 2>/dev/null | cut -d ' ' -f 2`
+SIZE=`printf %d 0x$hexSIZE`
+
+# Megatricky redirect standard in for "while" command
+TEMP=`mktemp /tmp/flash-other.XXXXXX`
+while read start len file; do
+	# Truncate length if off end of NAND
+	END=$((start+len))
+	if [ $END -gt $SIZE ]; then
+		len=$((SIZE-start))
+		echo "Truncating length to $len"
+	fi
+	echo "Flashing $len bytes at $start with $file..."
+	if ! nandget2 $file $NAND $start $len > $TEMP; then
+		cat $TEMP
+		rm -f $TEMP
+		echo " ** nandget2 $file $NAND $start $len ** failed"
+		exit 1
+	fi
+	# Autodetect NOR flash by start address=0
+	if [ `printf "%d" $start` = 0 -a $FLASHNOR != 0 ]; then
+		if [ ! -z "$NOR" ]; then
+			echo "Flashing NOR with $file..."
+			if ! norget $file $NOR > $TEMP; then
+				cat $TEMP
+				rm -f $TEMP
+				echo " ** norget $file $NOR failed **"
+				exit 1
+			fi
+		else
+			echo "No NOR_Boot mtd device found.  Skipping!"
+		fi
+	fi
+done < $FS
+rm -f $TEMP
+exit 0
+

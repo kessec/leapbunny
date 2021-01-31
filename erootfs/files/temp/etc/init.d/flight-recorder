@@ -1,0 +1,51 @@
+#!/bin/sh
+
+LOG_NAME='/LF/Base/FR/frlog'
+MAX_LOGS=4
+
+case "$1" in
+	start)
+		# start logging service before everything else
+		echo "Starting system logging."
+		syslogd -s 1000 -b ${MAX_LOGS} -O ${LOG_NAME}
+		if [ $? -gt 0 ]; then
+		# echo "syslogd failed to start ...!"
+			logger -s -t "Emerald Base" -p local4.err  "syslogd failed to start ...!"
+		fi
+		(
+			sleep 0.2; klogd
+			if [ $? -gt 0 ]; then
+			# echo "klogd failed to start ... !"
+				logger -s -t "Emerald Base" -p local4.err  "klogd failed to start ... !"
+			fi
+			) &
+		;;
+	stop)
+		logger -s -t "Emerald Base" -p local4.notice  "Stopping system logging ... !"
+		killall klogd
+		killall syslogd
+		;;
+	restart)
+		logger -s -t "Emerald Base" -p local4.notice  "Restart system logging ... !"
+		$0 stop
+
+		# manually rotate log files
+		let i=$((MAX_LOGS-1))
+		for j in `seq ${MAX_LOGS-1} -1 1`
+		do
+		  if [ -e "${LOG_NAME}.$((j-1))" ]
+		    then mv "${LOG_NAME}.$((j-1))" "${LOG_NAME}.${j}"
+		  fi
+		done
+		mv ${LOG_NAME} ${LOG_NAME}.0
+		touch frlog
+
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0

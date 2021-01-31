@@ -1,0 +1,22 @@
+{
+	"ConfirmProfileText": "IS THIS CORRECT?",
+	"ConfirmProfileAudio": [
+		"L3B_en/Audio/h_BN_IfAllOfInfrmtnOnThsPgIsCr_3.mp3"
+	],
+	"CountryText": "COUNTRY",
+	"CountryArt": "L3B_en/Art/flag_gb.swf",
+	"NameText": "NAME",
+	"GradeText": "LEVEL",
+	"GradeArray": [
+		"PRE-S",
+		"F",
+		"1st",
+		"2nd",
+		"3rd",
+		"4th",
+		"5th",
+		"6th",
+		"7th",
+		"8th"
+	]
+}

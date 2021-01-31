@@ -1,0 +1,15 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0002
+PackageID="DIDJ-0x000F0002-000003"
+Version="1.0.0"
+Locale="en-us"
+Name="Sharpens Claws"
+ShortName="Sharpens Claws"
+Publisher="LeapFrog, Inc."
+Developer="LeapFrog, Inc."
+Hidden=0
+Icon="icon.png"
+MDLType="El_Tigre"
+ProfileAccess=0,1,2

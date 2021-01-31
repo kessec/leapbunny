@@ -1,0 +1,21 @@
+{
+	"SetTimeText": "SET THE TIME",
+	"SetTimeAudio": [
+			"L3B_en/Audio/h_BN_ChangeTmByTppngArrwBttnsU_3.mp3",
+			"L3B_en/Audio/h_BN_TapAmOrPmBttnTChsMrnngOrN_3.mp3",
+			"L3B_en/Audio/h_BN_WhenYrDnTpChckmrkAtBttmOf_3.mp3"
+		],
+	"ChangeTimeText": "CHANGE TIME",
+	"ChangeTimeAudio": [
+			"L3B_en/Audio/h_BN_ChangeTmByTppngArrwBttnsU_3.mp3",
+			"L3B_en/Audio/h_BN_TapAmOrPmBttnTChsMrnngOrN_3.mp3",
+			"L3B_en/Audio/h_BN_ToTrnYrClckOnOrOffOnHmMnT_3.mp3"
+		],
+	"24Hour": false,
+	"ClockOnUIToggleTextOn": "ON",
+	"ClockOnUIToggleTextOff": "OFF",
+	"ShowTheTimeText": "\n\nDO YOU WANT TO SHOW THE TIME ON THE MAIN MENU?",
+	"OnTheMainMenuText": "",
+	"SaveTimeText": "SAVE TIME?"
+	
+}

@@ -1,0 +1,10 @@
+{
+	"ParentSettingsText": "PARENT SETTINGS",
+	"SettingsAudio": [
+		"L3B_en/Audio/h_BN_TapAnIcnTChngYrSttngs_3.mp3"
+	],
+	"MessageText": "TAP AN ICON TO CHANGE DEVICE SETTINGS. YOU CAN CHOOSE TO DELETE PROFILES, SET TIME, CHANGE LANGUAGE AND MORE.",
+	"SettingsText": "SETTINGS:",
+	"SettingsTextSize": 22,
+	"TitleTextSize":12
+}

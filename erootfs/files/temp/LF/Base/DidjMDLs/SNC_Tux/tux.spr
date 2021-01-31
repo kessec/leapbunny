@@ -1,0 +1,16 @@
+TextureName = Tuxfall_01.tex
+AlphaMode = ZEROCOLOR       // SOLID, ZEROCOLOR, ADDITIVE, TRUEALPHA,
+Color = 255, 255, 255, 255
+
+//CRITER_FALL
+Animation0 = {
+  Speed = 1
+  Frame0 = Tuxfall_01.tex
+}
+
+//CRITER_BOUNCE
+Animation1 = {
+  Speed = 4
+  Frame0 = Tuxbounce_01.tex
+  Frame1 = Tuxbounce_02.tex
+}

@@ -1,0 +1,8 @@
+#!/bin/sh
+source /usr/bin/ftp-pipe-functions
+if [ "x$1" = "x" -o "x$2" = "x" -o ! -e /dev/$2 ]; then
+   echo "Usage: `basename $0` filename.image mtd#"
+   usage_helper nandfmt
+   exit 1;
+fi
+ftppipe $1 nandfmt /dev/$2

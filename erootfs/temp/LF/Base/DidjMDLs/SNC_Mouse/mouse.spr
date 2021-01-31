@@ -1,0 +1,16 @@
+TextureName = Mousefall_01.tex
+AlphaMode = ZEROCOLOR       // SOLID, ZEROCOLOR, ADDITIVE, TRUEALPHA,
+Color = 255, 255, 255, 255
+
+//CRITER_FALL
+Animation0 = {
+  Speed = 1
+  Frame0 = Mousefall_01.tex
+}
+
+//CRITER_BOUNCE
+Animation1 = {
+  Speed = 4
+  Frame0 = Mousebounce_01.tex
+  Frame1 = Mousebounce_02.tex
+}

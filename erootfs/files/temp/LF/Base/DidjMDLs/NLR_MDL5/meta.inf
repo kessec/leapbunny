@@ -1,0 +1,18 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0005
+PackageID="DIDJ-0x000F0005-000005"
+Version="1.0.0"
+Locale="en-us"
+Name="Super Racer"
+ShortName="Super Racer"
+Publisher="LeapFrog, Inc."
+Developer="Torus Games"
+Hidden=0
+Description="Didj Racing"
+AppSo="App.so"
+Icon="icon.png"
+ProfileAccess=0,1,2
+MDLType=1
+

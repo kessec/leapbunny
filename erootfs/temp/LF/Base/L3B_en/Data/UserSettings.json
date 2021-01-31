@@ -1,0 +1,11 @@
+{
+	"UserSettingsText": "SETTINGS",
+	"SettingsAudio": [
+		"L3B_en/Audio/h_BN_TapAnIcnTChngYrSttngs_3.mp3",
+		"L3B_en/Audio/h_UK_YouCnChsTChngYrNmLvlThmsA_5.mp3"
+	],
+	"MessageText": "TAP AN ICON TO CHANGE YOUR SETTINGS. YOU CAN CHOOSE TO CHANGE YOUR NAME, LEVEL, THEMES AND MORE.",
+	"SettingsText": "SETTINGS:",
+	"SettingsTextSize": 22,
+	"TitleTextSize":12
+}
