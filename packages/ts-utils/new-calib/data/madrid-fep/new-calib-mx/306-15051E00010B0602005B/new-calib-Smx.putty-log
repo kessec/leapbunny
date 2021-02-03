@@ -1,0 +1,37 @@
+/usr/bin # new-calib -m -S -x
+new-calib: New touch screen calibration program v3.11
+Manufacturing Mode
+Skip pressure data step; use default pressure curve
+Experimental: delays == 5, get_five_points()
+Board ID: 0xB=Madrid
+Using tnt_mode=1
+Setting for delay_in_us:        1
+Setting for y_delay_in_us:      1
+Setting for tnt_delay_in_us:    1
+Setting for max_delta_tnt:      3
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=22
+min: 22 22 22 22 22 23
+max: 23 23 23 23 23 23
+N=24 Avg=15
+min: 14 15 15 15 15 15
+max: 17 17 16 16 16 16
+N=24 Avg=15
+min: 14 15 15 15 15 15
+max: 17 16 16 16 16 16
+N=24 Avg=22
+min: 22 22 22 22 23 23
+max: 24 24 23 23 23 23
+Using TNT center offset = 20
+TNT Plane Coef: a= -793 b=    4 c= 378219
+Fit Corners: 26, 14, 14, 26  Center: 20
+Setting for min_tnt_up:   522
+Setting for max_tnt_down: 23 (V2:34)
+Entering calib_pressure_mfg
+Using default pressure curve
+/usr/bin # cat /sys/devices/platform/lf1000-touchscreen/tnt_mode
+1
+/usr/bin #

@@ -1,0 +1,24 @@
+~ # ac-avg-raw /dev/input/event2
+Input device name: "LF1000 Accelerometer"
+x=1 y=-1 z=-14
+  1.68  -1.74 -13.54
+~ # ac-avg-raw /dev/input/event2
+Input device name: "LF1000 Accelerometer"
+x=3 y=-2 z=-13
+  1.80  -2.01 -13.52
+~ # ac-avg-raw /dev/input/event2
+Input device name: "LF1000 Accelerometer"
+x=1 y=-2 z=-13
+  1.76  -2.09 -13.50
+~ # ac-avg-raw /dev/input/event2
+Input device name: "LF1000 Accelerometer"
+x=2 y=-3 z=-14
+  1.83  -2.03 -13.48
+~ # ac-avg-raw /dev/input/event2
+Input device name: "LF1000 Accelerometer"
+x=2 y=-3 z=-13
+  1.82  -1.82 -13.46
+~ # ac-avg-raw /dev/input/event2
+Input device name: "LF1000 Accelerometer"
+x=2 y=-2 z=-14
+  1.81  -1.75 -13.45

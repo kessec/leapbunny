@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# assume all variables are set.  Create directory stucture under ROOTFS_PATH
+set -e
+set -x
+
+. $PROJECT_PATH/scripts/functions
+
+# make sure all of the environment variables are good
+check_vars
+
+# exit if the user is root
+check_user
+
+# parse args
+set_standard_opts $*
+
+echo "GS: make_directories.sh"
+echo $0
+
+mkdir -p $ROOTFS_PATH
+pushd $ROOTFS_PATH
+mkdir -p bin dev etc lib proc sbin tmp usr var sys boot mnt mnt2 opt flags
+mkdir -p usr/bin usr/lib usr/sbin
+mkdir -p LF LF/Base LF/Bulk LF/Cart
+mkdir -p LF/Base/FR 
+mkdir -p LF/Bulk/{LanguagePack,ProgramFiles,Downloads}
+mkdir -p LF/Bulk/LanguagePack_en/Tutorials
+mkdir -p LF/Bulk/Data/Uploads/{0,1,2,All}
+mkdir -p LF/Bulk/Data/Local/{0,1,2,All}
+mkdir -p mfgdata
+mkdir -p www
+# Chmod mount points
+chmod 777 LF/Bulk LF/Cart
+# Chmod R/W points for games
+chmod 777 LF/Base/FR mfgdata flags www
+# Chmod Game Folders
+chmod -R 777 LF/Bulk/Data # Games can write anything in here
+chmod 777 LF/Base # So AppManager can write settings.cfg there
+
+# Force notslib for now to hide TTPro:Brio-Base#86 -- REMOVED for TTP #1747
+# touch flags/notslib
+# NOT Putting /flags/coredump flag into place by default as we are near GM build.
+# touch flags/coredump
+
+# Make compatibility links
+L=usr/bin/compatibility-links.sh
+cat <<EOF > $L
+#!/bin/sh
+echo "These links are for allowing legacy tutorial folder structures to work"
+echo "Installing..."
+ln -s /LF/Bulk/LanguagePack_en/Tutorials LF/Base/Tutorials
+echo "To remove compatibility links type:"
+echo "   rm LF/Base/Tutorials"
+echo "These links are for allowing legacy movies to display errors"
+echo "Installing..."
+ln -s /LF/Base/L3B/Art LF/Base/L3B_Art
+ln -s /LF/Base/L3B/Audio LF/Base/L3B_Audio
+echo "To remove compatibility links type:"
+echo "   rm LF/Base/L3B_Art LF/Base/L3B_Audio"
+EOF
+chmod +x $L
+# run this now:
+$L
+
+if [ $EMBEDDED -eq 0 ]; then
+	mkdir -p usr/include
+	mkdir -p usr/local/include
+	mkdir -p usr/local/bin
+fi
+
+mkdir -p var/lib var/lock var/log var/run var/tmp
+chmod 2777 var/tmp
+chmod a+rwx $ROOTFS_PATH
+popd
+
+exit 0

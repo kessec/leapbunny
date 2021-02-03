@@ -1,0 +1,17 @@
+#!/bin/sh
+
+WHICH=1.9.4-1984
+OUT=boot-$WHICH
+for n in 6; do
+	for p in `seq 1 $n`; do
+	    ../csv2svg.pl \
+		-p $p/$n \
+		-t 1 boot-power-$WHICH.csv \
+		-t 2 boot-kernel-byhand-$WHICH.csv \
+		-o 2.300 \
+		-t 3 boot-kernel-$WHICH.csv \
+		-t 4 boot-init-$WHICH.csv \
+		-t 5 boot-am-$WHICH.csv \
+		> $OUT-${p}of$n.svg
+	done
+done

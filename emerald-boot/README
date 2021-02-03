@@ -1,0 +1,58 @@
+emerald-boot -- Emerald Platform LF1000 first-stage bootloader
+
+################
+# introduction #
+################
+
+emerald-boot bootstraps the system from a NOR or NAND Flash.  It also includes
+basic graphics support and the ability to load the rest of the system from an
+SD card if needed.  A polling UART driver is included for debugging purposes.
+
+emerald-boot's tasks are to:
+        0) Bootstrap itself, as needed: When booting from NAND, the hardware 
+           loads 0x800 of emerald-boot, and emerald-boot then loads the rest.
+           When booting from NOR, emerald-boot copies itself out of NOR and
+           into RAM.
+        1) Enable system VCC and perform some basic CPU and hardware
+           initialization.
+		2) Read a splash screen into memory, set up the LCD controller, and
+           display it.
+        3) Fetch that kernel image and load it into SDRAM.
+        4) Boot the kernel image, with corresponding kernel command line
+           arguments passed in.
+
+The bootloader also includes a device recovery mode which utilizes USB mass
+storage.  It's entered automatically in cases where the kernel cannot be loaded
+successfully or it can be activated with a key sequence.
+
+################
+# installation #
+################
+
+To build the bootloader:
+
+./install.sh
+
+If you want UART debugging:
+
+DEBUG=1 ./install.sh
+
+The install script copies emerald-boot.bin to your $TFTP_PATH.
+
+#############################
+# Development and Debugging #
+#############################
+
+If you want to turn off self-bootstrapping (ex: to test emerald-boot from
+u-boot or via JTAG), remove the SELF_BOOTSTRAP option from CFLAGS in the
+Makefile and then recompile.  Be aware that SELF_BOOTSTRAP must be enabled for
+any build that you intend to write into Flash.
+
+Basic profiling is available in DEBUG mode.  Define DEBUG_STOPWATCH, for
+example:
+
+DEBUG=1 DEBUG_STOPWATCH=1 ./install.sh
+
+to enable it.  This will turn on stopwatch code provided by the 
+db_stopwatch_start() and db_stopwatch_stop() routines.  See the comments in
+timer.c for details on the timer 'tick' rate.

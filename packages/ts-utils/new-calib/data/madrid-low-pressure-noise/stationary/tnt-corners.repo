@@ -1,0 +1,128 @@
+m19:
+
+t0-cCC TNT N=200 Mean=  13 Stdev=   3.28
+t0-cLL TNT N=200 Mean=   9 Stdev=   2.72
+t0-cLR TNT N=200 Mean=   9 Stdev=   2.78
+t0-cUL TNT N=200 Mean=  12 Stdev=   3.06
+t0-cUR TNT N=200 Mean=  12 Stdev=   3.08
+
+t1-cCC TNT N=200 Mean=  13 Stdev=   0.35
+t1-cLL TNT N=200 Mean=  15 Stdev=   0.35
+t1-cLR TNT N=200 Mean=   9 Stdev=   0.39
+t1-cUL TNT N=200 Mean=  15 Stdev=   0.35
+t1-cUR TNT N=200 Mean=   9 Stdev=   0.31
+
+t2-cCC TNT N=200 Mean=  13 Stdev=   2.93
+t2-cLL TNT N=200 Mean=  12 Stdev=   3.05
+t2-cLR TNT N=200 Mean=  11 Stdev=   2.93
+t2-cUL TNT N=200 Mean=  10 Stdev=   2.51
+t2-cUR TNT N=200 Mean=   9 Stdev=   2.62
+
+t3-cCC TNT N=200 Mean=  13 Stdev=   0.39
+t3-cLL TNT N=200 Mean=   9 Stdev=   0.41
+t3-cLR TNT N=200 Mean=  15 Stdev=   0.41
+t3-cUL TNT N=200 Mean=   9 Stdev=   0.34
+t3-cUR TNT N=200 Mean=  15 Stdev=   0.36
+
+t0
+  12  12
+    13
+   9   9
+t1
+  15  15
+    13
+   9   9
+t2
+  10   9
+    13
+  12  11
+t3
+   9   9
+    13
+  15  15
+
+exp:
+
+t0-cCC TNT N=200 Mean=  13 Stdev=   0.88
+t0-cLL TNT N=200 Mean=  12 Stdev=   0.74
+t0-cLR TNT N=200 Mean=  12 Stdev=   0.83
+t0-cUL TNT N=200 Mean=   9 Stdev=   0.86
+t0-cUR TNT N=200 Mean=  10 Stdev=   0.71
+
+t1-cCC TNT N=200 Mean=  13 Stdev=   1.76
+t1-cLL TNT N=200 Mean=   9 Stdev=   2.29
+t1-cLR TNT N=200 Mean=  15 Stdev=   2.28
+t1-cUL TNT N=200 Mean=   9 Stdev=   2.18
+t1-cUR TNT N=200 Mean=  15 Stdev=   2.64
+
+t2-cCC TNT N=200 Mean=  12 Stdev=   0.90
+t2-cLL TNT N=200 Mean=   9 Stdev=   0.90
+t2-cLR TNT N=200 Mean=   9 Stdev=   0.98
+t2-cUL TNT N=200 Mean=  12 Stdev=   0.98
+t2-cUR TNT N=200 Mean=  13 Stdev=   0.98
+
+t3-cCC TNT N=200 Mean=  12 Stdev=   2.37
+t3-cLL TNT N=200 Mean=  15 Stdev=   2.68
+t3-cLR TNT N=200 Mean=   8 Stdev=   1.48
+t3-cUL TNT N=200 Mean=  15 Stdev=   2.88
+t3-cUR TNT N=200 Mean=   9 Stdev=   1.81
+
+t0
+   9  10
+    13
+  12  12
+t1
+   9  15
+    13
+   9  15
+t2
+  12  13
+    12
+   9   9
+t3
+  15   9
+    12
+  15   8
+
+m15:
+
+t0-cCC TNT N=200 Mean=  16 Stdev=   3.49
+t0-cLL TNT N=200 Mean=  11 Stdev=   2.82
+t0-cLR TNT N=200 Mean=  16 Stdev=   3.15
+t0-cUL TNT N=200 Mean=  13 Stdev=   3.41
+t0-cUR TNT N=200 Mean=  18 Stdev=   3.55
+
+t1-cCC TNT N=200 Mean=  14 Stdev=   0.45
+t1-cLL TNT N=200 Mean=  17 Stdev=   0.67
+t1-cLR TNT N=200 Mean=  12 Stdev=   0.47
+t1-cUL TNT N=200 Mean=  16 Stdev=   0.36
+t1-cUR TNT N=200 Mean=  10 Stdev=   0.34
+
+t2-cCC TNT N=200 Mean=  16 Stdev=   3.30
+t2-cLL TNT N=200 Mean=  12 Stdev=   3.12
+t2-cLR TNT N=200 Mean=  17 Stdev=   3.77
+t2-cUL TNT N=200 Mean=  11 Stdev=   2.66
+t2-cUR TNT N=200 Mean=  15 Stdev=   3.25
+
+t3-cCC TNT N=200 Mean=  14 Stdev=   0.51
+t3-cLL TNT N=200 Mean=  11 Stdev=   0.59
+t3-cLR TNT N=200 Mean=  18 Stdev=   0.51
+t3-cUL TNT N=200 Mean=  10 Stdev=   0.36
+t3-cUR TNT N=200 Mean=  16 Stdev=   0.41
+
+t0
+  13  18
+    16
+  11  16
+t1
+  16  10
+    14
+  17  12
+t2
+  11  15
+    16
+  12  17
+t3
+  10  16
+    14
+  11  18

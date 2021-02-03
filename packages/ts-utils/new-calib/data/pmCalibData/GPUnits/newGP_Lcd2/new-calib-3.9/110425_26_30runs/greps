@@ -1,0 +1,637 @@
+Selected data from 30 calibration runs on New GP LCD #2, 4/25 - 4/26/11
+
+new-calib.log.run1:Setting for pressure_curve:   484 485 492 494 500 506 517 526 540
+new-calib.log.run2:Setting for pressure_curve:   482 484 491 494 500 506 519 528 544
+new-calib.log.run3:Setting for pressure_curve:   483 484 491 494 500 506 518 527 541
+new-calib.log.run4:Setting for pressure_curve:   485 486 493 496 501 507 518 526 540
+new-calib.log.run5:Setting for pressure_curve:   485 486 492 495 500 506 517 525 538
+new-calib.log.run6:Setting for pressure_curve:   484 486 492 495 500 506 517 525 539
+new-calib.log.run7:Setting for pressure_curve:   487 488 494 497 502 507 518 526 539
+new-calib.log.run8:Setting for pressure_curve:   486 487 493 496 502 507 519 527 541
+new-calib.log.run9:Setting for pressure_curve:   486 487 493 496 502 508 519 527 541
+new-calib.log.run10:Setting for pressure_curve:  487 489 495 498 503 509 520 528 542
+new-calib.log.run11:Setting for pressure_curve:  487 489 495 497 503 508 519 527 540
+new-calib.log.run12:Setting for pressure_curve:  485 486 493 495 501 507 518 526 540
+new-calib.log.run13:Setting for pressure_curve:  487 488 494 497 503 508 520 528 542
+new-calib.log.run14:Setting for pressure_curve:  487 488 495 498 503 509 520 529 543
+new-calib.log.run15:Setting for pressure_curve:  484 486 492 495 501 506 518 526 541
+new-calib.log.run16:Setting for pressure_curve:  488 489 494 497 502 506 516 523 535
+new-calib.log.run17:Setting for pressure_curve:  486 487 493 495 500 505 514 521 533
+new-calib.log.run18:Setting for pressure_curve:  486 487 493 496 501 506 517 525 538
+new-calib.log.run19:Setting for pressure_curve:  482 483 490 493 499 505 518 527 543
+new-calib.log.run20:Setting for pressure_curve:  486 487 493 495 500 506 516 524 537
+new-calib.log.run21:Setting for pressure_curve:  486 487 493 495 500 505 514 521 533
+new-calib.log.run22:Setting for pressure_curve:  485 486 492 495 500 505 515 523 535
+new-calib.log.run23:Setting for pressure_curve:  483 484 490 493 498 504 515 523 536
+new-calib.log.run24:Setting for pressure_curve:  485 486 491 494 499 504 514 522 535
+new-calib.log.run25:Setting for pressure_curve:  483 484 490 493 498 504 515 523 537
+new-calib.log.run26:Setting for pressure_curve:  485 486 492 494 499 504 513 520 532
+new-calib.log.run27:Setting for pressure_curve:  483 484 490 493 499 504 515 523 537
+new-calib.log.run28:Setting for pressure_curve:  484 485 491 493 498 503 513 521 533
+new-calib.log.run29:Setting for pressure_curve:  485 486 491 494 499 504 514 522 534
+new-calib.log.run30:Setting for pressure_curve:  481 483 489 492 498 504 515 524 539
+
+new-calib.log.run1:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run1:Setting for max_tnt_down:      21
+new-calib.log.run10:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run10:Setting for max_tnt_down:      21
+new-calib.log.run11:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run11:Setting for max_tnt_down:      21
+new-calib.log.run12:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run12:Setting for max_tnt_down:      21
+new-calib.log.run13:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run13:Setting for max_tnt_down:      21
+new-calib.log.run14:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run14:Setting for max_tnt_down:      21
+new-calib.log.run15:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run15:Setting for max_tnt_down:      21
+new-calib.log.run16:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run16:Setting for max_tnt_down:      21
+new-calib.log.run17:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run17:Setting for max_tnt_down:      21
+new-calib.log.run18:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run18:Setting for max_tnt_down:      21
+new-calib.log.run19:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run19:Setting for max_tnt_down:      21
+new-calib.log.run2:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run2:Setting for max_tnt_down:      21
+new-calib.log.run20:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run20:Setting for max_tnt_down:      21
+new-calib.log.run21:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run21:Setting for max_tnt_down:      21
+new-calib.log.run22:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run22:Setting for max_tnt_down:      21
+new-calib.log.run23:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run23:Setting for max_tnt_down:      21
+new-calib.log.run24:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run24:Setting for max_tnt_down:      21
+new-calib.log.run25:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run25:Setting for max_tnt_down:      21
+new-calib.log.run26:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run26:Setting for max_tnt_down:      21
+new-calib.log.run27:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run27:Setting for max_tnt_down:      21
+new-calib.log.run28:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run28:Setting for max_tnt_down:      21
+new-calib.log.run29:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run29:Setting for max_tnt_down:      21
+new-calib.log.run3:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run3:Setting for max_tnt_down:      21
+new-calib.log.run30:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run30:Setting for max_tnt_down:      21
+new-calib.log.run4:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run4:Setting for max_tnt_down:      21
+new-calib.log.run5:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run5:Setting for max_tnt_down:      21
+new-calib.log.run6:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run6:Setting for max_tnt_down:      21
+new-calib.log.run7:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run7:Setting for max_tnt_down:      21
+new-calib.log.run8:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run8:Setting for max_tnt_down:      21
+new-calib.log.run9:Setting for max_tnt_down: 21 (V2:31)
+new-calib.log.run9:Setting for max_tnt_down:      21
+
+
+new-calib.log.run1:Fitting  20g at 570
+new-calib.log.run1:Fitting  25g at 546
+new-calib.log.run1:Fitting  30g at 538
+new-calib.log.run1:Fitting  40g at 528
+new-calib.log.run1:Fitting  50g at 524
+new-calib.log.run1:Fitting  75g at 508
+new-calib.log.run1:Fitting  100g at 500
+new-calib.log.run1:Fitting  150g at 492
+new-calib.log.run1:Fitting  200g at 488
+new-calib.log.run10:Fitting  20g at 562
+new-calib.log.run10:Fitting  25g at 552
+new-calib.log.run10:Fitting  30g at 552
+new-calib.log.run10:Fitting  40g at 532
+new-calib.log.run10:Fitting  50g at 526
+new-calib.log.run10:Fitting  75g at 510
+new-calib.log.run10:Fitting  100g at 504
+new-calib.log.run10:Fitting  150g at 494
+new-calib.log.run10:Fitting  200g at 488
+new-calib.log.run11:Fitting  20g at 558
+new-calib.log.run11:Fitting  25g at 548
+new-calib.log.run11:Fitting  30g at 546
+new-calib.log.run11:Fitting  40g at 536
+new-calib.log.run11:Fitting  50g at 524
+new-calib.log.run11:Fitting  75g at 510
+new-calib.log.run11:Fitting  100g at 504
+new-calib.log.run11:Fitting  150g at 494
+new-calib.log.run11:Fitting  200g at 484
+new-calib.log.run12:Fitting  20g at 558
+new-calib.log.run12:Fitting  25g at 558
+new-calib.log.run12:Fitting  30g at 540
+new-calib.log.run12:Fitting  40g at 530
+new-calib.log.run12:Fitting  50g at 524
+new-calib.log.run12:Fitting  75g at 510
+new-calib.log.run12:Fitting  100g at 500
+new-calib.log.run12:Fitting  150g at 494
+new-calib.log.run12:Fitting  200g at 484
+new-calib.log.run13:Fitting  20g at 562
+new-calib.log.run13:Fitting  25g at 564
+new-calib.log.run13:Fitting  30g at 540
+new-calib.log.run13:Fitting  40g at 526
+new-calib.log.run13:Fitting  50g at 524
+new-calib.log.run13:Fitting  75g at 514
+new-calib.log.run13:Fitting  100g at 504
+new-calib.log.run13:Fitting  150g at 494
+new-calib.log.run13:Fitting  200g at 488
+new-calib.log.run14:Fitting  20g at 558
+new-calib.log.run14:Fitting  25g at 560
+new-calib.log.run14:Fitting  30g at 556
+new-calib.log.run14:Fitting  40g at 528
+new-calib.log.run14:Fitting  50g at 528
+new-calib.log.run14:Fitting  75g at 508
+new-calib.log.run14:Fitting  100g at 504
+new-calib.log.run14:Fitting  150g at 494
+new-calib.log.run14:Fitting  200g at 488
+new-calib.log.run15:Fitting  20g at 562
+new-calib.log.run15:Fitting  25g at 562
+new-calib.log.run15:Fitting  30g at 538
+new-calib.log.run15:Fitting  40g at 526
+new-calib.log.run15:Fitting  50g at 518
+new-calib.log.run15:Fitting  75g at 514
+new-calib.log.run15:Fitting  100g at 500
+new-calib.log.run15:Fitting  150g at 492
+new-calib.log.run15:Fitting  200g at 488
+new-calib.log.run16:Fitting  20g at 554
+new-calib.log.run16:Fitting  25g at 544
+new-calib.log.run16:Fitting  30g at 532
+new-calib.log.run16:Fitting  40g at 528
+new-calib.log.run16:Fitting  50g at 530
+new-calib.log.run16:Fitting  75g at 508
+new-calib.log.run16:Fitting  100g at 500
+new-calib.log.run16:Fitting  150g at 492
+new-calib.log.run16:Fitting  200g at 488
+new-calib.log.run17:Fitting  20g at 552
+new-calib.log.run17:Fitting  25g at 538
+new-calib.log.run17:Fitting  30g at 538
+new-calib.log.run17:Fitting  40g at 526
+new-calib.log.run17:Fitting  50g at 522
+new-calib.log.run17:Fitting  75g at 508
+new-calib.log.run17:Fitting  100g at 500
+new-calib.log.run17:Fitting  150g at 492
+new-calib.log.run17:Fitting  200g at 484
+new-calib.log.run18:Fitting  20g at 548
+new-calib.log.run18:Fitting  25g at 552
+new-calib.log.run18:Fitting  30g at 552
+new-calib.log.run18:Fitting  40g at 528
+new-calib.log.run18:Fitting  50g at 526
+new-calib.log.run18:Fitting  75g at 508
+new-calib.log.run18:Fitting  100g at 500
+new-calib.log.run18:Fitting  150g at 490
+new-calib.log.run18:Fitting  200g at 484
+new-calib.log.run19:Fitting  20g at 574
+new-calib.log.run19:Fitting  25g at 548
+new-calib.log.run19:Fitting  30g at 544
+new-calib.log.run19:Fitting  40g at 532
+new-calib.log.run19:Fitting  50g at 522
+new-calib.log.run19:Fitting  75g at 508
+new-calib.log.run19:Fitting  100g at 500
+new-calib.log.run19:Fitting  150g at 492
+new-calib.log.run19:Fitting  200g at 484
+new-calib.log.run2:Fitting  20g at 574
+new-calib.log.run2:Fitting  25g at 558
+new-calib.log.run2:Fitting  30g at 540
+new-calib.log.run2:Fitting  40g at 528
+new-calib.log.run2:Fitting  50g at 526
+new-calib.log.run2:Fitting  75g at 508
+new-calib.log.run2:Fitting  100g at 504
+new-calib.log.run2:Fitting  150g at 492
+new-calib.log.run2:Fitting  200g at 484
+new-calib.log.run20:Fitting  20g at 562
+new-calib.log.run20:Fitting  25g at 544
+new-calib.log.run20:Fitting  30g at 528
+new-calib.log.run20:Fitting  40g at 530
+new-calib.log.run20:Fitting  50g at 532
+new-calib.log.run20:Fitting  75g at 508
+new-calib.log.run20:Fitting  100g at 500
+new-calib.log.run20:Fitting  150g at 492
+new-calib.log.run20:Fitting  200g at 484
+new-calib.log.run21:Fitting  20g at 548
+new-calib.log.run21:Fitting  25g at 540
+new-calib.log.run21:Fitting  30g at 548
+new-calib.log.run21:Fitting  40g at 522
+new-calib.log.run21:Fitting  50g at 518
+new-calib.log.run21:Fitting  75g at 508
+new-calib.log.run21:Fitting  100g at 504
+new-calib.log.run21:Fitting  150g at 490
+new-calib.log.run21:Fitting  200g at 484
+new-calib.log.run22:Fitting  20g at 562
+new-calib.log.run22:Fitting  25g at 538
+new-calib.log.run22:Fitting  30g at 534
+new-calib.log.run22:Fitting  40g at 524
+new-calib.log.run22:Fitting  50g at 526
+new-calib.log.run22:Fitting  75g at 508
+new-calib.log.run22:Fitting  100g at 500
+new-calib.log.run22:Fitting  150g at 494
+new-calib.log.run22:Fitting  200g at 484
+new-calib.log.run23:Fitting  20g at 556
+new-calib.log.run23:Fitting  25g at 562
+new-calib.log.run23:Fitting  30g at 530
+new-calib.log.run23:Fitting  40g at 518
+new-calib.log.run23:Fitting  50g at 518
+new-calib.log.run23:Fitting  75g at 510
+new-calib.log.run23:Fitting  100g at 500
+new-calib.log.run23:Fitting  150g at 492
+new-calib.log.run23:Fitting  200g at 484
+new-calib.log.run24:Fitting  20g at 558
+new-calib.log.run24:Fitting  25g at 540
+new-calib.log.run24:Fitting  30g at 538
+new-calib.log.run24:Fitting  40g at 522
+new-calib.log.run24:Fitting  50g at 522
+new-calib.log.run24:Fitting  75g at 508
+new-calib.log.run24:Fitting  100g at 500
+new-calib.log.run24:Fitting  150g at 492
+new-calib.log.run24:Fitting  200g at 484
+new-calib.log.run25:Fitting  20g at 556
+new-calib.log.run25:Fitting  25g at 552
+new-calib.log.run25:Fitting  30g at 538
+new-calib.log.run25:Fitting  40g at 528
+new-calib.log.run25:Fitting  50g at 522
+new-calib.log.run25:Fitting  75g at 508
+new-calib.log.run25:Fitting  100g at 500
+new-calib.log.run25:Fitting  150g at 488
+new-calib.log.run25:Fitting  200g at 482
+new-calib.log.run26:Fitting  20g at 552
+new-calib.log.run26:Fitting  25g at 540
+new-calib.log.run26:Fitting  30g at 534
+new-calib.log.run26:Fitting  40g at 526
+new-calib.log.run26:Fitting  50g at 518
+new-calib.log.run26:Fitting  75g at 508
+new-calib.log.run26:Fitting  100g at 498
+new-calib.log.run26:Fitting  150g at 492
+new-calib.log.run26:Fitting  200g at 484
+new-calib.log.run27:Fitting  20g at 556
+new-calib.log.run27:Fitting  25g at 550
+new-calib.log.run27:Fitting  30g at 540
+new-calib.log.run27:Fitting  40g at 524
+new-calib.log.run27:Fitting  50g at 524
+new-calib.log.run27:Fitting  75g at 508
+new-calib.log.run27:Fitting  100g at 498
+new-calib.log.run27:Fitting  150g at 488
+new-calib.log.run27:Fitting  200g at 484
+new-calib.log.run28:Fitting  20g at 552
+new-calib.log.run28:Fitting  25g at 540
+new-calib.log.run28:Fitting  30g at 540
+new-calib.log.run28:Fitting  40g at 526
+new-calib.log.run28:Fitting  50g at 518
+new-calib.log.run28:Fitting  75g at 510
+new-calib.log.run28:Fitting  100g at 500
+new-calib.log.run28:Fitting  150g at 488
+new-calib.log.run28:Fitting  200g at 482
+new-calib.log.run29:Fitting  20g at 548
+new-calib.log.run29:Fitting  25g at 558
+new-calib.log.run29:Fitting  30g at 530
+new-calib.log.run29:Fitting  40g at 524
+new-calib.log.run29:Fitting  50g at 518
+new-calib.log.run29:Fitting  75g at 508
+new-calib.log.run29:Fitting  100g at 504
+new-calib.log.run29:Fitting  150g at 488
+new-calib.log.run29:Fitting  200g at 484
+new-calib.log.run3:Fitting  20g at 564
+new-calib.log.run3:Fitting  25g at 558
+new-calib.log.run3:Fitting  30g at 540
+new-calib.log.run3:Fitting  40g at 530
+new-calib.log.run3:Fitting  50g at 524
+new-calib.log.run3:Fitting  75g at 508
+new-calib.log.run3:Fitting  100g at 500
+new-calib.log.run3:Fitting  150g at 492
+new-calib.log.run3:Fitting  200g at 484
+new-calib.log.run30:Fitting  20g at 568
+new-calib.log.run30:Fitting  25g at 544
+new-calib.log.run30:Fitting  30g at 538
+new-calib.log.run30:Fitting  40g at 532
+new-calib.log.run30:Fitting  50g at 520
+new-calib.log.run30:Fitting  75g at 508
+new-calib.log.run30:Fitting  100g at 498
+new-calib.log.run30:Fitting  150g at 488
+new-calib.log.run30:Fitting  200g at 484
+new-calib.log.run4:Fitting  20g at 560
+new-calib.log.run4:Fitting  25g at 558
+new-calib.log.run4:Fitting  30g at 538
+new-calib.log.run4:Fitting  40g at 530
+new-calib.log.run4:Fitting  50g at 524
+new-calib.log.run4:Fitting  75g at 510
+new-calib.log.run4:Fitting  100g at 504
+new-calib.log.run4:Fitting  150g at 492
+new-calib.log.run4:Fitting  200g at 484
+new-calib.log.run5:Fitting  20g at 562
+new-calib.log.run5:Fitting  25g at 546
+new-calib.log.run5:Fitting  30g at 540
+new-calib.log.run5:Fitting  40g at 530
+new-calib.log.run5:Fitting  50g at 524
+new-calib.log.run5:Fitting  75g at 510
+new-calib.log.run5:Fitting  100g at 500
+new-calib.log.run5:Fitting  150g at 492
+new-calib.log.run5:Fitting  200g at 484
+new-calib.log.run6:Fitting  20g at 562
+new-calib.log.run6:Fitting  25g at 550
+new-calib.log.run6:Fitting  30g at 540
+new-calib.log.run6:Fitting  40g at 530
+new-calib.log.run6:Fitting  50g at 524
+new-calib.log.run6:Fitting  75g at 510
+new-calib.log.run6:Fitting  100g at 500
+new-calib.log.run6:Fitting  150g at 492
+new-calib.log.run6:Fitting  200g at 484
+new-calib.log.run7:Fitting  20g at 564
+new-calib.log.run7:Fitting  25g at 546
+new-calib.log.run7:Fitting  30g at 538
+new-calib.log.run7:Fitting  40g at 530
+new-calib.log.run7:Fitting  50g at 524
+new-calib.log.run7:Fitting  75g at 514
+new-calib.log.run7:Fitting  100g at 500
+new-calib.log.run7:Fitting  150g at 494
+new-calib.log.run7:Fitting  200g at 488
+new-calib.log.run8:Fitting  20g at 568
+new-calib.log.run8:Fitting  25g at 550
+new-calib.log.run8:Fitting  30g at 540
+new-calib.log.run8:Fitting  40g at 530
+new-calib.log.run8:Fitting  50g at 524
+new-calib.log.run8:Fitting  75g at 514
+new-calib.log.run8:Fitting  100g at 504
+new-calib.log.run8:Fitting  150g at 494
+new-calib.log.run8:Fitting  200g at 484
+new-calib.log.run9:Fitting  20g at 564
+new-calib.log.run9:Fitting  25g at 548
+new-calib.log.run9:Fitting  30g at 548
+new-calib.log.run9:Fitting  40g at 532
+new-calib.log.run9:Fitting  50g at 524
+new-calib.log.run9:Fitting  75g at 510
+new-calib.log.run9:Fitting  100g at 504
+new-calib.log.run9:Fitting  150g at 494
+new-calib.log.run9:Fitting  200g at 484
+
+
+new-calib.log.run1:Mode  20g: P= 570 T=19
+new-calib.log.run1:Mode  25g: P= 546 T=18
+new-calib.log.run1:Mode  30g: P= 538 T=18
+new-calib.log.run1:Mode  40g: P= 528 T=17
+new-calib.log.run1:Mode  50g: P= 524 T=17
+new-calib.log.run1:Mode  75g: P= 508 T=17
+new-calib.log.run1:Mode 100g: P= 500 T=17
+new-calib.log.run1:Mode 150g: P= 492 T=17
+new-calib.log.run1:Mode 200g: P= 488 T=17
+new-calib.log.run10:Mode  20g: P= 562 T=18
+new-calib.log.run10:Mode  25g: P= 552 T=18
+new-calib.log.run10:Mode  30g: P= 552 T=18
+new-calib.log.run10:Mode  40g: P= 532 T=17
+new-calib.log.run10:Mode  50g: P= 526 T=17
+new-calib.log.run10:Mode  75g: P= 510 T=17
+new-calib.log.run10:Mode 100g: P= 504 T=17
+new-calib.log.run10:Mode 150g: P= 494 T=16
+new-calib.log.run10:Mode 200g: P= 488 T=16
+new-calib.log.run11:Mode  20g: P= 558 T=18
+new-calib.log.run11:Mode  25g: P= 548 T=18
+new-calib.log.run11:Mode  30g: P= 546 T=18
+new-calib.log.run11:Mode  40g: P= 536 T=17
+new-calib.log.run11:Mode  50g: P= 524 T=17
+new-calib.log.run11:Mode  75g: P= 510 T=17
+new-calib.log.run11:Mode 100g: P= 504 T=17
+new-calib.log.run11:Mode 150g: P= 494 T=16
+new-calib.log.run11:Mode 200g: P= 484 T=16
+new-calib.log.run12:Mode  20g: P= 558 T=18
+new-calib.log.run12:Mode  25g: P= 558 T=18
+new-calib.log.run12:Mode  30g: P= 540 T=18
+new-calib.log.run12:Mode  40g: P= 530 T=17
+new-calib.log.run12:Mode  50g: P= 524 T=17
+new-calib.log.run12:Mode  75g: P= 510 T=17
+new-calib.log.run12:Mode 100g: P= 500 T=17
+new-calib.log.run12:Mode 150g: P= 494 T=16
+new-calib.log.run12:Mode 200g: P= 484 T=16
+new-calib.log.run13:Mode  20g: P= 562 T=19
+new-calib.log.run13:Mode  25g: P= 564 T=19
+new-calib.log.run13:Mode  30g: P= 540 T=18
+new-calib.log.run13:Mode  40g: P= 526 T=18
+new-calib.log.run13:Mode  50g: P= 524 T=18
+new-calib.log.run13:Mode  75g: P= 514 T=17
+new-calib.log.run13:Mode 100g: P= 504 T=17
+new-calib.log.run13:Mode 150g: P= 494 T=17
+new-calib.log.run13:Mode 200g: P= 488 T=17
+new-calib.log.run14:Mode  20g: P= 558 T=19
+new-calib.log.run14:Mode  25g: P= 560 T=19
+new-calib.log.run14:Mode  30g: P= 556 T=19
+new-calib.log.run14:Mode  40g: P= 528 T=18
+new-calib.log.run14:Mode  50g: P= 528 T=18
+new-calib.log.run14:Mode  75g: P= 508 T=17
+new-calib.log.run14:Mode 100g: P= 504 T=17
+new-calib.log.run14:Mode 150g: P= 494 T=17
+new-calib.log.run14:Mode 200g: P= 488 T=17
+new-calib.log.run15:Mode  20g: P= 562 T=18
+new-calib.log.run15:Mode  25g: P= 562 T=18
+new-calib.log.run15:Mode  30g: P= 538 T=18
+new-calib.log.run15:Mode  40g: P= 526 T=18
+new-calib.log.run15:Mode  50g: P= 518 T=17
+new-calib.log.run15:Mode  75g: P= 514 T=17
+new-calib.log.run15:Mode 100g: P= 500 T=17
+new-calib.log.run15:Mode 150g: P= 492 T=17
+new-calib.log.run15:Mode 200g: P= 488 T=17
+new-calib.log.run16:Mode  20g: P= 554 T=18
+new-calib.log.run16:Mode  25g: P= 544 T=18
+new-calib.log.run16:Mode  30g: P= 532 T=18
+new-calib.log.run16:Mode  40g: P= 528 T=18
+new-calib.log.run16:Mode  50g: P= 530 T=18
+new-calib.log.run16:Mode  75g: P= 508 T=17
+new-calib.log.run16:Mode 100g: P= 500 T=17
+new-calib.log.run16:Mode 150g: P= 492 T=17
+new-calib.log.run16:Mode 200g: P= 488 T=17
+new-calib.log.run17:Mode  20g: P= 552 T=18
+new-calib.log.run17:Mode  25g: P= 538 T=18
+new-calib.log.run17:Mode  30g: P= 538 T=18
+new-calib.log.run17:Mode  40g: P= 526 T=18
+new-calib.log.run17:Mode  50g: P= 522 T=17
+new-calib.log.run17:Mode  75g: P= 508 T=17
+new-calib.log.run17:Mode 100g: P= 500 T=17
+new-calib.log.run17:Mode 150g: P= 492 T=17
+new-calib.log.run17:Mode 200g: P= 484 T=17
+new-calib.log.run18:Mode  20g: P= 548 T=18
+new-calib.log.run18:Mode  25g: P= 552 T=18
+new-calib.log.run18:Mode  30g: P= 552 T=18
+new-calib.log.run18:Mode  40g: P= 528 T=17
+new-calib.log.run18:Mode  50g: P= 526 T=18
+new-calib.log.run18:Mode  75g: P= 508 T=17
+new-calib.log.run18:Mode 100g: P= 500 T=17
+new-calib.log.run18:Mode 150g: P= 490 T=17
+new-calib.log.run18:Mode 200g: P= 484 T=17
+new-calib.log.run19:Mode  20g: P= 574 T=19
+new-calib.log.run19:Mode  25g: P= 548 T=18
+new-calib.log.run19:Mode  30g: P= 544 T=18
+new-calib.log.run19:Mode  40g: P= 532 T=18
+new-calib.log.run19:Mode  50g: P= 522 T=17
+new-calib.log.run19:Mode  75g: P= 508 T=17
+new-calib.log.run19:Mode 100g: P= 500 T=17
+new-calib.log.run19:Mode 150g: P= 492 T=17
+new-calib.log.run19:Mode 200g: P= 484 T=17
+new-calib.log.run2:Mode  20g: P= 574 T=19
+new-calib.log.run2:Mode  25g: P= 558 T=18
+new-calib.log.run2:Mode  30g: P= 540 T=18
+new-calib.log.run2:Mode  40g: P= 528 T=17
+new-calib.log.run2:Mode  50g: P= 526 T=17
+new-calib.log.run2:Mode  75g: P= 508 T=17
+new-calib.log.run2:Mode 100g: P= 504 T=17
+new-calib.log.run2:Mode 150g: P= 492 T=17
+new-calib.log.run2:Mode 200g: P= 484 T=16
+new-calib.log.run20:Mode  20g: P= 562 T=18
+new-calib.log.run20:Mode  25g: P= 544 T=18
+new-calib.log.run20:Mode  30g: P= 528 T=17
+new-calib.log.run20:Mode  40g: P= 530 T=17
+new-calib.log.run20:Mode  50g: P= 532 T=18
+new-calib.log.run20:Mode  75g: P= 508 T=17
+new-calib.log.run20:Mode 100g: P= 500 T=17
+new-calib.log.run20:Mode 150g: P= 492 T=17
+new-calib.log.run20:Mode 200g: P= 484 T=17
+new-calib.log.run21:Mode  20g: P= 548 T=18
+new-calib.log.run21:Mode  25g: P= 540 T=18
+new-calib.log.run21:Mode  30g: P= 548 T=18
+new-calib.log.run21:Mode  40g: P= 522 T=17
+new-calib.log.run21:Mode  50g: P= 518 T=17
+new-calib.log.run21:Mode  75g: P= 508 T=17
+new-calib.log.run21:Mode 100g: P= 504 T=17
+new-calib.log.run21:Mode 150g: P= 490 T=17
+new-calib.log.run21:Mode 200g: P= 484 T=16
+new-calib.log.run22:Mode  20g: P= 562 T=18
+new-calib.log.run22:Mode  25g: P= 538 T=17
+new-calib.log.run22:Mode  30g: P= 534 T=17
+new-calib.log.run22:Mode  40g: P= 524 T=17
+new-calib.log.run22:Mode  50g: P= 526 T=17
+new-calib.log.run22:Mode  75g: P= 508 T=17
+new-calib.log.run22:Mode 100g: P= 500 T=17
+new-calib.log.run22:Mode 150g: P= 494 T=17
+new-calib.log.run22:Mode 200g: P= 484 T=16
+new-calib.log.run23:Mode  20g: P= 556 T=18
+new-calib.log.run23:Mode  25g: P= 562 T=18
+new-calib.log.run23:Mode  30g: P= 530 T=18
+new-calib.log.run23:Mode  40g: P= 518 T=17
+new-calib.log.run23:Mode  50g: P= 518 T=17
+new-calib.log.run23:Mode  75g: P= 510 T=17
+new-calib.log.run23:Mode 100g: P= 500 T=17
+new-calib.log.run23:Mode 150g: P= 492 T=17
+new-calib.log.run23:Mode 200g: P= 484 T=17
+new-calib.log.run24:Mode  20g: P= 558 T=18
+new-calib.log.run24:Mode  25g: P= 540 T=18
+new-calib.log.run24:Mode  30g: P= 538 T=18
+new-calib.log.run24:Mode  40g: P= 522 T=17
+new-calib.log.run24:Mode  50g: P= 522 T=17
+new-calib.log.run24:Mode  75g: P= 508 T=17
+new-calib.log.run24:Mode 100g: P= 500 T=17
+new-calib.log.run24:Mode 150g: P= 492 T=17
+new-calib.log.run24:Mode 200g: P= 484 T=17
+new-calib.log.run25:Mode  20g: P= 556 T=18
+new-calib.log.run25:Mode  25g: P= 552 T=18
+new-calib.log.run25:Mode  30g: P= 538 T=18
+new-calib.log.run25:Mode  40g: P= 528 T=17
+new-calib.log.run25:Mode  50g: P= 522 T=17
+new-calib.log.run25:Mode  75g: P= 508 T=17
+new-calib.log.run25:Mode 100g: P= 500 T=17
+new-calib.log.run25:Mode 150g: P= 488 T=16
+new-calib.log.run25:Mode 200g: P= 482 T=16
+new-calib.log.run26:Mode  20g: P= 552 T=18
+new-calib.log.run26:Mode  25g: P= 540 T=18
+new-calib.log.run26:Mode  30g: P= 534 T=17
+new-calib.log.run26:Mode  40g: P= 526 T=17
+new-calib.log.run26:Mode  50g: P= 518 T=17
+new-calib.log.run26:Mode  75g: P= 508 T=17
+new-calib.log.run26:Mode 100g: P= 498 T=17
+new-calib.log.run26:Mode 150g: P= 492 T=17
+new-calib.log.run26:Mode 200g: P= 484 T=16
+new-calib.log.run27:Mode  20g: P= 556 T=18
+new-calib.log.run27:Mode  25g: P= 550 T=18
+new-calib.log.run27:Mode  30g: P= 540 T=18
+new-calib.log.run27:Mode  40g: P= 524 T=17
+new-calib.log.run27:Mode  50g: P= 524 T=17
+new-calib.log.run27:Mode  75g: P= 508 T=17
+new-calib.log.run27:Mode 100g: P= 498 T=17
+new-calib.log.run27:Mode 150g: P= 488 T=16
+new-calib.log.run27:Mode 200g: P= 484 T=16
+new-calib.log.run28:Mode  20g: P= 552 T=18
+new-calib.log.run28:Mode  25g: P= 540 T=18
+new-calib.log.run28:Mode  30g: P= 540 T=18
+new-calib.log.run28:Mode  40g: P= 526 T=17
+new-calib.log.run28:Mode  50g: P= 518 T=17
+new-calib.log.run28:Mode  75g: P= 510 T=17
+new-calib.log.run28:Mode 100g: P= 500 T=17
+new-calib.log.run28:Mode 150g: P= 488 T=17
+new-calib.log.run28:Mode 200g: P= 482 T=16
+new-calib.log.run29:Mode  20g: P= 548 T=18
+new-calib.log.run29:Mode  25g: P= 558 T=18
+new-calib.log.run29:Mode  30g: P= 530 T=18
+new-calib.log.run29:Mode  40g: P= 524 T=17
+new-calib.log.run29:Mode  50g: P= 518 T=17
+new-calib.log.run29:Mode  75g: P= 508 T=17
+new-calib.log.run29:Mode 100g: P= 504 T=17
+new-calib.log.run29:Mode 150g: P= 488 T=16
+new-calib.log.run29:Mode 200g: P= 484 T=16
+new-calib.log.run3:Mode  20g: P= 564 T=18
+new-calib.log.run3:Mode  25g: P= 558 T=18
+new-calib.log.run3:Mode  30g: P= 540 T=18
+new-calib.log.run3:Mode  40g: P= 530 T=18
+new-calib.log.run3:Mode  50g: P= 524 T=17
+new-calib.log.run3:Mode  75g: P= 508 T=17
+new-calib.log.run3:Mode 100g: P= 500 T=17
+new-calib.log.run3:Mode 150g: P= 492 T=17
+new-calib.log.run3:Mode 200g: P= 484 T=16
+new-calib.log.run30:Mode  20g: P= 568 T=18
+new-calib.log.run30:Mode  25g: P= 544 T=18
+new-calib.log.run30:Mode  30g: P= 538 T=17
+new-calib.log.run30:Mode  40g: P= 532 T=18
+new-calib.log.run30:Mode  50g: P= 520 T=17
+new-calib.log.run30:Mode  75g: P= 508 T=17
+new-calib.log.run30:Mode 100g: P= 498 T=17
+new-calib.log.run30:Mode 150g: P= 488 T=16
+new-calib.log.run30:Mode 200g: P= 484 T=16
+new-calib.log.run4:Mode  20g: P= 560 T=18
+new-calib.log.run4:Mode  25g: P= 558 T=18
+new-calib.log.run4:Mode  30g: P= 538 T=18
+new-calib.log.run4:Mode  40g: P= 530 T=18
+new-calib.log.run4:Mode  50g: P= 524 T=17
+new-calib.log.run4:Mode  75g: P= 510 T=17
+new-calib.log.run4:Mode 100g: P= 504 T=17
+new-calib.log.run4:Mode 150g: P= 492 T=17
+new-calib.log.run4:Mode 200g: P= 484 T=17
+new-calib.log.run5:Mode  20g: P= 562 T=18
+new-calib.log.run5:Mode  25g: P= 546 T=18
+new-calib.log.run5:Mode  30g: P= 540 T=18
+new-calib.log.run5:Mode  40g: P= 530 T=17
+new-calib.log.run5:Mode  50g: P= 524 T=17
+new-calib.log.run5:Mode  75g: P= 510 T=17
+new-calib.log.run5:Mode 100g: P= 500 T=17
+new-calib.log.run5:Mode 150g: P= 492 T=17
+new-calib.log.run5:Mode 200g: P= 484 T=16
+new-calib.log.run6:Mode  20g: P= 562 T=18
+new-calib.log.run6:Mode  25g: P= 550 T=18
+new-calib.log.run6:Mode  30g: P= 540 T=17
+new-calib.log.run6:Mode  40g: P= 530 T=17
+new-calib.log.run6:Mode  50g: P= 524 T=17
+new-calib.log.run6:Mode  75g: P= 510 T=17
+new-calib.log.run6:Mode 100g: P= 500 T=17
+new-calib.log.run6:Mode 150g: P= 492 T=16
+new-calib.log.run6:Mode 200g: P= 484 T=16
+new-calib.log.run7:Mode  20g: P= 564 T=18
+new-calib.log.run7:Mode  25g: P= 546 T=18
+new-calib.log.run7:Mode  30g: P= 538 T=18
+new-calib.log.run7:Mode  40g: P= 530 T=17
+new-calib.log.run7:Mode  50g: P= 524 T=17
+new-calib.log.run7:Mode  75g: P= 514 T=17
+new-calib.log.run7:Mode 100g: P= 500 T=17
+new-calib.log.run7:Mode 150g: P= 494 T=17
+new-calib.log.run7:Mode 200g: P= 488 T=16
+new-calib.log.run8:Mode  20g: P= 568 T=18
+new-calib.log.run8:Mode  25g: P= 550 T=18
+new-calib.log.run8:Mode  30g: P= 540 T=17
+new-calib.log.run8:Mode  40g: P= 530 T=18
+new-calib.log.run8:Mode  50g: P= 524 T=17
+new-calib.log.run8:Mode  75g: P= 514 T=17
+new-calib.log.run8:Mode 100g: P= 504 T=17
+new-calib.log.run8:Mode 150g: P= 494 T=17
+new-calib.log.run8:Mode 200g: P= 484 T=16
+new-calib.log.run9:Mode  20g: P= 564 T=18
+new-calib.log.run9:Mode  25g: P= 548 T=18
+new-calib.log.run9:Mode  30g: P= 548 T=18
+new-calib.log.run9:Mode  40g: P= 532 T=17
+new-calib.log.run9:Mode  50g: P= 524 T=17
+new-calib.log.run9:Mode  75g: P= 510 T=17
+new-calib.log.run9:Mode 100g: P= 504 T=17
+new-calib.log.run9:Mode 150g: P= 494 T=16
+new-calib.log.run9:Mode 200g: P= 484 T=16

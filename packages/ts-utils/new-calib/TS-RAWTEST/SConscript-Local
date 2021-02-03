@@ -1,0 +1,38 @@
+"""
+DynaBUG build script
+"""
+
+import os
+import glob
+import CoreTools.CopyTree
+
+Import(['env_vars', 'env'])
+myEnv = env.Clone()     #clone this, so we're not changing the original
+
+libname = 'App'     #env_vars['tld']
+
+#get source file list
+sources = glob.glob(os.path.join('Src', '*.cpp')) 
+
+# Add includes
+myEnv.Append(CPPPATH = ['Include'])
+
+# Add libraries
+myEnv.Append(LIBS = ['LightningJSON'])
+myEnv.Append(LIBS = ['LightningBase'])
+
+#optimizer stuff...this is neccessary to allow exceptions to work properly
+#this needs to be revisted if we get gcc 4.3 or later cross compiler working
+myEnv.Append(CCFLAGS = ['-fno-omit-frame-pointer'])
+
+
+#Set it up to create a .so
+objs  = myEnv.SharedObject(sources)
+
+#Set up resources
+myResources = CoreTools.CopyTree.CopyTree(myEnv, 'apprsrc', env_vars['bin_deploy_dir'])
+myModule = myEnv.SharedLibrary(os.path.join(env_vars['bin_deploy_dir'], libname), objs, SHLIBPREFIX='')
+myEnv.Depends(myModule, objs)
+myEnv.Depends(myModule, myResources)
+
+

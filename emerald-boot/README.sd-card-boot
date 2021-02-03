@@ -1,0 +1,27 @@
+SD card booting support for emerald-boot.
+
+Andrey Yurovsky <ayurovsky@leapfrog.com>
+
+The bootloader will automatically load the kernel and splash screen from an SD
+card if one is found, otherwise it reverts back to trying to use a NAND Flash.
+
+Your SD card must have a valid MBR in sector 0 and it should contain at least
+the following partitions:
+1) "screens" partition, type 0x83, no file system.  This is where the splash
+   screen is fetched, it should be in RLE format.  This partition can be any
+   size but it doesn't have to be very large.
+2) "kernel" partition, type 0x83, no file system.  This is where the kernel.cbf
+   image is fetched.  This partition can be of any size but kernel images are
+   fairly small so 8MB or so should work.
+3) "rootfs" partition, type 0x83 recommended, ext3 file system.  This is the
+   root file system, the bootloader doesn't do anything with it but it does
+   tell the kernel (via the "boot=" argument) to look for its rootfs there.
+   This should be any size that makes sense for your rootfs.
+4) you can place an additional file system here, the bootloader ignores it.
+
+scripts/make_sdcard.sh can create this layout for you automatically.
+
+Extended partitions are not supported.
+
+You may wish to enable the "DEBUG=1" and "SD_DEBUG=1" options for install.sh
+to see more debugging messages in the event of an error.

@@ -1,0 +1,58 @@
+#=============================================================================
+# LightningCore: Top level SConstruct file for the SCons build system
+#
+# Quick tour of SCons:
+#
+#   SCons is a build tool that replaces "make" functionality.
+#   It executes as a Python script, which gives you the full power
+#   of the Python scripting language in defining build steps.
+#
+#=============================================================================
+
+
+import os
+import sys
+
+#Pick the lightning core that it is built against.
+#(not needed if the title doesn't use lightningCore)
+lightningcore_dir = os.environ['LIGHTNING_CORE_PATH']
+sys.path.append(lightningcore_dir)
+import CoreTools.stdLightningEnv
+import CoreTools.CreatePackages
+import CoreTools.BrioDependencies
+import CoreTools.MetaInf
+
+#pick the SDK folder that it is built against:
+sdk = ARGUMENTS.get('sdk', None)
+cdevkit_dir = CoreTools.BrioDependencies.getCdevkitDir(sdk)
+
+#TLD for the project.  This is used in constructing paths.
+tld = 'TS-RAWTEST'
+
+if not os.path.isdir(cdevkit_dir):
+	print "WARNING:  Could not find cdevkit_dir:", cdevkit_dir
+	Exit(-1)
+
+verbose = ARGUMENTS.get('verbose', False)
+env, env_vars = CoreTools.stdLightningEnv.getEnv(
+			args = ARGUMENTS, 
+			tld = tld,                #pass in our 3LD
+			cdevkit_dir = cdevkit_dir, 
+			verbose_output = verbose)
+
+DynaPackager = Builder(action = env_vars['lightningcore_dir'] + "/CoreTools/CreatePackages.py -r ${SOURCE} -o ${TARGET.dir}")
+env.Append(BUILDERS = {'DynaPackager': DynaPackager})
+
+
+Export(['env_vars', 'env', 'ARGUMENTS'])
+#run the scripts that do the actual work of building stuff:
+SConscript(['SConscript-Local'])
+
+#TODO: Generate LFP name from meta.inf version number
+#TODO: figure out way of doing dependencies based on targets from sconscript files
+if env_vars['is_emulation']:
+	package = env_vars['bin_deploy_dir']+"/App.so"
+else:
+	package = env.DynaPackager(os.environ["PROJECT_PATH"] + "/scripts/lpad_extra_packages/" + "TS-RAWTEST.lfp", Dir(env_vars['bin_deploy_dir']))
+	env.Depends(package, env_vars['bin_deploy_dir']+"/App.so")
+env.Default(package)

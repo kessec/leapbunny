@@ -1,0 +1,61 @@
+RDowling 6/17/2009
+PMarks   8/26/2009
+
+There are a number of delicate dependencies in the memory map of emerald-boot.
+
+Review emerald.lds and emerald-boot.map for before and after compilation info.
+
+1) When it boots from NAND, the LF1000 loads only 2K from NAND, so there must 
+be enough code in there to copy the rest of NAND into RAM before running.  
+Since we can't execute out of NAND, we must copy the entire program and data
+area into RAM.  Ram appears at 0x00000000 when NAND booting.
+
+1a) The NOR boot executes in place, but fairly quickly copies itself
+to RAM in order to be increase performance (really?) and to allow for
+relocation of pointers to RAM (does it?), which appears at 0x80000000
+instead of 0x00000000 when NOR booting.  Everything between the
+symbols _copy_start and _copy_end is copied by emerald-boot from NOR
+into RAM if NOR booting.  (See copyNor.c) Another important
+advantage to copying the contents of NOR to RAM is that it mimics what
+the NAND does and allows us to unify their behavior.  We are forced to
+assume we have only one contiguous chunk of memory to work with, and
+that simplifies things because we don't need to separate read-only and
+writable data.
+
+2) The Linux kernel expects the atags structure to be constructed in
+the lowest 16K of RAM.  This structure is currently fairly small
+(<0x800) and only needs 32 bit alignment
+
+3) The Linux kernel is loaded at 0x00100000 (1 MB) beyond the start of
+SDRam, so there is plenty of room for emerald-boot, its screens, other
+read-only data, and bss to be loaded below the kernel.  They are not
+clobbered when the kernel is downloaded or read from NAND.
+
+5) The 128K of stack used by emerald-boot is located just below 20MB
+above start of RAM.
+
+6) The RAM disk (used when RAMDISK=1 is passed to install.sh) is located
+at 20MB above the start of RAM.
+
+--------
+
+So what needs to be in that first 2K, hmm?  Thats 0x000-0x7ff
+
+Reviewing nand_boot.c, I see we can't expect to fix ECC into the first
+2K, so we have a degenerate nand_read called nand_read_boostrap to
+support NAND reads on devices that have good first N pages.  Don't
+know what N is; perhaps it is the full length of the boostrap itself?
+
+ .init          0x00000000      0x318 startup.o
+ .text          0x00000318       0x90 copyNand.o
+                0x00000318                nand_bootstrap
+ .text          0x000003a8      0x274 nand_utils.o
+                0x00000478                nand_wait_for_ready
+                0x000003a8                nand_init
+                0x00000490                nand_check_block
+                0x00000560                nand_wake_bbt
+                0x000003f0                nand_send_read_cmd
+ .text          0x0000061c       0x78 nand_boot.o
+                0x0000061c                nand_read_bootstrap
+ .text          0x00000694      0x340 nand.o .... starts below 2K, so
+ 			all of nand_read_bootstrap made it in first 2K

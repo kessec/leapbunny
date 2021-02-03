@@ -1,0 +1,193 @@
+"End mount -a",1.690000
+"End mdev",2.600000
+"Bgn app",3.760000
+"Bgn AppManager",4.240000
+"End display legal",4.370000
+"Bgn sounds/startup.wav",4.520000
+"End usbether",5.510000
+"Bgn mounts at 2s",5.630000
+"End touchscreen",5.900000
+"End mounts",6.530000
+"End setcal",6.700000
+"End sounds/startup.wav",7.220000
+"Bgn Rest of networking at 10s",13.630000
+"Bgn CartManager",14.140000
+"End dbus-1",15.050000
+"End networking",15.660000
+"End avahi-daemon",16.129999
+"End vbus start",16.219999
+"End Rest of networking",16.260000
+"Bgn Version Logging at 15s",18.700001
+"End Version Logging",19.760000
+"Linux version 2.6.31-leapfrog (rdowling@rdowling-t400) (gcc version 4.1.1) #183 Wed Mar 23 09:59:45 PDT 2011",0.000000
+"CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177",0.000000
+"CPU: VIVT data cache, VIVT instruction cache",0.000000
+"Machine: ARM-LF1000",0.000000
+"Memory policy: ECC disabled, Data cache writeback",0.000000
+"On node 0 totalpages: 11776",0.000000
+"free_area_init_node: node 0, pgdat c03c8354, node_mem_map c0409000",0.000000
+"Normal zone: 92 pages used for memmap",0.000000
+"Normal zone: 0 pages reserved",0.000000
+"Normal zone: 11684 pages, LIFO batch:1",0.000000
+"lf1000_oscvco_set.65 pll 0, not changed already set to 0x00DF2100",0.000000
+"PLL0=393.218109 MHz   PLL1=144.000 MHz   Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 11684",0.000000
+"Kernel command line: init=/sbin/init console=ttyS0,115200 loglevel=2 mem=46M mlc_fb=0x82E00000,0x01200000 ram=0x80000000-0x83FFFFFF screen_module=ILI6480G2 root=/dev/mmcblk0p3 rootfstype=ext3 rootwait0.000000",0.000000
+"PID hash table entries: 256 (order: 8, 1024 bytes)",0.000000
+"Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)",0.000000
+"Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)",0.000000
+"Memory: 46MB = 46MB total",0.000000
+"Memory: 42508KB available (3508K code, 390K data, 112K init, 0K highmem)",0.000000
+"NR_IRQS:256",0.000000
+"TIM0=  4.500 MHz   TIM1=  4.500 MHz   TIM2=  4.500 MHz   TIM3=  4.500 MHz   TIM4=  4.500 MHz   ",0.000000
+"console [ttyS0] enabled",0.000000
+"Calibrating delay loop (skipped) preset value.. 786.43 BogoMIPS (lpj=3932181)",0.000000
+"Mount-cache hash table entries: 512",0.000000
+"CPU: Testing write buffer coherency: ok",0.000000
+"NET: Registered protocol family 16",0.020000
+"bio: create slab <bio-0> at 0",0.060000
+"usbcore: registered new interface driver usbfs",0.070000
+"usbcore: registered new interface driver hub",0.070000
+"usbcore: registered new device driver usb",0.070000
+"NET: Registered protocol family 2",0.090000
+"IP route cache hash table entries: 1024 (order: 0, 4096 bytes)",0.090000
+"TCP established hash table entries: 2048 (order: 2, 16384 bytes)",0.090000
+"TCP bind hash table entries: 2048 (order: 1, 8192 bytes)",0.090000
+"TCP: Hash tables configured (established 2048 bind 2048)",0.090000
+"TCP reno registered",0.090000
+"NET: Registered protocol family 1",0.090000
+"arch/arm/mach-lf1000/gpio_main.c.check_for_touchscreen:1350 found touchscreen",0.100000
+"Reading Board ID =  0x0b",0.100000
+"lf1000-dpc lf1000-dpc: screen: 480x272",0.100000
+"fuse init (API version 7.12)",0.110000
+"msgmni has been set to 83",0.110000
+"alg: No test for stdrng (krng)",0.120000
+"io scheduler noop registered",0.120000
+"io scheduler deadline registered (default)",0.120000
+"lf1000-bl lf1000-bl: Using PWM Channel 2 for backlight",0.120000
+"lf1000-bl lf1000-bl: PWM rate is 9600000",0.120000
+"lf1000-fb lf1000-fb: layers=3, screen=480x272",0.120000
+"lf1000-fb lf1000-fb: got IRQ 0",0.120000
+"lf1000-fb lf1000-fb: layer=0, xyres=480x272",0.120000
+"lf1000-fb lf1000-fb: layer=1, xyres=480x272",0.120000
+"lf1000-fb lf1000-fb: layer=2, xyres=480x272",0.120000
+"Serial: 8250/16550 driver $Revision: 1.90 $ 1 ports, IRQ sharing disabled",0.150000
+"serial8250: ttyS0 at MMIO 0x0 (irq = 10) is a 8250",0.150000
+"brd: module loaded",0.160000
+"ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver",0.160000
+"lf1000-ohci lf1000-ohci: LF1000 OHCI",0.160000
+"lf1000-ohci lf1000-ohci: new USB bus registered, assigned bus number 1",0.160000
+"lf1000-ohci lf1000-ohci: irq 28, io mem 0xc000d000",0.160000
+"after hcd->driver->start",0.230000
+"usb usb1: configuration #1 chosen from 1 choice",0.230000
+"hub 1-0:1.0: USB hub found",0.230000
+"hub 1-0:1.0: 2 ports detected",0.230000
+"usb_add_hcd() returns 0",0.240000
+"IRQ 31/lf1000-rtc: IRQF_DISABLED is not guaranteed on shared IRQs",0.240000
+"LF1000 Real Time Clock driver.",0.240000
+"i2c /dev entries driver",0.240000
+"Software Watchdog Timer: 0.07 initialized. soft_noboot=0 soft_margin=60 sec (nowayout= 0)",0.310000
+"usbcore: registered new interface driver usbhid",0.360000
+"usbhid: v2.6:USB HID core driver",0.360000
+"MTD: Controller Initialized",0.360000
+"nand_get_flash_type(...): Manu_ID = 49, Dev_ID = 49 ",0.370000
+"NAND device: Manufacturer ID: 0x49, Chip ID: 0x49 (Unknown NAND 128MiB 1,8V 16-bit)",0.380000
+"NAND bus width 8 instead 16 bit",0.380000
+"No NAND device found!!!",0.380000
+"lf1000-nand lf1000-nand: Failed to find on board NAND",0.380000
+"Creating 5 MTD partitions on "lf1000-base":",0.380000
+"x000000000000-0x000000100000 : "Emerald_Boot"",0.380000
+"mtd: partition "Emerald_Boot" is out of reach -- disabled",0.380000
+"x000000100000-0x000000200000 : "I18n_Screens"",0.800000
+"mtd: partition "I18n_Screens" is out of reach -- disabled",0.800000
+"x000000200000-0x000000a00000 : "Kernel"",0.800000
+"mtd: partition "Kernel" is out of reach -- disabled",0.800000
+"x000000a00000-0x000006000000 : "RFS"",0.800000
+"mtd: partition "RFS" is out of reach -- disabled",0.800000
+"x000006000000-0x000000000000 : "Bulk"",0.810000
+"mtd: partition "Bulk" is out of reach -- disabled",0.810000
+"Probing nor-flash at physical address 0x00000000 (8-bit bankwidth)",0.810000
+"Found: SST 39LF040",0.810000
+"nor-flash: Found 1 x8 devices at 0x0 in 8-bit bank",0.810000
+"number of JEDEC chips: 1",0.810000
+"cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.",0.810000
+"lf1000_flash_probe().96",0.810000
+"lf1000_flash_probe().147",0.810000
+"Creating 3 MTD partitions on "nor-flash":",0.810000
+"x000000000000-0x00000007e000 : "NOR_Boot"",0.810000
+"x00000007e000-0x00000007f000 : "MfgData0"",0.810000
+"x00000007f000-0x000000080000 : "MfgData1"",0.820000
+"input: Power Button as /class/input/input0",0.820000
+"input: LF1000 Keyboard as /class/input/input1",0.830000
+"resource BUTTON_A (8) port is undefined (-1)",0.830000
+"resource BUTTON_A (8) pin is undefined (-1)",0.830000
+"resource BUTTON_B (9) port is undefined (-1)",0.830000
+"resource BUTTON_B (9) pin is undefined (-1)",0.830000
+"resource SHOULDER_LEFT (10) port is undefined (-1)",0.830000
+"resource SHOULDER_LEFT (10) pin is undefined (-1)",0.830000
+"resource SHOULDER_RIGHT (11) port is undefined (-1)",0.830000
+"resource SHOULDER_RIGHT (11) pin is undefined (-1)",0.830000
+"resource BUTTON_HOME (12) port is undefined (-1)",0.830000
+"resource BUTTON_HOME (12) pin is undefined (-1)",0.830000
+"resource BUTTON_HINT (13) port is undefined (-1)",0.830000
+"resource BUTTON_HINT (13) pin is undefined (-1)",0.830000
+"resource BUTTON_PAUSE (14) port is undefined (-1)",0.830000
+"resource BUTTON_PAUSE (14) pin is undefined (-1)",0.830000
+"resource BUTTON_BRIGHTNESS (15) port is undefined (-1)",0.830000
+"resource BUTTON_BRIGHTNESS (15) pin is undefined (-1)",0.830000
+"resource BUTTON_RED (23) port is undefined (-1)",0.830000
+"resource BUTTON_RED (23) pin is undefined (-1)",0.830000
+"input: LF1000 Accelerometer as /class/input/input2",0.830000
+"bma_detect: BMA220 device found",0.840000
+"Advanced Linux Sound Architecture Driver Version 1.0.20.",0.850000
+"ALSA device list:",0.860000
+"No soundcards found.",0.860000
+"TCP cubic registered",0.860000
+"NET: Registered protocol family 17",0.860000
+"Waiting for root device /dev/mmcblk0p3...",0.870000
+"mmc0: host does not support reading read-only switch. assuming write-enable.",1.280000
+"mmc0: new high speed SD card at address b368",1.280000
+"mmcblk0: mmc0:b368 SD04G 1.87 GiB ",1.290000
+"mmcblk0: p1 p2 p3 p4",1.290000
+"mmcblk0: p4 size 3756024 exceeds device capacity, limited to end of disk",1.290000
+"EXT3 FS on mmcblk0p3, internal journal",1.390000
+"VFS: Mounted root (ext3 filesystem) on device 179:3.",1.390000
+"Freeing init memory: 112K",1.390000
+"lf1000-usbgadget lf1000-usbgadget: probe",1.780000
+"input: LF1000 USB as /class/input/input3",1.800000
+"i2c-adapter i2c-0: no ACK in xfer_write",2.630000
+"i2c: no ACK in xfer_read",2.630000
+"No device for DAI lf1000-i2s",2.720000
+"lfp100-codec 0-00cc: i2c-0xCC lfp100_i2c_probe",2.760000
+"didj-asoc didj-asoc: didj_audio_probe.112",2.810000
+"asoc: lfp100-codec <-> lf1000-i2s mapping ok",2.820000
+"lf1000_pll1_clock_changed.930 TIMER_SYS_TICK=45000",4.350000
+"lf1000-usbgadget lf1000-usbgadget: usb_gadget_register_driver 'g_ether'",5.470000
+"lf1000-usbgadget lf1000-usbgadget: binding gadget driver 'g_ether'",5.470000
+"usb0: MAC 80:38:fd:00:30:30",5.490000
+"usb0: HOST MAC 80:38:fd:80:30:30",5.490000
+"g_ether gadget: Ethernet Gadget, version: Veterans Day 2009",5.490000
+"g_ether gadget: g_ether ready",5.490000
+"input: LF1000 touchscreen interface as /class/input/input4",5.830000
+"input: LF1000 touchscreen raw as /class/input/input5",5.850000
+"input input4: lf1000_ts2: probe done ok",5.870000
+"EXT3 FS on mmcblk0p4, internal journal",6.430000
+"Bgn power-button",34.310001
+"AppManager: Start splash video: ",8.430000
+"AppManager: UI loaded: ",9.580000
+"AppManager: UI entered: ",10.070000
+"AppManager: UI updated: ",12.010000
+"AppManager: End splash video: ",13.680000
+"AppManager: Start shutdown video: ",35.419998
+"AppManager: End shutdown video: ",37.980000
+"End AppManager exit(0)",38.619999
+"Bgn Shutting down system",39.230000
+"End dbus-1 stop",39.310001
+"End vsftpd stop",39.369999
+"End telnetd stop",39.459999
+"End vbus stop",39.540001
+"End networking stop",39.630001
+"End usbether stop",40.080002
+"Bgn killall mainapp",40.150002
+"End killall mainapp",40.240002
+"Bgn umount -a",40.419998
+"Power Off",48.42

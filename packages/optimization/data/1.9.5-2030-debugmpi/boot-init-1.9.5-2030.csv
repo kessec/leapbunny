@@ -1,0 +1,28 @@
+"End mount -a",1.90
+"Bgn mounts",1.94
+"End mounts",2.40
+"Bgn sounds/startup.wav",3.96
+"End usbether",4.80
+"End touchscreen",5.18
+"End setcal",5.73
+"End sounds/startup.wav",6.46
+"Bgn Rest of networking at 10s",13.33
+"Bgn CartManager",13.44
+"End dbus-1",14.22
+"End networking",14.80
+"End avahi-daemon",15.26
+"End vbus start",15.35
+"End Rest of networking",15.40
+"Bgn Version Logging at 15s",18.36
+"End Version Logging",19.41
+"Bgn power-button",33.61
+"Bgn Shutting down system",37.93
+"End dbus-1 stop",38.02
+"End vsftpd stop",38.08
+"End telnetd stop",38.16
+"End vbus stop",38.24
+"End networking stop",38.32
+"End usbether stop",39.51
+"Bgn killall mainapp",39.59
+"End killall mainapp",39.67
+"Bgn umount -a",39.85

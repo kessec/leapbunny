@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# switch Didj USB from ethernet-over-usb to mass-storage
+
+# stop telnet server if running
+ps au | grep -q telnetd
+RESULT=$?
+if [ "$RESULT" = "0" ]; then
+    /etc/init.d/telnetd stop
+fi
+
+# unmount /Didj partition if nfs mounted
+mount | grep -q "/Didj type nfs"
+RESULT=$?
+if [ "$RESULT" = "0" ]; then
+    umount /Didj
+fi
+
+# unload nfs driver if loaded
+lsmod | grep -q nfs
+RESULT=$?
+if [ "$RESULT" = "0" ]; then
+    /etc/init.d/nfs stop
+fi
+
+# unload ethernet driver if loaded
+lsmod | grep -q g_ether
+RESULT=$?
+if [ "$RESULT" = "0" ]; then
+    /etc/init.d/usbether stop
+fi
+
+# install mass_storage if not loaded
+lsmod | grep -q g_file_storage
+RESULT=$?
+if [ ! "$RESULT" = "0" ]; then
+    /etc/init.d/mass_storage start
+fi
+usbctl -d mass_storage -a unlock
+usbctl -d mass_storage -a enable

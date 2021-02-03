@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Turn on the fb
+fbctrl /dev/fb0 set blank 0
+fbctrl /dev/fb1 set blank 1
+fbctrl /dev/fb2 set blank 1
+# Run the test
+/LF/Bulk/ProgramFiles/TS-RAWTEST/ts-rawtest
+# Exit 42, so AppManager restarts
+exit 42

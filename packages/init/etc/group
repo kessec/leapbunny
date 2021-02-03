@@ -1,0 +1,11 @@
+root::0:
+user1000::1000:
+lfu::1001:
+dftp::1002:
+game::1003:
+ftp::1004:
+messagebus::1101:
+avahi::1102:
+netdev::1103:
+avahi-autoipd::1104:
+nogroup::65534:

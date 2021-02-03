@@ -1,0 +1,18 @@
+--- /tmp/mtd-utils/ubi-utils/new-utils/src/libscan.c	2009-02-03 19:03:08.000000000 -0800
++++ mtd-utils/ubi-utils/new-utils/src/libscan.c	2010-04-09 13:47:28.604116484 -0700
+@@ -97,8 +97,13 @@
+ 		}
+ 
+ 		ret = mtd_read(mtd, eb, 0, &hdr, sizeof(struct ubi_ec_hdr));;
+-		if (ret < 0)
+-			goto out_ec;
++		if (ret < 0) {
++			si->corrupted_cnt += 1;
++			si->ec[eb] = EB_CORRUPTED;
++			if (v)
++				printf(": Read error; treating as corrupted\n");
++			continue;
++		}
+ 
+ 		/* Check the EC header */
+ 		if (be32_to_cpu(hdr.magic) != UBI_EC_HDR_MAGIC) {

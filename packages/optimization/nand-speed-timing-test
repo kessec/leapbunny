@@ -1,0 +1,20 @@
+#!/bin/sh
+
+T=/sys/devices/platform/lf1000-nand/timing
+HS=/sys/devices/platform/lf1000-nand/cart_hotswap
+for a in 0 3; do
+	for b in 0 3; do
+		for c in 4 3 2 1; do
+			echo "0,$a" > $T
+			echo "1,$b" > $T
+			echo "2,$c" > $T
+			echo 1 > $HS
+			usleep 10000
+			echo -n "0,$a 1,$b 2,$c" `grep Cartridge /proc/mtd`
+			echo 0 > $HS
+			iospeed & pid=$!; sleep 3; kill $pid
+			echo ""
+		done
+	done
+done
+			

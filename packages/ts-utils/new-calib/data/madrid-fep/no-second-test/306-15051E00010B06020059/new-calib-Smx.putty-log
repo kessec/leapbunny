@@ -1,0 +1,34 @@
+/usr/bin # new-calib -S -m -x
+new-calib: New touch screen calibration program v3.11
+Skip pressure data step; use default pressure curve
+Manufacturing Mode
+Experimental: delays == 5, get_five_points()
+Board ID: 0xB=Madrid
+Using tnt_mode=1
+Setting for delay_in_us:        1
+Setting for y_delay_in_us:      1
+Setting for tnt_delay_in_us:    1
+Setting for max_delta_tnt:      3
+Setting for tnt_mode:           1
+Setting for averaging:         -1
+Entering get_four_points
+target_noise  x= 2.50 y= 2.50 t= 2.50
+N=24 Avg=19
+min: 19 19 19 19 19 19
+max: 21 20 20 20 20 20
+N=24 Avg=12
+min: 11 12 12 12 12 12
+max: 14 14 13 13 13 13
+N=24 Avg=12
+min: 12 12 12 12 12 12
+max: 13 13 13 13 13 13
+N=24 Avg=20
+min: 19 19 19 20 20 20
+max: 21 21 21 21 20 20
+Using TNT center offset = 17
+TNT Plane Coef: a= -792 b=    3 c= 379777
+Fit Corners: 23, 11, 11, 23  Center: 17
+Setting for min_tnt_up:   520
+Setting for max_tnt_down: 20 (V2:30)
+Entering calib_pressure_mfg
+Using default pressure curve

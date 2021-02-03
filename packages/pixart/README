@@ -1,0 +1,27 @@
+This package contains utilities and notes relevant to upgrading the firmware
+of Leapster Explorer's Camera Expandable:
+-http://emma.leapfrog.com/display/BRIO/Emerald+Camera+Widget
+-http://touchstone.leapfrog.com/Communities/sites/emerald/Community%20Documents/Firmware%20Development/Camera%20Widget%20Specification.docx
+
+The contents of this directory:
+-README:
+	-this document
+
+-install.sh:
+	-LinuxDist packages installer
+
+-LEAPFROG.pdf:
+	-description of camera EEPROM layout and firmware offsets (from PixArt)
+
+-Linux EEPROM Flow.doc:
+	-original description of camera's extenion unit
+
+-Linux EEPROM Flow100714.doc:
+	-updated description of camera's extension unit
+
+-src/:
+	-source code for upgrade utility
+
+-PAC7332C_20100603_AsiUSA_60hz_30_25_20_15_10_5_A3FC_*.hex:
+	-PixArt-supplied firmware files (shipping on camera)
+
