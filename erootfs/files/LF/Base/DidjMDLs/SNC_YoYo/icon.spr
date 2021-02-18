@@ -1,3 +1,0 @@
-TextureName = 1icon.tex
-AlphaMode = TRUEALPHA       // SOLID, ZEROCOLOR, ADDITIVE, TRUEALPHA,
-Color = 255, 255, 255, 255

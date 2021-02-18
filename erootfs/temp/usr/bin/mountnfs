@@ -1,2 +1,0 @@
-mount -o nolock `get-ip host`:/home/lfu/nfsroot/LF /LF
-

@@ -1,8 +1,0 @@
-TextureName = Yoda_BG_Screen.tex
-AlphaMode = SOLID       // SOLID, ZEROCOLOR, ADDITIVE, TRUEALPHA,
-Color = 255, 255, 255, 255
-
-Animation0 = {
-  Speed = 0
-  Frame0 = Yoda_BG_Screen.tex
-}

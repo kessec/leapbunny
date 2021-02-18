@@ -1,4 +1,0 @@
-echo 0 > /flags/vbus
-mountnfs
-gdbserver `get-ip host`:10000 /LF/Base/bin/AppManager $1 $2
-

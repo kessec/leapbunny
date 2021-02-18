@@ -1,3 +1,0 @@
-#!/bin/sh
-echo "Making current touch calibration permanent in NOR..."
-mfgdata set ts `cat /flags/pointercal`

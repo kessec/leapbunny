@@ -1,9 +1,0 @@
-{
-	"HotPlugActive": "L3B/Art/UI_Status_HotPlug.png",
-	"HotPlugInactive": "L3B/Art/UI_Status_Disconnected.png",
-	"HotPlugAudio": [
-		"L3B_en/Audio/h_BN_NewAccessoryDetected_3.ogg",
-		"L3B_en/Audio/h_BN_ConnectYrLpstrExplrrTYrCm_8.ogg"
-	],
-	"VideoDetect": "L3B/Video/ExpandableDetectedScreen.ogg"
-}

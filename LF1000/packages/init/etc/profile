@@ -1,4 +1,0 @@
-# This file is executed by the login shell by default.
-export PATH=/LF/Base/Brio/bin/:/LF/Base/bin/:$PATH:/usr/local/bin
-export LD_LIBRARY_PATH=/LF/Base/Flash/lib:/LF/Base/lib:/LF/Base/Brio/lib/:/usr/local/lib
-export HISTFILESIZE=50

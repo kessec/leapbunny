@@ -1,9 +1,0 @@
-"Power on",0
-"CPU go",0.2
-"Bgn NOR copy to RAM",0.201
-"End NOR copy to RAM",0.55
-"Backlight on",0.56
-"Bgn Copy Logo Screen to FB??",.70
-"End Copy Logo Screen to FB??",.75
-"Bgn Kernel Copy?",0.751
-"End Kernel Copy",1.280

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-for i in [23]*; do
-    count4=$(ls $i/new-calib-Smx[0-9].log | wc -l)
-    count5=$(ls $i/new-calib-S5mx[0-9].log | wc -l)
-    countt=$(ls $i/t1 | wc -l)
-    printf "%30s %d %d %d\n" $i $count4 $count5 $countt
-done

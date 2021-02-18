@@ -1,2 +1,0 @@
-#!/bin/sh
-echo PLAY > /sys/devices/platform/lf1000-gpio/request && echo 0 > /sys/devices/platform/lf1000-gpio/panic && reboot -f

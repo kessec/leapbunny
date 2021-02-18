@@ -1,4 +1,0 @@
-new-calib-0001.log: madrid with series resistors in place (by accident)
-new-calib-0002.log: same madrid with series resistors removed.
-
-Better ADC range for sure, and less pressure noise.

@@ -1,5 +1,0 @@
-* We can tighen the TNT threshold based on real data, and skim off top
-  5% to avoid more distored position data.
-** Need to consider how TNT changes with position
-** May need to be adaptive instead
-

@@ -1,1 +1,0 @@
-MI_3_C_MM_Blocker,MI_3_C_MM_pedestal_tip,MI_3_C_MM_pedestal,2
