@@ -1,7 +1,0 @@
-#!/bin/sh
-NAME=real
-PRE=firmware
-tar -Hustar -C "$NAME" -cf "$NAME.tar" $PRE/meta.inf $PRE/NORBoot $PRE/sd/{partition,raw,ext3}
-# tar -Hustar -C "$NAME" -cf "$NAME.tar" meta.inf NORBoot sd/{partition,raw,ext3}
-# tar -Hustar -C "$NAME" -cf "$NAME.tar" meta.inf sd/{partition,raw,ext3}
-# bzip2 -9c "$NAME.tar"  > "$NAME.lf2"

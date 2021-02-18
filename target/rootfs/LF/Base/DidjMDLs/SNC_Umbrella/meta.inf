@@ -1,0 +1,16 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0004
+PackageID="DIDJ-0x000F0004-000008"
+Version="1.0.0"
+Locale="en-us"
+Name="In the Shade Pose"
+ShortName="In the Shade Pose"
+Publisher="LeapFrog, Inc."
+Developer="Realtime Associates, Inc."
+Hidden=0
+ProfileAccess=0,1,2
+PreviewImage="umbrella_icon.png"
+Icon="icon.png"
+MDLType=0

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		logger -s -t "Emerald Base" -p local4.notice  "Starting vbus-monitor ..."		
+		start-stop-daemon --start --background --exec /usr/bin/vbus-monitor
+		;;
+
+	stop)
+		logger -s -t "Emerald Base" -p local4.notice  "Stopping vbus-monitor ..."
+		start-stop-daemon --stop --name vbus-monitor
+		;;
+
+	restart)
+		logger -s -t "Emerald Base" -p local4.notice  "Restarting vbus-monitor ..."
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0

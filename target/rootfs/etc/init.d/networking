@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+# manage network interfaces.
+# edited by the Kessec LeapFrog Team 
+#
+
+# Hack for forcing static IP: get buttons defined and "button_down" tester
+. /usr/bin/recovery-functions
+
+log ()
+{
+	logger -s -t "Emerald Base" -p local4.notice "$1"
+}
+
+case "$1" in
+	start)
+		log "Starting $0 ..."
+		# build /etc/hosts file if none exists or hostname changed
+		if [ ! -e /etc/hosts ] || \
+                   [ "`tail -1 /etc/hosts`" != "# end `hostname`" ]
+		then
+			echo "127.0.0.1	localhost" > /etc/hosts
+			echo "127.0.1.1	`hostname`" >> /etc/hosts
+			echo "# end `hostname`" >> /etc/hosts
+		fi
+
+		# bring up lo
+		ifconfig lo 127.0.0.1
+
+		# bring up usb0
+		if button_down $BUTTON_BRIGHTNESS; then
+			log "$0: Holding brightness: forcing static IP";
+			ifconfig usb0 10.0.0.2 netmask 255.255.255.0
+		elif [ -e /flags/avahi ]; then
+			# force Zeroconf address
+			log "$0: /flags/avahi: forcing dynamic IP";
+			avahi-autoipd --daemon --force-bind usb0
+		elif [ -e /flags/noavahi ] || [ -e /flags/developer ]; then
+			# force fixed IP
+			[ -e /flags/noavahi ] && log "$0: /flags/noavahi: forcing static IP";
+			[ -e /flags/developer ] && log "$0: /flags/developer: forcing static IP";
+			ifconfig usb0 10.0.0.2 netmask 255.255.255.0
+			echo 192.168.0.113 > /tmp/ip-host
+		else
+			# default case
+			log "$0: default: dynamic IP";
+			avahi-autoipd --daemon --force-bind usb0
+                fi
+		;;
+	stop)
+		log "Stopping $0 ..."	
+		ifconfig usb0 down
+		;;
+	restart)
+		log "Restarting $0 ..."	
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+                                                        
+exit 0

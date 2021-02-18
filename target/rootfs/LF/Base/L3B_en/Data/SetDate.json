@@ -1,0 +1,17 @@
+{
+	"SetDateText": "SET THE DATE",
+	"SetDateAudio": [
+			"L3B_en/Audio/h_BN_SetMnthDyAndYrByTppngArrw_3.mp3",
+			"L3B_en/Audio/h_BN_WhenYrDnTpChckmrkAtBttmOf_3.mp3"
+		],
+	"Months":[
+		"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+		"JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+		],
+	"MonthSizes": [
+		9, 9, 9, 9, 9, 9, 9, 9, 8, 9, 8, 8
+	],
+	"MonthSelector": 0,
+	"DaySelector": 1,
+	"YearSelector": 2
+}

@@ -1,0 +1,24 @@
+{
+	"EnterGradeText": "CHOOSE YOUR GRADE",
+	"EnterGradeAudio": [
+		"L3B_en/Audio/h_BN_ChooseYrGrdByTppngLftAndR_3.mp3",
+		"L3B_en/Audio/h_BN_WhenYrDnTpChckmrkAtBttmOf_3.mp3"
+	],
+	"ChangeGradeText": "CHANGE YOUR GRADE",
+	"ChangeGradeAudio":[
+		"L3B_en/Audio/h_BN_ChangeYrGrdByTppngLftAndR_3.mp3"
+	],
+	"GradeArray": [
+		"PRE-K",
+		"K",
+		"1st",
+		"2nd",
+		"3rd",
+		"4th",
+		"5th",
+		"6th",
+		"7th",
+		"8th"
+	],
+	"SaveText": "SAVE?"
+}

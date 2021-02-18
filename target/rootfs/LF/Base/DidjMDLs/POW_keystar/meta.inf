@@ -1,0 +1,15 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0001
+PackageID="DIDJ-0x000F0001-000008"
+Version="1.0.0"
+Locale="en-us"
+Name="Star Key"
+ShortName="Star Key"
+Publisher="LeapFrog, Inc."
+Developer="LeapFrog, Inc."
+Hidden=0
+ProfileAccess=0,1,2
+Icon="POW_Micromod_Icon_0007.png"
+MDLType=14

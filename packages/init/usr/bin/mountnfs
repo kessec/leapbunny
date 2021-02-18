@@ -1,2 +1,0 @@
-mount -o nolock `get-ip host`:/home/lfu/nfsroot/LF/Base /LF/Base
-mount -o nolock `get-ip host`:/home/lfu/nfsroot/LF/Bulk/ProgramFiles /LF/Bulk/ProgramFiles

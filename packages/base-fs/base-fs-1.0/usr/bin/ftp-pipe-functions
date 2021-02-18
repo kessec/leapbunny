@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Turn hex to decimal
+hex2dec () { printf "%d" $1; }
+
+usage_helper ()
+{
+	echo "<Mtd#> should be like 'mtd3'"
+	echo "Performs: 'ftpget | $*'"
+	echo "Hex addresses are supported if in 0xNNNNNNNN format"
+}
+
+# Run a pipe from ftpget $1 to $* and exit
+ftppipe ()
+{
+	TEMP=`mktemp /tmp/ftpget.XXXXXX`
+	file=$1; shift
+	set -x
+	ftpget -u lfu -p lfuser `get-ip host` - $file 2>$TEMP | $*
+	res=$?
+	set +x
+	if [ $res != 0 ]; then
+		echo "2nd part of pipe failed: $*"
+		rm -f $TEMP
+		exit $res
+	fi
+	if grep . $TEMP; then
+		echo "ftpget $1 failed"
+		cat $TEMP
+		rm -f $TEMP
+		exit 1;
+	fi
+	rm -f $TEMP
+	exit 0
+}

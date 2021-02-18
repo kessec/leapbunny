@@ -1,0 +1,11 @@
+{
+	"ShowMenuText": "SHOW MAIN MENU INFO",
+	"ShowMenuAudio": [
+		"L3B_en/Audio/h_BN_ChangeHwYLnchStffInThMnMn_3.mp3",
+		"L3B_en/Audio/h_BN_ShowInfrmtnBfrYLnchGmOrSt_5.mp3"
+	],
+	"SaveConfirmInfo": "",
+	"SaveConfirmQuestion": "SAVE?",
+	"OnToggleText": "ON",
+	"OffToggleText": "OFF"
+}

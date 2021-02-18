@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z "$1" ]; then
+   echo "Usage: `basename $0` path/under/home/lfu/filename"
+   echo "   Retrieve file from ~lfu into any path using ftpget -u lfu `get-ip host`"
+   exit 1;
+fi
+set -x
+set -e
+# ftpget localfile remotefile
+ftpget -u lfu -p lfuser `get-ip host` $1 `basename $1`
