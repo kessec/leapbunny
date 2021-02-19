@@ -1,0 +1,15 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0002
+PackageID="DIDJ-0x000F0002-000006"
+Version="1.0.0"
+Locale="en-us"
+Name="Power Blast"
+ShortName="Power Blast"
+Publisher="LeapFrog, Inc."
+Developer="LeapFrog, Inc."
+Hidden=0
+Icon="icon.png"
+MDLType="Danny_Phantom"
+ProfileAccess=0,1,2

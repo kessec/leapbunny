@@ -1,0 +1,21 @@
+{
+	"ElementType": 3,
+	"ID": 0,
+	"Position": [160.000000, 120.000000],
+	"Animation":    [
+		{
+		"ElementType": 2,
+		"ID": 0,
+		"Duration": 83,
+			"Children": [
+				{
+				"ElementType": 0,
+				"ID": 0,
+				"URL": "MyPage_Power_Blowdryer_Button_Icon_HairDryer_Symbol.png",
+				"Position": [-13.000000, 12.850000, 0.100000],
+				"Reg": [-2.000000, 32.000000]
+				}
+			]
+		}
+	]
+}

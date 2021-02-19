@@ -1,0 +1,13 @@
+#!/bin/sh -e
+source /usr/bin/ftp-pipe-functions
+if [ -z "$1" -o ! -e /dev/$2 -o -z "$4" ]; then
+   echo "Usage:"
+   echo "    `basename $0` filename.image mtd# offset len"
+   usage_helper nandfmt -s "<offset>" -l "<len>"
+   exit 1;
+fi
+if [ $(($4)) = 0 ]; then 
+	echo "Failed to get len ($len) correctly";
+	exit 1; 
+fi
+ftppipe $1 nandfmt -s $3 -l $4 /dev/$2

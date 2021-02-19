@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Test ROOT and DIDJ file system md5sums
+
+if fgrep 31:04 /proc/cmdline > /dev/null; then
+	# ATAP on RFS0
+	if ! mount | grep riki > /dev/null; then
+		/etc/init.d/atap-mounts restart
+	fi
+	cd /riki
+fi
+
+return=0
+which=erootfs.md5
+if [ -e $which ]; then
+	echo "Checking rootfs (about 10 seconds)"
+	md5sum -c $which | grep ": FAILED"
+	if [ $? != 0 ]; then
+		echo "Success"
+	else
+		echo "Failure!"
+		return=1
+	fi
+else
+	echo "Missing $which!  Check skipped"
+	return=1
+fi
+
+which=Didj.md5
+if [ -e $which ]; then
+	echo "Checking Didj (about 20 seconds)"
+	md5sum -c $which | grep ": FAILED"
+	if [ $? != 0 ]; then
+		echo "Success"
+	else
+		echo "Failure!"
+		return=1
+	fi
+else
+	echo "Missing $which!  Check skipped"
+	return=1
+fi
+
+exit $return
+

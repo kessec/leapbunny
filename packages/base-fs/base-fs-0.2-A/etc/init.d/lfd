@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		logger -s -t "Emerald Base" -p local4.notice  "Starting lfd ..."		
+		start-stop-daemon --start --background --exec /usr/bin/lfd
+		;;
+
+	stop)
+		logger -s -t "Emerald Base" -p local4.notice  "Stopping lfd ..."
+		start-stop-daemon --stop --name lfd
+		;;
+
+	restart)
+		logger -s -t "Emerald Base" -p local4.notice  "Restarting lfd ..."
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0

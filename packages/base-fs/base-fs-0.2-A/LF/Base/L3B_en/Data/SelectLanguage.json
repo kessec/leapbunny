@@ -1,0 +1,30 @@
+{
+	"LanguageSelectionText": "LANGUAGE SELECTION",
+	"LanguageSelectionAudio": [
+				"L3B_en/Audio/h_BN_ChooseLnggByTppngFlgUsngS_3.mp3",
+				"L3B_en/Audio/h_BN_WhenYrDnTpChckmrkAtBttmOf_3.mp3"
+			],
+	"LanguageSettingText": "LANGUAGE SETTING",
+	"LanguageSettingAudio": [
+				"L3B_en/Audio/h_BN_ChooseLnggByTppngFlgUsngS_3.mp3"
+			],
+	"Flags":[ {
+			"LocaleCode" : "en-us",
+			"Art": "L3B_en/Art/flag_us.swf",
+			"Audio"  : "L3B_en/Audio/h_BN_UsEnglish_3.mp3"
+		}, {
+			"LocaleCode" : "en-gb",
+			"Art": "L3B_en/Art/flag_gb.swf",
+			"Audio"  : "L3B_en/Audio/h_BN_UkEnglish_3.mp3"
+		}, {
+			"LocaleCode" : "en-ca",
+			"Art": "L3B_en/Art/flag_ca.swf",
+			"Audio"  : "L3B_en/Audio/h_BN_CanadianEnglish_3.mp3"
+		}, {
+			"LocaleCode" : "en-au",
+			"Art": "L3B_en/Art/flag_au.swf",
+			"Audio"  : "L3B_en/Audio/h_BN_AustralianEnglish_3.mp3"
+		}],
+	"SaveText": "SAVE?"
+}
+

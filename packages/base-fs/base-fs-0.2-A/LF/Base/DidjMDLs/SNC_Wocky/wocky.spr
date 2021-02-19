@@ -1,0 +1,16 @@
+TextureName = Wockyfall_01.tex
+AlphaMode = ZEROCOLOR       // SOLID, ZEROCOLOR, ADDITIVE, TRUEALPHA,
+Color = 255, 255, 255, 255
+
+//CRITER_FALL
+Animation0 = {
+  Speed = 1
+  Frame0 = Wockyfall_01.tex
+}
+
+//CRITER_BOUNCE
+Animation1 = {
+  Speed = 4
+  Frame0 = Wockybounce_01.tex
+  Frame1 = Wockybounce_02.tex
+}

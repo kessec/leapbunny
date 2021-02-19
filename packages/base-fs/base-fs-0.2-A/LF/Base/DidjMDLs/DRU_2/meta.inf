@@ -1,0 +1,16 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0006
+PackageID="DIDJ-0x000F0006-000003"
+Version="1.0.0"
+Locale="en-us"
+Name="Tiger Stripes"
+ShortName="Tiger Stripes"
+Publisher="LeapFrog, Inc."
+Developer="Asylum Entertainment, Ltd."
+Hidden=0
+ProfileAccess=0,1,2
+PreviewImage="preview.png"
+Icon="icon.png"
+MDLType="Unknown"
