@@ -1,9 +1,0 @@
-#!/bin/sh
-if [ -z "$1" -o ! -e /dev/$2 ]; then
-   echo "Usage: $0 filename"
-   echo "   Send file using ftpput -u lfu `get-ip host`"
-   exit 1;
-fi
-set -x
-set -e
-ftpput -u lfu -p lfuser `get-ip host` `basename $1` $1

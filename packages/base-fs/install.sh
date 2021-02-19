@@ -20,6 +20,8 @@ set_standard_opts $*
 pushd $PROJECT_PATH/packages/base-fs
 
 # Copy the contents of the base filesystem to target.
-cp -r ./base-fs-1.0/* $PROJECT_PATH/target/rootfs
+cp -r ./base-fs-0.2-A/* $PROJECT_PATH/target/rootfs\
+echo "Sucessfully installed base-fs-0.2-A."
+chmod +rwx $PROJECT_PATH/target/rootfs/*
 
 exit 0

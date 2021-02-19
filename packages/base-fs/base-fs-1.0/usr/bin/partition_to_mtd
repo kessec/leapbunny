@@ -1,2 +1,0 @@
-#!/bin/sh
-cat /proc/mtd | grep $1 | awk -F: '{print $1}'

@@ -1,2 +1,0 @@
-#!/bin/sh
-for i in /proc/[0-9]*/fd/*; do echo $i `readlink $i`; done

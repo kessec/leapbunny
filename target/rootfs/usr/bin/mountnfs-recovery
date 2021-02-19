@@ -1,1 +1,0 @@
-mount -o nolock `get-ip host`:/home/lfu /mnt
