@@ -1,13 +1,12 @@
 <html lang="en">
 <head>
-<title>ABORT - Using as</title>
+<title>Abort - Using as</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Using as">
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Pseudo-Ops.html#Pseudo-Ops" title="Pseudo Ops">
-<link rel="prev" href="Abort.html#Abort" title="Abort">
-<link rel="next" href="Align.html#Align" title="Align">
+<link rel="next" href="ABORT.html#ABORT" title="ABORT">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <style type="text/css"><!--
@@ -25,17 +24,19 @@
 <body>
 <div class="node">
 <p>
-<a name="ABORT"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="Align.html#Align">Align</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Abort.html#Abort">Abort</a>,
+<a name="Abort"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="ABORT.html#ABORT">ABORT</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops</a>
 <hr>
 </div>
 
-<h3 class="section">7.2 <code>.ABORT</code></h3>
+<h3 class="section">7.1 <code>.abort</code></h3>
 
-<p><a name="index-g_t_0040code_007bABORT_007d-directive-272"></a>When producing COFF output, <samp><span class="command">as</span></samp> accepts this directive as a
-synonym for `<samp><span class="samp">.abort</span></samp>'.
+<p><a name="index-g_t_0040code_007babort_007d-directive-270"></a><a name="index-stopping-the-assembly-271"></a>This directive stops the assembly immediately.  It is for
+compatibility with other assemblers.  The original idea was that the
+assembly language source would be piped into the assembler.  If the sender
+of the source quit, it could use this directive tells <samp><span class="command">as</span></samp> to
+quit also.  One day <code>.abort</code> will not be supported.
 
    </body></html>
 

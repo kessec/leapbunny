@@ -1,8 +1,0 @@
-#!/bin/sh
-
-killall recovery
-killall sleep
-killall recovery-dftp
-killall flipbook
-killall flipbook-fb
-killall surgeon-usb-socket

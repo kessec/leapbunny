@@ -1,9 +1,0 @@
-Device="LeapsterExplorer"
-Type="System"
-Name="Brio"
-Publisher="LeapFrog, Inc."
-Developer="LeapFrog, Inc.  Firmware Team"
-Version="1.3.4.9218"
-ProductID=0x00170004
-PackageID="LST3-0x00170004-000001"
-PartNumber="152-12221"

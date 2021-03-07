@@ -1,9 +1,0 @@
-#!/bin/sh
-if [ -z "$1" -o -z "$2" -o ! -w "$2" ]; then
-   echo "Usage: ddget filename.image DEVICE"
-   echo "  Will ftpget ~lfu/filename.image and dd into DEVICE"
-   exit 1;
-fi
-set -x
-set -e
-ftpget -u lfu -p lfuser `get-ip host` - $1 | dd of=$2 bs=512
