@@ -1,9 +1,0 @@
-#!/bin/sh
-if [ -z "$1" ]; then
-   echo "Usage: target filename.tar"
-   echo "  Will ftpget ~lfu/filename.tar and untar it into current directory"
-   exit 1;
-fi
-set -x
-set -e
-ftpget -u lfu -p lfuser `get-ip host` - $1 | tar -x
