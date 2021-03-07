@@ -1,0 +1,38 @@
+#!/bin/sh -e
+FILENAME=$1
+DEV=/dev/`fgrep '"NOR_Boot"' /proc/mtd | cut -d : -f 1`
+bn=`basename $FILENAME`
+if [ -z "$bn" ]; then
+        echo "Trouble with basename $FILENAME returning null"
+        exit 1;
+fi
+tn=/tmp/$bn
+eb=/tmp/boot.bin
+ftpget -u lfu -p lfuser `get-ip host` $tn $FILENAME
+if [ $? != 0 ]; then
+        echo "Trouble with ftpget: exit code=$?"
+        exit 1
+fi
+if echo $bn | fgrep -i .lfp > /dev/null; then
+        # found .lfp
+        unzip -p $tn '*/*-boot.bin' > $eb
+        if [ $? != 0 ]; then
+                echo "Unzip of $tn failed with exit code=$?"
+        fi
+elif [ $bn != emerald-boot.bin -a \
+       $bn != explorer-boot.bin -a \
+       $bn != madrid-boot.bin ]; then
+        echo "'$FILENAME' is not madird,explorer,emerald-boot.bin"
+        exit 1
+else
+        echo "got $bn"
+	cp $tn $eb
+fi
+
+echo "Flashing $bn to $DEV..."
+mfgmode.sh 9 > /dev/null
+flashcp -v $eb $DEV
+mfgmode.sh 0 > /dev/null
+rm -f $tn $eb
+echo "Done"
+exit 0

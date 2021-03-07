@@ -1,0 +1,8 @@
+{
+	"CalibrateText": "SCREEN CALIBRATION",
+	"CalibrateAudio": "L3B_en/Audio/h_BN_UsingYrStylsTpPlsSgnEchTm_3.mp3",
+	"InstructionText1": "Touch the target dot to calibrate.\nPress B to exit.",
+	"InstructionText2": "Touch the target dot to calibrate.\nPress B to restart.",
+	"CalibrationCompleteText": "Calibration Complete.",
+	"QuitText": "Quitting calibration."
+}

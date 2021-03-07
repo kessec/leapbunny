@@ -1,0 +1,15 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F000C
+PackageID="DIDJ-0x000F000C-000007"
+Version="1"
+Locale="en-us"
+Name="Goldsand Shore Secret Space"
+ShortName="Goldsand Shore"
+Publisher="LeapFrog, Inc."
+Developer="Other Ocean Interactive"
+Hidden=0
+ProfileAccess=0,1,2
+Icon="secret7_32.png"
+MDLType=2

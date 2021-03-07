@@ -1,0 +1,7 @@
+{
+	"Type":	"pet",
+	"Pet": "Elephant1",
+	"Anim": "NLG_Pet3/Anim/NLG_Anim_MDL_Pets_Elephant.json",
+	"Icon": "NLG_Pet3/Icon/MyPage_Pet_Elephant_Pet.json"
+}
+

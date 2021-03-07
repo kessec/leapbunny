@@ -1,0 +1,18 @@
+MetaVersion="1.0"
+Device="Didj"
+Type="MicroDownload"
+ProductID=0x000F0005
+PackageID="DIDJ-0x000F0005-000015"
+Version="1.0.0"
+Locale="en-us"
+Name="Blue Bolt"
+ShortName="Blue Bolt"
+Publisher="LeapFrog, Inc."
+Developer="Torus Games"
+Hidden=0
+Description="Didj Racing"
+AppSo="App.so"
+Icon="icon.png"
+ProfileAccess=0,1,2
+MDLType=2
+

@@ -1,0 +1,10 @@
+{
+	"NarratorOptionsText": "NARRATOR VOICE",
+	"NarratorOptionsAudio": [
+		"L3B_en/Audio/h_BN_TurnNrrtrsVcOnOrOffByPrss_3.mp3"
+	],
+	"SaveConfirmInfo": "",
+	"SaveConfirmQuestion": "SAVE?",
+	"OnToggleText": "ON",
+	"OffToggleText": "OFF"
+}

@@ -1,0 +1,10 @@
+{
+	"QASettingsText": "QA SETTINGS",
+	"SettingsAudio": [
+		"L3B_en/Audio/h_BN_TapAnIcnTChngYrSttngs_3.mp3"
+	],
+	"MessageText": "TAP AN ICON TO CHANGE SETTINGS. YOU CAN CHOOSE TO EDIT DEBUG LEVEL,ENABLE CHEATS AND MORE.",
+	"SettingsText": "SETTINGS:",
+	"SettingsTextSize": 22,
+	"TitleTextSize":12
+}
