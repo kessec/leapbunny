@@ -28,6 +28,8 @@ uname -v = #1 SMP Debian 4.19.171-2 (2021-01-30)
 /bin/universe          = unknown
 
 PATH: /opt/RidgeRun/arm-eabi-uclibc/bin/
+PATH: /opt/RidgeRun/arm-eabi-uclibc/bin/
+PATH: /home/muki/.local/bin
 PATH: /usr/local/bin
 PATH: /usr/bin
 PATH: /bin

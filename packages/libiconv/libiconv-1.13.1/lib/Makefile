@@ -14,7 +14,7 @@ libdir = ${exec_prefix}/lib
 # Programs used by "make":
 CC = arm-linux-gcc
 CFLAGS = -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -fvisibility=hidden
-CPPFLAGS = -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include
+CPPFLAGS = 
 LDFLAGS = -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ $(LDFLAGS_no)
 LDFLAGS_yes = -Wl,--export-all-symbols
 LDFLAGS_no =

@@ -19,7 +19,7 @@ localedir = ${datarootdir}/locale
 # Programs used by "make":
 CC = arm-linux-gcc
 CFLAGS = -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s
-CPPFLAGS = -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include
+CPPFLAGS = 
 LDFLAGS = -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/
 INCLUDES = -I. -I$(srcdir) -I.. -I../include -I$(srcdir)/../include -I../srclib -I$(srcdir)/../srclib
 LIBTOOL = /bin/bash $(top_builddir)/libtool

@@ -143,7 +143,7 @@ CFLAGS = -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3
 CFLAG_VISIBILITY = -fvisibility=hidden
 CP = cp -p
 CPP = arm-linux-gcc -E
-CPPFLAGS = -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include
+CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H -DEXEEXT=\"\"
 DEPDIR = .deps
@@ -398,7 +398,7 @@ INTLLIBS =
 INTL_MACOSX_LIBS = 
 LD = /opt/RidgeRun/arm-eabi-uclibc/arm-linux-uclibcgnueabi/bin/ld
 LDFLAGS = -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/
-LIBICONV = /vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib/libiconv.so -Wl,-rpath -Wl,/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib
+LIBICONV = 
 LIBICRT_LIBDEPS = 
 LIBICRT_LTLIBDEPS = 
 LIBINTL = 
@@ -408,7 +408,7 @@ LIBTOOL = /bin/bash $(top_builddir)/libtool
 LIPO = 
 LN = ln
 LN_S = ln -s
-LTLIBICONV = -L/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib -liconv -R/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib
+LTLIBICONV = 
 LTLIBINTL = 
 LTLIBOBJS = 
 MAKEINFO = ${SHELL} /vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/build-aux/missing --run makeinfo

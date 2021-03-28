@@ -28,6 +28,8 @@ uname -v = #1 SMP Debian 4.19.171-2 (2021-01-30)
 /bin/universe          = unknown
 
 PATH: /opt/RidgeRun/arm-eabi-uclibc/bin/
+PATH: /opt/RidgeRun/arm-eabi-uclibc/bin/
+PATH: /home/muki/.local/bin
 PATH: /usr/local/bin
 PATH: /usr/bin
 PATH: /bin
@@ -424,11 +426,14 @@ configure:10213: result: yes
 configure:10246: checking for shared library run path origin
 configure:10259: result: done
 configure:10841: checking for iconv
-configure:10873: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
-/tmp/ccwlnqPh.o: In function `main':conftest.c:(.text+0x1c): undefined reference to `libiconv_open'
-:conftest.c:(.text+0x38): undefined reference to `libiconv'
-:conftest.c:(.text+0x40): undefined reference to `libiconv_close'
-collect2: ld returned 1 exit status
+configure:10873: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+conftest.c:30:19: error: iconv.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:34: error: 'iconv_t' undeclared (first use in this function)
+conftest.c:34: error: (Each undeclared identifier is reported only once
+conftest.c:34: error: for each function it appears in.)
+conftest.c:34: error: expected ';' before 'cd'
+conftest.c:35: error: 'cd' undeclared (first use in this function)
 configure:10880: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -470,18 +475,56 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:10926: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  /vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib/libiconv.so -Wl,-rpath -Wl,/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib >&5
-configure:10933: $? = 0
-configure:10957: result: yes
-configure:10960: checking for working iconv
-configure:11079: result: guessing yes
-configure:11096: checking how to link with libiconv
-configure:11098: result: /vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib/libiconv.so -Wl,-rpath -Wl,/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib
-configure:11109: checking for iconv declaration
-configure:11148: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-configure:11155: $? = 0
-configure:11174: result: 
-         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+configure:10926: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -liconv >&5
+conftest.c:30:19: error: iconv.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:34: error: 'iconv_t' undeclared (first use in this function)
+conftest.c:34: error: (Each undeclared identifier is reported only once
+conftest.c:34: error: for each function it appears in.)
+conftest.c:34: error: expected ';' before 'cd'
+conftest.c:35: error: 'cd' undeclared (first use in this function)
+configure:10933: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE "libiconv"
+| #define VERSION "1.13.1"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define __EXTENSIONS__ 1
+| #define _ALL_SOURCE 1
+| #define _GNU_SOURCE 1
+| #define _POSIX_PTHREAD_SEMANTICS 1
+| #define _TANDEM_SOURCE 1
+| #define INSTALLPREFIX "/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr"
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_VISIBILITY 1
+| /* end confdefs.h.  */
+| #include <stdlib.h>
+| #include <iconv.h>
+| int
+| main ()
+| {
+| iconv_t cd = iconv_open("","");
+|          iconv(cd,NULL,NULL,NULL,NULL);
+|          iconv_close(cd);
+|   ;
+|   return 0;
+| }
+configure:10957: result: no, consider installing GNU libiconv
 configure:11185: checking whether NLS is requested
 configure:11194: result: yes
 configure:11235: checking for msgfmt
@@ -493,12 +536,12 @@ configure:11393: result: no
 configure:11436: checking for msgmerge
 configure:11470: result: no
 configure:11507: checking for CFPreferencesCopyAppValue
-configure:11535: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -Wl,-framework -Wl,CoreFoundation >&5
-conftest.c:31:42: error: CoreFoundation/CFPreferences.h: No such file or directory
+configure:11535: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -Wl,-framework -Wl,CoreFoundation >&5
+conftest.c:29:42: error: CoreFoundation/CFPreferences.h: No such file or directory
 conftest.c: In function 'main':
-conftest.c:35: error: 'NULL' undeclared (first use in this function)
-conftest.c:35: error: (Each undeclared identifier is reported only once
-conftest.c:35: error: for each function it appears in.)
+conftest.c:33: error: 'NULL' undeclared (first use in this function)
+conftest.c:33: error: (Each undeclared identifier is reported only once
+conftest.c:33: error: for each function it appears in.)
 configure:11542: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -528,8 +571,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
 | /* end confdefs.h.  */
 | #include <CoreFoundation/CFPreferences.h>
 | int
@@ -541,8 +582,8 @@ configure: failed program was:
 | }
 configure:11563: result: no
 configure:11572: checking for CFLocaleCopyCurrent
-configure:11600: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -Wl,-framework -Wl,CoreFoundation >&5
-conftest.c:31:37: error: CoreFoundation/CFLocale.h: No such file or directory
+configure:11600: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -Wl,-framework -Wl,CoreFoundation >&5
+conftest.c:29:37: error: CoreFoundation/CFLocale.h: No such file or directory
 configure:11607: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -572,8 +613,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
 | /* end confdefs.h.  */
 | #include <CoreFoundation/CFLocale.h>
 | int
@@ -585,11 +624,11 @@ configure: failed program was:
 | }
 configure:11628: result: no
 configure:11679: checking for GNU gettext in libc
-configure:11709: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
-conftest.c:31:21: error: libintl.h: No such file or directory
+configure:11709: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+conftest.c:29:21: error: libintl.h: No such file or directory
 conftest.c: In function 'main':
-conftest.c:39: warning: incompatible implicit declaration of built-in function 'gettext'
-conftest.c:39: error: invalid type argument of 'unary *'
+conftest.c:37: warning: incompatible implicit declaration of built-in function 'gettext'
+conftest.c:37: error: invalid type argument of 'unary *'
 configure:11716: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -619,8 +658,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
 | /* end confdefs.h.  */
 | #include <libintl.h>
 | 
@@ -636,17 +673,13 @@ configure: failed program was:
 | }
 configure:11738: result: no
 configure:11772: checking for iconv
-configure:11888: result: yes
-configure:11891: checking for working iconv
-configure:12010: result: guessing yes
-configure:12027: checking how to link with libiconv
-configure:12029: result: /vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib/libiconv.so -Wl,-rpath -Wl,/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib
+configure:11888: result: no, consider installing GNU libiconv
 configure:12501: checking for GNU gettext in libintl
-configure:12539: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -lintl >&5
-conftest.c:32:21: error: libintl.h: No such file or directory
+configure:12539: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s   -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -lintl >&5
+conftest.c:29:21: error: libintl.h: No such file or directory
 conftest.c: In function 'main':
-conftest.c:44: warning: incompatible implicit declaration of built-in function 'gettext'
-conftest.c:44: error: invalid type argument of 'unary *'
+conftest.c:41: warning: incompatible implicit declaration of built-in function 'gettext'
+conftest.c:41: error: invalid type argument of 'unary *'
 configure:12546: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -676,63 +709,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
-| /* end confdefs.h.  */
-| #include <libintl.h>
-| 
-| extern int _nl_msg_cat_cntr;
-| extern
-| #ifdef __cplusplus
-| "C"
-| #endif
-| const char *_nl_expand_alias (const char *);
-| int
-| main ()
-| {
-| bindtextdomain ("", "");
-| return * gettext ("") + * ngettext ("", "", 0) + _nl_msg_cat_cntr + *_nl_expand_alias ("")
-|   ;
-|   return 0;
-| }
-configure:12596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  -lintl /vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib/libiconv.so -Wl,-rpath -Wl,/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib >&5
-conftest.c:32:21: error: libintl.h: No such file or directory
-conftest.c: In function 'main':
-conftest.c:44: warning: incompatible implicit declaration of built-in function 'gettext'
-conftest.c:44: error: invalid type argument of 'unary *'
-configure:12603: $? = 1
-configure: failed program was:
-| /* confdefs.h.  */
-| #define PACKAGE_NAME ""
-| #define PACKAGE_TARNAME ""
-| #define PACKAGE_VERSION ""
-| #define PACKAGE_STRING ""
-| #define PACKAGE_BUGREPORT ""
-| #define PACKAGE "libiconv"
-| #define VERSION "1.13.1"
-| #define STDC_HEADERS 1
-| #define HAVE_SYS_TYPES_H 1
-| #define HAVE_SYS_STAT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_MEMORY_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_UNISTD_H 1
-| #define __EXTENSIONS__ 1
-| #define _ALL_SOURCE 1
-| #define _GNU_SOURCE 1
-| #define _POSIX_PTHREAD_SEMANTICS 1
-| #define _TANDEM_SOURCE 1
-| #define INSTALLPREFIX "/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr"
-| #define HAVE_DLFCN_H 1
-| #define LT_OBJDIR ".libs/"
-| #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | /* end confdefs.h.  */
 | #include <libintl.h>
 | 
@@ -754,52 +730,52 @@ configure:12631: result: no
 configure:12668: checking whether to use NLS
 configure:12670: result: no
 configure:12749: checking for mbstate_t
-configure:12776: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:12776: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:12783: $? = 0
 configure:12798: result: yes
 configure:12815: checking for wchar_t
-configure:12842: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:12842: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:12849: $? = 0
 configure:12864: result: yes
 configure:12898: checking for getc_unlocked
-configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:12961: $? = 0
 configure:12983: result: yes
 configure:12898: checking for mbrtowc
-configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:12961: $? = 0
 configure:12983: result: yes
 configure:12898: checking for wcrtomb
-configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:12961: $? = 0
 configure:12983: result: yes
 configure:12898: checking for mbsinit
-configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:12961: $? = 0
 configure:12983: result: yes
 configure:12898: checking for setlocale
-configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:12954: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:12961: $? = 0
 configure:12983: result: yes
 configure:13003: checking whether <wchar.h> is standalone
-configure:13018: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:13018: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:13025: $? = 0
 configure:13040: result: yes
 configure:13053: checking for memmove
-configure:13109: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
-conftest.c:62: warning: conflicting types for built-in function 'memmove'
+configure:13109: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+conftest.c:59: warning: conflicting types for built-in function 'memmove'
 configure:13116: $? = 0
 configure:13138: result: yes
 configure:13154: checking for nl_langinfo and CODESET
-configure:13180: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:13180: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:13187: $? = 0
 configure:13208: result: yes
 configure:13237: checking wchar.h usability
-configure:13254: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:13254: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:13261: $? = 0
 configure:13275: result: yes
 configure:13279: checking wchar.h presence
-configure:13294: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:13294: arm-linux-gcc -E  conftest.c
 configure:13301: $? = 0
 configure:13315: result: yes
 configure:13343: checking for wchar.h
@@ -809,11 +785,11 @@ configure:13791: result: yes
 configure:13804: checking byte ordering
 configure:13910: result: guessing little endian
 configure:13932: checking for working alloca.h
-configure:13959: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:13959: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:13966: $? = 0
 configure:13986: result: yes
 configure:13996: checking for alloca
-configure:14043: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:14043: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:14050: $? = 0
 configure:14070: result: yes
 configure:14319: checking for stdlib.h
@@ -821,11 +797,11 @@ configure:14326: result: yes
 configure:14319: checking for string.h
 configure:14326: result: yes
 configure:14330: checking sys/param.h usability
-configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:14354: $? = 0
 configure:14368: result: yes
 configure:14372: checking sys/param.h presence
-configure:14387: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:14387: arm-linux-gcc -E  conftest.c
 configure:14394: $? = 0
 configure:14408: result: yes
 configure:14436: checking for sys/param.h
@@ -833,31 +809,31 @@ configure:14445: result: yes
 configure:14319: checking for unistd.h
 configure:14326: result: yes
 configure:14330: checking errno.h usability
-configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:14354: $? = 0
 configure:14368: result: yes
 configure:14372: checking errno.h presence
-configure:14387: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:14387: arm-linux-gcc -E  conftest.c
 configure:14394: $? = 0
 configure:14408: result: yes
 configure:14436: checking for errno.h
 configure:14445: result: yes
 configure:14330: checking sys/socket.h usability
-configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:14354: $? = 0
 configure:14368: result: yes
 configure:14372: checking sys/socket.h presence
-configure:14387: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:14387: arm-linux-gcc -E  conftest.c
 configure:14394: $? = 0
 configure:14408: result: yes
 configure:14436: checking for sys/socket.h
 configure:14445: result: yes
 configure:14330: checking signal.h usability
-configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:14354: $? = 0
 configure:14368: result: yes
 configure:14372: checking signal.h presence
-configure:14387: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:14387: arm-linux-gcc -E  conftest.c
 configure:14394: $? = 0
 configure:14408: result: yes
 configure:14436: checking for signal.h
@@ -867,21 +843,21 @@ configure:14326: result: yes
 configure:14319: checking for wchar.h
 configure:14326: result: yes
 configure:14330: checking stdio.h usability
-configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:14347: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:14354: $? = 0
 configure:14368: result: yes
 configure:14372: checking stdio.h presence
-configure:14387: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:14387: arm-linux-gcc -E  conftest.c
 configure:14394: $? = 0
 configure:14408: result: yes
 configure:14436: checking for stdio.h
 configure:14445: result: yes
 configure:14464: checking whether canonicalize_file_name is declared
-configure:14493: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:14493: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:92: error: 'canonicalize_file_name' undeclared (first use in this function)
-conftest.c:92: error: (Each undeclared identifier is reported only once
-conftest.c:92: error: for each function it appears in.)
+conftest.c:89: error: 'canonicalize_file_name' undeclared (first use in this function)
+conftest.c:89: error: (Each undeclared identifier is reported only once
+conftest.c:89: error: for each function it appears in.)
 configure:14500: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -911,9 +887,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -983,8 +956,8 @@ configure: failed program was:
 | }
 configure:14515: result: no
 configure:14540: checking for canonicalize_file_name
-configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
-/tmp/cc8kFFBF.o: In function `main':conftest.c:(.text+0x8): undefined reference to `canonicalize_file_name'
+configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+/tmp/ccmoZREp.o: In function `main':conftest.c:(.text+0x8): undefined reference to `canonicalize_file_name'
 collect2: ld returned 1 exit status
 configure:14603: $? = 1
 configure: failed program was:
@@ -1015,9 +988,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1083,34 +1053,34 @@ configure: failed program was:
 | }
 configure:14625: result: no
 configure:14540: checking for getcwd
-configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:14603: $? = 0
 configure:14625: result: yes
 configure:14540: checking for readlink
-configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:14603: $? = 0
 configure:14625: result: yes
 configure:14540: checking for pathconf
-configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:14603: $? = 0
 configure:14625: result: yes
 configure:14540: checking for setenv
-configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:14596: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:14603: $? = 0
 configure:14625: result: yes
 configure:14698: checking whether the preprocessor supports include_next
-configure:14741: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -Iconftestd1b -Iconftestd2 conftest.c >&5
+configure:14741: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -Iconftestd1b -Iconftestd2 conftest.c >&5
 configure:14748: $? = 0
 configure:14797: result: yes
 configure:14823: checking for complete errno.h
 configure:14879: result: yes
 configure:16216: checking whether strerror_r is declared
-configure:16245: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:16245: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:16252: $? = 0
 configure:16267: result: yes
 configure:16289: checking for strerror_r
-configure:16345: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
-/tmp/cc0zLt6E.o: In function `main':conftest.c:(.text+0x8): undefined reference to `strerror_r'
+configure:16345: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+/tmp/cc8i2M93.o: In function `main':conftest.c:(.text+0x8): undefined reference to `strerror_r'
 collect2: ld returned 1 exit status
 configure:16352: $? = 1
 configure: failed program was:
@@ -1141,9 +1111,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1214,11 +1181,11 @@ configure: failed program was:
 | }
 configure:16374: result: no
 configure:16386: checking whether strerror_r returns char *
-configure:16420: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:16420: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:16427: $? = 0
 configure:16506: result: yes
 configure:16520: checking whether malloc, realloc, calloc are POSIX compliant
-configure:16550: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:16550: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:16557: $? = 0
 configure:16573: result: yes
 configure:16620: checking for stdlib.h
@@ -1226,11 +1193,11 @@ configure:16627: result: yes
 configure:16761: checking for GNU libc compatible malloc
 configure:16826: result: no
 configure:16842: checking for long long int
-configure:16889: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:16889: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:16896: $? = 0
 configure:16984: result: yes
-configure:17014: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:66: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'a'
+configure:17014: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:63: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'a'
 configure:17021: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -1260,9 +1227,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1305,15 +1269,15 @@ configure: failed program was:
 configure:17151: checking for SIGPIPE
 configure:17180: result: yes
 configure:17256: checking for stdbool.h that conforms to C99
-configure:17349: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17349: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17356: $? = 0
 configure:17371: result: yes
 configure:17373: checking for _Bool
-configure:17401: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17401: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17408: $? = 0
-configure:17435: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17435: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:101: error: expected expression before ')' token
+conftest.c:98: error: expected expression before ')' token
 configure:17442: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -1343,9 +1307,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1423,72 +1384,72 @@ configure: failed program was:
 | }
 configure:17465: result: yes
 configure:17484: checking for unsigned long long int
-configure:17531: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:17531: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:17538: $? = 0
 configure:17558: result: yes
 configure:17574: checking for C/C++ restrict keyword
-configure:17609: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17609: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17616: $? = 0
 configure:17634: result: __restrict
 configure:17716: checking whether clearerr_unlocked is declared
-configure:17745: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17745: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17752: $? = 0
 configure:17767: result: yes
 configure:17785: checking whether feof_unlocked is declared
-configure:17814: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17814: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17821: $? = 0
 configure:17836: result: yes
 configure:17854: checking whether ferror_unlocked is declared
-configure:17883: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17883: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17890: $? = 0
 configure:17905: result: yes
 configure:17923: checking whether fflush_unlocked is declared
-configure:17952: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:17952: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:17959: $? = 0
 configure:17974: result: yes
 configure:17992: checking whether fgets_unlocked is declared
-configure:18021: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18021: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18028: $? = 0
 configure:18043: result: yes
 configure:18061: checking whether fputc_unlocked is declared
-configure:18090: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18090: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18097: $? = 0
 configure:18112: result: yes
 configure:18130: checking whether fputs_unlocked is declared
-configure:18159: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18159: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18166: $? = 0
 configure:18181: result: yes
 configure:18199: checking whether fread_unlocked is declared
-configure:18228: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18228: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18235: $? = 0
 configure:18250: result: yes
 configure:18268: checking whether fwrite_unlocked is declared
-configure:18297: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18297: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18304: $? = 0
 configure:18319: result: yes
 configure:18337: checking whether getc_unlocked is declared
-configure:18366: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18366: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18373: $? = 0
 configure:18388: result: yes
 configure:18406: checking whether getchar_unlocked is declared
-configure:18435: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18435: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18442: $? = 0
 configure:18457: result: yes
 configure:18475: checking whether putc_unlocked is declared
-configure:18504: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18504: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18511: $? = 0
 configure:18526: result: yes
 configure:18544: checking whether putchar_unlocked is declared
-configure:18573: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18573: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18580: $? = 0
 configure:18595: result: yes
 configure:18651: checking for wint_t
-configure:18686: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:18686: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:18693: $? = 0
 configure:18708: result: yes
 configure:18842: checking if environ is properly declared
-configure:18870: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:86: error: conflicting types for 'environ'
+configure:18870: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:83: error: conflicting types for 'environ'
 /opt/RidgeRun/arm-eabi-uclibc/lib/gcc/arm-linux-uclibcgnueabi/4.1.1/../../../../arm-linux-uclibcgnueabi/sys-include/unistd.h:496: error: previous declaration of 'environ' was here
 configure:18877: $? = 1
 configure: failed program was:
@@ -1519,9 +1480,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1587,7 +1545,7 @@ configure: failed program was:
 | }
 configure:18893: result: yes
 configure:18926: checking for error_at_line
-configure:18952: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:18952: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:18959: $? = 0
 configure:18979: result: yes
 configure:19044: checking for mbstate_t
@@ -1595,29 +1553,29 @@ configure:19093: result: yes
 configure:19122: checking for memmove
 configure:19207: result: yes
 configure:19391: checking search.h usability
-configure:19408: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:19408: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:19415: $? = 0
 configure:19429: result: yes
 configure:19433: checking search.h presence
-configure:19448: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:19448: arm-linux-gcc -E  conftest.c
 configure:19455: $? = 0
 configure:19469: result: yes
 configure:19497: checking for search.h
 configure:19506: result: yes
 configure:19525: checking for tsearch
-configure:19581: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:19581: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:19588: $? = 0
 configure:19610: result: yes
 configure:19628: checking for working strerror function
-configure:19656: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:19656: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:19663: $? = 0
 configure:19733: result: yes
 configure:20035: checking for volatile sig_atomic_t
-configure:20066: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:20066: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:20073: $? = 0
-configure:20103: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:20103: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:98: error: expected expression before ')' token
+conftest.c:95: error: expected expression before ')' token
 configure:20110: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -1647,9 +1605,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1724,18 +1679,18 @@ configure: failed program was:
 | }
 configure:20133: result: yes
 configure:20179: checking for sigprocmask
-configure:20235: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
+configure:20235: arm-linux-gcc -o conftest -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  -L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ conftest.c  >&5
 configure:20242: $? = 0
 configure:20262: result: yes
 configure:20406: checking for ssize_t
-configure:20433: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:20433: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:20440: $? = 0
 configure:20455: result: yes
 configure:20585: checking whether stdint.h conforms to C99
-configure:20764: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:204: error: negative width in bit-field 'check_WCHAR'
-conftest.c:213: error: negative width in bit-field 'check_UINT8_C'
-conftest.c:215: error: negative width in bit-field 'check_UINT16_C'
+configure:20764: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:201: error: negative width in bit-field 'check_WCHAR'
+conftest.c:210: error: negative width in bit-field 'check_UINT8_C'
+conftest.c:212: error: negative width in bit-field 'check_UINT16_C'
 configure:20771: $? = 1
 configure: failed program was:
 | 
@@ -1766,9 +1721,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -1989,8 +1941,8 @@ configure: failed program was:
 | }
 configure:20906: result: no
 configure:20929: checking sys/inttypes.h usability
-configure:20946: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:125:26: error: sys/inttypes.h: No such file or directory
+configure:20946: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:122:26: error: sys/inttypes.h: No such file or directory
 configure:20953: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2020,9 +1972,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2120,8 +2069,8 @@ configure: failed program was:
 | #include <sys/inttypes.h>
 configure:20967: result: no
 configure:20971: checking sys/inttypes.h presence
-configure:20986: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
-conftest.c:92:26: error: sys/inttypes.h: No such file or directory
+configure:20986: arm-linux-gcc -E  conftest.c
+conftest.c:89:26: error: sys/inttypes.h: No such file or directory
 configure:20993: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2151,9 +2100,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2220,21 +2166,21 @@ configure:21007: result: no
 configure:21035: checking for sys/inttypes.h
 configure:21044: result: no
 configure:20929: checking sys/bitypes.h usability
-configure:20946: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:20946: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:20953: $? = 0
 configure:20967: result: yes
 configure:20971: checking sys/bitypes.h presence
-configure:20986: arm-linux-gcc -E -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c
+configure:20986: arm-linux-gcc -E  conftest.c
 configure:20993: $? = 0
 configure:21007: result: yes
 configure:21035: checking for sys/bitypes.h
 configure:21044: result: yes
 configure:21087: checking for bit size of ptrdiff_t
-configure:21128: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21128: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21135: $? = 0
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:108: error: size of array 'test_array' is negative
+conftest.c:105: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2264,9 +2210,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2350,9 +2293,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:108: error: size of array 'test_array' is negative
+conftest.c:105: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2382,9 +2325,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2468,9 +2408,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:108: error: size of array 'test_array' is negative
+conftest.c:105: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2500,9 +2440,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2586,9 +2523,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:108: error: size of array 'test_array' is negative
+conftest.c:105: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2618,9 +2555,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2704,9 +2638,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:108: error: size of array 'test_array' is negative
+conftest.c:105: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2736,9 +2670,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2822,9 +2753,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:108: error: size of array 'test_array' is negative
+conftest.c:105: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2854,9 +2785,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -2940,25 +2868,25 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21183: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
 configure:21482: result: 32
 configure:21087: checking for bit size of size_t
-configure:21128: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21128: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21135: $? = 0
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:109: error: size of array 'test_array' is negative
+conftest.c:106: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -2988,9 +2916,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3075,9 +3000,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:109: error: size of array 'test_array' is negative
+conftest.c:106: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3107,9 +3032,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3194,9 +3116,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:109: error: size of array 'test_array' is negative
+conftest.c:106: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3226,9 +3148,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3313,9 +3232,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:109: error: size of array 'test_array' is negative
+conftest.c:106: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3345,9 +3264,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3432,9 +3348,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:109: error: size of array 'test_array' is negative
+conftest.c:106: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3464,9 +3380,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3551,9 +3464,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:109: error: size of array 'test_array' is negative
+conftest.c:106: error: size of array 'test_array' is negative
 configure:21183: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3583,9 +3496,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3670,25 +3580,25 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21176: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21183: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
-configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21364: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21371: $? = 0
 configure:21482: result: 32
 configure:21504: checking for bit size of sig_atomic_t
-configure:21545: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21545: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21552: $? = 0
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:110: error: size of array 'test_array' is negative
+conftest.c:107: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3718,9 +3628,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3806,9 +3713,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:110: error: size of array 'test_array' is negative
+conftest.c:107: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3838,9 +3745,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -3926,9 +3830,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:110: error: size of array 'test_array' is negative
+conftest.c:107: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -3958,9 +3862,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4046,9 +3947,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:110: error: size of array 'test_array' is negative
+conftest.c:107: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4078,9 +3979,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4166,9 +4064,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:110: error: size of array 'test_array' is negative
+conftest.c:107: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4198,9 +4096,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4286,9 +4181,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:110: error: size of array 'test_array' is negative
+conftest.c:107: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4318,9 +4213,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4406,25 +4298,25 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21600: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
 configure:21899: result: 32
 configure:21504: checking for bit size of wchar_t
-configure:21545: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21545: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21552: $? = 0
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:111: error: size of array 'test_array' is negative
+conftest.c:108: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4454,9 +4346,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4543,9 +4432,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:111: error: size of array 'test_array' is negative
+conftest.c:108: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4575,9 +4464,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4664,9 +4550,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:111: error: size of array 'test_array' is negative
+conftest.c:108: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4696,9 +4582,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4785,9 +4668,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:111: error: size of array 'test_array' is negative
+conftest.c:108: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4817,9 +4700,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -4906,9 +4786,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:111: error: size of array 'test_array' is negative
+conftest.c:108: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -4938,9 +4818,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5027,9 +4904,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:111: error: size of array 'test_array' is negative
+conftest.c:108: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5059,9 +4936,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5148,25 +5022,25 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21600: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
 configure:21899: result: 32
 configure:21504: checking for bit size of wint_t
-configure:21545: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21545: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21552: $? = 0
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:112: error: size of array 'test_array' is negative
+conftest.c:109: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5196,9 +5070,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5286,9 +5157,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:112: error: size of array 'test_array' is negative
+conftest.c:109: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5318,9 +5189,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5408,9 +5276,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:112: error: size of array 'test_array' is negative
+conftest.c:109: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5440,9 +5308,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5530,9 +5395,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:112: error: size of array 'test_array' is negative
+conftest.c:109: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5562,9 +5427,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5652,9 +5514,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:112: error: size of array 'test_array' is negative
+conftest.c:109: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5684,9 +5546,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5774,9 +5633,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:112: error: size of array 'test_array' is negative
+conftest.c:109: error: size of array 'test_array' is negative
 configure:21600: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5806,9 +5665,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -5896,26 +5752,26 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21593: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21600: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
-configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21781: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21788: $? = 0
 configure:21899: result: 32
 configure:21920: checking whether sig_atomic_t is signed
-configure:21957: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:21957: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:21964: $? = 0
 configure:21983: result: yes
 configure:21920: checking whether wchar_t is signed
-configure:21957: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:110: error: size of array 'verify' is negative
+configure:21957: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:107: error: size of array 'verify' is negative
 configure:21964: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -5945,9 +5801,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -6037,8 +5890,8 @@ configure: failed program was:
 | }
 configure:21983: result: no
 configure:21920: checking whether wint_t is signed
-configure:21957: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:110: error: size of array 'verify' is negative
+configure:21957: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:107: error: size of array 'verify' is negative
 configure:21964: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -6068,9 +5921,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -6160,28 +6010,28 @@ configure: failed program was:
 | }
 configure:21983: result: no
 configure:22007: checking for ptrdiff_t integer literal suffix
-configure:22063: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22063: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:22070: $? = 0
 configure:22090: result: 
 configure:22007: checking for size_t integer literal suffix
-configure:22063: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22063: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:22070: $? = 0
 configure:22090: result: u
 configure:22110: checking for sig_atomic_t integer literal suffix
-configure:22166: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22166: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:22173: $? = 0
 configure:22193: result: 
 configure:22110: checking for wchar_t integer literal suffix
-configure:22166: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22166: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:22173: $? = 0
 configure:22193: result: u
 configure:22110: checking for wint_t integer literal suffix
-configure:22166: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22166: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:22173: $? = 0
 configure:22193: result: u
 configure:22372: checking for random.h
-configure:22393: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
-conftest.c:138:20: error: random.h: No such file or directory
+configure:22393: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
+conftest.c:135:20: error: random.h: No such file or directory
 configure:22400: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -6211,9 +6061,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -6324,11 +6171,11 @@ configure: failed program was:
 | #include <random.h>
 configure:22417: result: no
 configure:22436: checking for struct random_data
-configure:22469: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22469: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 configure:22476: $? = 0
-configure:22508: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s -I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include conftest.c >&5
+configure:22508: arm-linux-gcc -c -I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:113: error: expected expression before ')' token
+conftest.c:110: error: expected expression before ')' token
 configure:22515: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -6358,9 +6205,6 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | #define LT_OBJDIR ".libs/"
 | #define HAVE_VISIBILITY 1
-| #define HAVE_ICONV 1
-| #define ICONV_CONST 
-| #define HAVE_ICONV 1
 | #define HAVE_MBSTATE_T 1
 | #define HAVE_WCHAR_T 1
 | #define HAVE_GETC_UNLOCKED 1
@@ -6468,20 +6312,20 @@ generated by GNU Autoconf 2.63.  Invocation command line was
 
 on starlight
 
-config.status:1490: creating Makefile
-config.status:1490: creating lib/Makefile
-config.status:1490: creating srclib/Makefile
-config.status:1490: creating src/Makefile
-config.status:1490: creating po/Makefile.in
-config.status:1490: creating man/Makefile
-config.status:1490: creating tests/Makefile
-config.status:1490: creating include/iconv.h
-config.status:1490: creating include/iconv.h.inst
-config.status:1490: creating config.h
-config.status:1490: creating lib/config.h
-config.status:1764: executing depfiles commands
-config.status:1764: executing libtool commands
-config.status:1764: executing po-directories commands
+config.status:1487: creating Makefile
+config.status:1487: creating lib/Makefile
+config.status:1487: creating srclib/Makefile
+config.status:1487: creating src/Makefile
+config.status:1487: creating po/Makefile.in
+config.status:1487: creating man/Makefile
+config.status:1487: creating tests/Makefile
+config.status:1487: creating include/iconv.h
+config.status:1487: creating include/iconv.h.inst
+config.status:1487: creating config.h
+config.status:1487: creating lib/config.h
+config.status:1761: executing depfiles commands
+config.status:1761: executing libtool commands
+config.status:1761: executing po-directories commands
 configure:25737: === configuring in libcharset (/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/libcharset)
 configure:25840: running /bin/bash ./configure --disable-option-checking '--prefix=/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr'  '--host=arm-linux' '--target=arm-linux' '--enable-shared' 'host_alias=arm-linux' 'target_alias=arm-linux' 'CFLAGS=-I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 -fPIC -mcpu=arm926ej-s' 'LDFLAGS=-L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/' --cache-file=/dev/null --srcdir=.
 configure:25737: === configuring in preload (/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/preload)
@@ -6616,12 +6460,9 @@ acl_cv_shlibext=so
 acl_cv_shlibpath_var=LD_LIBRARY_PATH
 acl_cv_wl=-Wl,
 am_cv_CC_dependencies_compiler_type=none
-am_cv_func_iconv=yes
-am_cv_func_iconv_works='guessing yes'
+am_cv_func_iconv='no, consider installing GNU libiconv'
 am_cv_langinfo_codeset=yes
-am_cv_lib_iconv=yes
-am_cv_proto_iconv='extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);'
-am_cv_proto_iconv_arg1=
+am_cv_lib_iconv=no
 cl_cv_prog_LN=ln
 cl_cv_prog_cp='cp -p'
 cl_cv_sys_endian='guessing little endian'
@@ -6716,7 +6557,7 @@ CFLAGS='-I/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/ -O3 
 CFLAG_VISIBILITY='-fvisibility=hidden'
 CP='cp -p'
 CPP='arm-linux-gcc -E'
-CPPFLAGS='-I/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/include'
+CPPFLAGS=''
 CYGPATH_W='echo'
 DEFS='-DHAVE_CONFIG_H'
 DEPDIR='.deps'
@@ -6972,7 +6813,7 @@ INTLLIBS=''
 INTL_MACOSX_LIBS=''
 LD='/opt/RidgeRun/arm-eabi-uclibc/arm-linux-uclibcgnueabi/bin/ld'
 LDFLAGS='-L/vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/'
-LIBICONV='/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib/libiconv.so -Wl,-rpath -Wl,/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib'
+LIBICONV=''
 LIBICRT_LIBDEPS=''
 LIBICRT_LTLIBDEPS=''
 LIBINTL=''
@@ -6982,7 +6823,7 @@ LIBTOOL='/bin/bash $(top_builddir)/libtool'
 LIPO=''
 LN='ln'
 LN_S='ln -s'
-LTLIBICONV='-L/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib -liconv -R/vol/hdd0/Shared/Git/leapbunny/target/rootfs/usr/lib'
+LTLIBICONV=''
 LTLIBINTL=''
 LTLIBOBJS=''
 MAKEINFO='${SHELL} /vol/hdd0/Shared/Git/leapbunny/packages/libiconv/libiconv-1.13.1/build-aux/missing --run makeinfo'
@@ -7194,9 +7035,6 @@ target_alias='arm-linux'
 #define HAVE_DLFCN_H 1
 #define LT_OBJDIR ".libs/"
 #define HAVE_VISIBILITY 1
-#define HAVE_ICONV 1
-#define ICONV_CONST 
-#define HAVE_ICONV 1
 #define HAVE_MBSTATE_T 1
 #define HAVE_WCHAR_T 1
 #define HAVE_GETC_UNLOCKED 1
