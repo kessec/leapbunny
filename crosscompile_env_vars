@@ -11,3 +11,8 @@ export ROOTFS_PATH=$PROJECT_PATH/target/rootfs
 export EROOTFS_PATH=$PROJECT_PATH/target/erootfs
 export TFTP_PATH=$PROJECT_PATH/target/tftp
 export RELEASE_PATH=$PROJECT_PATH/target/release
+
+export SDL_CONFIG=$ROOTFS_PATH/usr/bin/sdl-config
+export LD_LIBRARY_PATH=$ROOTFS_PATH/usr//lib
+export SDL_CFLAGS="-I$ROOTFS_PATH/usr/include"
+export SDL_LDFLAGS="-L$ROOTFS_PATH/usr/lib"
