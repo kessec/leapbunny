@@ -12,7 +12,10 @@ export EROOTFS_PATH=$PROJECT_PATH/target/erootfs
 export TFTP_PATH=$PROJECT_PATH/target/tftp
 export RELEASE_PATH=$PROJECT_PATH/target/release
 
+export CC=arm-linux-uclibcgnueabi-gcc
+export CXX=arm-linux-uclibcgnueabi-g++ 
+
 export SDL_CONFIG=$ROOTFS_PATH/usr/bin/sdl-config
-export LD_LIBRARY_PATH=$ROOTFS_PATH/usr//lib
-export SDL_CFLAGS="-I$ROOTFS_PATH/usr/include"
-export SDL_LDFLAGS="-L$ROOTFS_PATH/usr/lib"
+export LD_LIBRARY_PATH=-L$ROOTFS_PATH/usr/lib/
+export CFLAGS="-I$ROOTFS_PATH/usr/include/"
+export LDFLAGS="-L$ROOTFS_PATH/usr/lib/"
