@@ -32,8 +32,8 @@ make -j5
 
 cp ./doom $ROOTFS_PATH/usr/bin
 cd ../
-mkdir $ROOTFS_PATH/LF/Bulk/doom
-cp ./doom1.wad $ROOTFS_PATH/LF/Bulk/doom
+mkdir $ROOTFS_PATH/LF/Base/doom
+cp ./doom1.wad $ROOTFS_PATH/LF/Base/doom
 pushd $BUILD_DIR
 rm ./doom
 popd
