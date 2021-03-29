@@ -28,9 +28,11 @@ fi
 
 pushd $BUILD_DIR
 
-# CFLAGS="-I$PROJECT_PATH/linux-2.6/include/" CC=arm-linux-uclibcgnueabi-gcc CXX=arm-linux-uclibcgnueabi-g++ 
+#CFLAGS="-I$PROJECT_PATH/linux-2.6/include/" 
+#CC=arm-linux-uclibcgnueabi-gcc 
+#CXX=arm-linux-uclibcgnueabi-g++ 
 
-./configure --prefix=$ROOTFS_PATH/usr/ --build=`uname -m` --host=arm-linux --disable-video-opengl --disable-video-x11 --disable-esd --disable-video-directfb --enable-video-fbcon --enable-pulseaudio=no
+./configure --prefix=$ROOTFS_PATH/usr/ --build=`uname -m` --host=arm-linux --disable-video-opengl --disable-video-x11 --disable-esd --disable-video-directfb --disable-rpath --enable-video-fbcon --enable-pulseaudio=no
 make clean
 make
 make install
